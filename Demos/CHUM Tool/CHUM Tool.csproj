@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>Estrelica.Core.Demo</UserSecretsId>
+    <RootNamespace>CHUM</RootNamespace>
+    <AssemblyName>CHUM</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Estrelica.Core" Version="2.4.3" />
+    <PackageReference Include="Estrelica.Core.Configuration" Version="1.0.20" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Estrelica.Demo.Common\Estrelica.Demo.Common.csproj" />
+  </ItemGroup>
+
+</Project>

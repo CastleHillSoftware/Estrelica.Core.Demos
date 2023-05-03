@@ -1,0 +1,53 @@
+﻿End-User License Agreement for Estrelica.Core:
+
+This End-User License Agreement (“EULA”) is a legal agreement between you as an individual or organization and CastleHill Software LLC (“COMPANY”) and describes your rights and obligations regarding the use of the Estrelica.Core software (“SOFTWARE”).
+
+Any use of the SOFTWARE is subject to the terms of this EULA. Please read the full Agreement carefully.
+
+You confirm that you accept and agree to be legally bound by all terms and conditions of this EULA by downloading and/or installing and/or using the SOFTWARE.  If you do not agree to all of the terms of this agreement, you must delete all files related to the SOFTWARE from your storage media and cease any further use of the SOFTWARE.
+
+The SOFTWARE is the intellectual property of and is owned by the COMPANY.
+
+The SOFTWARE is protected by copyright laws and international copyright treaties, as well as other intellectual property laws and treaties.
+
+The SOFTWARE is licensed, not sold.
+
+You must obtain a paid or trial license (“LICENSE”) from the COMPANY in order to use the SOFTWARE.
+
+You must register with the COMPANY to obtain an authentication key (“KEY”) which will be used by the SOFTWARE to periodically retrieve and validate your LICENSE via online mechanisms.  You must ensure that the SOFTWARE is able to access servers managed by the COMPANY in order to perform these operations.  In the event that the software is unable to perform these operations, you must contact the COMPANY or follow any manual license refresh procedures presented by the SOFTWARE or the COMPANY in order to keep your LICENSE in good standing.
+
+The LICENSE grants you non-exclusive rights to use the SOFTWARE in developing any number of other software products for your sole use.  Distribution of any product which uses the SOFTWARE to any third party is expressly forbidden unless the third party obtains a separate KEY and LICENSE for use of the SOFTWARE and agrees to be bound by all of the terms and conditions of this EULA.
+
+Trial LICENSEs expire 60 days after issuance.  Non-trial LICENSEs expire one year after purchase and are subject to annual renewal.
+
+You may not:
+
+a) use the SOFTWARE without a valid LICENSE issued by the COMPANY
+
+b) reverse engineer, decompile, disassemble or modify the SOFTWARE in any manner for any reason
+
+c) sell, rent, lease, or sublicense the SOFTWARE
+
+d) attempt to bypass any LICENSE restrictions
+
+e) disclose any LICENSE materials or KEY associated with the SOFTWARE to any third party
+
+
+You may temporarily assign all rights under this EULA to employees or contractors (“ASSIGNEES”) provided that:
+
+a) you maintain a LICENSE to the SOFTWARE in good standing for the duration of the assignment
+
+b) the ASSIGNEES work on a project owned by you
+
+c) the ASSIGNEES agree to be bound by all of the terms and conditions of this EULA
+
+d) the ASSIGNEES delete all license materials and/or authentication keys in their possession related to the SOFTWARE upon termination of the assignment
+
+
+The COMPANY may terminate your LICENSE and this agreement and/or revoke your KEY at any time if you or your ASSIGNEES fail to comply with the terms and conditions of this EULA.
+
+Upon expiration and/or termination of your LICENSE, you must delete all files related to the SOFTWARE from your storage media and cease any further use of the SOFTWARE.
+
+This EULA has no termination date.
+
+This SOFTWARE is provided “AS IS” without warranty of any kind including, but not limited to, warranties of merchantability, fitness for a particular purpose and non-infringement. In no event will the COMPANY be liable for any direct, indirect, incidental, special, exemplary or consequential damages, including damages for loss of profits, loss or inaccuracy of data, incurred by any person from such person's usage of this SOFTWARE even if advised of the possibility of such damages.

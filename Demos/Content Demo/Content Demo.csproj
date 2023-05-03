@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>Estrelica.Core.Demo</UserSecretsId>
+    <RootNamespace>Estrelica.Demo.Content</RootNamespace>
+    <AssemblyName>Estrelica Core Content Demo</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Estrelica.Core" Version="2.4.3" />
+    <PackageReference Include="Estrelica.Core.Configuration" Version="1.0.20" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.4" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Estrelica.Demo.Common\Estrelica.Demo.Common.csproj" />
+  </ItemGroup>
+
+</Project>
