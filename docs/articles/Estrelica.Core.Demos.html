@@ -144,7 +144,8 @@
 </ul>
 <h2 id="configuration">Configuration</h2>
 <p>All of these demo projects rely on configuration settings stored in the appSettings.json file found in the solution's Estrelica.Demo.Common project.  You'll need to modify this file to enter your own settings (i.e. the Estrelica.Core authorization key provided to you by CastleHill Software and the connection/authentication information for your Archer instance and user account).</p>
-<p>See the article on <a href="manage_configuration.html">managing configuration with Estrelica.Core.Configuration</a> for details on this process.</p>
+<p><strong>Or better still, leave the appSettings.json file unmodified and put all of your settings into a user secrets file.</strong>  This will ensure that you don't accidentally leak your authentication key and/or Archer credentials if you decide to fork the Estrelica.Core.Demos solution to your own GitHub repo.  <em>CastleHill Software reserves the right to terminate any license authentication keys shared outside the terms of their respective license agreements, including any that are committed to publicly-accessible repositories.</em></p>
+<p>See the article on <a href="manage_configuration.html">managing configuration with Estrelica.Core.Configuration</a> for details on the configuration process.</p>
 </article>
           </div>
           <div class="contribution-panel mobile-hide">
