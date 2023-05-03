@@ -17,7 +17,7 @@ namespace CHUM
     {
         /// <summary>
         /// The CHUM (CastleHill User Management) Tool provides a simple way of managing group membership for users.
-        /// https://nuget.castlehillsoftware.com/Estrelica.Core/documentation/articles/CHUM_tool.html
+        /// https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/CHUM_tool.html
         /// 
         /// It uses three User/Groups List fields from the Contacts application, one of which identifies the Archer User associated 
         /// with that Contact record, and two others which define the Archer Groups that user should (the "Include in Groups"
@@ -60,7 +60,7 @@ namespace CHUM
                         //		%appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
                         // with your CastleHill Software authentication key and your Archer instance details and credentials.
 
-                        // See https://nuget.castlehillsoftware.com/Estrelica.Core/documentation/articles/manage_configuration.html
+                        // See https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/manage_configuration.html
                         // for more information on managing your configuration.
 
                         // The user account that you specify for this configuration must have, at minimum, read access to the 

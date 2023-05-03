@@ -19,7 +19,7 @@ namespace UserAccessProcessor
 		/// the "User Access Request" application.  This application may be installed in Archer via the package 
 		/// User_Access_Request_Package.zip included with this project.  The minimum version for this package is Archer 6.7.
 		/// 
-		/// For details see https://nuget.castlehillsoftware.com/Estrelica.Core/documentation/articles/UserAccessProcessor.html
+		/// For details see https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/UserAccessProcessor.html
 		/// 
 		/// The "User Access Request" application allows users to request modification of access permissions
 		/// for themselves or another user.  These modifications are implemented via Estrelica.Core's ability to add or remove
@@ -51,7 +51,7 @@ namespace UserAccessProcessor
 		/// 
 		/// In order to configure the UAP utility to work with your Archer environment, you must provide authentication
 		/// information via appSettings.json and/or a local user secrets file (ID: Estrelica.Core.Demo).  See the documentation
-		/// at https://nuget.castlehillsoftware.com/Estrelica.Core/documentation/articles/manage_configuration.html
+		/// at https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/manage_configuration.html
 		/// for more information on managing your Estrelica.Core configuration for this demo.
 		/// 
 		/// The Archer user account used for running the utility must have at least read and update permissions to the 
@@ -83,7 +83,7 @@ namespace UserAccessProcessor
 					//		%appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
 					// with your CastleHill Software authentication key and your Archer instance details and credentials.
 
-					// See https://nuget.castlehillsoftware.com/Estrelica.Core/documentation/articles/manage_configuration.html
+					// See https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/manage_configuration.html
 					// for more information on managing your configuration.
 
 					// The user account that you specify for this configuration must have, at minimum, read and update access to the 

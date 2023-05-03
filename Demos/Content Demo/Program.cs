@@ -36,25 +36,25 @@ namespace ContentDemo
 				core = CoreConfig.Load(
 					w => Utilities.Log(w.Message, LogLevel.Warning),
 
-					// The configuration under which CoreConfig will instantiate the Core is defined via JSON files.
-					// This requires that you modify the file at
-					//		..\..\..\..\..\Estrelica.Demo.Common\appSettingsSample.json (i.e. in the Estrelica.Demo.Common project)
-					// and/or a local user secrets file at
-					//		%appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
-					// with your CastleHill Software authentication key and your Archer instance details and credentials.
+                    // The configuration under which CoreConfig will instantiate the Core is defined via JSON files.
+                    // This requires that you modify the file at
+                    //		..\..\..\..\..\Estrelica.Demo.Common\appSettingsSample.json (i.e. in the Estrelica.Demo.Common project)
+                    // and/or a local user secrets file at
+                    //		%appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
+                    // with your CastleHill Software authentication key and your Archer instance details and credentials.
 
-					// See https://nuget.castlehillsoftware.com/Estrelica.Core/documentation/articles/manage_configuration.html
-					// for more information on managing your Estrelica.Core configuration for this demo.
+                    // See https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/manage_configuration.html
+                    // for more information on managing your Estrelica.Core configuration for this demo.
 
-					// The user account that you specify for this configuration must have, at minimum, read access to the 
-					// "Policies" application in order to demonstrate the content read capabilities, and full CRUD permission
-					// to the "Applications" application in order to demonstrate the create, update and delete capabilities.
+                    // The user account that you specify for this configuration must have, at minimum, read access to the 
+                    // "Policies" application in order to demonstrate the content read capabilities, and full CRUD permission
+                    // to the "Applications" application in order to demonstrate the create, update and delete capabilities.
 
 
-					// "appConfigFilename" specifies a JSON app settings file where your configuration is stored.  If not
-					// explicitly provided this will default to "appSettings.json" in the current executing directory.
-					// The string below will direct it to use the common appSettings.json file found in the Estrelica.Demo.Common project.
-					appConfigFilename: @"..\..\..\..\..\Estrelica.Demo.Common\appSettings.json",
+                    // "appConfigFilename" specifies a JSON app settings file where your configuration is stored.  If not
+                    // explicitly provided this will default to "appSettings.json" in the current executing directory.
+                    // The string below will direct it to use the common appSettings.json file found in the Estrelica.Demo.Common project.
+                    appConfigFilename: @"..\..\..\..\..\Estrelica.Demo.Common\appSettings.json",
 
 					// "userSecretsId" specifies the (optional) Id of a JSON user secrets file on the local machine containing values
 					// which should override the corresponding values in the app settings file.  If not explicitly provided, none of the values

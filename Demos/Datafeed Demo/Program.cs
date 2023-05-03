@@ -63,7 +63,7 @@ namespace Estrelica.Demo.DatafeedExplorer
 					//		%appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
 					// with your CastleHill Software authentication key and your Archer instance details and credentials.
 
-					// See https://nuget.castlehillsoftware.com/Estrelica.Core/documentation/articles/manage_configuration.html
+					// See https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/manage_configuration.html
 					// for more information on managing your configuration.
 
 					// "appConfigFilename" specifies a JSON app settings file where your configuration is stored.  If not

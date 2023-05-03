@@ -25,7 +25,7 @@ namespace SampleApp
 
 				// Here we'll use the Estrelica.CoreConfig utility class to handle the authentication process, allowing for all the 
 				// authentication details to be stored in an appSettings.json and/or user secrets file.
-				// See https://nuget.castlehillsoftware.com/Estrelica.Core/documentation/articles/manage_configuration.html
+				// See https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/manage_configuration.html
 				// for more information on managing your Estrelica.Core configuration for this demo.
 
 				var core = CoreConfig.Load(
@@ -42,7 +42,7 @@ namespace SampleApp
 				Utilities.Log($"This application will run some tests to demonstrate various methods of retrieving metadata from the Archer instance {core.SessionProvider.Instance} at {core.SessionProvider.Url}");
 
 				// Some metadata is only accessible via API extensions, which may or may not be available in your environment
-				// (see https://nuget.castlehillsoftware.com/Estrelica.Core/documentation/articles/extensions.html for details).
+				// (see https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/extensions.html for details).
 				// Here we'll check to see if the API extensions are available:
 
 				string extensionsText = null;
