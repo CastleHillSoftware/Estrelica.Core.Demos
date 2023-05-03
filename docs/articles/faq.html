@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Frequently-Asked Questions | Estrelica Core </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Frequently-Asked Questions | Estrelica Core ">
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc">
+      <meta property="docfx:tocrel" content="toc">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" src="../images/logo.png" alt="" style="position: relative; top: 50%; transform: translateY(-50%);">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../articles/getting_started.html" title="Articles">Articles</a>
+                      </li>
+                      <li>
+                          <a href="../api/index.html" title="Api Documentation">Api Documentation</a>
+                      </li>
+                </ul>            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+
+                  <ul class="nav level1">
+                    <li class="">
+                      <a href="getting_started.html" title="Getting Started" class="">Getting Started</a>
+                    </li>
+                    <li class="">
+                      <a href="connecting_to_archer.html" title="Connecting to Archer" class="">Connecting to Archer</a>
+                    </li>
+                    <li class="">
+                      <a href="manage_configuration.html" title="Managing Configuration" class="">Managing Configuration</a>
+                    </li>
+                    <li class="">
+                      <a href="architecture_data_flow.html" title="Architecture and Data Flow" class="">Architecture and Data Flow</a>
+                    </li>
+                    <li class="">
+                      <a href="extensions.html" title="Extended Methods" class="">Extended Methods</a>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Estrelica.Core.Demos.html" title="Estrelica.Core.Demos Solution" class="">Estrelica.Core.Demos Solution</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Metadata_demo.html" title="Metadata Demo" class="">Metadata Demo</a>
+                          </li>
+                          <li class="">
+                            <a href="Content_demo.html" title="Content Demo" class="">Content Demo</a>
+                          </li>
+                          <li class="">
+                            <a href="Datafeed_demo.html" title="Datafeed Explorer" class="">Datafeed Explorer</a>
+                          </li>
+                          <li class="">
+                            <a href="CHUM_tool.html" title="CHUM Tool" class="">CHUM Tool</a>
+                          </li>
+                          <li class="">
+                            <a href="UserAccessProcessor.html" title="User Access Processor" class="">User Access Processor</a>
+                          </li>
+                        </ul>                    </li>
+                  </ul>                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="frequently-asked-questions">Frequently-Asked Questions</h1>
+
+<p>Archer integration developers will often have a lot of questions about working with the Archer APIs which may not be addressed in the Archer API documentation.</p>
+<p>Usually, the short answer is &quot;Use Estrelica.Core&quot; but below are more in-depth answers to some of them.</p>
+<h2 id="what-do-i-do-if-my-session-expires-while-my-application-is-idle-or-busy-doing-other-things">What do I do if my session expires while my application is idle, or busy doing other things?</h2>
+<p>Archer's session management will expire a session token if it is not used during a specific &quot;timeout&quot; window (which is determined by the Security Parameter associated with the user account in question).  When an API call is made with an expired session token, this causes the server to return an error response with the string &quot;Invalid session token&quot;.</p>
+<p>All of Estrelica.Core's APIFacade methods are implemented with this in mind.  If any of its API calls return this response, the APIFacade will sleep for a random period between 2 and 5 seconds, re-establish a new session, then reattempt the API call before returning.  This process (fail/re-establish/retry) will occur up to five times.  If any of the five attempts are successful, the result will be returned as expected and your application won't even know that anything went wrong.  If the call still fails after the fifth attempt, however, the exception will be surfaced to your code so you can decided what action to take next.</p>
+<h2 id="what-happens-if-someone-else-or-even-another-instance-of-my-application-is-simultaneously-trying-to-use-the-same-archer-account-that-my-application-uses">What happens if someone else (or even another instance of my application) is simultaneously trying to use the same Archer account that my application uses?</h2>
+<p>Archer only allows one session at a time per user account, and each time a new login occurs all other active sessions for the same user account are immediately invalidated.  Therefore, if another login occurs on your application's user account, this will lead to the &quot;session expires&quot; scenario described above, and Estrelica.Core's retry logic will kick in.</p>
+<p>If the other session is an interactive user who happened to log into the Archer UI with your application's credentials, their session will be terminated the next time your app makes an API call.  Your app will re-establish a new session, cancelling theirs, and carry on as if nothing happened.</p>
+<p>If the other session is an Archer integration application developed without Estrelica.Core, what happens in this scenario depends entirely on how the other application was implemented.  The Estrelica.Core-based application may carry on as if nothing happened, while the other one may simply fail if it has no retry logic.  However, if it has more aggressive retry logic than Estrelica.Core, your Estrelica.Core-based application may fail after its five randomly-delayed retries.</p>
+<p>If instead the conflict involves two applications developed with Estrelica.Core, the logic discussed above will result in each &quot;taking turns&quot; in re-establishing its own session (while cancelling the other), waiting for a random period of time between retries, and repeating this process up to five times before giving up.  This logic is not foolproof, however.  It is still possible for one of the two instances to fail, even after five retries, depending on random timing and just how aggressively the two applications are hitting the Archer server.  Regardless, even if both eventually succeed, performance will be degraded by all of the re-establish/retry attempts.</p>
+<p>This is not a perfect solution to the problem, of course, and care should be taken to avoid the sharing of accounts in this way, but it will usually handle the occasional case when this conflict occurs.</p>
+<p>The best practice is to dedicate a separate user account (with appropriately restricted permissions) to each of your integration applications, regardless of whether they are developed with Estrelica.Core, in order to avoid this scenario.  If user accounts must be shared, be sure to schedule the execution of your applications in a way that avoids these conflicts.</p>
+<h2 id="archer-recently-advised-that-all-of-their-rest-api-methods-would-be-moving-from-apixxx-to-platformapixxx--is-estrelicacore-prepared-to-handle-this">Archer recently advised that all of their REST API methods would be moving from &quot;api/xxx&quot; to &quot;platformapi/xxx&quot;.  Is Estrelica.Core prepared to handle this?</h2>
+<p>Yes.  The API change in question was announced with the release of Archer version 6.5, but (as of version 6.9) the change has not been fully implemented.  That is to say, as of now Archer, still responds to API requests having both prefixes.  In future releases, however, the &quot;api/&quot; prefix is expected to be retired, which will cause failures in any applications that are hard-coded to use that prefix.</p>
+<p>Estrelica.Core handles this by probing the target Archer instance on startup to determine if the &quot;platformapi/xxx&quot; endpoints are available.  If not, it falls back to the &quot;api/&quot; prefix for all subsequent calls.  This allows your applications to execute with no changes on all versions of Archer since 6.4, and will future-proof your code to work with future versions after the &quot;api/&quot; prefix is retired.</p>
+<h2 id="you-say-estrelicacore-works-with-all-versions-of-archer-from-64-forward--how-is-this-verified--and-what-changes-have-occurred-since-64-that-i-should-be-aware-of">You say Estrelica.Core works with all versions of Archer from 6.4 forward.  How is this verified?  And what changes have occurred since 6.4 that I should be aware of?</h2>
+<p>CastleHill Software maintains running instances of each version of Archer from 6.4 to the present, each kept up to date with the latest patches and service packs as they are announced by Archer.  Estrelica.Core is unit tested against all of these versions as part of the development cycle, and is also integration tested with our own internal projects that are based on Estrelica.Core against these instances.</p>
+<p>As for changes since 6.4, there have been surprisingly few.  The REST and Web Services APIs have remained constant through all of those releases, as Archer tends to implement new integration approaches by releasing additional APIs (e.g. the Content API, Workflow API, Data Gateway) rather than making changes to the existing ones.  Estrelica.Core performs everything it needs to do through the traditional (REST and Web Services) APIs, and (in the case of extended methods) direct database calls, so has been largely unaffected by these changes.</p>
+<p>Changes to the structure of the Archer instance database, however, can affect the database calls made through the extended methods, and Archer frequently alters the database structure with new releases and patches.  CastleHill Software manages this by monitoring the database for changes each time a new release is announced, and adapting the database calls as needed based on the target database version.</p>
+<p>One example of this is a change that was made to the tblXModulesAdminGroups and tblXModulesAdminUsers tables with version 6.7.  These tables indicate who the owners are (by group and by user, respectively) for each of the modules in the system.  Prior to v6.7 this was represented by a single &quot;module_owner&quot; bit column in each table, where 1 means the group/user is an owner of the module and 0 means that they are not.  Module owners, in this context, are able to modify the configuration of modules as well as any content they might contain.</p>
+<p>In 6.7 this was split into two columns to provide finer-grained control over &quot;ownership&quot; capabilities.  The &quot;module_owner&quot; column was removed from each of those tables, replaced by &quot;config_admin&quot; and &quot;content_admin&quot;.  This allows some &quot;owners&quot; to manage module configuration but not content, and others to manage content but not config, and still others to do both.</p>
+<p>Estrelia.Core handles this by representing module owners in the new form (with separate boolean properties for ContentAdmin and ConfigAdmin), but these are populated differently depending on which Archer version it is querying.  If the Archer instance is 6.7 or later, the two boolean properties are loaded independently from the two separate columns described above.  If it's an older version, however, the single &quot;module_owner&quot; column is used to populate both properties (meaning they will always have matching values in older instances).</p>
+<p>These strategies ensure that your code functions consistently regardless of which Archer version you are targeting.</p>
+<h2 id="wait-a-minute-did-you-just-imply-that-estrelicacore-doesnt-expose-the-content-or-workflow-apis">Wait a minute... Did you just imply that Estrelica.Core doesn't expose the Content or Workflow APIs?</h2>
+<p>Yes, precisely.  And even in the traditional REST and Web Services APIs, it doesn't expose 100% of them.</p>
+<p>In the case of the Content and Workflow APIs, this is because they frankly do not add any value.  Everything available via the Content API is already available (twice over) through the REST and Web Services APIs, and the Workflow API only provides two methods (get/save WorkflowAction) which are poorly documented, and for which no need has yet been identified.</p>
+<p>Estrelica.Core's implementation of the REST and Web Services APIs is governed by two considerations:</p>
+<ol>
+<li><p>Is the API method's intent already covered by another method?  Archer likes to implement a lot of things two or more times (e.g. a session can be established in multiple ways via REST and Web Services), but Estrelica.Core only needs one way to get it done, so it ignores the others.  (Content is a special case where Estrelica.Core <strong>does</strong> implement multiple approaches, as the REST API is ideal for retrieving content if you already know what content Ids you want, while the Web Services Search API is better suited for retrieving content based on conditional queries, so both endpoints are supported.)</p>
+</li>
+<li><p>Is the API method useful?  Estrelica.Core is implemented based on years of experience developing complex and varied integration applications, so is focused on the API methods that are actually used in real-world scenarios.  Many Archer API methods are extremely esoteric (e.g. &quot;Get user tasks&quot;, delete/update security parameters, all of the Mobile API, etc.) and have never been used in that experience, so have not been implemented as part of Estrelica.Core.</p>
+</li>
+</ol>
+<p>Having said this, however, CastleHill Software is always open to suggestions for improvements to Estrelica.Core.  If there's an API call that you feel is missing, don't hesitate to contact us at softwaresupport@castlehillsoftware.com to let us know.  We'll make every reasonable effort to implement it in an upcoming release.</p>
+<h2 id="when-performing-a-search-via-contentgetcontent-how-do-i-know-what-value-to-use-for-pagesize">When performing a search via Content.GetContent(), how do I know what value to use for pageSize?</h2>
+<p>First, some context:</p>
+<p>The Content.GetContent() methods wrap the Web Services API's ExecuteSearch() method.  This method returns its results in multiple pages, each involving a separate API call to fetch a single page of results.  The pageSize value you specify tells Archer how many records you want to have returned in each of those pages.  So if your search results comprise 1000 records and you've requested a page size of 10, this will result in 100 separate API calls.</p>
+<p>To improve performance you should optimize your pageSize value in order to make as few trips to the server as possible, while still keeping the pageSize small enough so as not to overload the server and/or search engine with a result that's too big to return in one response (causing Archer to fail with an error).</p>
+<p>The minimum page size you can request is 1, but this means you'll be making a separate HTTP call for each record in the result set.  Conversely, the maximum possible page size is harder to pin down, as it's primarily a function of:</p>
+<ol>
+<li>How many fields you're asking the search engine to return.</li>
+<li>How much content is in each of those fields for all of the records on a given page.</li>
+</ol>
+<p>The optimal number is therefore difficult to determine, and will even change over time as changes are made to the content in question.  There's unfortunately no perfect solution to this question.</p>
+<p>The simple answer is: Take an educated guess.  You should have a general idea of how &quot;bulky&quot; the records in a given scenario will be, and you can ballpark an estimate based on this.</p>
+<p>If you're working with just a few valueslist/numeric/date fields, each individual record is going to be very small, so you might be able to pull them 10,000 at a time.</p>
+<p>On the other hand, if your application has 100 text fields, and each record has several megabytes of text in each of those fields, you might be lucky to retrieve them 5 records at time.</p>
+<p>The best you can do is come up with a reasonable estimate and work with that.  However, you don't have to worry if your estimate turns out to be too high: Estrelica.Core will take care of it.</p>
+<p>Whenever a search is performed via the Content.GetContent() methods, Estrelica.Core will respond to any pageSize errors thrown by the Archer server by silently retrying your search with progressively smaller page sizes until it succeeds.  This means that you don't have to be overly concerned with getting the pageSize exactly right.  Ballpark it to something reasonable and Estrelica.Core will take it from there.</p>
+<p>This doesn't mean that you should blithely assume to use a huge value like 10,000 for all of your searches, however, as the retry logic does incur a pretty substantial performance penalty.  For example, if every page in your search needs to be retried twice before it succeeds, this means your search will take more than three times longer than necessary.</p>
+</article>
+          </div>
+          <div class="contribution-panel mobile-hide">
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright 2019-2023 by <strong>CastleHill Software LLC</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

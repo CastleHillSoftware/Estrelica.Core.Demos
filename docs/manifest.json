@@ -1,0 +1,5066 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Users/Scott/Source/Repos/Estrelica.Core/Estrelica.Core",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.AccessControlEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.AccessControlEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.AccountStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.AccountStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.ContactSubType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.ContactSubType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.ContactType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.ContactType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.IArcherGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.IArcherGroup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.IArcherGroupEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.IArcherGroupEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.IArcherRole.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.IArcherRole.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.IArcherRoleEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.IArcherRoleEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.IArcherUser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.IArcherUser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.IArcherUserEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.IArcherUserEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.ISecurityParameter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.ISecurityParameter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.IUserContact.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.IUserContact.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.IUserProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.IUserProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.UserType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.UserType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.AccessControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.AccessControl.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ArcherContentExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ArcherContentExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ContentFilterHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ContentFilterHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ContentSearchOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ContentSearchOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ContentSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ContentSource.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ContentType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ContentType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.CurrentDateOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.CurrentDateOperator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.DatafeedHistoryStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.DatafeedHistoryStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.DatafeedStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.DatafeedStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.DatafeedType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.DatafeedType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.DateOffsetOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.DateOffsetOperator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.DateValueOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.DateValueOperator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.DisplayFieldExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.DisplayFieldExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.EqualityOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.EqualityOperator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IArcherContent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IArcherContent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IArcherContentAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IArcherContentAccess.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IArcherContentEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IArcherContentEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IArcherContentIdQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IArcherContentIdQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IArcherDateFieldQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IArcherDateFieldQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IArcherDocument.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IArcherDocument.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IArcherMembershipQuery-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IArcherMembershipQuery-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IArcherNumericFieldQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IArcherNumericFieldQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IArcherRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IArcherRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IArcherRecordQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IArcherRecordQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IArcherReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IArcherReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IArcherTextFieldQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IArcherTextFieldQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IArcherUserGroupFieldQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IArcherUserGroupFieldQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IArcherValuesListQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IArcherValuesListQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IContentInformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IContentInformation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IContentUpdateInformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IContentUpdateInformation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ICrossReferencedRecordsSelectionEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ICrossReferencedRecordsSelectionEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IDatafeed.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IDatafeed.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IDatafeedHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IDatafeedHistory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IDatafeedHistoryMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IDatafeedHistoryMessage.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IDatafeedRecordCount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IDatafeedRecordCount.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IDateValueEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IDateValueEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IDisplayField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IDisplayField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IDocumentSelectionEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IDocumentSelectionEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IEditableField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IEditableField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IExternalLink.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IExternalLink.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IExternalLinkEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IExternalLinkEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IExternalLinksSelectionEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IExternalLinksSelectionEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IFieldQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IFieldQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IFieldValueEdit-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IFieldValueEdit-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.INumericValueEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.INumericValueEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IObjectValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IObjectValue.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IReferencedRecordsSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IReferencedRecordsSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IReferencedRecordsSelectionEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IReferencedRecordsSelectionEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ISubEditableField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ISubEditableField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ISystemUpdateInformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ISystemUpdateInformation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ITextValueEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ITextValueEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IUserGroupListSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IUserGroupListSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IUserGroupListSelectionEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IUserGroupListSelectionEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IValuesListBaseSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IValuesListBaseSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IValuesListBaseSelectionEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IValuesListBaseSelectionEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IValuesListSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IValuesListSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IValuesListSelectionEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IValuesListSelectionEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IValuesListSingleSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IValuesListSingleSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IValuesListSingleSelectionEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IValuesListSingleSelectionEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IWorkflowAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IWorkflowAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IWorkflowNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IWorkflowNode.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.LastUpdatedPreference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.LastUpdatedPreference.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.Linq.QueryContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.Linq.QueryContext.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.Linq.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.Linq.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.NumericRangeOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.NumericRangeOperator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.RecordCountType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.RecordCountType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.RecordStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.RecordStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ReportSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ReportSource.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ValueOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ValueOperator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ValuesOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ValuesOperator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.ASOStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.ASOStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.ArcherEntityExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.ArcherEntityExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.EntityType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.EntityType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IArcherASOEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IArcherASOEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IArcherAliasableEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IArcherAliasableEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IArcherAliasedEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IArcherAliasedEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IArcherBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IArcherBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IArcherContentUpdateInfoEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IArcherContentUpdateInfoEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IArcherDescribableEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IArcherDescribableEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IArcherDescribedEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IArcherDescribedEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IArcherEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IArcherEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IArcherEntityBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IArcherEntityBase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IArcherGuidEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IArcherGuidEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IArcherNameableEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IArcherNameableEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IArcherNamedEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IArcherNamedEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IArcherUpdateInfoEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IArcherUpdateInfoEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IEditableArcherEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IEditableArcherEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IUpdateInformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IUpdateInformation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.SourceAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.SourceAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.UpstreamPropertyAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.UpstreamPropertyAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Events.EventActionLayoutType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Events.EventActionLayoutType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Events.EventActionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Events.EventActionType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Events.EventDateActionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Events.EventDateActionType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Events.EventItemActionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Events.EventItemActionType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Events.EventSectionActionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Events.EventSectionActionType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Events.IEventAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Events.IEventAction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Events.IEventRule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Events.IEventRule.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Events.ISetDateOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Events.ISetDateOption.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Events.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Events.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Layouts.ILayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Layouts.ILayout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Layouts.ILayoutEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Layouts.ILayoutEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Layouts.ILayoutItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Layouts.ILayoutItem.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Layouts.ILayoutSection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Layouts.ILayoutSection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Layouts.ILayoutTab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Layouts.ILayoutTab.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Layouts.LayoutItemType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Layouts.LayoutItemType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Layouts.LayoutMemberType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Layouts.LayoutMemberType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Layouts.LayoutSectionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Layouts.LayoutSectionType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Layouts.LayoutTabType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Layouts.LayoutTabType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Layouts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Layouts.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.ArcherMetadataExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.ArcherMetadataExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ArcherFieldExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ArcherFieldExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ExternalLinkProtocol.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ExternalLinkProtocol.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.FieldEncryptionState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.FieldEncryptionState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.FieldType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.FieldType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IAdvancedDisplayOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IAdvancedDisplayOption.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IArcherField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IArcherField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IAssetResponsibilitiesField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IAssetResponsibilitiesField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IAttachmentField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IAttachmentField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IAvailableUserGroupSelections.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IAvailableUserGroupSelections.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IBaseDateField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IBaseDateField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ICalculatedValuesListField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ICalculatedValuesListField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IContentAccessHistoryField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IContentAccessHistoryField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ICrossApplicationStatusTrackingField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ICrossApplicationStatusTrackingField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ICrossModuleStatusTrackingField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ICrossModuleStatusTrackingField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ICrossReferenceField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ICrossReferenceField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IDateField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IDateField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IDiscussionField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IDiscussionField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IDocumentField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IDocumentField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IExternalLinksField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IExternalLinksField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IFirstPublishedField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IFirstPublishedField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IGroupPermission.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IGroupPermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IHistoryLogField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IHistoryLogField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IIPAddressField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IIPAddressField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IImageField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IImageField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ILastUpdatedField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ILastUpdatedField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IMatrixField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IMatrixField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IMultipleReferenceDisplayField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IMultipleReferenceDisplayField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.INumericField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.INumericField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IPermissionInheritance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IPermissionInheritance.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IQuestionnaireReferenceField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IQuestionnaireReferenceField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IRecordStatusField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IRecordStatusField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IReferenceField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IReferenceField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IRelatedRecordsField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IRelatedRecordsField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IRiskAssessmentField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IRiskAssessmentField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ISchedulerField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ISchedulerField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ISubformField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ISubformField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ITechnologiesListField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ITechnologiesListField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ITechnologyVersionsListField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ITechnologyVersionsListField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ITextField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ITextField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ITrackingIDField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ITrackingIDField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IUserGroupListField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IUserGroupListField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IUserPermission.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IUserPermission.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IValuesListField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IValuesListField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.IVotingField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.IVotingField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.DefaultDateType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.DefaultDateType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.DisplayControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.DisplayControl.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.FieldLayoutFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.FieldLayoutFormat.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IAdvancedDisplayProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IAdvancedDisplayProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IAuditingProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IAuditingProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IDisplayControlProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IDisplayControlProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IEncryptionStateProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IEncryptionStateProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IFieldValidationTypeProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IFieldValidationTypeProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IHeightWidthProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IHeightWidthProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsBulkUpdateEnabledProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsBulkUpdateEnabledProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsCalculatedProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsCalculatedProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsEditableInSearchProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsEditableInSearchProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsEncryptedProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsEncryptedProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsKeyProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsKeyProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsQuestionProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsQuestionProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsRequiredProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsRequiredProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsRestrictedToLevelProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsRestrictedToLevelProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsTrendingEnabledProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsTrendingEnabledProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsUniqueProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsUniqueProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.ILinkProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.ILinkProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.ILookupReportProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.ILookupReportProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMaxAttachmentsAllowedProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMaxAttachmentsAllowedProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMaxFileSizeProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMaxFileSizeProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMaxIntValueProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMaxIntValueProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMaxLongValueProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMaxLongValueProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMaximumSelectionProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMaximumSelectionProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMinAttachmentsAllowedProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMinAttachmentsAllowedProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMinIntValueProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMinIntValueProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMinLongValueProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMinLongValueProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMinMaxSelectionProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMinMaxSelectionProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMinimumSelectionProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IMinimumSelectionProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IPrefixProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IPrefixProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.ISuffixProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.ISuffixProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.ITrendingDurationProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.ITrendingDurationProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.ITrendingDurationTypeProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.ITrendingDurationTypeProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.MatrixAxis.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.MatrixAxis.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.NegativeDisplayType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.NegativeDisplayType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.SystemFieldType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.SystemFieldType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.UserGroupType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.UserGroupType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.VotingType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.VotingType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.FilterConditionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.FilterConditionType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.FilterCriteriaOperatorType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.FilterCriteriaOperatorType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IArcherApplication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IArcherApplication.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IArcherLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IArcherLevel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IArcherModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IArcherModule.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IArcherQuestionnaire.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IArcherQuestionnaire.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IArcherSolution.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IArcherSolution.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IArcherSubForm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IArcherSubForm.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IArcherValuesList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IArcherValuesList.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IArcherValuesListValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IArcherValuesListValue.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IFilterCondition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IFilterCondition.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IFilterCriteria.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IFilterCriteria.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.ILevelFilter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.ILevelFilter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.ILevelFilterValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.ILevelFilterValue.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IModuleOwner.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IModuleOwner.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IModuleOwnerGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IModuleOwnerGroup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IModuleOwnerUser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IModuleOwnerUser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IModuleReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IModuleReference.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.INumericRange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.INumericRange.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.INumericRangeValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.INumericRangeValue.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.IQuestionnaireRule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.IQuestionnaireRule.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.ModuleClass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.ModuleClass.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.ModuleStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.ModuleStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.ModuleType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.ModuleType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Properties.IIsDeprecatedProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Properties.IIsDeprecatedProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Properties.IIsDirectToEditEnabledProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Properties.IIsDirectToEditEnabledProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Properties.IIsMobileEnabledProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Properties.IIsMobileEnabledProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Properties.IIsNotificationProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Properties.IIsNotificationProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Properties.IIsTaskManagementEnabledProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Properties.IIsTaskManagementEnabledProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Properties.IIsWaveEnabledProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Properties.IIsWaveEnabledProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Properties.IKeepLicensedProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Properties.IKeepLicensedProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Properties.ISearchViewProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Properties.ISearchViewProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Properties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Properties.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.QuestionnaireRuleType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.QuestionnaireRuleType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.ReportType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.ReportType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.SortType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.SortType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Timezone.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Timezone.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.ValuesListType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.ValuesListType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.APIPreference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.APIPreference.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.APISource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.APISource.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.ArcherEntitySerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.ArcherEntitySerializer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.BaseDataWrapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.BaseDataWrapper-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.CachedResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.CachedResolver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.DictionaryDataWrapper-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.DictionaryDataWrapper-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.DomainFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.DomainFormat.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.EditUtilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.EditUtilities.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.ExtensionsUnavailableException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.ExtensionsUnavailableException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.FilterCriteriaHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.FilterCriteriaHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.IAPIFacade.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.IAPIFacade.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.IAccessResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.IAccessResolver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "UidNotFound"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.IContentResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.IContentResolver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.ILayoutResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.ILayoutResolver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.IMetadataResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.IMetadataResolver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.IReportResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.IReportResolver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.IValueAccessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.IValueAccessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.InvalidateEntity-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.InvalidateEntity-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.InvalidateEntityEventArgs-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.InvalidateEntityEventArgs-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.ObjectDataWrapper-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.ObjectDataWrapper-2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.ObjectKeyAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.ObjectKeyAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "UidNotFound"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Core.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Core.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherContent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherContent.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherContentAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherContentAccess.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherContentEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherContentEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherContentIdQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherContentIdQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherDateFieldQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherDateFieldQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherMembershipQuery-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherMembershipQuery-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherNumericFieldQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherNumericFieldQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherRecord.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherRecord.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherRecordQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherRecordQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherTextFieldQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherTextFieldQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherUserGroupFieldQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherUserGroupFieldQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherValuesListQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IArcherValuesListQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IContentInformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IContentInformation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IContentUpdateInformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IContentUpdateInformation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IDateValueEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IDateValueEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IDocumentFieldEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IDocumentFieldEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IEditableField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IEditableField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IFieldQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IFieldQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IFieldValueEdit-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IFieldValueEdit-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.INumericValueEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.INumericValueEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IObjectValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IObjectValue.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IReferencedRecordsEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IReferencedRecordsEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.ISystemUpdateInformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.ISystemUpdateInformation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.ITextValueEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.ITextValueEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IUserGroupListSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IUserGroupListSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IUserGroupListSelectionEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IUserGroupListSelectionEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IValuesListSelection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IValuesListSelection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IValuesListSelectionEdit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IValuesListSelectionEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.IdChunker.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.IdChunker.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Content.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Content.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherASOEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherASOEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherAliasableEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherAliasableEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherAliasedEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherAliasedEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherContentUpdateInfoEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherContentUpdateInfoEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherDescribableEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherDescribableEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherDescribedEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherDescribedEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherGuidEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherGuidEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherNameableEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherNameableEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherNamedEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherNamedEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherUpdateInfoEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.IArcherUpdateInfoEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Entity.Properties.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IAdvancedDisplayOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IAdvancedDisplayOption.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IAssetResponsibilitiesField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IAssetResponsibilitiesField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IAttachmentField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IAttachmentField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.ICalculatedValuesListField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.ICalculatedValuesListField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IContentAccessHistoryField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IContentAccessHistoryField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.ICrossApplicationStatusTrackingField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.ICrossApplicationStatusTrackingField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.ICrossModuleStatusTrackingField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.ICrossModuleStatusTrackingField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.ICrossReferenceField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.ICrossReferenceField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IDateField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IDateField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IDiscussionField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IDiscussionField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IDocumentField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IDocumentField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IExternalLinksField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IExternalLinksField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IFirstPublishedField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IFirstPublishedField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IHistoryLogField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IHistoryLogField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IIPAddressField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IIPAddressField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IImageField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IImageField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.ILastUpdatedField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.ILastUpdatedField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IMatrixField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IMatrixField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IMultipleReferenceDisplayField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IMultipleReferenceDisplayField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.INumericField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.INumericField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IPermissionInheritance.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IPermissionInheritance.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IRecordStatusField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IRecordStatusField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IReferenceField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IReferenceField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IRelatedRecordsField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IRelatedRecordsField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IRiskAssessmentField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IRiskAssessmentField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.ISchedulerField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.ISchedulerField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.ISubformField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.ISubformField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.ITechnologiesListField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.ITechnologiesListField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.ITechnologyVersionsListField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.ITechnologyVersionsListField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.ITextField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.ITextField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.ITrackingIDField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.ITrackingIDField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IUserGroupListField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IUserGroupListField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IValuesListField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IValuesListField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.IVotingField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.IVotingField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IAdvancedDisplayProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IAdvancedDisplayProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IAuditingProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IAuditingProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IDisplayControlProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IDisplayControlProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IEncryptionStateProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IEncryptionStateProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IFieldValidationTypeProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IFieldValidationTypeProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IHeightWidthProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IHeightWidthProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsBulkUpdateEnabledProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsBulkUpdateEnabledProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsCalculatedProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsCalculatedProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsEditableInSearchProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsEditableInSearchProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsEncryptedProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsEncryptedProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsKeyProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsKeyProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsQuestionProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsQuestionProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsRequiredProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsRequiredProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsTrendingEnabledProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsTrendingEnabledProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsUniqueProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IIsUniqueProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.ILinkProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.ILinkProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.ILookupReportProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.ILookupReportProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMaxAttachmentsAllowedProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMaxAttachmentsAllowedProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMaxFileSizeProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMaxFileSizeProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMaxIntValueProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMaxIntValueProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMaxLongValueProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMaxLongValueProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMaximumSelectionProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMaximumSelectionProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMinAttachmentsAllowedProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMinAttachmentsAllowedProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMinIntValueProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMinIntValueProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMinLongValueProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMinLongValueProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMinimumSelectionProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IMinimumSelectionProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IPrefixProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.IPrefixProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.ISearchDefaultProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.ISearchDefaultProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.ISuffixProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.ISuffixProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.ITrendingDurationProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.ITrendingDurationProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.ITrendingDurationTypeProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.ITrendingDurationTypeProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.Properties.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Field.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Field.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.FieldEncryptionState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.FieldEncryptionState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.FieldLayoutFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.FieldLayoutFormat.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.FieldType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.FieldType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Layout.ILayout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Layout.ILayout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Layout.ILayoutEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Layout.ILayoutEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Layout.ILayoutItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Layout.ILayoutItem.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Layout.ILayoutSection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Layout.ILayoutSection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Layout.ILayoutTab.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Layout.ILayoutTab.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "DuplicateUids"
+      ],
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.Layout.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.Layout.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.LayoutItemType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.LayoutItemType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.LayoutMemberType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.LayoutMemberType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.LayoutSectionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.LayoutSectionType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.Archer.LayoutTabType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.Archer.LayoutTabType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IArcherAuthProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IArcherAuthProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.ICacheProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.ICacheProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IClearable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IClearable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IDatabaseAuthProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IDatabaseAuthProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IEditable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IEditable-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IEditable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IEditable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IEditableCollection-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IEditableCollection-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IEditableEnumerable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IEditableEnumerable-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IEditableFieldSelection-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IEditableFieldSelection-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IEditableInterface-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IEditableInterface-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IEntityResolver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IEntityResolver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IExtendedAPIAuthProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IExtendedAPIAuthProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IHttpClientAccessor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IHttpClientAccessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.ILogCleanup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.ILogCleanup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.ILogSubscriber.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.ILogSubscriber.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IRecordAccess-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IRecordAccess-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IRecordAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IRecordAccess.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.IResolverProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.IResolverProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.ISessionProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.ISessionProvider.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.ISystemUpdateable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.ISystemUpdateable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.ITrafficCounter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.ITrafficCounter.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.LogLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.LogLevel.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Logging.BaseLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Logging.BaseLogger.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Logging.ConsoleLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Logging.ConsoleLogger.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Logging.FileLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Logging.FileLogger.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Logging.Logger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Logging.Logger.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Logging.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Logging.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.Arguments.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.Arguments.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.BaseRecordAccess.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.BaseRecordAccess.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.DataReaderExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.DataReaderExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.DateTimeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.DateTimeExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.Debouncer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.Debouncer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.DebugLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.DebugLog.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.DeferEnumerable-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.DeferEnumerable-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.DeferValue-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.DeferValue-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.DictionaryExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.DictionaryExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.EnumHelper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.EnumHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.GuidUtility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.GuidUtility.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.HandledException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.HandledException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.HashSetExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.HashSetExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.ICacheHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.ICacheHandler.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.ICollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.ICollectionExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.IDeferrable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.IDeferrable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.IDeferredValue.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.IDeferredValue.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.IEnumerableExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.IEnumerableExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.IgnoreDefaultValuesDictionary-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.IgnoreDefaultValuesDictionary-2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.JsonDictionary-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.JsonDictionary-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.OperationExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.OperationExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.Resource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.Resource.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.SqlConnectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.SqlConnectionExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.SqlUtilities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.SqlUtilities.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.StringExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.StringExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.TableMapper.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.TableMapper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.TimeoutDictionary-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.TimeoutDictionary-2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.TypeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.TypeExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.XElementExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.XElementExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/CHUM_tool.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/CHUM_tool.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Content_demo.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Content_demo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Datafeed_demo.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Datafeed_demo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Estrelica.Core.Demos.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Estrelica.Core.Demos.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Metadata_demo.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Metadata_demo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/UserAccessProcessor.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/UserAccessProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/architecture_data_flow.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/architecture_data_flow.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/connecting_to_archer.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/connecting_to_archer.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/extensions.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/extensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/faq.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/faq.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/getting_started.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/getting_started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/manage_configuration.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/manage_configuration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/working_with_Archer_content.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/working_with_Archer_content.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/CastleHill Software.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/CastleHill Software.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/Estrelica.Core Logo.pdn",
+      "output": {
+        "resource": {
+          "relative_path": "images/Estrelica.Core Logo.pdn"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/Estrelica.Core Logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/Estrelica.Core Logo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon.ico"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

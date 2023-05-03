@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Extensions | Estrelica Core </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Extensions | Estrelica Core ">
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc">
+      <meta property="docfx:tocrel" content="toc">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" src="../images/logo.png" alt="" style="position: relative; top: 50%; transform: translateY(-50%);">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../articles/getting_started.html" title="Articles">Articles</a>
+                      </li>
+                      <li>
+                          <a href="../api/index.html" title="Api Documentation">Api Documentation</a>
+                      </li>
+                </ul>            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+
+                  <ul class="nav level1">
+                    <li class="">
+                      <a href="getting_started.html" title="Getting Started" class="">Getting Started</a>
+                    </li>
+                    <li class="">
+                      <a href="connecting_to_archer.html" title="Connecting to Archer" class="">Connecting to Archer</a>
+                    </li>
+                    <li class="">
+                      <a href="manage_configuration.html" title="Managing Configuration" class="">Managing Configuration</a>
+                    </li>
+                    <li class="">
+                      <a href="architecture_data_flow.html" title="Architecture and Data Flow" class="">Architecture and Data Flow</a>
+                    </li>
+                    <li class="active">
+                      <a href="extensions.html" title="Extended Methods" class="active">Extended Methods</a>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Estrelica.Core.Demos.html" title="Estrelica.Core.Demos Solution" class="">Estrelica.Core.Demos Solution</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Metadata_demo.html" title="Metadata Demo" class="">Metadata Demo</a>
+                          </li>
+                          <li class="">
+                            <a href="Content_demo.html" title="Content Demo" class="">Content Demo</a>
+                          </li>
+                          <li class="">
+                            <a href="Datafeed_demo.html" title="Datafeed Explorer" class="">Datafeed Explorer</a>
+                          </li>
+                          <li class="">
+                            <a href="CHUM_tool.html" title="CHUM Tool" class="">CHUM Tool</a>
+                          </li>
+                          <li class="">
+                            <a href="UserAccessProcessor.html" title="User Access Processor" class="">User Access Processor</a>
+                          </li>
+                        </ul>                    </li>
+                  </ul>                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="extensions">Extensions</h1>
+
+<p>Various pages in this documentation refer to the concept of &quot;Extensions&quot; and which methods are available with or without extensions.  What are we talking about?</p>
+<h5 id="what-are-they">What are they?</h5>
+<p>The Archer REST and webservices APIs are well-rounded, but certainly not complete.  Some aspects of  Archer's object model have no representation in these APIs.</p>
+<p>Solutions are a good example.  You can query the Archer APIs for almost everything you want to know about Applications, Questionnaires, and to an extent, Subforms, but Solution information is strangely absent.  Only one documented Archer API method (ExecuteQuickSearchWithSolutionId in the web services API) even makes reference to the Solution concept.  That method requires the integer Solution Id as one of its parameters, despite the fact that there's no way to determine any Solution Ids via the available APIs.</p>
+<p>Likewise Subforms are only represented by a single API method (/system/subform/subformid in the REST API).  That method allows a subform to be retrieved, but again only by Id, with no associated methods allowing you to easily discover what Ids are applicable.  In fact, the only way to determine a subform Id through the standard Archer API is by first encountering a subform field in your Application or Questionnaire metadata (at which point you can determine the related subform's Id via the subform field's &quot;RelatedSubformId&quot; property).  Applications and Questionnaires, on the other hand, have API methods that will let you retrieve all of them at once, so it's much easier to look up a specific Application or Questionnaire by name or alias or Guid.</p>
+<p>Calc formulas are another concept that are conspicuously absent.  The Archer APIs will serve up almost everything you could ever want to know about a field, but if that field is calculated, the APIs will not tell you (as of Archer version 6.11, anyway) what formula is used to calculate that field's value.</p>
+<p>Many other features of the Archer platform like this are also inaccessible via the APIs.</p>
+<p>Are you using Advanced Workflow, with different layouts configured for each of your workflow stages?  Archer's API won't allow you to evaluate any of those.  It can only return the default workflow for each level, ignoring all others.</p>
+<p>Are you using Datafeeds?  Archer's API does have a few methods which allow you to check history for the datafeed and even execute a datafeed on demand, but only if you know the datafeed's Guid.  As is the case with the integer Ids of Subforms and Solutions, there are no provisions for discovering a datafeed's Guid, not to mention evaluating a datafeed's configuration or even which datafeeds exist for a given level.</p>
+<p>Are you using Reports?  The Archer web services API does provide one method for report discovery (GetReports) but it returns nothing that is useful in calling any of the other report-related API methods (all of which need an integer report Id, while GetReports only returns Guids.)</p>
+<p>Estrelica.Core's extensions solve all of these problems and more.  If extensions are available Estrelica.Core is able to fill in those gaps in Archer's APIs by querying the underlying Archer database for complex entities like Solutions, Subform Ids, Report details, Datafeed details, extended field information like calc formulas, audit info and permission inheritance rules, non-default layouts, level filters, and many other framework entities that are missing from the standard APIs.  Estrelica.Core then returns all of these results to the caller through standard interfaces, just like everything else that it returns from the standard Archer APIs.</p>
+<h5 id="so-how-do-i-make-estrelicacore-do-this">So how do I make Estrelica.Core do this?</h5>
+<p>Extensions are available in the Professional and Enterprise editions of Estrelica.Core.</p>
+<p>There are two ways to enable Estrelica.Core's extensions in these versions: by supplying Estrelica.Core with a connection string to your Archer instance database as part of its configuration (allowing it to make calls directly to the database), or by configuring the CastleHill Extended API on your Archer IIS server (effectively hiding the database calls behind a REST API).</p>
+<p>Extensions are also available for evaluation with a Trial license, but only via the direct database method.</p>
+<p>The particulars of each approach are described below.</p>
+<h5 id="direct-database-calls">Direct Database Calls</h5>
+<p>You may have noticed that the Estrelica.Core.CreateSession() method discussed <a href="connecting_to_archer.html">here</a> has an optional string parameter named archerDbConnectionString, and that the json configuration files discussed <a href="manage_configuration.html">here</a> make reference to a &quot;connectionString&quot; setting in those files.  Each of these refer to the Archer instance database which hosts the metadata and content for your Archer instance.</p>
+<p>If you supply a valid connection string to your Archer instance database during setup (via the archerDbConnectionString parameter if you're calling core.CreateSession() yourself, or via the json &quot;connectionString&quot; setting if you're using CoreConfig.Load()), extensions will become enabled for that instance of the Core.</p>
+<p>Here are examples of each approach, first enabling direct database extensions via discrete calls to ValidateLicense() and CreateSession():</p>
+<pre><code class="lang-csharp">var core = Estrelica.Core.ValidateLicense(&quot;5E56F79E-E678-4BAF-8FCF-B50141FAD5C7&quot;, w =&gt; LogWarning(w)));
+core.CreateSession(&quot;https://archer.company.com&quot;, &quot;Archer-Prod&quot;, &quot;apiuser@company.com&quot;, &quot;Password123&quot;,
+// Passing a valid connection string to the Archer-Prod instance db in the optional archerDbConnectionString
+// parameter enables extensions for this instance of Estrelica.Core:
+	&quot;Data Source=SQL123;Initial Catalog=Archer-Prod_instance;Persist Security Info=True;User ID=readonly_user;Password=xyz123&quot;);
+</code></pre>
+<p>or, alternately, via the CoreConfig.Load() method, with the connection string stored in appSettings.json:</p>
+<pre><code class="lang-csharp">/* Local appSettings.json file looks like this:
+  {
+	&quot;CHSAuthKey&quot;: &quot;5E56F79E-E678-4BAF-8FCF-B50141FAD5C7&quot;,
+	&quot;Archer&quot;: {
+    	&quot;url&quot;: &quot;https://archer.company.com&quot;,
+		&quot;instance&quot;: &quot;Archer-Prod&quot;,
+		&quot;username&quot;: &quot;apiuser@company.com&quot;,
+		&quot;password&quot;: &quot;Password123&quot;,
+		&quot;connectionString&quot;: &quot;Data Source=SQL-SERVER123;Initial Catalog=Archer-Prod_instance;Persist Security Info=True;User ID=readonly_user;Password=xyz123&quot;,
+*/
+var core = CoreConfig.Load(e =&gt; w =&gt; LogWarning(w));
+</code></pre>
+<p>Since Estrelica.Core only queries the instance database, never performing inserts or updates, the account specified via this connection string only needs db_datareader access to the target database.</p>
+<h5 id="extended-api-calls">Extended API calls</h5>
+<p>The CastleHill Extended API is an ASP.NET application available with the Professional and Enterprise editions of Estrelica.Core.  When deployed to your Archer IIS server, it provides your Archer instance with a new set of API methods.  These methods implement all the database calls described above, wrapping them in a REST API layer which introduces new API endpoints, following the same calling conventions as the standard Archer REST API.  This approach mitigates risk since you don't have to grant Archer instance database access to your entire development team, or include connection strings in any of your deployed applications' configuration files.  With the Extended API, all connections to the instance database are made from your IIS server, rather than from your Estrelica.Core-based application.</p>
+<p>Furthermore, the direct database approach is an all-or-none proposition.  Any developer with read access to the database can run whatever arbitrary SQL select statements against it that they like.  The Extended API, however, allows you to fine tune this capability with role-based permissions, restricting its access to only those Archer users who have been assigned specific Roles that you define.</p>
+<p>Regardless of which path you choose, enabling extensions will cause calls like core.Metadata.AllSolutions to start returning the Solutions you expect rather than empty sets, and any calculated fields that are returned via myLevel.Fields.Where&lt;IIsCalculatedProperty&gt;(f =&gt; f.IsCalculated) will actually have formulas in their .Formula property instead of null.</p>
+<h5 id="can-i-use-these-extended-methods-on-a-saas-instance-hosted-by-archer">Can I use these extended methods on a SaaS instance hosted by Archer?</h5>
+<p>Unfortunately no.  Extended methods are only available to on-premises customers who have access to their Archer instance database.  However, SaaS customers are able to use all of the non-extended methods and behavior of Estrelica.Core with their hosted instance.</p>
+<p>Calls made to any Estrelica.Core resolver classes which depend on extended methods (e.g. MetadataResolver.AllSolutions) will return empty IEnumerables or null results in the event that the underlying extension method is unavailable.</p>
+<h5 id="i-have-multiple-archer-instances--how-does-estrelicacore-ensure-that-extended-results-are-returned-from-the-correct-one">I have multiple Archer instances.  How does Estrelica.Core ensure that extended results are returned from the correct one?</h5>
+<p>Estrelica.Core won't do anything without a valid Archer session, and all extended method calls are first verified by checking to confirm that the current session exists in the target instance database (whether you're accessing it directly, or via the Extended API).</p>
+<p>When using extensions in database mode (where you've supplied the Core with a specific connection string), this validation step will raise an InvalidOperationException error if your connection string does not resolve to the Archer instance database where your session was established.</p>
+<p>When using extensions via the Extended API, your session token is validated by the API server application in the same way, raising a standard &quot;401 Unauthorized&quot; HTTP error if the session cannot be validated (or if your Archer user account is not in any of the Archer Roles required for the method).</p>
+<p>In addition, the session token associated with each API call is also used by the server to resolve the correct instance database to be used for making its database calls.  This means that if you have multiple Archer instances hosted on the same IIS server, you can likewise configure the Extended API on that server to return extended results for any or all of those Archer instances, simply by configuring it with with separate connection strings to each instance database.</p>
+<p>These approaches ensure that the results of the standard Archer API calls and the results of the Estrelica.Core extended method calls are always returned from the same physical Archer instance.</p>
+<h5 id="what-happens-if-both-extension-paths-are-available">What happens if both extension paths are available?</h5>
+<p>By default, Estrelica.Core will always attempt to query the database directly if you've provided it with a connection string, even if it detects that the Extended API is available on your Archer IIS server.  You can change this behavior if you like by calling:</p>
+<pre><code class="lang-csharp">core.APIFacade.ExtensionPreference = APIPreference.ExtendedAPIFirst; // default is DatabaseFirst
+</code></pre>
+<p>With this setting, all extended method calls will first check to see if an appropriate version of the Extended API is available on your Archer IIS server before falling back to direct database calls.</p>
+<h5 id="how-do-i-know-if-extensions-are-enabled-for-my-instance-of-estrelicacore">How do I know if extensions are enabled for my instance of Estrelica.Core?</h5>
+<p>This method:</p>
+<pre><code class="lang-csharp">var available = core.APIFacade.ExtensionsAvailable();
+</code></pre>
+<p>will return one of the values from this enumeration, depending on the current ExtensionPreference setting:</p>
+<pre><code class="lang-csharp">public enum APISource
+{
+	None = 0,
+	ExtendedAPI = 1,
+	Database = 2
+}
+</code></pre>
+<p>If extensions are not available (e.g. if you are running Estrelica.Core Basic, or if you're running one of the other versions but have not provided a connection string or deployed the Extended API to your Archer IIS server), this will return APISource.None.</p>
+<p>If both extension paths are available, this will return whichever path is discovered first according to the APIFacade.ExtensionPreference setting described above.</p>
+<p>Otherwise, if only one of the two paths is available, the corresponding APISource value will be returned for that path.</p>
+<h5 id="i-have-extensions-available-in-my-development-environment--how-can-i-confirm-my-codes-behavior-if-deployed-to-another-environment-where-extensions-are-not-available">I have extensions available in my development environment.  How can I confirm my code's behavior if deployed to another environment where extensions are not available?</h5>
+<p>You can test this scenario by temporarily disabling all extensions.  This can be done by simply calling:</p>
+<pre><code class="lang-csharp">core.APIFacade.EnableExtensions = false;
+</code></pre>
+<p>When operating in this mode, Estrelica.Core will behave as though neither extension path is present, regardless of whether you've provided it with a connection string or if it discovers the Extended API on your target Archer IIS server.  This is equivalent to operating under an Estrelica.Core Basic license, which does not include any extended method capability.</p>
+<h5 id="i-just-upgraded-to-the-latest-version-of-estrelicacore-but-i-have-not-upgraded-my-installation-of-the-extended-api-yet--what-happens-if-i-call-a-new-estrelicacore-extended-method-that-isnt-supported-by-my-instance-of-the-extended-api">I just upgraded to the latest version of Estrelica.Core, but I have not upgraded my installation of the Extended API yet.  What happens if I call a new Estrelica.Core extended method that isn't supported by my instance of the Extended API?</h5>
+<p>All of the extended methods are versioned, and Estrelica.Core knows which methods are supported by each release of the Extended API.  When the Core performs its extension path check (i.e. determining whether to call the Extended API or make the database call directly), it will also evaluate the version of the Extended API when making this determination.  In other words, it will treat the Extended API as &quot;temporarily unavailable&quot; in this case if you're calling a new extended method that is not supported by your outdated version of the Extended API.</p>
+<p>In this situation, if you've also provided a connection string to your Archer instance database it will fall back to the direct database query.  Otherwise it will raise an exception telling you that you need to upgrade your Extended API (with a message indicating the specific minimum version required).</p>
+</article>
+          </div>
+          <div class="contribution-panel mobile-hide">
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright 2019-2023 by <strong>CastleHill Software LLC</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

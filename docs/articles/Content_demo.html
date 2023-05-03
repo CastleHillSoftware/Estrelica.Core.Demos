@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Content Demo | Estrelica Core </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Content Demo | Estrelica Core ">
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc">
+      <meta property="docfx:tocrel" content="toc">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" src="../images/logo.png" alt="" style="position: relative; top: 50%; transform: translateY(-50%);">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../articles/getting_started.html" title="Articles">Articles</a>
+                      </li>
+                      <li>
+                          <a href="../api/index.html" title="Api Documentation">Api Documentation</a>
+                      </li>
+                </ul>            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+
+                  <ul class="nav level1">
+                    <li class="">
+                      <a href="getting_started.html" title="Getting Started" class="">Getting Started</a>
+                    </li>
+                    <li class="">
+                      <a href="connecting_to_archer.html" title="Connecting to Archer" class="">Connecting to Archer</a>
+                    </li>
+                    <li class="">
+                      <a href="manage_configuration.html" title="Managing Configuration" class="">Managing Configuration</a>
+                    </li>
+                    <li class="">
+                      <a href="architecture_data_flow.html" title="Architecture and Data Flow" class="">Architecture and Data Flow</a>
+                    </li>
+                    <li class="">
+                      <a href="extensions.html" title="Extended Methods" class="">Extended Methods</a>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Estrelica.Core.Demos.html" title="Estrelica.Core.Demos Solution" class="">Estrelica.Core.Demos Solution</a>
+
+                        <ul class="nav level2">
+                          <li class="">
+                            <a href="Metadata_demo.html" title="Metadata Demo" class="">Metadata Demo</a>
+                          </li>
+                          <li class="active">
+                            <a href="Content_demo.html" title="Content Demo" class="active">Content Demo</a>
+                          </li>
+                          <li class="">
+                            <a href="Datafeed_demo.html" title="Datafeed Explorer" class="">Datafeed Explorer</a>
+                          </li>
+                          <li class="">
+                            <a href="CHUM_tool.html" title="CHUM Tool" class="">CHUM Tool</a>
+                          </li>
+                          <li class="">
+                            <a href="UserAccessProcessor.html" title="User Access Processor" class="">User Access Processor</a>
+                          </li>
+                        </ul>                    </li>
+                  </ul>                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="content-demo">Content Demo</h1>
+
+<p>Archer provides two different ways to access content records, each with their own advantages and disadvantages.</p>
+<h3 id="two-ways-to-get-content-via-archers-apis">Two ways to get content via Archer's APIs</h3>
+<p>The classic webservices SOAP API allows for searches to be conducted, much like what is available via the Advanced Search UI.  This allows records to be retrieved based on conditional statements, similar to the WHERE clause in a SQL query.</p>
+<p>The newer REST API allows content to be retrieved strictly by content Id.  The REST API provides methods to return a single content record or a set of multiple records, but none of these methods support conditional searches the way the SOAP API does.  In all cases you must already know the content Id(s) in question before calling the REST API &quot;get content&quot; methods.</p>
+<p>Different use cases may make one approach preferable to the other, so neither can be said to be best in all circumstances.</p>
+<p>The Content Demo application shows how to retrieve Archer content via each of the Archer APIs, using both of these approaches.  It also highlights how Estrelica.Core can help you build complex queries for the Search API.</p>
+<p>Unfortunately, the results returned by the two APIs are not interchangeable.  The SOAP search API returns records as xml, while the REST content API returns records as JSON[^1].  Each format requires a different skillset and a different way of parsing the result to extract the record details.</p>
+<h3 id="estrelicacore-to-the-rescue">Estrelica.Core to the rescue</h3>
+<p>Wouldn't it be preferable to have a single programming model to work with, so that you could use the same approach to evaluate content regardless of whether it was retrieved from the SOAP or REST API?</p>
+<p>Estrelica.Core's Content resolver provides that capability, via a method named ContentAccess().  This  may be called on the output of any and all of the methods discussed above.  Whether it's an XElement node retrieved from the SOAP Search engine or a series of JSON dictionaries returned by any of the REST &quot;get content by id&quot; methods, ContentAccess() will convert it into an <a class="xref" href="../api/Estrelica.Archer.Content.IArcherContentAccess.html">IArcherContentAccess</a> object, which provides a common interface for working with Archer content, regardless of which format it was retrieved in.</p>
+<p>The Content Demo application includes a demonstration of how ContentAccess() can be used to read Archer records very simply.  The <a href="CHUM_tool.html">CHUM Tool</a> and the <a href="UserAccessProcessor.html">User Access Processor</a> also demonstrate its use.</p>
+<h3 id="creating-updating-and-deleting-records">Creating, updating and deleting records</h3>
+<p>When it's necessary to create new records, modify existing records, or delete records from the Archer system, Estrelica.Core's Content resolver handles that as well.  The <a class="xref" href="../api/Estrelica.Archer.Content.IArcherContentAccess.html">IArcherContentAccess</a> interface includes a ForEdit() method which puts the record object into edit mode.  While it's in this mode, it exposes a new <a class="xref" href="../api/Estrelica.Archer.Content.IArcherContentEdit.html">IArcherContentEdit</a> interface which provides editor classes for each of the editable Archer field types.  These editor classes make it simple to deal with the different data types and constraints used by each of the field types.</p>
+<p>The Content Demo application includes a demonstration of the full CRUD (Create, Read, Update, Delete) process using the ForEdit() method.  It first inserts a record describing Estrelica.Core into the core &quot;Applications&quot; application, then reads it back to verify its field values, edits the record to change a few fields and performs a second readback verfication, then deletes the record.</p>
+<p>[^1]: despite the documentation's claim that the REST API also supports xml results.  All tests indicate that providing an &quot;application/xml&quot; Accept header only causes the Archer server to throw a 500 &quot;Internal Server Error&quot; exception.</p>
+</article>
+          </div>
+          <div class="contribution-panel mobile-hide">
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright 2019-2023 by <strong>CastleHill Software LLC</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

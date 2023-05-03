@@ -78,7 +78,7 @@ namespace UserAccessProcessor
 
 					// The configuration under which CoreConfig will instantiate the Core is defined via JSON files.
 					// This requires that you modify the file at
-					//		..\..\..\..\..\Estrelica.Demo.Common\appSettingsSample.json (i.e. in the Estrelica.Demo.Common project)
+					//		..\..\..\..\..\Estrelica.Demo.Common\appSettings.json (i.e. in the Estrelica.Demo.Common project)
 					// and/or a local user secrets file at
 					//		%appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
 					// with your CastleHill Software authentication key and your Archer instance details and credentials.
@@ -88,7 +88,6 @@ namespace UserAccessProcessor
 
 					// The user account that you specify for this configuration must have, at minimum, read and update access to the 
 					// "User Access Request" application.
-
 
 					// "appConfigFilename" specifies a JSON app settings file where your configuration is stored.  If not
 					// explicitly provided this will default to "appSettings.json" in the current executing directory.

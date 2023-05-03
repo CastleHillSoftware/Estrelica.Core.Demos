@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Metadata Demo | Estrelica Core </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Metadata Demo | Estrelica Core ">
+    
+      <link rel="shortcut icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc">
+      <meta property="docfx:tocrel" content="toc">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" src="../images/logo.png" alt="" style="position: relative; top: 50%; transform: translateY(-50%);">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+
+                <ul class="nav level1 navbar-nav">
+                      <li>
+                          <a href="../articles/getting_started.html" title="Articles">Articles</a>
+                      </li>
+                      <li>
+                          <a href="../api/index.html" title="Api Documentation">Api Documentation</a>
+                      </li>
+                </ul>            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div>
+              <div class="sidefilter">
+                <form class="toc-filter">
+                  <span class="glyphicon glyphicon-filter filter-icon"></span>
+                  <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+                </form>
+              </div>
+              <div class="sidetoc">
+                <div class="toc" id="toc">
+
+                  <ul class="nav level1">
+                    <li class="">
+                      <a href="getting_started.html" title="Getting Started" class="">Getting Started</a>
+                    </li>
+                    <li class="">
+                      <a href="connecting_to_archer.html" title="Connecting to Archer" class="">Connecting to Archer</a>
+                    </li>
+                    <li class="">
+                      <a href="manage_configuration.html" title="Managing Configuration" class="">Managing Configuration</a>
+                    </li>
+                    <li class="">
+                      <a href="architecture_data_flow.html" title="Architecture and Data Flow" class="">Architecture and Data Flow</a>
+                    </li>
+                    <li class="">
+                      <a href="extensions.html" title="Extended Methods" class="">Extended Methods</a>
+                    </li>
+                    <li class="">
+                      <span class="expand-stub"></span>
+                      <a href="Estrelica.Core.Demos.html" title="Estrelica.Core.Demos Solution" class="">Estrelica.Core.Demos Solution</a>
+
+                        <ul class="nav level2">
+                          <li class="active">
+                            <a href="Metadata_demo.html" title="Metadata Demo" class="active">Metadata Demo</a>
+                          </li>
+                          <li class="">
+                            <a href="Content_demo.html" title="Content Demo" class="">Content Demo</a>
+                          </li>
+                          <li class="">
+                            <a href="Datafeed_demo.html" title="Datafeed Explorer" class="">Datafeed Explorer</a>
+                          </li>
+                          <li class="">
+                            <a href="CHUM_tool.html" title="CHUM Tool" class="">CHUM Tool</a>
+                          </li>
+                          <li class="">
+                            <a href="UserAccessProcessor.html" title="User Access Processor" class="">User Access Processor</a>
+                          </li>
+                        </ul>                    </li>
+                  </ul>                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="metadata-demo">Metadata Demo</h1>
+
+<p>Almost every Archer integration activity involves some inspection of configuration metadata.  For example, in order to build a search query or construct a content update JSON object, you'll need to know the relevant module ids, level ids, field ids, values list value ids, etc.  For more complex activities you'll need to know a lot more about your Archer metadata than just their id values.</p>
+<h3 id="the-problem">The problem</h3>
+<p>The Archer API provides mechanisms to discover these attributes, although some are a bit clumsy.  The API methods you need to call are not always obvious or intuitive, and the results are returned as either JSON or XML strings which are not documented by Archer.  Archer's documentation is great at explaining which methods are available and what calling conventions are needed, but leaves out the details about what actually comes back from each method call.  This requires a lot of trial and error investigation as part of the development process in order to figure out just how to find the specific information you're interested in.</p>
+<p>For example, you can be pretty certain that (almost) every serialized metadata object returned by Archer's API will have its integer Id in a node named &quot;Id&quot;.  All entities have this property -- modules, levels, fields, layouts, etc.  But what about some esoteric property, like the maximum upload file size allowed on an Attachment field?  The documentation says nothing about this, so the only way to know is to retrieve an example Attachment field definition (via the Archer REST API /platformapi/core/system/fielddefinition method), then look at the string returned until you find an attribute that looks like what you want, and take note of it for future use.  (BTW, the key name is &quot;MaxFileSize&quot; and it returns an integer expressing the file size in megabytes, but there's nothing in the documentation about this.)</p>
+<h3 id="working-with-api-results">Working with API results</h3>
+<p>For simple projects, it may suffice to deserialize the results returned by the Archer API into IDictionary&lt;string, dynamic&gt; objects, then pull the needed attributes out using the appropriate string keys (once you know what those keys are).  For example, in the above case, you might learn the maximum file size for a given Attachment field like so:</p>
+<pre><code class="lang-csharp">    int fieldId = 14604; // Id of the &quot;4th Party Documentation&quot; field in &quot;4th Parties&quot;
+    string httpResponse =  GetHttpResponse(myArcherURL + &quot;/platformapi/core/system/fielddefinition&quot;, mySessionToken);
+
+    IDictionary&lt;string, dynamic&gt; fieldDefinition = JsonConvert.DeserializeObject&lt;IDictionary&lt;string, dynamic&gt;&gt;(httpResponse);
+    
+    int maxSizeInMegabytes = fieldDefinition[&quot;MaxFileSize&quot;];
+</code></pre>
+<p>assuming that you've already got a valid session token in mySessionToken and have implemented the GetHttpResponse() method with the appropriate HTTP method and GET override for this particular call.</p>
+<p>Or you could use Estrelica.Core's APIFacade for that.  It already knows that this particular REST API method requires an HTTP POST with a GET override (which some of Archer's API methods do, while others do not).  It also knows how to establish and maintain a session, so you don't have to worry about passing session tokens around in your calls.  It also manages errors (converting Archer's error responses into exceptions) and retries, and deserializes all JSON strings returned by Archer into IDictionary&lt;string, dynamic&gt; results for you.  So the above example becomes as simple as</p>
+<pre><code class="lang-csharp">    int fieldId = 14604; // Id of the &quot;4th Party Documentation&quot; field in &quot;4th Parties&quot;
+    var fieldDefinition = apiFacade.GetFieldDefinition(fieldId);
+    int maxSizeInMegabytes = fieldDefinition[&quot;MaxFileSize&quot;];
+</code></pre>
+<p>The Metadata Demo project shows a few examples of this, demonstrating how to retrieve various metadata entities via REST API methods through the APIFacade class, and how to evaluate the properties of these entities using string key identifiers.</p>
+<h3 id="problems-with-this-approach">Problems with this approach</h3>
+<p>If you know all the entity keys of all of the entity properties involved in your, the APIFacade may be a perfect fit for your purpose.  However, there are risks involved.</p>
+<p>The use of string keys, in addition to requiring the labor of discovery, is generally a bad coding practice.  One problem is that they can easily be misspelled in code, but the compiler will have no way to validate them, so you won't learn that there's a problem until runtime.  For example, given the scenario above, what if one developer on your team misremembers the &quot;MaxFileSize&quot; key as &quot;MaximumFileSize&quot;?  Substituting that erroneous spelling won't cause the build to break, but when it executes at runtime, the dictionary object will throw a key violation exception.</p>
+<p>Another problem is that because these keys are arbitrary, the compiler has no way of knowing what data types their corresponding values will have.  The examples above use IDictionary&lt;string, dynamic&gt;, where dynamic is just a hint telling the .NET compiler &quot;This is just an object reference, but let me assign it without casting to any specific data type I want&quot;.  Since by convention we know &quot;MaxFileSize&quot; is an integer, the direct assignment</p>
+<pre><code class="lang-csharp">    int maxSizeInMegabytes = fieldDefinition[&quot;MaxFileSize&quot;];
+</code></pre>
+<p>works just fine.  The compiler trusts us that whatever is in the dictionary for that key is in fact an integer value, allowing the build to complete without error.</p>
+<p>Unfortunately, the compiler will also allow us to type something like</p>
+<pre><code class="lang-csharp">    DateTime maxSizeInMegabytes = fieldDefinition[&quot;MaxFileSize&quot;];
+</code></pre>
+<p>without complaint.  At runtime, however, this will cause an exception since an integer cannot be assigned to a DateTime variable, and there's no way for the compiler to know that in advance.</p>
+<h3 id="a-better-way">A better way</h3>
+<p>These are common problems in any API scenario involving remote HTTP calls (where everything must be marshalled across the wire as a string).  A common solution to all of this is to deserialize the results not into arbitrary key/value pair dictionaries, but instead into strongly-typed classes, exposing attributes via strongly-typed properties whose data types are known at compile time.</p>
+<p>This means that instead of evaluating a value like this:</p>
+<pre><code class="lang-csharp">    int maxSizeInMegabytes = fieldDefinition[&quot;MaxFileSize&quot;];
+</code></pre>
+<p>you would instead do it like this:</p>
+<pre><code class="lang-csharp">    int maxSizeInMegabytes = fieldDefinition.MaxFileSize;
+</code></pre>
+<p>In this case, the compiler knows that the class referenced by the fieldDefinition variable has a property named MaxFileSize, and that it returns an integer value.  The compiler will not allow the property name to be misspelled, or permit the result to be assigned to an incompatible type.  This drastically reduces coding effort (as the properties themselves will be suggested by IntelliSense, requiring no discovery on the part of the developer) and eliminates the opportunity for runtime errors like those described above.</p>
+<p>At least two libraries are available on NuGet which provide a set of deserialization classes for Archer API results.  Estrelica.Core provides its own set of these classes, but in a much more holistic and intelligent way.</p>
+<p>The Metadata Demo shows parallel implementations for each of the direct APIFacade examples, showing how to do the same thing using Estrelica.Core's metadata object model, requiring far less code in each case and with more trustworthy results due to compile-time type checking.</p>
+<h3 id="working-with-the-estrelicacore-metadata-object-model">Working with the Estrelica.Core metadata object model</h3>
+<p>Estrelica.Core exposes its object model through a series of resolver classes.  In the case of metadata, these are exposed via Core.Metadata, which implements the <a class="xref" href="../api/Estrelica.Archer.Utility.IMetadataResolver.html">IMetadataResolver</a> interface.</p>
+<p>The resolvers are responsible for wrapping calls to Archer's API via the APIFacade, then deserializing the returned results into classes which expose strongly-typed properties via appropriate interfaces.  They also offer a plethora of methods to retrieve Archer entities, providing a variety of ways to achieve the same ends.  For example, the scenario above could be accomplished via the Metadata resolver as:</p>
+<pre><code class="lang-csharp">	int fieldId = 14604; // Id of the &quot;4th Party Documentation&quot; field in &quot;4th Parties&quot;
+	var fieldDefinition = core.Metadata.FieldById(fieldId) as IAttachmentField;
+	int maxSizeInMegabytes = fieldDefinition.MaxFileSize;
+</code></pre>
+<p>But this assumes we already know the integer field Id to start with.  How did we discover it?  Doing that via the Archer API (or even via the APIFacade) would require a series of steps, first retrieving all applications to find the one named &quot;4th Parties&quot;, iterating through each of that applications levels, then iterating through each level's fields to find the one named &quot;4th Party Documentation&quot;.  Only at that point could we retrieve the resulting field definition's &quot;Id&quot; property to know what it is.</p>
+<p>The Metadata resolver makes this whole process much simpler, allowing all of these steps to be performed in a single statement:</p>
+<pre><code class="lang-csharp">	int maxSizeInMegabytes = core.Metadata.ApplicationByName(&quot;4th Parties&quot;)
+		.Fields.ByName&lt;IAttachmentField&gt;(&quot;4th Party Documentation&quot;)
+		.MaxFileSize;
+</code></pre>
+<p>This is possible because Estrelica.Core does not merely represent these results as simple discrete serialization classes, the way other libraries do.  Estrelica.Core, via its resolver classes, returns a virtual object graph representing your entire Archer instance.</p>
+<p>This object graph is fully-traversible, meaning that once you've fetched a given entity (such as an application in the above example), you can visit its related entities (e.g. the Fields associated with the application) via standard properties.  Since everything in Archer is related in one way or another to everything else, this traversal can be quite wide-ranging.  For example, you could travel from an arbitrary field to the field's level, to the level's module, to the module's solutions, then to another module in that same solution, then to one of that module's levels, then to one of that level's datafeeds, then to one of the fields mapped by that datafeed, all via dotted property notation without making a single explicit call to the Archer API.</p>
+<p>The object graph is &quot;virtual&quot; in the sense that it is not completely loaded into memory all at once.  Instead, the resolver classes intercept any property calls for these related entities and execute the relevant API calls on demand.</p>
+<h3 id="other-considerations">Other considerations</h3>
+<p>In addition to the examples showing how to work with Archer metadata via the APIFacade and via the Estrelica.Core object model, the Metadata Demo also highlights these two concepts:</p>
+<ul>
+<li>Extensions - Some metadata is not available via the standard Archer API.  Estrelica.Core implements its own Extended API which provides access to some of these entities (e.g. Solutions), but it must be <a href="extensions.html">activated in order for these calls to be available</a>.  The simplest way to activate these extensions (and in fact, the only way if you're evaluating a Trial license) is by simply providing a connection string to your Archer instance database as part of the appSettings.json configuration.</li>
+</ul>
+<p>If extensions are available, the Metadata Demo will show how Solutions can be accessed, as well as what happens in the scenario where extensions are unavailable (so you can code defensively for that case).</p>
+<ul>
+<li>Subform discovery - Archer's API has parallel methods for each of the three module types (application, questionnaire and subform) to load their definitions by integer Id, but only exposes &quot;get all&quot; methods for applications and questionnaires.  The &quot;get all applications&quot; and &quot;get all questionnaires&quot; methods are used by the Metadata resolver to allow retrieving applications/questionnaires by name, by alias or by Guid, but since there's no corresponding method for subforms, this becomes difficult.  The only way to &quot;get all subforms&quot; is by calling the &quot;get subform by Id&quot; method repeatedly, and you can only do this if you already know what all of the subform Ids are.</li>
+</ul>
+<p>The Extended API simplifies this by providing a method which returns the Ids of all subforms in the system, and that method is called by the Metadata resolver, if available, to discover the full set of subform Ids whenever it needs to load all subforms.  Unfortunately, without the Extended API, the only way to discover these subform Ids is by first encountering them in the &quot;RelatedSubformId&quot; property of a subform field.  For this reason, the Metadata resolver will capture this value any time a subform field passes through any its methods, so that the next time a &quot;get all subforms&quot; need arises, it has some subform Ids to work with in the absence of extensions.</p>
+<p>Unfortunately this means that when extensions are unavailable, you can't retrieve a subform by name, alias or GUID unless you've already loaded a related subform field at some point (in order to let the Metadata resolver discover that subform's Id).  The last few cases in the Metadata Demo application attempt to highlight how all of this works, showing what occurs in regard to subform discovery under different scenarios.</p>
+</article>
+          </div>
+          <div class="contribution-panel mobile-hide">
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Copyright 2019-2023 by <strong>CastleHill Software LLC</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
