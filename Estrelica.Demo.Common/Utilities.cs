@@ -4,6 +4,7 @@ using Estrelica.Utility;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace Estrelica.Demo
 {
@@ -71,6 +72,26 @@ namespace Estrelica.Demo
 			Log("Hit any key to proceed...", color);
 			Console.ReadKey();
 			Log("");
+		}
+
+		public static char Prompt(string prompt, string acceptedKeys = "YN", ConsoleColor? color = ConsoleColor.Cyan)
+		{
+			acceptedKeys = acceptedKeys?.Trim().ToUpper() ?? String.Empty;
+			if (acceptedKeys.Length == 0)
+			{
+				acceptedKeys = "YN";
+			}
+			var keyChars = acceptedKeys.ToCharArray();
+			string message = $"{prompt} ({keyChars.Conjoin("//").TrimEnd('/')}) ";
+			Log(message, color);
+			char? response = null;
+			while (!response.HasValue)
+			{
+				var result = Char.ToUpper(Console.ReadKey(true).KeyChar);
+				response = keyChars.FirstOrDefault(c => c == result);
+			}
+			Log(response.Value.ToString());
+			return response.Value;
 		}
 
 		public static IConfiguration LoadConfigFromFile(string appConfigFilename = null, string userSecretsId = "Estrelica.Core.Demo")

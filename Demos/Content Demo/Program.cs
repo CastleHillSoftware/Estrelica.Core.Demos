@@ -151,7 +151,8 @@ namespace ContentDemo
 			// from that level would be returned (see the next example for a demonstration of this behavior).
 
 			IEnumerable<XElement> content = core.Content.GetContent(moduleName, null, recordCallback);
-			if (content.Count() > 0)
+            int returnedRecordCount = content.Count();
+			if (returnedRecordCount > 0)
 			{
 				Utilities.Log("");
 				Utilities.Log($"Total records loaded: {totalRecordCount} of {expectedRecordCount} records", totalRecordCount == expectedRecordCount);
@@ -167,6 +168,10 @@ namespace ContentDemo
 				// We expect the result to have at least one record satisfying this condition since Policies has 3 levels.
 				Utilities.Log(content.First(r => r.Element("Record")?.Element("Record") != null)?.ToString(SaveOptions.None));
 			}
+            // Make sure the total count that Archer told us to expect matches the actual count that were returned
+            Assert.AreEqual("Comparing expected count vs. returned count", returnedRecordCount, expectedRecordCount);
+            // Confirm that we got > 0 results
+            Assert.IsGreaterThanZero("Returned record count: " + returnedRecordCount, returnedRecordCount);
 		}
 
 		public static int LoadSingleLevelAsXml()
@@ -587,24 +592,14 @@ namespace ContentDemo
 
                 // Identify the "Applications" application.  See notes above.
                 var application = core.Metadata.ApplicationByName("Applications");
-                Utilities.Log($"For this we'll use the '{application.Name}' application.  First, we'll insert a new record.");
+                Utilities.Log($"For this we'll use the '{application.Name}' application.  First, we'll insert a new record representing Estrelica.Core.");
 
-                // Step 1: Create a new record
-
-                // Records belong to levels rather than to applications/modules, so first we need to retrieve the default level
+                // Records belong to levels rather than to applications/modules, so in order to manage records we need to identify the default level
                 // for this application:
                 var level = application.Level(); // <-- If we wanted to select a specific level, we could pass its name/alias/guid/id here,
                                                  // but we know Applications only has one level so we'll just take the default
 
-                // and create a new empty content record at that level.  At this point the record only exists in memory --
-                // it has *not* been saved to Archer yet.  That'll happen when we call core.Content.Update(content) below.
-                var contentEdit = level.CreateContent();
-
-                Assert.IsTrue($"Created new empty content record for level '{level.Name}'",
-                    contentEdit != null && // we got a fresh IArcherContentEdit record
-                    contentEdit.Id == 0); // and its Id is 0, meaning that it does not (yet) exist in Archer
-
-                // Step 2: Identify some fields for this record, as well as a Content Id for one of the fields,
+                // Step 1: Identify some fields for this record, as well as a Content Id for one of the fields,
                 // to be used in making edits in Step 4.
 
                 // Note: some fields may be required to have a value before saving, so you can evaluate that like so if needed:
@@ -648,737 +643,790 @@ namespace ContentDemo
                 // an exception as expected.
 
 
-                // Step 3: Prepare some items for inserting into CrossReference, RelatedRecords and Attachment fields
+                // Step 2: Make sure there's not already a record for 'Estrelica.Core' in this level, as that will cause our insert to
+                // fail due to the uniqueness constraint on the Name field.  If a record already exists, we'll give the user an
+                // opportunity to delete it before proceeding (this may be the result of having run this demo in the past without
+                // allowing it to perform its cleanup in the 'finally' block below).
+                // We'll do this by performing a simple search "where Name = 'Estrelica.Core'" using the nameField we identified above:
 
-                Func<IArcherLevel, int> getFirstContentIdFromLevel = (levelToSearch) =>
+                int? existingContentId = core.Content.GetContent(level: level, // the level to be searched
+                    includeFieldCallback: f => f.FieldType == FieldType.TrackingID, // we need to provide at least one display field even though we're only checking for the existence of a record
+                    filterConditions: new XElement[] { nameField.CreateCondition(ValuesOperator.Equals, "Estrelica.Core") } // and this filter will return the record we're looking for
+                    ).FirstOrDefault()?.ContentAccess(core)?.Id;
+
+                bool proceedWithInsert = !existingContentId.HasValue;
+
+                if (!proceedWithInsert)
+				{
+                    // We already have a record, so prompt the user to delete it before proceeding
+                    if (proceedWithInsert = 
+                            Utilities.Prompt($"A record already exists in '{application.Name}' for 'Estrelica.Core'.  Would you like to delete it and proceed with the demo?") == 'Y')
+					{
+                        core.Content.Delete(existingContentId.Value);
+                        Utilities.Log("Deleted content Id " + existingContentId.Value);
+					}
+				}
+
+                if (proceedWithInsert)
                 {
-                    return core.Content.GetContent(new ContentSearchOptions { level = levelToSearch })
-                        .ContentAccess(core).FirstOrDefault()?.Id ?? 0;
-                };
+                    // Step 3: Create a new record
 
-                // We'll use this to keep track of target levels that we've already determined have no content
-                // available for the cross-ref or related records fields, so we don't do it unnecessarily.
-                HashSet<IArcherLevel> checkedLevelsForContent = new HashSet<IArcherLevel>();
+                    // Here we'll create a new empty content record at the identified level.  At this point the record only exists in memory --
+                    // it has *not* been saved to Archer yet.  That'll happen when we call core.Content.Update(content) below.
+                    var contentEdit = level.CreateContent();
 
-                // Step 3a: Identify a cross ref field in the level which has available content that we can
-                // add to it.
+                    Assert.IsTrue($"Created new empty content record for level '{level.Name}'",
+                        contentEdit != null && // we got a fresh IArcherContentEdit record
+                        contentEdit.Id == 0); // and its Id is 0, meaning that it does not (yet) exist in Archer
 
-                ICrossReferenceField crossRefField = null;
-                int targetCrossRefContentId = 0;
+                    // Prepare some items for inserting into CrossReference, RelatedRecords and Attachment fields
 
-                foreach (var crf in level.FieldsOfType<ICrossReferenceField>())
-                {
-                    // Look for cross-ref fields that don't require > 1 reference, because
-                    // we're only going to use a single content Id for this
-                    if (crf.MinimumSelection.GetValueOrDefault(0) < 2)
+                    Func<IArcherLevel, int> getFirstContentIdFromLevel = (levelToSearch) =>
                     {
-                        foreach (var relatedLevel in crf.RelatedLevels)
+                        return core.Content.GetContent(new ContentSearchOptions { level = levelToSearch })
+                            .ContentAccess(core).FirstOrDefault()?.Id ?? 0;
+                    };
+
+                    // We'll use this to keep track of target levels that we've already determined have no content
+                    // available for the cross-ref or related records fields, so we don't do it unnecessarily.
+                    HashSet<IArcherLevel> checkedLevelsForContent = new HashSet<IArcherLevel>();
+
+                    // Identify a cross ref field in the level which has available content that we can
+                    // add to it.
+
+                    ICrossReferenceField crossRefField = null;
+                    int targetCrossRefContentId = 0;
+
+                    foreach (var crf in level.FieldsOfType<ICrossReferenceField>())
+                    {
+                        // Look for cross-ref fields that don't require > 1 reference, because
+                        // we're only going to use a single content Id for this.
+                        // Note that MinimumSelection may be left undefined in Archer, so GetValueOrDefault(0)
+                        // will treat it as though the MinimumSelection is explicitly set to 0 (i.e., "no minimum
+                        // selection required").
+                        if (crf.MinimumSelection.GetValueOrDefault(0) < 2)
+                        {
+                            foreach (var relatedLevel in crf.RelatedLevels)
+                            {
+                                // And try to find a candidate content Id that we can insert into it.
+                                if (!checkedLevelsForContent.Contains(relatedLevel))
+                                {
+                                    targetCrossRefContentId = getFirstContentIdFromLevel(relatedLevel);
+                                    if (targetCrossRefContentId > 0)
+                                    {
+                                        crossRefField = crf;
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        // Note that we found 0 records in this one so we don't check it again.
+                                        checkedLevelsForContent.Add(relatedLevel);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    if (crossRefField != null)
+                    {
+                        Utilities.Log($"Identified content Id {targetCrossRefContentId} for use in populating {crossRefField.FieldType} field '{crossRefField.Name}'");
+                    }
+                    else
+                    {
+                        Utilities.Log("Unable to identify any existing content for use in populating any CrossReference fields, skipping this step.");
+                    }
+
+                    // Do the same for a Related Records field
+
+                    IRelatedRecordsField relatedRecordsField = null;
+                    int targetRelatedRecordsContentId = 0;
+
+                    foreach (var rrf in level.FieldsOfType<IRelatedRecordsField>())
+                    {
+                        // Look for related records fields that don't require > 1 reference, because
+                        // we're only going to use a single content Id for this
+                        if (rrf.MinimumSelection.GetValueOrDefault(0) < 2)
                         {
                             // And try to find a candidate content Id that we can insert into it.
-                            if (!checkedLevelsForContent.Contains(relatedLevel))
+                            if (!checkedLevelsForContent.Contains(rrf.RelatedLevel))
                             {
-                                targetCrossRefContentId = getFirstContentIdFromLevel(relatedLevel);
-                                if (targetCrossRefContentId > 0)
+                                targetRelatedRecordsContentId = getFirstContentIdFromLevel(rrf.RelatedLevel);
+                                if (targetRelatedRecordsContentId > 0)
                                 {
-                                    crossRefField = crf;
+                                    relatedRecordsField = rrf;
                                     break;
                                 }
                                 else
                                 {
                                     // Note that we found 0 records in this one so we don't check it again.
-                                    checkedLevelsForContent.Add(relatedLevel);
+                                    checkedLevelsForContent.Add(rrf.RelatedLevel);
                                 }
                             }
                         }
                     }
-                }
 
-                if (crossRefField != null)
-                {
-                    Utilities.Log($"Identified content Id {targetCrossRefContentId} for use in populating {crossRefField.FieldType} field '{crossRefField.Name}'");
-                }
-                else
-                {
-                    Utilities.Log("Unable to identify any existing content for use in populating any CrossReference fields, skipping this step.");
-                }
-
-                // Step 3b: Do the same for a Related Records field
-
-                IRelatedRecordsField relatedRecordsField = null;
-                int targetRelatedRecordsContentId = 0;
-
-                foreach (var rrf in level.FieldsOfType<IRelatedRecordsField>())
-                {
-                    // Look for related records fields that don't require > 1 reference, because
-                    // we're only going to use a single content Id for this
-                    if (rrf.MinimumSelection.GetValueOrDefault(0) < 2)
+                    if (relatedRecordsField != null)
                     {
-                        // And try to find a candidate content Id that we can insert into it.
-                        if (!checkedLevelsForContent.Contains(rrf.RelatedLevel))
-                        {
-                            targetRelatedRecordsContentId = getFirstContentIdFromLevel(rrf.RelatedLevel);
-                            if (targetRelatedRecordsContentId > 0)
-                            {
-                                relatedRecordsField = rrf;
-                                break;
-                            }
-                            else
-                            {
-                                // Note that we found 0 records in this one so we don't check it again.
-                                checkedLevelsForContent.Add(rrf.RelatedLevel);
-                            }
-                        }
+                        Utilities.Log($"Identified content Id {targetRelatedRecordsContentId} for use in populating {relatedRecordsField.FieldType} field '{relatedRecordsField.Name}'");
                     }
-                }
-
-                if (relatedRecordsField != null)
-                {
-                    Utilities.Log($"Identified content Id {targetRelatedRecordsContentId} for use in populating {relatedRecordsField.FieldType} field '{relatedRecordsField.Name}'");
-                }
-                else
-                {
-                    Utilities.Log("Unable to identify any existing content for use in populating any RelatedRecords fields, skipping this step.");
-                }
-
-
-                // Step 3c: We also need a file that we can upload as an attachment
-                attachmentFilename = Path.Combine(Path.GetTempPath(), "test file.txt");
-                File.WriteAllText(attachmentFilename, "This is some sample text for the attachment");
-
-                // We're also going to need the current user account for a few things below, so we'll capture that here:
-                IArcherUser currentUser = core.Access.CurrentUser;
-
-                // Step 4: Populate the new record's field with some values
-
-                // Now we're ready to start populating the record with some values.  Calling the IArcherContentEdit.Field()
-                // method with a type-specific field variable will return an editor specific to that field type.
-                // For example, calling it with an ITextField returns an ITextValueEdit editor, which only allows
-                // string values to be assigned to its .Value property:
-
-                contentEdit.Field(nameField).Value = "Estrelica.Core";
-
-                contentEdit.Field(versionField).Value = typeof(Estrelica.Core).Assembly.GetName().Version.ToString();
-
-                contentEdit.Field(descriptionField).Value = "Estrelica.Core provides simplified access to the Archer APIs";
-
-                // Likewise, calling it with an INumericField returns a INumericValueEdit editor, which
-                // only allows numbers to be assigned to its value:
-
-                contentEdit.Field(licensedQuantityField).Value = 1;
-
-                // Editors for Archer's complex field types are also provided.  For example, calling IArcherContentEdit.Field()
-                // with an IUserGroupListField returns an IUserGroupListSelectionEdit, which has distinct
-                // methods for setting/adding/removing users and/or groups on the field.  Here we'll
-                // use it to make the current user the owner for this application:
-
-                var ownerFieldEditor = contentEdit.Field(ownerField);
-                // We know this is a newly-minted record, so it has no users in this field at present.
-                // Therefore we can use the .AddUser() method since we know the field is currently empty:
-                ownerFieldEditor.AddUser(currentUser);
-
-                // But the preferred way in this case is to use .SetUsers(), so that if this happened to
-                // be a modification to an existing record, any users already in that field will be completely replaced by our
-                // new selection:
-                ownerFieldEditor.SetUsers(currentUser);
-
-                // Note that if this is a multi-select field, we can set multiple users for the field at once
-                // by calling .SetUsers() with a params list of users rather than making repeated calls to .AddUser().
-                // Since we only have one user in scope, let's just pass that same user to the method three times to demonstrate:
-                ownerFieldEditor.SetUsers(currentUser, currentUser, currentUser);
-
-                // Estrelica.Core will recognize any duplicates in the params list, reducing them down to the
-                // unique values before saving (i.e. even though we passed 3 user references above, Estrelica.Core will
-                // recognize that they're all the same and will therefore treat it as though we only passed 1):
-                Assert.AreEqual("Confirming that Estrelica.Core correctly handles duplicate values on reference fields",
-                    1, ownerFieldEditor.UserIds.Count());
-
-                // Furthermore, the methods on the IUserGroupListSelectionEdit editor are overloaded to
-                // accept users/groups by reference to objects (as above), or by their integer Ids if
-                // that's all we have available:
-                int userId = currentUser.Id;
-                ownerFieldEditor.SetUsers(userId);
-
-                // And as before, we can do it with a params list of user Ids if we choose, with the same backing
-                // intelligence to ignore duplicates:
-                ownerFieldEditor.SetUsers(userId, userId, userId, userId, userId, userId);
-
-                // Note that all of the .AddUser() and .SetUsers() calls on the ownerFieldEditor shown above did
-                // exactly the same thing: set the current user as the owner of the record we're editing.
-                // The multiple calls are only presented here to show several different approaches available
-                // to accomplish the same task.  
-
-                // IImageField and IAttachmentField are two other complex types, both handled by the IDocumentFieldEdit
-                // editor.  This editor provides a .Upload() method to upload and attach a new file to the field.
-                var documentEditor = contentEdit.Field(attachmentField);
-
-                // Here we'll attach the "test file.txt" file we created above.  The Upload() method takes the
-                // filename to be sent to Archer as an attachment, with two optional parameters:
-                //   - a display name (defaulting to the original filename if not specified) and
-                //   - a boolean value indicating whether the file should be encrypted at rest (default is false, i.e. no encryption).
-                // Here we'll use displayName parameter to give the attachment a different display name in Archer:
-                documentEditor.Upload(attachmentFilename, "Sample Text File.txt");
-
-                // And just as a test, here we'll show what happens when you try to upload a file that doesn't
-                // exist...
-                Assert.ThrowsException<FileNotFoundException>("Verifying that the document field will not accept invalid filenames",
-                    () => documentEditor.Upload(@"Z:\SomeInvalidDirectory\SomeInvalidFilename.txt"));
-
-
-                // IValuesList field is another complex type, supported by the IValuesListSelectionEdit editor.
-                // This editor allows values to be managed for the field using whatever identifiers you 
-                // choose, by value Id, value text, or even a reference to an IArcherValuesListValue object.
-                // Furthermore, if your selection supports and/or requires "Other Text", the editor will allow you
-                // to set that as well via its .OtherText property.
-
-                // Set the value of the "Application Type" field, using the string name of the value.  Note that
-                // the .Set() method is overloaded to a) accept multiple values via a params list (if the field allows
-                // multiple selections), and b) allow values to be set by the values' integer Ids, names, or
-                // IValuesListValue references.
-
-                // Here we'll do it using the value name.  This will of course fail if the value name has been changed
-                // to something else in your environment.  You can identify the valid values for this field by examining
-                // applicationTypeField.ValuesList.Values if you want to use a different value.
-
-                var valuesListFieldEditor = contentEdit.Field(applicationTypeField);
-                string valueText = "Product Engineering Software";
-                
-                // The values list editor's Set method (and all methods that reference values by name) use
-                // case-insensitive value lookups by default (via the optional caseSensitiveLookup boolean parameter),
-                // so we can demonstrate that here by using the lowercase version of the value's name to
-                // set the value:
-                valuesListFieldEditor.Set(valueText.ToLower());
-
-                // If the Values List field in question supports "Other Text", and if the value we selected above
-                // requires it, we can also set the "Other Text" on the field using this syntax:
-                //      valuesListFieldEditor.OtherText = "Some other text";
-                // However, no Values List fields in the "Applcations" application require "Other Text", so
-                // we'll leave that commented out for this demo.
-
-                // And then confirm that the correct value, with a properly-cased name, resulted from the 
-                // call above:
-                Assert.AreEqual("Verifying that the case-insensitive value name lookup was successful",
-                    valuesListFieldEditor.Values.Single().Name, "Product Engineering Software");
-
-                // If the above fails in your environment because you have no value defined with the name
-                // "Product Engineering Sample", try modifying the valueText string above to a different
-                // value name that is valid in your environment.
-                // Alternately, you can try commenting out the "valuesListFieldEditor.Set(..) line above
-                // and uncomment the code below. It demonstrates instead how to set a value using an
-                // IArcherValuesListValue object, and here we'll just use the first one that's available
-                // on the associated Values List for the field:
-
-                //IArcherValuesListValue randomValue = valuesListFieldEditor.Values.FirstOrDefault();
-                //valuesListFieldEditor.Set(randomValue);
-                //// Alternately, if we know the value's integer Id, we could set it using that value too:
-                //// int valueId = randomValue.Id;
-                //// valuesListFieldEditor.Set(valueId);
-                //valueText = randomValue.Name; // capture the value's name for validation below
-
-                // As with all of the multi-value editors, IValuesListSelectionEdit supports setting
-                // multiple values as params as well (assuming the field permits multiple selections), e.g.
-                //	valuesListFieldEditor.Set("Value 1 Name", "Value 2 Name", "Value 3 Name", "etc.");
-                // or even by an IEnumerable<> of names, Ids or IArcherValuesListValue, e.g.
-                //	IEnumerable<IArcherValuesListValue> selectedValues = valuesListFieldEditor.Values.Where(v => v.Name.StartsWith("P"));
-                //	valuesListFieldEditor.Set(selectedValues);
-
-
-                // Reference fields (i.e. Cross-Reference, Related Records, and Subforms) are handled by
-                // the IReferencedRecordsSelectionEdit editor. It supports adding/removing/setting the field's
-                // reference(s) to other Archer records by ContentId(s) or IArcherRecord record reference(s).
-
-                // If we were able to identify a CrossReference field that relates to a level with
-                // identifiable content in Step 3 above, we'll populate that field with a reference here...
-
-                if (targetCrossRefContentId > 0)
-                {
-                    var referenceFieldEditor = contentEdit.Field(crossRefField);
-
-                    // Cross-Reference fields are supported by the ICrossReferencedRecordsSelectionEdit editor.
-                    // This is a subclass of the IReferencedRecordsSelectionEdit editor which overloads the
-                    //      Add(int contentId)
-                    // method with
-                    //      Add(int contentId, int levelId)
-                    // in order to support multi-level Cross-Reference fields.  If you know which level the
-                    // referenced content resides in, it is more efficient to call the latter method.  However
-                    // it is optional in all cases, for two reasons:
-                    //   1. If this is a simple single-level Cross-Reference field, the target level can be
-                    //      assumed from the field's definition, so there's no need to specify a levelId
-                    //   2. If this is a multi-level Cross-Reference field and no levelId is specified,
-                    //      Estrelica.Core will query the Archer API in the background to determine the levelId
-                    //      for whatever contentId we provide here
-                    // Therefore, this overloaded method is only necessary if the Cross-Reference field in
-                    // question targets multiple levels, and you already know which level the content resides
-                    // in and want to spare Estrelica.Core the effort of making another API call to look it up.
-
-                    // In this case, we'll just take the easy approach and call the simpler Add(int contentId) method.
-                    referenceFieldEditor.Add(targetCrossRefContentId);
-
-                    // This logic only applies to Cross-Reference fields, since they are the only reference
-                    // field type which may target multiple levels, hence the reason why the Cross-Reference
-                    // field type gets its own editor with this extra method.  Related Records and Subform fields
-                    // are handled by the base IReferencedRecordsSelectionEdit editor since they each may only
-                    // reference content at a single level.
-                }
-
-                // And likewise for a RelatedRecords field, if we were able to find one...
-
-                if (targetRelatedRecordsContentId > 0)
-                {
-                    var referenceFieldEditor = contentEdit.Field(relatedRecordsField);
-                    referenceFieldEditor.Add(targetRelatedRecordsContentId);
-                }
-
-
-                // Step 5: Create a new linked record via .AddNewRecord() on one of the referenced records field types
-
-                // The CrossReference and/or RelatedRecords field reference(s) that we added above shows how to link a record
-                // via one of those fields if the referenced record already exists in Archer with a known content Id.
-                // Sometimes, however, you need to create a new referenced record as part of the edit process.
-                // This is where the IReferencedRecordsEdit.AddNewRecord() method comes in handy.  It does three things for you:
-                //   1. Returns a new IArcherContentEdit record associated with the field's target level, so you can
-                //      start populating field values on the new referenced record right away
-                //   2. Handles the saving of that new record automatically, before the parent record is persisted
-                //   3. Adds a reference to the new record in the relevant field of the parent before the parent is persisted
-
-                // This is particularly useful for Subform fields, where the referenced record cannot exist
-                // outside the context of the parent record (i.e. the one we're currently editing), so we can't 
-                // pre-fetch the subform record's ContentId the way we did for the CrossReference/RelatedRecords examples above.
-
-                var subformEditor = contentEdit.Field(subformField);
-
-                // This returns an IReferencedRecordsEditor for the subform field, which we can call
-                // .AddNewRecord() on below.
-
-                // IReferencedRecordsEdit.AddNewRecord() supports two optional parameters.  The first is an integer levelId or
-                // IArcherLevel reference, telling it which target level it should create the new content in.  If we were
-                // creating a new record for an ICrossReferenceField which targets multiple levels, this parameter would be
-                // required.  In all other cases (ISubformField, IRelatedRecordsField, and any ICrossReferenceField which
-                // only targets a single level), Estrelica.Core will identify the target level from the field's
-                // metadata so we don't need to specify anything.
-
-                // The method also supports another optional parameter which we *WILL* use here however, an Action<int>
-                // callback that allows us to be informed of the newly-inserted record's content Id at some point
-                // in the future after it has been saved to Archer.  Since the new record's persistence is managed by
-                // the parent record (contentEdit in this case), we cannot call core.Content.Update() directly on
-                // this new record (in fact we'll demonstrate that it throws an exception below to prevent us if we try).
-                // Therefore, we can't retrieve the new contentId directly from that method call if we need to know what it
-                // is for some reason.  Passing an Action<int> callback here gives the parent record
-                // a way to inform us of the new record's Id as soon as it is inserted into Archer, so
-                // we can capture that Id for cleanup later.  (Again, this is optional.  If you don't care what
-                // the newly-created reference record's Id will be, you can call .AddNewRecord() with no parameters.)
-
-                var subformContentEdit = subformEditor.AddNewRecord(
-                    // This method will be called later, when we call IContentResolver.Update() on the parent record,
-                    // and the parent in turn calls IContentResolver.Update() on this new record in order to obtain
-                    // its content Id.  It will then invoke this method to let us know what that Id is:
-                    (newId) => newSubformContentId = newId
-                 );
-
-                // Here we'll edit the subform content using the alternate approach described earlier.  Whereas
-                // on the contentEdit record we first identified field objects from its level and used those later
-                // to retrieve editors from the record, that's really only necessary if you need to use those
-                // field references for something else in addition to making the edits.
-
-                // A more direct approach, assuming you already know the field type and name (or alias or guid
-                // or id) for a given field, is to directly access its editor using one of these field-type specific
-                // methods, each of which returns a type-specific editor for the field you've identified:
-
-                //	DateField() - Returns an IDateValueEdit editor for the identified Date field
-                //	TextField() - Returns an ITextValueEdit editor for the identified Text field
-                //	NumericField() - Returns an INumericValueEdit editor for the identified Text field
-                //	IPAddressField() - Returns an ITextValueEdit editor for the identified IPAddress field
-                //	DocumentField() - Returns an IDocumentFieldEdit editor for the identified Attachment or Image field
-                //	ReferenceField() - Returns an IReferencedRecordsEdit editor for the identified Cross-reference, Related Records, or Subform field
-                //	UserGroupField() - Returns an IUserGroupListSelectionEdit editor for the identified Users/Groups List or Record Permissions field
-                //	ValuesListField() - Returns an IValuesListSelectionEdit editor for the identified Values List field
-
-                subformContentEdit.TextField("Integration Name").Value = "Test integration name";
-                subformContentEdit.TextField("Integration Description").Value = "This is a test record for the Integrations subform";
-                subformContentEdit.UserGroupField("Integration Owner").SetUsers(core.Access.CurrentUser);
-
-                // In order for this newly-created subform content to be associated with the parent record, the parent record
-                // needs to know the subform record's content Id.  You might think that we need to persist the subform record,
-                // get its Id, and then call subformEditor.Add(newSubformContentId) at this point.  However, that is incorrect.
-                // All we need to do is call core.Content.Update() on the parent record, and it will take care of the rest.
-
-                // In fact, if we *do* try to call update directly on this subform record, it will throw an exception telling
-                // us that we're not allowed to do that -- its persistence is under the control of the parent record.  Persisting
-                // a managed record like this would be specifically illegal in the case of a subform, since a subform record cannot exist in
-                // Archer without a parent (which has not been saved yet, so Archer doesn't even know it exists).  However, the same logic
-                // applies to any referenced content (Cross-Reference, Related Record or Subform) that is initiated via the
-                // IReferencedRecordsEditor.AddNewRecord() method we used above (even though Cross-Referenced and Related Records may exist
-                // in Archer independent of a "parent" record).
-
-                Assert.ThrowsException<InvalidOperationException>("Confirm that we get an exception if we try to directly update a parent-managed record",
-                    () => core.Content.Update(subformContentEdit));
-
-                // Step 3. Push the record to Archer for insert, and get the resulting contentId of the newly-inserted record:
-
-                // If you see an exception here, it probably means that there's already an Application record having "Estrelica.Core" as the 
-                // "Application Name", probably resulting from an earlier execution of this demo that did not clean up after itself.
-                // If so, go to the Archer UI and delete that record, then try again.
-                contentId = core.Content.Update(contentEdit);
-
-                Assert.IsGreaterThanZero($"Inserted content record {contentId} into Archer instance {core.SessionProvider.Instance}", contentId);
-
-                // This assertion will confirm that the Action<int> callback we provided above (when creating the subform content) was invoked
-                // and notified about the new subform content's Id:
-                Assert.IsGreaterThanZero($"Inserted subform record {newSubformContentId} as part of the content record insert", newSubformContentId);
-
-                Utilities.Log($"The record has been inserted into the '{application.Name}' application with content Id {contentId}.  You may want to toggle over to the Archer UI at {core.SessionProvider.Url} and review the record at this point.  Hit any key when you're ready to proceed.");
-                Utilities.Pause();
-
-                // Step 4: Reload the record from Archer and confirm that it has the values we inserted:
-
-                // Archer's APIs provide two ways of loading content, directly via the REST API if you know the record's Id, or
-                // via search using the SOAP API if you only know specific field values on the record that you want to retrieve.
-                // Unfortunately the results returned by these two methods are completely different (JSON and XML), so if you
-                // want to work with them directly you need two completely different code paths to handle both.
-
-                // Estrelica.Core provides a .ContentAccess() extension method for both of those result types, returning a common
-                // IArcherContentAccess interface that allows you to maintain a single programming experience regardless of how the
-                // content was retrieved from Archer.
-
-                // Here we'll demonstrate both approaches, first via the direct REST API call to get the content by Id (returning a
-                // JSON object serialized to Dictionary<string, dynamic>), then again using the Archer webservices "search" to find the
-                // record by Application Name (which returns an XElement (xml) node).  Both cases will leverage the .ContentAccess()
-                // extension method to convert those results into IArcherContentAccess, so that all the following code that acts
-                // on those two records remains the same, eliminating the need to maintain two skillsets to handle the XML vs. JSON
-                // distinction.
-
-                IArcherContentAccess record = null;
-                foreach (var savedRecord in (new bool[] { true, false }).Select(useRestAPI =>
+                    else
                     {
-                        if (useRestAPI)
-                        {
-                            Utilities.Log("Verifying the record we just saved via the REST API");
-                            return core.Content.GetContentById(contentId).ContentAccess(core);
-                        }
-                        else
-                        {
-                            Utilities.Log("Verifying the record we just saved via the webservices Search API");
-                            var xmlResult = core.Content.GetContent(level: level,
-                                filterConditions: new XElement[] {
-                                    nameField.CreateCondition(ValuesOperator.Equals, "Estrelica.Core"),
-                                    level.Fields.First<IFirstPublishedField>().CreateCondition(DateValueOperator.Equals, DateTime.Now, false),
-                                    level.Fields.First<ILastUpdatedField>().CreateCondition(DateValueOperator.Equals, DateTime.Now, false)
-                                })
-                                .First();
+                        Utilities.Log("Unable to identify any existing content for use in populating any RelatedRecords fields, skipping this step.");
+                    }
 
-                            return xmlResult.ContentAccess(core);
-                        }
-                    }))
-                {
 
-                    // Since this is a newly inserted record, its create date and update date should match
-                    Assert.AreEqual("Verifying create/update dates", 
-                        savedRecord.UpdateInformation.CreateDate, 
-                        savedRecord.UpdateInformation.UpdateDate);
-                    // And the current user should be found as both the creator and updater
-                    Assert.AreEqual("Verifying create user", currentUser.Id, savedRecord.UpdateInformation.CreateUser.Id);
-                    Assert.AreEqual("Verifying update user", currentUser.Id, savedRecord.UpdateInformation.UpdateUser.Id);
+                    // We also need a file that we can upload as an attachment
+                    attachmentFilename = Path.Combine(Path.GetTempPath(), "test file.txt");
+                    File.WriteAllText(attachmentFilename, "This is some sample text for the attachment");
 
-                    // KeyFieldValue will attempt to return the value of the record's key field, if a key field is
-                    // defined and if it has been loaded for this record.  Otherwise it will return the Tracking Id
-                    // (if one is defined), and lastly falling back to the record's Content Id.
-                    Assert.IsNotNull("Verifying key field value", savedRecord.KeyFieldValue);
+                    // We're also going to need the current user account for a few things below, so we'll capture that here:
+                    IArcherUser currentUser = core.Access.CurrentUser;
 
-                    // Confirm that all of our edits are present on the record
-                    Assert.AreEqual($"Verifying '{nameField.Name}' {nameField.FieldType} field",
-                        "Estrelica.Core", savedRecord.Value(nameField));
+                    // Step 4: Populate the new record's field with some values
 
-                    Assert.AreEqual($"Verifying '{versionField.Name}' {nameField.FieldType} field",
-                        typeof(Estrelica.Core).Assembly.GetName().Version.ToString(), savedRecord.Value(versionField));
+                    // Now we're ready to start populating the record with values.  Calling the IArcherContentEdit.Field()
+                    // method with a type-specific field variable will return an editor specific to that field type.
+                    // For example, calling it with an ITextField returns an ITextValueEdit editor, which only allows
+                    // string values to be assigned to its .Value property:
 
-                    Assert.AreEqual($"Verifying '{licensedQuantityField.Name}' {licensedQuantityField.FieldType} field",
-                        1, savedRecord.Value(licensedQuantityField));
+                    contentEdit.Field(nameField).Value = "Estrelica.Core";
 
-                    // For the owner (UserGroupList) field, we expect it to have no groups and exactly 1 user, which should be the current user
-                    var owner = savedRecord.Value(ownerField);
-                    Assert.IsTrue($"Verifying '{ownerField.Name}' {ownerField.FieldType} field",
-                        owner.Users.Count() == 1 &&
-                        owner.Groups.Count() == 0 &&
-                        // owner.Users and currentUser are both resolved from the same IMetadataResolver cache, so we *could* do a simple
-                        // equality comparison here (i.e. owner.Users.First() == currentUser), but it is possible that the cache was
-                        // flushed and reloaded between the time that currentUser was set above and when owner.Users gets resolved
-                        // here, so the references could be to different objects representing the same user.
-                        // Therefore the best practice is to check that their Ids match, rather than their references.
-                        owner.Users.First().Id == currentUser.Id);
+                    contentEdit.Field(versionField).Value = typeof(Estrelica.Core).Assembly.GetName().Version.ToString();
 
-                    // The attachment field should contain exactly 1 file, and the file attached to it should match the temp file we created earlier
-                    var attachments = savedRecord.Value(attachmentField);
-                    Assert.AreEqual($"Verifying '{attachmentField.Name}' {attachmentField.FieldType} field",
-                        1, attachments.Count());
+                    contentEdit.Field(descriptionField).Value = "Estrelica.Core provides simplified access to the Archer APIs";
 
-                    Assert.AreEqual($"Verifying attachment filename",
-                        "Sample Text File.txt", attachments.FirstOrDefault()?.Filename);
+                    // Likewise, calling it with an INumericField returns a INumericValueEdit editor, which
+                    // only allows numbers to be assigned to its value:
 
-                    // Download the attachment to a temp filename
-                    tempFilename = Path.GetTempFileName();
-                    attachments.First().Download(tempFilename, true);
+                    contentEdit.Field(licensedQuantityField).Value = 1;
 
-                    string originalText = File.ReadAllText(attachmentFilename);
-                    string downloadedText = File.ReadAllText(tempFilename);
+                    // Editors for Archer's complex field types are also provided.  For example, calling IArcherContentEdit.Field()
+                    // with an IUserGroupListField returns an IUserGroupListSelectionEdit, which has distinct
+                    // methods for setting/adding/removing users and/or groups on the field.  Here we'll
+                    // use it to make the current user the owner for this application:
 
-                    Assert.AreEqual($"Verifying '{attachmentField.Name}' attachment contents",
-                        originalText, downloadedText);
+                    var ownerFieldEditor = contentEdit.Field(ownerField);
+                    // We know this is a newly-minted record, so it has no users in this field at present.
+                    // Therefore we can use the .AddUser() method since we know the field is currently empty:
+                    ownerFieldEditor.AddUser(currentUser);
 
-                    // The Application Type (ValuesList) field should contain exactly 1 value (matching the name we assigned above) and no Other Text
-                    var applicationType = savedRecord.Value(applicationTypeField);
-                    Assert.IsTrue($"Verifying '{applicationTypeField.Name}' {applicationTypeField.FieldType} field",
-                        applicationType.Values.Count() == 1 &&
-                        // valueText is the name of the IArcherValuesList value we assigned above to this field,
-                        // either "Product Engineering Software", or the first available value for the field,
-                        // so either way this will confirm that the assignment was successful:
-                        applicationType.Values.Contains(valueText) &&
-                        applicationType.OtherText == null);
+                    // But the preferred way in this case is to use .SetUsers(), so that if this happened to
+                    // be a modification to an existing record, any users already in that field will be completely replaced by our
+                    // new selection:
+                    ownerFieldEditor.SetUsers(currentUser);
 
-                    // If we were able to identify a CrossReference field with applicable content, verify that
-                    // the field now contains the value we inserted into it.
+                    // Note that if this is a multi-select field, we can set multiple users for the field at once
+                    // by calling .SetUsers() with a params list of users rather than making repeated calls to .AddUser().
+                    // Since we only have one user in scope, let's just pass that same user to the method three times to demonstrate:
+                    ownerFieldEditor.SetUsers(currentUser, currentUser, currentUser);
+
+                    // Estrelica.Core will recognize any duplicates in the params list, reducing them down to the
+                    // unique values before saving (i.e. even though we passed 3 user references above, Estrelica.Core will
+                    // recognize that they're all the same and will therefore treat it as though we only passed 1):
+                    Assert.AreEqual("Confirming that Estrelica.Core correctly handles duplicate values on reference fields",
+                        1, ownerFieldEditor.UserIds.Count());
+
+                    // Furthermore, the methods on the IUserGroupListSelectionEdit editor are overloaded to
+                    // accept users/groups by reference to objects (as above), or by their integer Ids if
+                    // that's all we have available:
+                    int userId = currentUser.Id;
+                    ownerFieldEditor.SetUsers(userId);
+
+                    // And as before, we can do it with a params list of user Ids if we choose, with the same backing
+                    // intelligence to ignore duplicates:
+                    ownerFieldEditor.SetUsers(userId, userId, userId, userId, userId, userId);
+
+                    // Note that all of the .AddUser() and .SetUsers() calls on the ownerFieldEditor shown above did
+                    // exactly the same thing: set the current user as the owner of the record we're editing.
+                    // The multiple calls are only presented here to show several different approaches available
+                    // to accomplish the same task.  
+
+                    // IImageField and IAttachmentField are two other complex types, both handled by the IDocumentFieldEdit
+                    // editor.  This editor provides a .Upload() method to upload and attach a new file to the field.
+                    var documentEditor = contentEdit.Field(attachmentField);
+
+                    // Here we'll attach the "test file.txt" file we created above.  The Upload() method takes the
+                    // filename to be sent to Archer as an attachment, with two optional parameters:
+                    //   - a display name (defaulting to the original filename if not specified) and
+                    //   - a boolean value indicating whether the file should be encrypted at rest (default is false, i.e. no encryption).
+                    // Here we'll use displayName parameter to give the attachment a different display name in Archer:
+                    documentEditor.Upload(attachmentFilename, "Sample Text File.txt");
+
+                    // And just as a test, here we'll show what happens when you try to upload a file that doesn't
+                    // exist...
+                    Assert.ThrowsException<FileNotFoundException>("Verifying that the document field will not accept invalid filenames",
+                        () => documentEditor.Upload(@"Z:\SomeInvalidDirectory\SomeInvalidFilename.txt"));
+
+
+                    // IValuesList field is another complex type, supported by the IValuesListSelectionEdit editor.
+                    // This editor allows values to be managed for the field using whatever identifiers you 
+                    // choose, by value Id, value text, or even a reference to an IArcherValuesListValue object.
+                    // Furthermore, if your selection supports and/or requires "Other Text", the editor will allow you
+                    // to set that as well via its .OtherText property.
+
+                    // Set the value of the "Application Type" field, using the string name of the value.  Note that
+                    // the .Set() method is overloaded to a) accept multiple values via a params list (if the field allows
+                    // multiple selections), and b) allow values to be set by the values' integer Ids, names, or
+                    // IValuesListValue references.
+
+                    // Here we'll do it using the value name.  This will of course fail if the value name has been changed
+                    // to something else in your environment.  You can identify the valid values for this field by examining
+                    // applicationTypeField.ValuesList.Values if you want to use a different value.
+
+                    var valuesListFieldEditor = contentEdit.Field(applicationTypeField);
+                    string valueText = "Product Engineering Software";
+
+                    // The values list editor's Set method (and all methods that reference values by name) use
+                    // case-insensitive value lookups by default (via the optional caseSensitiveLookup boolean parameter),
+                    // so we can demonstrate that here by using the lowercase version of the value's name to
+                    // set the value:
+                    valuesListFieldEditor.Set(valueText.ToLower());
+
+                    // If the Values List field in question supports "Other Text", and if the value we selected above
+                    // requires it, we can also set the "Other Text" on the field using this syntax:
+                    //      valuesListFieldEditor.OtherText = "Some other text";
+                    // However, no Values List fields in the "Applcations" application require "Other Text", so
+                    // we'll leave that commented out for this demo.
+
+                    // And then confirm that the correct value, with a properly-cased name, resulted from the 
+                    // call above:
+                    Assert.AreEqual("Verifying that the case-insensitive value name lookup was successful",
+                        valuesListFieldEditor.Values.Single().Name, "Product Engineering Software");
+
+                    // If the above fails in your environment because you have no value defined with the name
+                    // "Product Engineering Sample", try modifying the valueText string above to a different
+                    // value name that is valid in your environment.
+                    // Alternately, you can try commenting out the "valuesListFieldEditor.Set(..) line above
+                    // and uncomment the code below. It demonstrates instead how to set a value using an
+                    // IArcherValuesListValue object, and here we'll just use the first one that's available
+                    // on the associated Values List for the field:
+
+                    //IArcherValuesListValue randomValue = valuesListFieldEditor.Values.FirstOrDefault();
+                    //valuesListFieldEditor.Set(randomValue);
+                    //// Alternately, if we know the value's integer Id, we could set it using that value too:
+                    //// int valueId = randomValue.Id;
+                    //// valuesListFieldEditor.Set(valueId);
+                    //valueText = randomValue.Name; // capture the value's name for validation below
+
+                    // As with all of the multi-value editors, IValuesListSelectionEdit supports setting
+                    // multiple values as params as well (assuming the field permits multiple selections), e.g.
+                    //	valuesListFieldEditor.Set("Value 1 Name", "Value 2 Name", "Value 3 Name", "etc.");
+                    // or even by an IEnumerable<> of names, Ids or IArcherValuesListValue, e.g.
+                    //	IEnumerable<IArcherValuesListValue> selectedValues = valuesListFieldEditor.Values.Where(v => v.Name.StartsWith("P"));
+                    //	valuesListFieldEditor.Set(selectedValues);
+
+
+                    // Reference fields (i.e. Cross-Reference, Related Records, and Subforms) are handled by
+                    // the IReferencedRecordsSelectionEdit editor. It supports adding/removing/setting the field's
+                    // reference(s) to other Archer records by ContentId(s) or IArcherRecord record reference(s).
+
+                    // If we were able to identify a CrossReference field that relates to a level with
+                    // identifiable content in Step 3 above, we'll populate that field with a reference here...
 
                     if (targetCrossRefContentId > 0)
                     {
-                        var referencedFieldValues = savedRecord.Value(crossRefField);
-                        Assert.IsTrue($"Verifying '{crossRefField.Name}' {crossRefField.FieldType} field",
-                            referencedFieldValues.Ids.Count() == 1 &&
-                            referencedFieldValues.Ids.First() == targetCrossRefContentId);
-                        Assert.IsTrue($"Verifying '{crossRefField.Name}' content keys",
-                            referencedFieldValues.ContentKeys.Count() == 1 &&
-                            referencedFieldValues.ContentKeys.All(k => !String.IsNullOrEmpty(k)));
+                        var referenceFieldEditor = contentEdit.Field(crossRefField);
+
+                        // Cross-Reference fields are supported by the ICrossReferencedRecordsSelectionEdit editor.
+                        // This is a subclass of the IReferencedRecordsSelectionEdit editor which overloads the
+                        //      Add(int contentId)
+                        // method with
+                        //      Add(int contentId, int levelId)
+                        // in order to support multi-level Cross-Reference fields.  If you know which level the
+                        // referenced content resides in, it is more efficient to call the latter method.  However
+                        // it is optional in all cases, for two reasons:
+                        //   1. If this is a simple single-level Cross-Reference field, the target level can be
+                        //      assumed from the field's definition, so there's no need to specify a levelId
+                        //   2. If this is a multi-level Cross-Reference field and no levelId is specified,
+                        //      Estrelica.Core will query the Archer API in the background to determine the levelId
+                        //      for whatever contentId we provide here
+                        // Therefore, this overloaded method is only necessary if the Cross-Reference field in
+                        // question targets multiple levels, and you already know which level the content resides
+                        // in and want to spare Estrelica.Core the effort of making another API call to look it up.
+
+                        // In this case, we'll just take the easy approach and call the simpler Add(int contentId) method.
+                        referenceFieldEditor.Add(targetCrossRefContentId);
+
+                        // This logic only applies to Cross-Reference fields, since they are the only reference
+                        // field type which may target multiple levels, hence the reason why the Cross-Reference
+                        // field type gets its own editor with this extra method.  Related Records and Subform fields
+                        // are handled by the base IReferencedRecordsSelectionEdit editor since they each may only
+                        // reference content at a single level.
                     }
 
-                    // And likewise for the RelatedRecords field
+                    // And likewise for a RelatedRecords field, if we were able to find one...
 
                     if (targetRelatedRecordsContentId > 0)
                     {
-                        var referencedFieldValues = savedRecord.Value(relatedRecordsField);
-                        Assert.IsTrue($"Verifying '{relatedRecordsField.Name}' {relatedRecordsField.FieldType} field",
-                            referencedFieldValues.Ids.Count() == 1 &&
-                            referencedFieldValues.Ids.First() == targetRelatedRecordsContentId);
-                        Assert.IsTrue($"Verifying '{relatedRecordsField.Name}' content keys",
-                            referencedFieldValues.ContentKeys.Count() == 1 &&
-                            referencedFieldValues.ContentKeys.All(k => !String.IsNullOrEmpty(k)));
+                        var referenceFieldEditor = contentEdit.Field(relatedRecordsField);
+                        referenceFieldEditor.Add(targetRelatedRecordsContentId);
                     }
 
 
-                    // The Integrations (subform) field should contain exactly one record, having the text field values we set above:
-                    var integrations = savedRecord.Value(subformField);
-                    Assert.AreEqual($"Verifying '{subformField.Name}' {subformField.FieldType} field",
-                        1, integrations.Ids.Count());
+                    // Step 5: Create a new linked record via .AddNewRecord() on one of the referenced records field types
 
-                    Assert.IsTrue($"Verifying '{subformField.Name}' content keys",
-                        integrations.ContentKeys.Count() == 1 &&
-                        integrations.ContentKeys.All(k => !String.IsNullOrEmpty(k)));
+                    // The CrossReference and/or RelatedRecords field reference(s) that we added above shows how to link a record
+                    // via one of those fields if the referenced record already exists in Archer with a known content Id.
+                    // Sometimes, however, you need to create a new referenced record as part of the edit process.
+                    // This is where the IReferencedRecordsEdit.AddNewRecord() method comes in handy.  It does three things for you:
+                    //   1. Returns a new IArcherContentEdit record associated with the field's target level, so you can
+                    //      start populating field values on the new referenced record right away
+                    //   2. Handles the saving of that new record automatically, before the parent record is persisted
+                    //   3. Adds a reference to the new record in the relevant field of the parent before the parent is persisted
 
+                    // This is particularly useful for Subform fields, where the referenced record cannot exist
+                    // outside the context of the parent record (i.e. the one we're currently editing), so we can't 
+                    // pre-fetch the subform record's ContentId the way we did for the CrossReference/RelatedRecords examples above.
 
-                    // Retrieve the subform record we saved earlier.  The Content property returns an 
-                    // IEnumerable<IArcherContentAccess> for the records in the field, so we'll just take the
-                    // first since we know there's exactly 1 subform record.
+                    var subformEditor = contentEdit.Field(subformField);
 
-                    var subformContent = integrations.Content.First();
-                    Assert.AreEqual($"Verifying 'Integrations' subform 'Integration Name' Text field",
-                        "Test integration name", subformContent.TextValue("Integration Name"));
+                    // This returns an IReferencedRecordsEditor for the subform field, which we can call
+                    // .AddNewRecord() on below.
 
-                    Assert.AreEqual($"Verifying 'Integrations' subform 'Integration Description' Text field",
-                        "This is a test record for the Integrations subform", subformContent.TextValue("Integration Description"));
+                    // IReferencedRecordsEdit.AddNewRecord() supports two optional parameters.  The first is an integer levelId or
+                    // IArcherLevel reference, telling it which target level it should create the new content in.  If we were
+                    // creating a new record for an ICrossReferenceField which targets multiple levels, this parameter would be
+                    // required.  In all other cases (ISubformField, IRelatedRecordsField, and any ICrossReferenceField which
+                    // only targets a single level), Estrelica.Core will identify the target level from the field's
+                    // metadata so we don't need to specify anything.
 
-                    // The expectation for this next test will vary depending on how Archer is configured.
-                    // Prior to saving this subform record, we set the "Integration Owner" to be the current user,
-                    // but unless the configuration of that field has been fixed, we will not expect to see the user
-                    // in that field now that we've reloaded it from Archer.
+                    // The method also supports another optional parameter which we *WILL* use here however, an Action<int>
+                    // callback that allows us to be informed of the newly-inserted record's content Id at some point
+                    // in the future after it has been saved to Archer.  Since the new record's persistence is managed by
+                    // the parent record (contentEdit in this case), we cannot call core.Content.Update() directly on
+                    // this new record (in fact we'll demonstrate that it throws an exception below to prevent us if we try).
+                    // Therefore, we can't retrieve the new contentId directly from that method call if we need to know what it
+                    // is for some reason.  Passing an Action<int> callback here gives the parent record
+                    // a way to inform us of the new record's Id as soon as it is inserted into Archer, so
+                    // we can capture that Id for cleanup later.  (Again, this is optional.  If you don't care what
+                    // the newly-created reference record's Id will be, you can call .AddNewRecord() with no parameters.)
 
-                    // As of Archer 6.9, in a standard deployment this field is configured to only allow a user to be
-                    // selected from the "Everyone" group.  Unfortunately, since "Everyone" is not a true Archer group,
-                    // this results in no users being valid for this field, and any users we attempt to insert into it
-                    // via an API call will be rejected.
+                    var subformContentEdit = subformEditor.AddNewRecord(
+                        // This method will be called later, when we call IContentResolver.Update() on the parent record,
+                        // and the parent in turn calls IContentResolver.Update() on this new record in order to obtain
+                        // its content Id.  It will then invoke this method to let us know what that Id is:
+                        (newId) => newSubformContentId = newId
+                     );
 
-                    // If you haven't already fixed this configuration you can confirm this behavior by attempting to
-                    // edit the subform record we just created via the UI -- the listbox of available user selections
-                    // will be empty, so no user can be selected for the record.  The REST API handles our Update()
-                    // attempt similarly, silently rejecting the user we assigned to the field earlier.
+                    // Here we'll edit the subform content using the alternate approach described earlier.  Whereas
+                    // on the contentEdit record we first identified field objects from its level and used those later
+                    // to retrieve editors from the record, that's really only necessary if you need to use those
+                    // field references for something else in addition to making the edits.
 
-                    // One way to fix this is to add an "All Users" rule to the field population config (which
-                    // is returned as "AllUsersRead" = true by the Archer API for the field definition itself)
-                    // but this is not present by default and must be configured explicitly by an admin.
+                    // A more direct approach, assuming you already know the field type and name (or alias or guid
+                    // or id) for a given field, is to directly access its editor using one of these field-type specific
+                    // methods, each of which returns a type-specific editor for the field you've identified:
 
-                    var integrationOwnerField = subformContent.Level.Field<IUserGroupListField>("Integration Owner");
-                    var availableSelections = integrationOwnerField.AvailableSelections;
+                    //	DateField() - Returns an IDateValueEdit editor for the identified Date field
+                    //	TextField() - Returns an ITextValueEdit editor for the identified Text field
+                    //	NumericField() - Returns an INumericValueEdit editor for the identified Text field
+                    //	IPAddressField() - Returns an ITextValueEdit editor for the identified IPAddress field
+                    //	DocumentField() - Returns an IDocumentFieldEdit editor for the identified Attachment or Image field
+                    //	ReferenceField() - Returns an IReferencedRecordsEdit editor for the identified Cross-reference, Related Records, or Subform field
+                    //	UserGroupField() - Returns an IUserGroupListSelectionEdit editor for the identified Users/Groups List or Record Permissions field
+                    //	ValuesListField() - Returns an IValuesListSelectionEdit editor for the identified Values List field
 
-                    // This check will confirm if the "broken" configuration described above is present for the field,
-                    // and that no "All Users" rule has been defined to override it:
-                    bool brokenConfiguration = integrationOwnerField.AllUsersRead == false &&
-                        availableSelections.Users.Count() == 0 &&
-                        availableSelections.Groups.Count() == 1 &&
-                        availableSelections.Groups.First().Group.Name == "Everyone" &&
-                        availableSelections.Groups.First().DisplayUsers == true;
+                    subformContentEdit.TextField("Integration Name").Value = "Test integration name";
+                    subformContentEdit.TextField("Integration Description").Value = "This is a test record for the Integrations subform";
+                    subformContentEdit.UserGroupField("Integration Owner").SetUsers(core.Access.CurrentUser);
 
-                    if (brokenConfiguration)
+                    // In order for this newly-created subform content to be associated with the parent record, the parent record
+                    // needs to know the subform record's content Id.  You might think that we need to persist the subform record,
+                    // get its Id, and then call subformEditor.Add(newSubformContentId) at this point.  However, that is incorrect.
+                    // All we need to do is call core.Content.Update() on the parent record, and it will take care of the rest.
+
+                    // In fact, if we *do* try to call update directly on this subform record, it will throw an exception telling
+                    // us that we're not allowed to do that -- its persistence is under the control of the parent record.  Persisting
+                    // a managed record like this would be specifically illegal in the case of a subform, since a subform record cannot exist in
+                    // Archer without a parent (which has not been saved yet, so Archer doesn't even know it exists).  However, the same logic
+                    // applies to any referenced content (Cross-Reference, Related Record or Subform) that is initiated via the
+                    // IReferencedRecordsEditor.AddNewRecord() method we used above (even though Cross-Referenced and Related Records may exist
+                    // in Archer independent of a "parent" record).
+
+                    Assert.ThrowsException<InvalidOperationException>("Confirm that we get an exception if we try to directly update a parent-managed record",
+                        () => core.Content.Update(subformContentEdit));
+
+                    // Step 6: Push the record to Archer for insert, and get the resulting contentId of the newly-inserted record:
+
+                    // If you see an exception here, it probably means that there's already an Application record having "Estrelica.Core" as the 
+                    // "Application Name", probably resulting from an earlier execution of this demo that did not clean up after itself.
+                    // If so, go to the Archer UI and delete that record, then try again.
+                    contentId = core.Content.Update(contentEdit);
+
+                    Assert.IsGreaterThanZero($"Inserted content record {contentId} into Archer instance {core.SessionProvider.Instance}", contentId);
+
+                    // This assertion will confirm that the Action<int> callback we provided above (when creating the subform content) was invoked
+                    // and notified about the new subform content's Id:
+                    Assert.IsGreaterThanZero($"Inserted subform record {newSubformContentId} as part of the content record insert", newSubformContentId);
+
+                    Utilities.Log($"The record has been inserted into the '{application.Name}' application with content Id {contentId}.  You may want to toggle over to the Archer UI at {core.SessionProvider.Url} and review the record at this point.  Hit any key when you're ready to proceed.");
+                    Utilities.Pause();
+
+                    // Step 7: Reload the record from Archer and confirm that it has the values we inserted:
+
+                    // Archer's APIs provide two ways of loading content, directly via the REST API if you know the record's Id, or
+                    // via search using the SOAP API if you only know specific field values on the record that you want to retrieve.
+                    // Unfortunately the results returned by these two methods are completely different (JSON and XML), so if you
+                    // want to work with them directly you need two completely different code paths to handle both.
+
+                    // Estrelica.Core provides a .ContentAccess() extension method for both of those result types, returning a common
+                    // IArcherContentAccess interface that allows you to maintain a single programming experience regardless of how the
+                    // content was retrieved from Archer.
+
+                    // Here we'll demonstrate both approaches, first via the direct REST API call to get the content by Id (returning a
+                    // JSON object serialized to Dictionary<string, dynamic>), then again using the Archer webservices "search" to find the
+                    // record by Application Name (which returns an XElement (xml) node).  Both cases will leverage the .ContentAccess()
+                    // extension method to convert those results into IArcherContentAccess, so that all the following code that acts
+                    // on those two records remains the same, eliminating the need to maintain two skillsets to handle the XML vs. JSON
+                    // distinction.
+
+                    IArcherContentAccess record = null;
+                    bool usingRESTAPI = false;
+                    foreach (var savedRecord in (new bool[] { true, false }).Select(useRestAPI =>
+                        {
+                            if (useRestAPI)
+                            {
+                                Utilities.Log("Verifying the record we just saved via the REST API");
+                                usingRESTAPI = true;
+                                return core.Content.GetContentById(contentId).ContentAccess(core);
+                            }
+                            else
+                            {
+                                Utilities.Log("Verifying the record we just saved via the webservices Search API");
+                                usingRESTAPI = false;
+                                var xmlResult = core.Content.GetContent(level: level,
+                                    filterConditions: new XElement[] {
+                                    nameField.CreateCondition(ValuesOperator.Equals, "Estrelica.Core"),
+                                    level.Fields.First<IFirstPublishedField>().CreateCondition(DateValueOperator.Equals, DateTime.Now, false),
+                                    level.Fields.First<ILastUpdatedField>().CreateCondition(DateValueOperator.Equals, DateTime.Now, false)
+                                    })
+                                    .First();
+
+                                return xmlResult.ContentAccess(core);
+                            }
+                        }))
                     {
-                        // Under these circumstances we expect that Archer ignored the value we attempted to save, so
-                        // the currentUser will *NOT* be in the integrationOwnerField.
-                        Assert.AreNotEqual($"Verifying 'Integrations' subform '{integrationOwnerField.Name}' {integrationOwnerField.FieldType} field has an invalid configuration",
-                            currentUser.Id, subformContent.Value(integrationOwnerField).Users.FirstOrDefault()?.Id);
+
+                        // Since this is a newly inserted record, its create date and update date should match
+                        Assert.AreEqual("Verifying create/update dates",
+                            savedRecord.UpdateInformation.CreateDate,
+                            savedRecord.UpdateInformation.UpdateDate);
+
+                        // When the record is loaded via the REST API, the record's UpdateInformation will be populated with
+                        // IArcherUser references for CreateUser and UpdateUser.  This information is not returned by Archer for records
+                        // loaded via the Webservices Search API, but will be injected in that case by Estrelica.Core if its extended methods
+                        // are available.  Therefore, if we've loaded this record via the REST API, or if we've loaded it via the Webservices
+                        // SOAP call *and* Estrelica.Core's extensions are available, we can evaluate the CreateUser and UpdateUser on the
+                        // record's UpdateInformation object:
+                        if (usingRESTAPI || core.APIFacade.ExtensionsAvailable() != Estrelica.Archer.Utility.APISource.None)
+                        {
+                            // And the current user should be found as both the creator and updater
+                            Assert.AreEqual("Verifying create user", currentUser.Id, savedRecord.UpdateInformation.CreateUser.Id);
+                            Assert.AreEqual("Verifying update user", currentUser.Id, savedRecord.UpdateInformation.UpdateUser.Id);
+                        }
+
+                        // KeyFieldValue will attempt to return the value of the record's key field, if a key field is
+                        // defined and if it has been loaded for this record.  Otherwise it will return the Tracking Id
+                        // (if one is defined), and lastly falling back to the record's Content Id.
+                        Assert.IsNotNull("Verifying key field value", savedRecord.KeyFieldValue);
+
+                        // Confirm that all of our edits are present on the record
+                        Assert.AreEqual($"Verifying '{nameField.Name}' {nameField.FieldType} field",
+                            "Estrelica.Core", savedRecord.Value(nameField));
+
+                        Assert.AreEqual($"Verifying '{versionField.Name}' {nameField.FieldType} field",
+                            typeof(Estrelica.Core).Assembly.GetName().Version.ToString(), savedRecord.Value(versionField));
+
+                        Assert.AreEqual($"Verifying '{licensedQuantityField.Name}' {licensedQuantityField.FieldType} field",
+                            1, savedRecord.Value(licensedQuantityField));
+
+                        // For the owner (UserGroupList) field, we expect it to have no groups and exactly 1 user, which should be the current user
+                        var owner = savedRecord.Value(ownerField);
+                        Assert.IsTrue($"Verifying '{ownerField.Name}' {ownerField.FieldType} field",
+                            owner.Users.Count() == 1 &&
+                            owner.Groups.Count() == 0 &&
+                            // owner.Users and currentUser are both resolved from the same IMetadataResolver cache, so we *could* do a simple
+                            // equality comparison here (i.e. owner.Users.First() == currentUser), but it is possible that the cache was
+                            // flushed and reloaded between the time that currentUser was set above and when owner.Users gets resolved
+                            // here, so the references could be to different objects representing the same user.
+                            // Therefore the best practice is to check that their Ids match, rather than their references.
+                            owner.Users.First().Id == currentUser.Id);
+
+                        // The attachment field should contain exactly 1 file, and the file attached to it should match the temp file we created earlier
+                        var attachments = savedRecord.Value(attachmentField);
+                        Assert.AreEqual($"Verifying '{attachmentField.Name}' {attachmentField.FieldType} field",
+                            1, attachments.Count());
+
+                        Assert.AreEqual($"Verifying attachment filename",
+                            "Sample Text File.txt", attachments.FirstOrDefault()?.Filename);
+
+                        // Download the attachment to a temp filename
+                        tempFilename = Path.GetTempFileName();
+                        attachments.First().Download(tempFilename, true);
+
+                        string originalText = File.ReadAllText(attachmentFilename);
+                        string downloadedText = File.ReadAllText(tempFilename);
+
+                        Assert.AreEqual($"Verifying '{attachmentField.Name}' attachment contents",
+                            originalText, downloadedText);
+
+                        // The Application Type (ValuesList) field should contain exactly 1 value (matching the name we assigned above) and no Other Text
+                        var applicationType = savedRecord.Value(applicationTypeField);
+                        Assert.IsTrue($"Verifying '{applicationTypeField.Name}' {applicationTypeField.FieldType} field",
+                            applicationType.Values.Count() == 1 &&
+                            // valueText is the name of the IArcherValuesList value we assigned above to this field,
+                            // either "Product Engineering Software", or the first available value for the field,
+                            // so either way this will confirm that the assignment was successful:
+                            applicationType.Values.Contains(valueText) &&
+                            applicationType.OtherText == null);
+
+                        // If we were able to identify a CrossReference field with applicable content, verify that
+                        // the field now contains the value we inserted into it.
+
+                        if (targetCrossRefContentId > 0)
+                        {
+                            var referencedFieldValues = savedRecord.Value(crossRefField);
+                            Assert.IsTrue($"Verifying '{crossRefField.Name}' {crossRefField.FieldType} field",
+                                referencedFieldValues.Ids.Count() == 1 &&
+                                referencedFieldValues.Ids.First() == targetCrossRefContentId);
+                            Assert.IsTrue($"Verifying '{crossRefField.Name}' content keys",
+                                referencedFieldValues.ContentKeys.Count() == 1 &&
+                                referencedFieldValues.ContentKeys.All(k => !String.IsNullOrEmpty(k)));
+                        }
+
+                        // And likewise for the RelatedRecords field
+
+                        if (targetRelatedRecordsContentId > 0)
+                        {
+                            var referencedFieldValues = savedRecord.Value(relatedRecordsField);
+                            Assert.IsTrue($"Verifying '{relatedRecordsField.Name}' {relatedRecordsField.FieldType} field",
+                                referencedFieldValues.Ids.Count() == 1 &&
+                                referencedFieldValues.Ids.First() == targetRelatedRecordsContentId);
+                            Assert.IsTrue($"Verifying '{relatedRecordsField.Name}' content keys",
+                                referencedFieldValues.ContentKeys.Count() == 1 &&
+                                referencedFieldValues.ContentKeys.All(k => !String.IsNullOrEmpty(k)));
+                        }
+
+
+                        // The Integrations (subform) field should contain exactly one record, having the text field values we set above:
+                        var integrations = savedRecord.Value(subformField);
+                        Assert.AreEqual($"Verifying '{subformField.Name}' {subformField.FieldType} field",
+                            1, integrations.Ids.Count());
+
+                        Assert.IsTrue($"Verifying '{subformField.Name}' content keys",
+                            integrations.ContentKeys.Count() == 1 &&
+                            integrations.ContentKeys.All(k => !String.IsNullOrEmpty(k)));
+
+
+                        // Retrieve the subform record we saved earlier.  The Content property returns an 
+                        // IEnumerable<IArcherContentAccess> for the records in the field, so we'll just take the
+                        // first since we know there's exactly 1 subform record.
+
+                        var subformContent = integrations.Content.First();
+                        Assert.AreEqual($"Verifying 'Integrations' subform 'Integration Name' Text field",
+                            "Test integration name", subformContent.TextValue("Integration Name"));
+
+                        Assert.AreEqual($"Verifying 'Integrations' subform 'Integration Description' Text field",
+                            "This is a test record for the Integrations subform", subformContent.TextValue("Integration Description"));
+
+                        // The expectation for this next test will vary depending on how Archer is configured.
+                        // Prior to saving this subform record, we set the "Integration Owner" to be the current user,
+                        // but unless the configuration of that field has been fixed, we will not expect to see the user
+                        // in that field now that we've reloaded it from Archer.
+
+                        // As of Archer 6.9, in a standard deployment this field is configured to only allow a user to be
+                        // selected from the "Everyone" group.  Unfortunately, since "Everyone" is not a true Archer group,
+                        // this results in no users being valid for this field, and any users we attempt to insert into it
+                        // via an API call will be rejected.
+
+                        // If you haven't already fixed this configuration you can confirm this behavior by attempting to
+                        // edit the subform record we just created via the UI -- the listbox of available user selections
+                        // will be empty, so no user can be selected for the record.  The REST API handles our Update()
+                        // attempt similarly, silently rejecting the user we assigned to the field earlier.
+
+                        // One way to fix this is to add an "All Users" rule to the field population config (which
+                        // is returned as "AllUsersRead" = true by the Archer API for the field definition itself)
+                        // but this is not present by default and must be configured explicitly by an admin.
+
+                        var integrationOwnerField = subformContent.Level.Field<IUserGroupListField>("Integration Owner");
+                        var availableSelections = integrationOwnerField.AvailableSelections;
+
+                        // This check will confirm if the "broken" configuration described above is present for the field,
+                        // and that no "All Users" rule has been defined to override it:
+                        bool brokenConfiguration = integrationOwnerField.AllUsersRead == false &&
+                            availableSelections.Users.Count() == 0 &&
+                            availableSelections.Groups.Count() == 1 &&
+                            availableSelections.Groups.First().Group.Name == "Everyone" &&
+                            availableSelections.Groups.First().DisplayUsers == true;
+
+                        if (brokenConfiguration)
+                        {
+                            // Under these circumstances we expect that Archer ignored the value we attempted to save, so
+                            // the currentUser will *NOT* be in the integrationOwnerField.
+                            Assert.AreNotEqual($"Verifying 'Integrations' subform '{integrationOwnerField.Name}' {integrationOwnerField.FieldType} field has an invalid configuration",
+                                currentUser.Id, subformContent.Value(integrationOwnerField).Users.FirstOrDefault()?.Id);
+                        }
+                        else
+                        {
+                            // Apparently the configuration for this field has been modified from the out-of-the-box default
+                            // (either via the "All User" rule or a different users/groups rule).
+                            // Let's see if its new configuration permitted our assignment above to be saved to the record:
+                            Assert.AreEqual($"Verifying 'Integration' subform '{integrationOwnerField.Name}' {integrationOwnerField.FieldType} field configuration has been fixed",
+                                currentUser.Id, subformContent.Value(integrationOwnerField).Users.FirstOrDefault()?.Id);
+                            // It's still possible for this condition to fail, if, for example, a different user/group rule was
+                            // configured which does not include the currentUser in its available selections.
+                        }
+
+						// 'Applications' is not expected to have workflow enabled, so this should fall through to the "Record is not 
+						// enrolled in workflow" message, but this demonstrates how to perform workflow actions for enrolled records:
+						var applicableWorkflowAction = savedRecord.WorkflowActions().FirstOrDefault();
+						if (applicableWorkflowAction != null)
+						{
+							Assert.IsTrue($"Performing workflow action '{applicableWorkflowAction.TransitionName}' on record",
+								savedRecord.PerformWorkflowAction(applicableWorkflowAction));
+						}
+						else
+						{
+							Utilities.Log("Record is not enrolled in workflow, or no actions are applicable for the current user");
+						}
+
+						// Keep a reference to this, as we'll re-use it after we exit the loop to perform some edits...
+						record = savedRecord;
                     }
-                    else
+
+                    // Step 8: Edit the newly-created record with some different values and push the update to Archer:
+
+                    // First, we put the record we just retrieved into edit mode (reusing the contentEdit variable from above)
+                    contentEdit = record.ForEdit();
+
+                    // And now we'll change a few fields.  Here we'll show how Estrelica.Core allows you to perform record
+                    // updates using whichever method is best for you, by demonstrating a mix of the two edit strategies
+                    // discussed above.  We'll use the ITextField versionField object to retrieve an editor for the "Version" field
+                    // while using names/aliases/guids/ids to retrieve editors for the rest.
+
+                    // First we'll capture some identifiers:
+                    string licensedQuantityFieldName = licensedQuantityField.Name;
+                    string applicationTypeFieldAlias = applicationTypeField.Alias;
+                    int subformFieldId = subformField.Id;
+
+                    // By passing an ITextField (versionField) to the Field() method, the content record knows it should return an
+                    // ITextValueEdit editor, which has a strongly-typed "Value" property which only accepts strings:
+
+                    contentEdit.Field(versionField).Value = "unknown";
+
+                    // But when retrieving an editor using string/guid/int field Identifiers, we have to choose the method
+                    // appropriate to the field type we expect (e.g. "NumericField()", "ValuesListField()", etc.) so
+                    // Estrelica.Core knows which editor type is relevant for the field:
+
+                    // INumericValueEdit likewise has a strongly-typed "Value" property which only accepts numbers
+                    // (specifically, nullable decimals):
+                    contentEdit.NumericField(licensedQuantityFieldName).Value = 3;
+
+                    // IReferencedRecordsEdit doesn't have an atomic "Value" property like the others above.  Instead it provides
+                    // Add, Remove, Set, etc. methods to maintain the collection of records that are referenced by the field:
+                    contentEdit.SubformField(subformFieldId).Remove(newSubformContentId);
+
+                    // And here we'll demonstrate how the IValuesListSelectionEdit throws an exception if we
+                    // attempt to set a value that isn't valid for the field:
+                    Assert.ThrowsException<ArgumentException>($"Confirming '{applicationTypeField.Name}' {applicationTypeField.FieldType} won't accept invalid values",
+                        () =>
+                        contentEdit.ValuesListField(applicationTypeFieldAlias).Set("asedfgjklhklqajwherm,bn")
+                    );
+
+                    // Likewise if we try to do it using an invalid integer Id for the value
+                    Assert.ThrowsException<ArgumentException>($"Confirming '{applicationTypeField.Name}' {applicationTypeField.FieldType} won't accept invalid values",
+                        () =>
+                        contentEdit.ValuesListField(applicationTypeFieldAlias).Set(9999999)
+                    );
+
+                    // And again, if we try to do it using an IValuesListValue from a different ValuesList.
+                    // Here we'll take one from the ValuesList associated with the "Platform" field and try
+                    // to put it in the "Application Type" field where it does not belong.
+                    var invalidVLV = level.Field<IValuesListField>("Platform").ValuesList.Values.First();
+
+                    Assert.ThrowsException<ArgumentException>($"Confirming '{applicationTypeField.Name}' {applicationTypeField.FieldType} won't accept invalid values",
+                        () =>
+                        contentEdit.ValuesListField(applicationTypeFieldAlias).Set(invalidVLV)
+                    );
+
+
+                    // Remove the CrossReference/RelatedRecords values we inserted earlier, if any.
+                    if (targetCrossRefContentId > 0)
                     {
-                        // Apparently the configuration for this field has been modified from the out-of-the-box default
-                        // (either via the "All User" rule or a different users/groups rule).
-                        // Let's see if its new configuration permitted our assignment above to be saved to the record:
-                        Assert.AreEqual($"Verifying 'Integration' subform '{integrationOwnerField.Name}' {integrationOwnerField.FieldType} field configuration has been fixed",
-                            currentUser.Id, subformContent.Value(integrationOwnerField).Users.FirstOrDefault()?.Id);
-                        // It's still possible for this condition to fail, if, for example, a different user/group rule was
-                        // configured which does not include the currentUser in its available selections.
+                        contentEdit.Field(crossRefField).Remove(targetCrossRefContentId);
                     }
 
-                    // 'Applications' is not expected to have workflow enabled, so this should fall through to the "Record is not 
-                    // enrolled in workflow" message, but this demonstrates how to perform workflow actions for enrolled records:
-                    var applicableWorkflowAction = savedRecord.WorkflowActions().FirstOrDefault();
-                    if (applicableWorkflowAction != null)
-					{
-                        Assert.IsTrue($"Performing workflow action '{applicableWorkflowAction.TransitionName}' on record", 
-                            savedRecord.PerformWorkflowAction(applicableWorkflowAction));
-					}
-                    else
-					{
-                        Utilities.Log("Record is not enrolled in workflow, or no actions are applicable for the current user");
-					}
+                    if (targetRelatedRecordsContentId > 0)
+                    {
+                        contentEdit.Field(relatedRecordsField).Remove(targetRelatedRecordsContentId);
+                    }
 
-                    // Keep a reference to this, as we'll re-use it after we exit the loop to perform some edits...
-                    record = savedRecord;
-                }
+                    // Here we'll edit a new field directly by Id that wasn't involved in the previous insert
+                    var activeUsageField = level.Field<INumericField>("Active Usage Quantity");
 
-                // Step 5: Edit the newly-created record with some different values and push the update to Archer:
+                    contentEdit.NumericField(activeUsageField.Id).Value = 1;
 
-                // First, we put the record we just retrieved into edit mode (reusing the contentEdit variable from above)
-                contentEdit = record.ForEdit();
+                    // Save the changes
+                    int updatedContentId = core.Content.Update(contentEdit);
 
-                // And now we'll change a few fields.  Here we'll show how Estrelica.Core allows you to perform record
-                // updates using whichever method is best for you, by demonstrating a mix of the two edit strategies
-                // discussed above.  We'll use the ITextField versionField object to retrieve an editor for the "Version" field
-                // while using names/aliases/guids/ids to retrieve editors for the rest.
+                    // Confirm that we got the same contentId this time that we got when we performed
+                    // the original insert:
 
-                // First we'll capture some identifiers:
-                string licensedQuantityFieldName = licensedQuantityField.Name;
-                string applicationTypeFieldAlias = applicationTypeField.Alias;
-                int subformFieldId = subformField.Id;
+                    Assert.AreEqual($"Updated content {updatedContentId}", contentId, updatedContentId);
 
-                // By passing an ITextField (versionField) to the Field() method, the content record knows it should return an
-                // ITextValueEdit editor, which has a strongly-typed "Value" property which only accepts strings:
+                    // And now reload the record to confirm our edits
 
-                contentEdit.Field(versionField).Value = "unknown";
+                    record = core.Content.GetContentById(contentId).ContentAccess(core);
 
-                // But when retrieving an editor using string/guid/int field Identifiers, we have to choose the method
-                // appropriate to the field type we expect (e.g. "NumericField()", "ValuesListField()", etc.) so
-                // Estrelica.Core knows which editor type is relevant for the field:
+                    var updateInfo = record.UpdateInformation;
+                    // Update Date should now be greater than Create Date, but the user Ids should still be the same
+                    Assert.IsGreater("Verifying create/update dates", updateInfo.UpdateDate.Value, updateInfo.CreateDate.Value);
+                    Assert.AreEqual("Verifying create user", updateInfo.CreateUser.Id, currentUser.Id);
+                    Assert.AreEqual("Verifying update user", updateInfo.UpdateUser.Id, currentUser.Id);
 
-                // INumericValueEdit likewise has a strongly-typed "Value" property which only accepts numbers
-                // (specifically, nullable decimals):
-                contentEdit.NumericField(licensedQuantityFieldName).Value = 3;
+                    Assert.AreEqual($"Verifying '{versionField.Name}' {nameField.FieldType} field",
+                        "unknown", record.Value(versionField));
 
-                // IReferencedRecordsEdit doesn't have an atomic "Value" property like the others above.  Instead it provides
-                // Add, Remove, Set, etc. methods to maintain the collection of records that are referenced by the field:
-                contentEdit.SubformField(subformFieldId).Remove(newSubformContentId);
+                    Assert.AreEqual($"Verifying '{licensedQuantityField.Name}' {licensedQuantityField.FieldType} field",
+                        3, record.Value(licensedQuantityField));
 
-                // And here we'll demonstrate how the IValuesListSelectionEdit throws an exception if we
-                // attempt to set a value that isn't valid for the field:
-                Assert.ThrowsException<ArgumentException>($"Confirming '{applicationTypeField.Name}' {applicationTypeField.FieldType} won't accept invalid values",
-                    () =>
-                    contentEdit.ValuesListField(applicationTypeFieldAlias).Set("asedfgjklhklqajwherm,bn")
-                );
+                    // Note that the IArcherContentAccess.Value() method is also overloaded to take an IArcherField reference
+                    // or any of the standard name/alias/guid/id identifiers.  Here we'll resolve one by Guid to demonstrate:
+                    Assert.AreEqual($"Verifying '{activeUsageField.Name}' {activeUsageField.FieldType} field",
+                        1, record.Value(activeUsageField.Guid));
 
-                // Likewise if we try to do it using an invalid integer Id for the value
-                Assert.ThrowsException<ArgumentException>($"Confirming '{applicationTypeField.Name}' {applicationTypeField.FieldType} won't accept invalid values",
-                    () =>
-                    contentEdit.ValuesListField(applicationTypeFieldAlias).Set(9999999)
-                );
+                    // There's a calculated field named "Unused Licenses" having the formula ([Licensed Quantity]) - ([Active Usage Quantity])
+                    // so let's confirm that its value is as expected too.  Note that here we're just dereferencing the field's value
+                    // by its field name, rather than using an explicit field reference as in the earlier examples.
 
-                // And again, if we try to do it using an IValuesListValue from a different ValuesList.
-                // Here we'll take one from the ValuesList associated with the "Platform" field and try
-                // to put it in the "Application Type" field where it does not belong.
-                var invalidVLV = level.Field<IValuesListField>("Platform").ValuesList.Values.First();
+                    // The difference is that using a field reference (e.g. an ITextField, an IValueListField, an IUserGroupListField, etc.)
+                    // dictates the field type *at compile time*, so the compiler knows what the return type will be (e.g. a string,
+                    // a values list selection, a users/groups list selection).
 
-                Assert.ThrowsException<ArgumentException>($"Confirming '{applicationTypeField.Name}' {applicationTypeField.FieldType} won't accept invalid values",
-                    () =>
-                    contentEdit.ValuesListField(applicationTypeFieldAlias).Set(invalidVLV)
-                );
+                    // However, when retrieving a record value by field name (or alias or guid or integer id), the field type cannot
+                    // be determined at compile time, so the return result is "dynamic".  We know by convention that "Unused Licenses" is
+                    // a numeric field however, so we can treat the result as a numeric value here.
 
+                    Assert.AreEqual($"Verifying 'Unused Licenses' Numeric field",
+                        2, record.Value("Unused Licenses"));
 
-                // Remove the CrossReference/RelatedRecords values we inserted earlier, if any.
-                if (targetCrossRefContentId > 0)
-                {
-                    contentEdit.Field(crossRefField).Remove(targetCrossRefContentId);
-                }
+                    // Verify that any CrossReference/RelatedRecords fields we modified earlier are now empty
 
-                if (targetRelatedRecordsContentId > 0)
-                {
-                    contentEdit.Field(relatedRecordsField).Remove(targetRelatedRecordsContentId);
-                }
+                    if (crossRefField != null)
+                    {
+                        Assert.AreEqual($"Verifying {crossRefField.FieldType} '{crossRefField.Name}' is now empty",
+                            0, record.Value(crossRefField).Ids.Count());
+                    }
 
-                // Here we'll edit a new field directly by Id that wasn't involved in the previous insert
-                var activeUsageField = level.Field<INumericField>("Active Usage Quantity");
+                    if (relatedRecordsField != null)
+                    {
+                        Assert.AreEqual($"Verifying {relatedRecordsField.FieldType} '{relatedRecordsField.Name}' is now empty",
+                            0, record.Value(relatedRecordsField).Ids.Count());
+                    }
 
-                contentEdit.NumericField(activeUsageField.Id).Value = 1;
-
-                // Save the changes
-                int updatedContentId = core.Content.Update(contentEdit);
-
-                // Confirm that we got the same contentId this time that we got when we performed
-                // the original insert:
-
-                Assert.AreEqual($"Updated content {updatedContentId}", contentId, updatedContentId);
-
-                // And now reload the record to confirm our edits
-
-                record = core.Content.GetContentById(contentId).ContentAccess(core);
-
-                var updateInfo = record.UpdateInformation;
-                // Update Date should now be greater than Create Date, but the user Ids should still be the same
-                Assert.IsGreater("Verifying create/update dates", updateInfo.UpdateDate.Value, updateInfo.CreateDate.Value);
-                Assert.AreEqual("Verifying create user", updateInfo.CreateUser.Id, currentUser.Id);
-                Assert.AreEqual("Verifying update user", updateInfo.UpdateUser.Id, currentUser.Id);
-
-                Assert.AreEqual($"Verifying '{versionField.Name}' {nameField.FieldType} field",
-                    "unknown", record.Value(versionField));
-
-                Assert.AreEqual($"Verifying '{licensedQuantityField.Name}' {licensedQuantityField.FieldType} field",
-                    3, record.Value(licensedQuantityField));
-
-                // Note that the IArcherContentAccess.Value() method is also overloaded to take an IArcherField reference
-                // or any of the standard name/alias/guid/id identifiers.  Here we'll resolve one by Guid to demonstrate:
-                Assert.AreEqual($"Verifying '{activeUsageField.Name}' {activeUsageField.FieldType} field",
-                    1, record.Value(activeUsageField.Guid));
-
-                // There's a calculated field named "Unused Licenses" having the formula ([Licensed Quantity]) - ([Active Usage Quantity])
-                // so let's confirm that its value is as expected too.  Note that here we're just dereferencing the field's value
-                // by its field name, rather than using an explicit field reference as in the earlier examples.
-
-                // The difference is that using a field reference (e.g. an ITextField, an IValueListField, an IUserGroupListField, etc.)
-                // dictates the field type *at compile time*, so the compiler knows what the return type will be (e.g. a string,
-                // a values list selection, a users/groups list selection).
-
-                // However, when retrieving a record value by field name (or alias or guid or integer id), the field type cannot
-                // be determined at compile time, so the return result is "dynamic".  We know by convention that "Unused Licenses" is
-                // a numeric field however, so we can treat the result as a numeric value here.
-
-                Assert.AreEqual($"Verifying 'Unused Licenses' Numeric field",
-                    2, record.Value("Unused Licenses"));
-
-                // Verify that any CrossReference/RelatedRecords fields we modified earlier are now empty
-
-                if (crossRefField != null)
-                {
-                    Assert.AreEqual($"Verifying {crossRefField.FieldType} '{crossRefField.Name}' is now empty",
-                        0, record.Value(crossRefField).Ids.Count());
-                }
-
-                if (relatedRecordsField != null)
-                {
-                    Assert.AreEqual($"Verifying {relatedRecordsField.FieldType} '{relatedRecordsField.Name}' is now empty",
-                        0, record.Value(relatedRecordsField).Ids.Count());
-                }
-
-                Utilities.Log($"The record has been updated in the '{application.Name}' application.  This is your last chance to see it in Archer, as we will delete it in the next step.  Hit any key when you're ready to proceed.");
-                Utilities.Pause();
+                    Utilities.Log($"The record has been updated in the '{application.Name}' application.  This is your last chance to see it in Archer, as we will delete it in the next step.  Hit any key when you're ready to proceed.");
+                    Utilities.Pause();
+                } // end of "if (proceedWithInsert)"
             }
             catch (Exception ex)
             {
