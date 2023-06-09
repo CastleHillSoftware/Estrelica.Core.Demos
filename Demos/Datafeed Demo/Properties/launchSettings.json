@@ -1,8 +1,7 @@
 {
   "profiles": {
     "04 - Datafeed Demo": {
-      "commandName": "Project",
-      "commandLineArgs": "Archer69"
+      "commandName": "Project"
     }
   }
 }

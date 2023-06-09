@@ -152,7 +152,7 @@ namespace CHUM
                     ).ContentAccess(core))
                 {
                     // Get the Archer User Id for this contact record (from the rsaArcherUserAccount field).  It should have exactly one user in
-                    // it, so we'll just take the first.  If the record has no user in this field, contactUserId will be 0.
+                    // it, so we'll just take the first.  If the record has no user in this field, .FirstOrDefault() will cause userUserId to be 0.
                     int userUserId = record.Value<IUserGroupListSelection>(rsaArcherUserAccountField).UserIds.FirstOrDefault();
 
                     if (userUserId > 0)

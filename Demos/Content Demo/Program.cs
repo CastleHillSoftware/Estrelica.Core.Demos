@@ -1080,20 +1080,23 @@ namespace ContentDemo
                     // on those two records remains the same, eliminating the need to maintain two skillsets to handle the XML vs. JSON
                     // distinction.
 
+                    Utilities.Log(@"Here we'll reload the record and confirm that the changes we made to it were successfully saved. 
+We'll do this twice, once via the Webservices SOAP API (which returns the record as XML), and again via the REST API (returning JSON).  
+Both results will leverage the .ContentAccess() method, demonstrating that regardless of where the record content came from and which 
+format it carries, Estrelica.Core provides a common programming model via IArcherContentAccess that works identically for both...");
+
                     IArcherContentAccess record = null;
-                    bool usingRESTAPI = false;
                     foreach (var savedRecord in (new bool[] { true, false }).Select(useRestAPI =>
                         {
+                            Utilities.Log("");
                             if (useRestAPI)
                             {
                                 Utilities.Log("Verifying the record we just saved via the REST API");
-                                usingRESTAPI = true;
                                 return core.Content.GetContentById(contentId).ContentAccess(core);
                             }
                             else
                             {
                                 Utilities.Log("Verifying the record we just saved via the webservices Search API");
-                                usingRESTAPI = false;
                                 var xmlResult = core.Content.GetContent(level: level,
                                     filterConditions: new XElement[] {
                                     nameField.CreateCondition(ValuesOperator.Equals, "Estrelica.Core"),
@@ -1112,18 +1115,9 @@ namespace ContentDemo
                             savedRecord.UpdateInformation.CreateDate,
                             savedRecord.UpdateInformation.UpdateDate);
 
-                        // When the record is loaded via the REST API, the record's UpdateInformation will be populated with
-                        // IArcherUser references for CreateUser and UpdateUser.  This information is not returned by Archer for records
-                        // loaded via the Webservices Search API, but will be injected in that case by Estrelica.Core if its extended methods
-                        // are available.  Therefore, if we've loaded this record via the REST API, or if we've loaded it via the Webservices
-                        // SOAP call *and* Estrelica.Core's extensions are available, we can evaluate the CreateUser and UpdateUser on the
-                        // record's UpdateInformation object:
-                        if (usingRESTAPI || core.APIFacade.ExtensionsAvailable() != Estrelica.Archer.Utility.APISource.None)
-                        {
-                            // And the current user should be found as both the creator and updater
-                            Assert.AreEqual("Verifying create user", currentUser.Id, savedRecord.UpdateInformation.CreateUser.Id);
-                            Assert.AreEqual("Verifying update user", currentUser.Id, savedRecord.UpdateInformation.UpdateUser.Id);
-                        }
+                        // And the current user should be found as both the creator and updater
+                        Assert.AreEqual("Verifying create user", currentUser.Id, savedRecord.UpdateInformation.CreateUser.Id);
+                        Assert.AreEqual("Verifying update user", currentUser.Id, savedRecord.UpdateInformation.UpdateUser.Id);
 
                         // KeyFieldValue will attempt to return the value of the record's key field, if a key field is
                         // defined and if it has been loaded for this record.  Otherwise it will return the Tracking Id
