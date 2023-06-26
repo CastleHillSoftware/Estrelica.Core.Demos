@@ -1,5 +1,7 @@
 The demos in this solution provide examples for using <a href="https://castlehillsoftware.github.io/Estrelica.Core.Demos/index.html" target="_blank">Estrelica.Core</a> to build your own .NET projects to implement integration activities with Archer.
 
+These are the demo applications referenced in the "Getting Started with Estrelica.Core" page at https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/getting_started.html.  Please refer to that page for info about accessing the Estrelica.Core package.  Details about configuring your license key, and connecting Estrelica.Core to your Archer instance can be found in the "Connecting to Archer" page at https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/connecting_to_archer.html.
+
 Since every Archer deployment is different, some of these demos may fail to run to completion in your Archer environment.
 
 Notably, the "Content Demo" and "Metadata Demo" applications (demonstrating how to work with Archer content and metadata, respectively) make use of the "Policies" and "Applications" application, as well as the Levels and Fields they contain.
