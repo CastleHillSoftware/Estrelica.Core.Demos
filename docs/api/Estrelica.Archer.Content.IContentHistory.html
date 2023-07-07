@@ -1202,7 +1202,11 @@
   <h4 id="Estrelica_Archer_Content_IContentHistory_HistoryAudits" data-uid="Estrelica.Archer.Content.IContentHistory.HistoryAudits"><a href="#collapsible-Estrelica_Archer_Content_IContentHistory_HistoryAudits" class="expander" data-toggle="collapse">HistoryAudits</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Content_IContentHistory_HistoryAudits" class="collapse in">
-  <div class="markdown level1 summary"><p>One or more IHistoryAudit results representing the changes tracked by the HistoryLog field for this content record.</p>
+  <div class="markdown level1 summary"><p>One or more <a class="xref" href="Estrelica.Archer.Content.IHistoryAudit.html">IHistoryAudit</a> results representing the change events tracked by the HistoryLog
+field for this content record.
+Note that <a class="xref" href="Estrelica.Archer.Content.IHistoryAudit.html">IHistoryAudit</a> is merely the common base interface for these events.  The actual implementation will be either
+<a class="xref" href="Estrelica.Archer.Content.IFieldAudit.html">IFieldAudit</a>, <a class="xref" href="Estrelica.Archer.Content.IAdvancedWorkflowAudit.html">IAdvancedWorkflowAudit</a> or
+<a class="xref" href="Estrelica.Archer.Content.ISignatureAudit.html">ISignatureAudit</a> depending on which change event types are being returned.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
