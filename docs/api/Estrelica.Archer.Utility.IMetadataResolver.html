@@ -182,6 +182,15 @@
                             <a href="Estrelica.Archer.Content.EqualityOperator.html" title="EqualityOperator" class="">EqualityOperator</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Content.FieldHistoryAuditType.html" title="FieldHistoryAuditType" class="">FieldHistoryAuditType</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Content.HistoryAuditType.html" title="HistoryAuditType" class="">HistoryAuditType</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Content.IAdvancedWorkflowAudit.html" title="IAdvancedWorkflowAudit" class="">IAdvancedWorkflowAudit</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Content.IArcherContent.html" title="IArcherContent" class="">IArcherContent</a>
                           </li>
                           <li class="">
@@ -222,6 +231,9 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Content.IArcherValuesListQuery.html" title="IArcherValuesListQuery" class="">IArcherValuesListQuery</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Content.IContentHistory.html" title="IContentHistory" class="">IContentHistory</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Content.IContentInformation.html" title="IContentInformation" class="">IContentInformation</a>
@@ -266,10 +278,19 @@
                             <a href="Estrelica.Archer.Content.IExternalLinksSelectionEdit.html" title="IExternalLinksSelectionEdit" class="">IExternalLinksSelectionEdit</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Content.IFieldAudit.html" title="IFieldAudit" class="">IFieldAudit</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Content.IFieldHistory.html" title="IFieldHistory" class="">IFieldHistory</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Content.IFieldQuery.html" title="IFieldQuery" class="">IFieldQuery</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Content.IFieldValueEdit-1.html" title="IFieldValueEdit&lt;T&gt;" class="">IFieldValueEdit&lt;T&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Content.IHistoryAudit.html" title="IHistoryAudit" class="">IHistoryAudit</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Content.INumericValueEdit.html" title="INumericValueEdit" class="">INumericValueEdit</a>
@@ -282,6 +303,9 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Content.IReferencedRecordsSelectionEdit.html" title="IReferencedRecordsSelectionEdit" class="">IReferencedRecordsSelectionEdit</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Content.ISignatureAudit.html" title="ISignatureAudit" class="">ISignatureAudit</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Content.ISubEditableField.html" title="ISubEditableField" class="">ISubEditableField</a>
@@ -342,6 +366,9 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Content.ValuesOperator.html" title="ValuesOperator" class="">ValuesOperator</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Content.WorkflowAuditActionType.html" title="WorkflowAuditActionType" class="">WorkflowAuditActionType</a>
                           </li>
                         </ul>                    </li>
                     <li class="">
@@ -2065,6 +2092,66 @@
     <tr>
       <td>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">dynamic</a>&gt;
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+  <a id="Estrelica_Archer_Utility_IMetadataResolver_GuidToId_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.GuidToId*"></a>
+
+  <h4 id="Estrelica_Archer_Utility_IMetadataResolver_GuidToId_Estrelica_Archer_Entity_EntityType_System_Guid_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.GuidToId(Estrelica.Archer.Entity.EntityType,System.Guid,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_GuidToId_Estrelica_Archer_Entity_EntityType_System_Guid_System_Boolean_" class="expander" data-toggle="collapse">GuidToId(EntityType, Guid, bool)</a></h4>
+
+  <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_GuidToId_Estrelica_Archer_Entity_EntityType_System_Guid_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">int GuidToId(EntityType entityType, Guid guid, bool throwExceptionIfInvalid = true)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Entity.EntityType.html">EntityType</a></span>
+        <span class="parametername">entityType</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></span>
+        <span class="parametername">guid</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
+        <span class="parametername">throwExceptionIfInvalid</span>
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>
         <p></p>
       </td>
     </tr>

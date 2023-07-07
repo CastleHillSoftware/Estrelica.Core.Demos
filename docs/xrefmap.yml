@@ -2775,6 +2775,92 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateGroupCondition
   nameWithType: ContentFilterHelper.CreateGroupCondition
+- uid: Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IDateField)
+  name: CreateIsEmptyCondition(IDateField)
+  href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IDateField_
+  commentId: M:Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IDateField)
+  fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IDateField)
+  nameWithType: ContentFilterHelper.CreateIsEmptyCondition(IDateField)
+- uid: Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.INumericField)
+  name: CreateIsEmptyCondition(INumericField)
+  href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_INumericField_
+  commentId: M:Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.INumericField)
+  fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.INumericField)
+  nameWithType: ContentFilterHelper.CreateIsEmptyCondition(INumericField)
+- uid: Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IReferenceField)
+  name: CreateIsEmptyCondition(IReferenceField)
+  href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IReferenceField_
+  commentId: M:Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IReferenceField)
+  fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IReferenceField)
+  nameWithType: ContentFilterHelper.CreateIsEmptyCondition(IReferenceField)
+- uid: Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.ITextField)
+  name: CreateIsEmptyCondition(ITextField)
+  href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_ITextField_
+  commentId: M:Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.ITextField)
+  fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.ITextField)
+  nameWithType: ContentFilterHelper.CreateIsEmptyCondition(ITextField)
+- uid: Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IUserGroupListField)
+  name: CreateIsEmptyCondition(IUserGroupListField)
+  href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_
+  commentId: M:Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IUserGroupListField)
+  fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IUserGroupListField)
+  nameWithType: ContentFilterHelper.CreateIsEmptyCondition(IUserGroupListField)
+- uid: Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IValuesListField)
+  name: CreateIsEmptyCondition(IValuesListField)
+  href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IValuesListField_
+  commentId: M:Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IValuesListField)
+  fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IValuesListField)
+  nameWithType: ContentFilterHelper.CreateIsEmptyCondition(IValuesListField)
+- uid: Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition*
+  name: CreateIsEmptyCondition
+  href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_
+  commentId: Overload:Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition
+  nameWithType: ContentFilterHelper.CreateIsEmptyCondition
+- uid: Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IDateField)
+  name: CreateIsNotEmptyCondition(IDateField)
+  href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IDateField_
+  commentId: M:Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IDateField)
+  fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IDateField)
+  nameWithType: ContentFilterHelper.CreateIsNotEmptyCondition(IDateField)
+- uid: Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.INumericField)
+  name: CreateIsNotEmptyCondition(INumericField)
+  href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_INumericField_
+  commentId: M:Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.INumericField)
+  fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.INumericField)
+  nameWithType: ContentFilterHelper.CreateIsNotEmptyCondition(INumericField)
+- uid: Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IReferenceField)
+  name: CreateIsNotEmptyCondition(IReferenceField)
+  href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IReferenceField_
+  commentId: M:Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IReferenceField)
+  fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IReferenceField)
+  nameWithType: ContentFilterHelper.CreateIsNotEmptyCondition(IReferenceField)
+- uid: Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.ITextField)
+  name: CreateIsNotEmptyCondition(ITextField)
+  href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_ITextField_
+  commentId: M:Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.ITextField)
+  fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.ITextField)
+  nameWithType: ContentFilterHelper.CreateIsNotEmptyCondition(ITextField)
+- uid: Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IUserGroupListField)
+  name: CreateIsNotEmptyCondition(IUserGroupListField)
+  href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_
+  commentId: M:Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IUserGroupListField)
+  fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IUserGroupListField)
+  nameWithType: ContentFilterHelper.CreateIsNotEmptyCondition(IUserGroupListField)
+- uid: Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IValuesListField)
+  name: CreateIsNotEmptyCondition(IValuesListField)
+  href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IValuesListField_
+  commentId: M:Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IValuesListField)
+  fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IValuesListField)
+  nameWithType: ContentFilterHelper.CreateIsNotEmptyCondition(IValuesListField)
+- uid: Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition*
+  name: CreateIsNotEmptyCondition
+  href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_
+  commentId: Overload:Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition
+  nameWithType: ContentFilterHelper.CreateIsNotEmptyCondition
 - uid: Estrelica.Archer.Content.ContentFilterHelper.CreateOffsetCondition(Estrelica.Archer.Metadata.Field.IBaseDateField,Estrelica.Archer.Content.DateOffsetOperator,System.Int32,System.Boolean,System.String)
   name: CreateOffsetCondition(IBaseDateField, DateOffsetOperator, int, bool, string)
   href: api/Estrelica.Archer.Content.ContentFilterHelper.html#Estrelica_Archer_Content_ContentFilterHelper_CreateOffsetCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_DateOffsetOperator_System_Int32_System_Boolean_System_String_
@@ -3302,6 +3388,170 @@ references:
   commentId: F:Estrelica.Archer.Content.EqualityOperator.Equals
   fullName: Estrelica.Archer.Content.EqualityOperator.Equals
   nameWithType: EqualityOperator.Equals
+- uid: Estrelica.Archer.Content.FieldHistoryAuditType
+  name: FieldHistoryAuditType
+  href: api/Estrelica.Archer.Content.FieldHistoryAuditType.html
+  commentId: T:Estrelica.Archer.Content.FieldHistoryAuditType
+  fullName: Estrelica.Archer.Content.FieldHistoryAuditType
+  nameWithType: FieldHistoryAuditType
+- uid: Estrelica.Archer.Content.FieldHistoryAuditType.Insert
+  name: Insert
+  href: api/Estrelica.Archer.Content.FieldHistoryAuditType.html#Estrelica_Archer_Content_FieldHistoryAuditType_Insert
+  commentId: F:Estrelica.Archer.Content.FieldHistoryAuditType.Insert
+  fullName: Estrelica.Archer.Content.FieldHistoryAuditType.Insert
+  nameWithType: FieldHistoryAuditType.Insert
+- uid: Estrelica.Archer.Content.FieldHistoryAuditType.Undefined
+  name: Undefined
+  href: api/Estrelica.Archer.Content.FieldHistoryAuditType.html#Estrelica_Archer_Content_FieldHistoryAuditType_Undefined
+  commentId: F:Estrelica.Archer.Content.FieldHistoryAuditType.Undefined
+  fullName: Estrelica.Archer.Content.FieldHistoryAuditType.Undefined
+  nameWithType: FieldHistoryAuditType.Undefined
+- uid: Estrelica.Archer.Content.FieldHistoryAuditType.Update
+  name: Update
+  href: api/Estrelica.Archer.Content.FieldHistoryAuditType.html#Estrelica_Archer_Content_FieldHistoryAuditType_Update
+  commentId: F:Estrelica.Archer.Content.FieldHistoryAuditType.Update
+  fullName: Estrelica.Archer.Content.FieldHistoryAuditType.Update
+  nameWithType: FieldHistoryAuditType.Update
+- uid: Estrelica.Archer.Content.HistoryAuditType
+  name: HistoryAuditType
+  href: api/Estrelica.Archer.Content.HistoryAuditType.html
+  commentId: T:Estrelica.Archer.Content.HistoryAuditType
+  fullName: Estrelica.Archer.Content.HistoryAuditType
+  nameWithType: HistoryAuditType
+- uid: Estrelica.Archer.Content.HistoryAuditType.AdvancedWorkflow
+  name: AdvancedWorkflow
+  href: api/Estrelica.Archer.Content.HistoryAuditType.html#Estrelica_Archer_Content_HistoryAuditType_AdvancedWorkflow
+  commentId: F:Estrelica.Archer.Content.HistoryAuditType.AdvancedWorkflow
+  fullName: Estrelica.Archer.Content.HistoryAuditType.AdvancedWorkflow
+  nameWithType: HistoryAuditType.AdvancedWorkflow
+- uid: Estrelica.Archer.Content.HistoryAuditType.Field
+  name: Field
+  href: api/Estrelica.Archer.Content.HistoryAuditType.html#Estrelica_Archer_Content_HistoryAuditType_Field
+  commentId: F:Estrelica.Archer.Content.HistoryAuditType.Field
+  fullName: Estrelica.Archer.Content.HistoryAuditType.Field
+  nameWithType: HistoryAuditType.Field
+- uid: Estrelica.Archer.Content.HistoryAuditType.Signature
+  name: Signature
+  href: api/Estrelica.Archer.Content.HistoryAuditType.html#Estrelica_Archer_Content_HistoryAuditType_Signature
+  commentId: F:Estrelica.Archer.Content.HistoryAuditType.Signature
+  fullName: Estrelica.Archer.Content.HistoryAuditType.Signature
+  nameWithType: HistoryAuditType.Signature
+- uid: Estrelica.Archer.Content.HistoryAuditType.Undefined
+  name: Undefined
+  href: api/Estrelica.Archer.Content.HistoryAuditType.html#Estrelica_Archer_Content_HistoryAuditType_Undefined
+  commentId: F:Estrelica.Archer.Content.HistoryAuditType.Undefined
+  fullName: Estrelica.Archer.Content.HistoryAuditType.Undefined
+  nameWithType: HistoryAuditType.Undefined
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit
+  name: IAdvancedWorkflowAudit
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html
+  commentId: T:Estrelica.Archer.Content.IAdvancedWorkflowAudit
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit
+  nameWithType: IAdvancedWorkflowAudit
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.IsWorkflowActionViaEmail
+  name: IsWorkflowActionViaEmail
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_IsWorkflowActionViaEmail
+  commentId: P:Estrelica.Archer.Content.IAdvancedWorkflowAudit.IsWorkflowActionViaEmail
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.IsWorkflowActionViaEmail
+  nameWithType: IAdvancedWorkflowAudit.IsWorkflowActionViaEmail
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.IsWorkflowActionViaEmail*
+  name: IsWorkflowActionViaEmail
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_IsWorkflowActionViaEmail_
+  commentId: Overload:Estrelica.Archer.Content.IAdvancedWorkflowAudit.IsWorkflowActionViaEmail
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.IsWorkflowActionViaEmail
+  nameWithType: IAdvancedWorkflowAudit.IsWorkflowActionViaEmail
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.IsWorkFlowActionViaMobile
+  name: IsWorkFlowActionViaMobile
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_IsWorkFlowActionViaMobile
+  commentId: P:Estrelica.Archer.Content.IAdvancedWorkflowAudit.IsWorkFlowActionViaMobile
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.IsWorkFlowActionViaMobile
+  nameWithType: IAdvancedWorkflowAudit.IsWorkFlowActionViaMobile
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.IsWorkFlowActionViaMobile*
+  name: IsWorkFlowActionViaMobile
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_IsWorkFlowActionViaMobile_
+  commentId: Overload:Estrelica.Archer.Content.IAdvancedWorkflowAudit.IsWorkFlowActionViaMobile
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.IsWorkFlowActionViaMobile
+  nameWithType: IAdvancedWorkflowAudit.IsWorkFlowActionViaMobile
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.NodeId
+  name: NodeId
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_NodeId
+  commentId: P:Estrelica.Archer.Content.IAdvancedWorkflowAudit.NodeId
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.NodeId
+  nameWithType: IAdvancedWorkflowAudit.NodeId
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.NodeId*
+  name: NodeId
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_NodeId_
+  commentId: Overload:Estrelica.Archer.Content.IAdvancedWorkflowAudit.NodeId
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.NodeId
+  nameWithType: IAdvancedWorkflowAudit.NodeId
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.NodeName
+  name: NodeName
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_NodeName
+  commentId: P:Estrelica.Archer.Content.IAdvancedWorkflowAudit.NodeName
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.NodeName
+  nameWithType: IAdvancedWorkflowAudit.NodeName
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.NodeName*
+  name: NodeName
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_NodeName_
+  commentId: Overload:Estrelica.Archer.Content.IAdvancedWorkflowAudit.NodeName
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.NodeName
+  nameWithType: IAdvancedWorkflowAudit.NodeName
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.TransitionId
+  name: TransitionId
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_TransitionId
+  commentId: P:Estrelica.Archer.Content.IAdvancedWorkflowAudit.TransitionId
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.TransitionId
+  nameWithType: IAdvancedWorkflowAudit.TransitionId
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.TransitionId*
+  name: TransitionId
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_TransitionId_
+  commentId: Overload:Estrelica.Archer.Content.IAdvancedWorkflowAudit.TransitionId
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.TransitionId
+  nameWithType: IAdvancedWorkflowAudit.TransitionId
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.TransitionName
+  name: TransitionName
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_TransitionName
+  commentId: P:Estrelica.Archer.Content.IAdvancedWorkflowAudit.TransitionName
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.TransitionName
+  nameWithType: IAdvancedWorkflowAudit.TransitionName
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.TransitionName*
+  name: TransitionName
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_TransitionName_
+  commentId: Overload:Estrelica.Archer.Content.IAdvancedWorkflowAudit.TransitionName
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.TransitionName
+  nameWithType: IAdvancedWorkflowAudit.TransitionName
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.WorkflowAction
+  name: WorkflowAction
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_WorkflowAction
+  commentId: P:Estrelica.Archer.Content.IAdvancedWorkflowAudit.WorkflowAction
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.WorkflowAction
+  nameWithType: IAdvancedWorkflowAudit.WorkflowAction
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.WorkflowAction*
+  name: WorkflowAction
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_WorkflowAction_
+  commentId: Overload:Estrelica.Archer.Content.IAdvancedWorkflowAudit.WorkflowAction
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.WorkflowAction
+  nameWithType: IAdvancedWorkflowAudit.WorkflowAction
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.WorkflowJobId
+  name: WorkflowJobId
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_WorkflowJobId
+  commentId: P:Estrelica.Archer.Content.IAdvancedWorkflowAudit.WorkflowJobId
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.WorkflowJobId
+  nameWithType: IAdvancedWorkflowAudit.WorkflowJobId
+- uid: Estrelica.Archer.Content.IAdvancedWorkflowAudit.WorkflowJobId*
+  name: WorkflowJobId
+  href: api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html#Estrelica_Archer_Content_IAdvancedWorkflowAudit_WorkflowJobId_
+  commentId: Overload:Estrelica.Archer.Content.IAdvancedWorkflowAudit.WorkflowJobId
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IAdvancedWorkflowAudit.WorkflowJobId
+  nameWithType: IAdvancedWorkflowAudit.WorkflowJobId
 - uid: Estrelica.Archer.Content.IArcherContent
   name: IArcherContent
   href: api/Estrelica.Archer.Content.IArcherContent.html
@@ -3327,6 +3577,19 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Content.IArcherContentAccess.Content
   nameWithType: IArcherContentAccess.Content
+- uid: Estrelica.Archer.Content.IArcherContentAccess.ContentHistory
+  name: ContentHistory
+  href: api/Estrelica.Archer.Content.IArcherContentAccess.html#Estrelica_Archer_Content_IArcherContentAccess_ContentHistory
+  commentId: P:Estrelica.Archer.Content.IArcherContentAccess.ContentHistory
+  fullName: Estrelica.Archer.Content.IArcherContentAccess.ContentHistory
+  nameWithType: IArcherContentAccess.ContentHistory
+- uid: Estrelica.Archer.Content.IArcherContentAccess.ContentHistory*
+  name: ContentHistory
+  href: api/Estrelica.Archer.Content.IArcherContentAccess.html#Estrelica_Archer_Content_IArcherContentAccess_ContentHistory_
+  commentId: Overload:Estrelica.Archer.Content.IArcherContentAccess.ContentHistory
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IArcherContentAccess.ContentHistory
+  nameWithType: IArcherContentAccess.ContentHistory
 - uid: Estrelica.Archer.Content.IArcherContentAccess.DateValue(System.Guid)
   name: DateValue(Guid)
   href: api/Estrelica.Archer.Content.IArcherContentAccess.html#Estrelica_Archer_Content_IArcherContentAccess_DateValue_System_Guid_
@@ -6350,6 +6613,51 @@ references:
   fullName.vb: Estrelica.Archer.Content.IArcherValuesListQuery.<>
   nameWithType: IArcherValuesListQuery.operator !=
   nameWithType.vb: IArcherValuesListQuery.<>
+- uid: Estrelica.Archer.Content.IContentHistory
+  name: IContentHistory
+  href: api/Estrelica.Archer.Content.IContentHistory.html
+  commentId: T:Estrelica.Archer.Content.IContentHistory
+  fullName: Estrelica.Archer.Content.IContentHistory
+  nameWithType: IContentHistory
+- uid: Estrelica.Archer.Content.IContentHistory.HistoryAudits
+  name: HistoryAudits
+  href: api/Estrelica.Archer.Content.IContentHistory.html#Estrelica_Archer_Content_IContentHistory_HistoryAudits
+  commentId: P:Estrelica.Archer.Content.IContentHistory.HistoryAudits
+  fullName: Estrelica.Archer.Content.IContentHistory.HistoryAudits
+  nameWithType: IContentHistory.HistoryAudits
+- uid: Estrelica.Archer.Content.IContentHistory.HistoryAudits*
+  name: HistoryAudits
+  href: api/Estrelica.Archer.Content.IContentHistory.html#Estrelica_Archer_Content_IContentHistory_HistoryAudits_
+  commentId: Overload:Estrelica.Archer.Content.IContentHistory.HistoryAudits
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IContentHistory.HistoryAudits
+  nameWithType: IContentHistory.HistoryAudits
+- uid: Estrelica.Archer.Content.IContentHistory.HistoryLogField
+  name: HistoryLogField
+  href: api/Estrelica.Archer.Content.IContentHistory.html#Estrelica_Archer_Content_IContentHistory_HistoryLogField
+  commentId: P:Estrelica.Archer.Content.IContentHistory.HistoryLogField
+  fullName: Estrelica.Archer.Content.IContentHistory.HistoryLogField
+  nameWithType: IContentHistory.HistoryLogField
+- uid: Estrelica.Archer.Content.IContentHistory.HistoryLogField*
+  name: HistoryLogField
+  href: api/Estrelica.Archer.Content.IContentHistory.html#Estrelica_Archer_Content_IContentHistory_HistoryLogField_
+  commentId: Overload:Estrelica.Archer.Content.IContentHistory.HistoryLogField
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IContentHistory.HistoryLogField
+  nameWithType: IContentHistory.HistoryLogField
+- uid: Estrelica.Archer.Content.IContentHistory.HistoryLogFieldId
+  name: HistoryLogFieldId
+  href: api/Estrelica.Archer.Content.IContentHistory.html#Estrelica_Archer_Content_IContentHistory_HistoryLogFieldId
+  commentId: P:Estrelica.Archer.Content.IContentHistory.HistoryLogFieldId
+  fullName: Estrelica.Archer.Content.IContentHistory.HistoryLogFieldId
+  nameWithType: IContentHistory.HistoryLogFieldId
+- uid: Estrelica.Archer.Content.IContentHistory.HistoryLogFieldId*
+  name: HistoryLogFieldId
+  href: api/Estrelica.Archer.Content.IContentHistory.html#Estrelica_Archer_Content_IContentHistory_HistoryLogFieldId_
+  commentId: Overload:Estrelica.Archer.Content.IContentHistory.HistoryLogFieldId
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IContentHistory.HistoryLogFieldId
+  nameWithType: IContentHistory.HistoryLogFieldId
 - uid: Estrelica.Archer.Content.IContentInformation
   name: IContentInformation
   href: api/Estrelica.Archer.Content.IContentInformation.html
@@ -7412,6 +7720,122 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Content.IExternalLinksSelectionEdit.Remove
   nameWithType: IExternalLinksSelectionEdit.Remove
+- uid: Estrelica.Archer.Content.IFieldAudit
+  name: IFieldAudit
+  href: api/Estrelica.Archer.Content.IFieldAudit.html
+  commentId: T:Estrelica.Archer.Content.IFieldAudit
+  fullName: Estrelica.Archer.Content.IFieldAudit
+  nameWithType: IFieldAudit
+- uid: Estrelica.Archer.Content.IFieldAudit.FieldHistory
+  name: FieldHistory
+  href: api/Estrelica.Archer.Content.IFieldAudit.html#Estrelica_Archer_Content_IFieldAudit_FieldHistory
+  commentId: P:Estrelica.Archer.Content.IFieldAudit.FieldHistory
+  fullName: Estrelica.Archer.Content.IFieldAudit.FieldHistory
+  nameWithType: IFieldAudit.FieldHistory
+- uid: Estrelica.Archer.Content.IFieldAudit.FieldHistory*
+  name: FieldHistory
+  href: api/Estrelica.Archer.Content.IFieldAudit.html#Estrelica_Archer_Content_IFieldAudit_FieldHistory_
+  commentId: Overload:Estrelica.Archer.Content.IFieldAudit.FieldHistory
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IFieldAudit.FieldHistory
+  nameWithType: IFieldAudit.FieldHistory
+- uid: Estrelica.Archer.Content.IFieldAudit.HistoryAction
+  name: HistoryAction
+  href: api/Estrelica.Archer.Content.IFieldAudit.html#Estrelica_Archer_Content_IFieldAudit_HistoryAction
+  commentId: P:Estrelica.Archer.Content.IFieldAudit.HistoryAction
+  fullName: Estrelica.Archer.Content.IFieldAudit.HistoryAction
+  nameWithType: IFieldAudit.HistoryAction
+- uid: Estrelica.Archer.Content.IFieldAudit.HistoryAction*
+  name: HistoryAction
+  href: api/Estrelica.Archer.Content.IFieldAudit.html#Estrelica_Archer_Content_IFieldAudit_HistoryAction_
+  commentId: Overload:Estrelica.Archer.Content.IFieldAudit.HistoryAction
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IFieldAudit.HistoryAction
+  nameWithType: IFieldAudit.HistoryAction
+- uid: Estrelica.Archer.Content.IFieldAudit.Id
+  name: Id
+  href: api/Estrelica.Archer.Content.IFieldAudit.html#Estrelica_Archer_Content_IFieldAudit_Id
+  commentId: P:Estrelica.Archer.Content.IFieldAudit.Id
+  fullName: Estrelica.Archer.Content.IFieldAudit.Id
+  nameWithType: IFieldAudit.Id
+- uid: Estrelica.Archer.Content.IFieldAudit.Id*
+  name: Id
+  href: api/Estrelica.Archer.Content.IFieldAudit.html#Estrelica_Archer_Content_IFieldAudit_Id_
+  commentId: Overload:Estrelica.Archer.Content.IFieldAudit.Id
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IFieldAudit.Id
+  nameWithType: IFieldAudit.Id
+- uid: Estrelica.Archer.Content.IFieldHistory
+  name: IFieldHistory
+  href: api/Estrelica.Archer.Content.IFieldHistory.html
+  commentId: T:Estrelica.Archer.Content.IFieldHistory
+  fullName: Estrelica.Archer.Content.IFieldHistory
+  nameWithType: IFieldHistory
+- uid: Estrelica.Archer.Content.IFieldHistory.DekId
+  name: DekId
+  href: api/Estrelica.Archer.Content.IFieldHistory.html#Estrelica_Archer_Content_IFieldHistory_DekId
+  commentId: P:Estrelica.Archer.Content.IFieldHistory.DekId
+  fullName: Estrelica.Archer.Content.IFieldHistory.DekId
+  nameWithType: IFieldHistory.DekId
+- uid: Estrelica.Archer.Content.IFieldHistory.DekId*
+  name: DekId
+  href: api/Estrelica.Archer.Content.IFieldHistory.html#Estrelica_Archer_Content_IFieldHistory_DekId_
+  commentId: Overload:Estrelica.Archer.Content.IFieldHistory.DekId
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IFieldHistory.DekId
+  nameWithType: IFieldHistory.DekId
+- uid: Estrelica.Archer.Content.IFieldHistory.Field
+  name: Field
+  href: api/Estrelica.Archer.Content.IFieldHistory.html#Estrelica_Archer_Content_IFieldHistory_Field
+  commentId: P:Estrelica.Archer.Content.IFieldHistory.Field
+  fullName: Estrelica.Archer.Content.IFieldHistory.Field
+  nameWithType: IFieldHistory.Field
+- uid: Estrelica.Archer.Content.IFieldHistory.Field*
+  name: Field
+  href: api/Estrelica.Archer.Content.IFieldHistory.html#Estrelica_Archer_Content_IFieldHistory_Field_
+  commentId: Overload:Estrelica.Archer.Content.IFieldHistory.Field
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IFieldHistory.Field
+  nameWithType: IFieldHistory.Field
+- uid: Estrelica.Archer.Content.IFieldHistory.FieldId
+  name: FieldId
+  href: api/Estrelica.Archer.Content.IFieldHistory.html#Estrelica_Archer_Content_IFieldHistory_FieldId
+  commentId: P:Estrelica.Archer.Content.IFieldHistory.FieldId
+  fullName: Estrelica.Archer.Content.IFieldHistory.FieldId
+  nameWithType: IFieldHistory.FieldId
+- uid: Estrelica.Archer.Content.IFieldHistory.FieldId*
+  name: FieldId
+  href: api/Estrelica.Archer.Content.IFieldHistory.html#Estrelica_Archer_Content_IFieldHistory_FieldId_
+  commentId: Overload:Estrelica.Archer.Content.IFieldHistory.FieldId
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IFieldHistory.FieldId
+  nameWithType: IFieldHistory.FieldId
+- uid: Estrelica.Archer.Content.IFieldHistory.NewValue
+  name: NewValue
+  href: api/Estrelica.Archer.Content.IFieldHistory.html#Estrelica_Archer_Content_IFieldHistory_NewValue
+  commentId: P:Estrelica.Archer.Content.IFieldHistory.NewValue
+  fullName: Estrelica.Archer.Content.IFieldHistory.NewValue
+  nameWithType: IFieldHistory.NewValue
+- uid: Estrelica.Archer.Content.IFieldHistory.NewValue*
+  name: NewValue
+  href: api/Estrelica.Archer.Content.IFieldHistory.html#Estrelica_Archer_Content_IFieldHistory_NewValue_
+  commentId: Overload:Estrelica.Archer.Content.IFieldHistory.NewValue
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IFieldHistory.NewValue
+  nameWithType: IFieldHistory.NewValue
+- uid: Estrelica.Archer.Content.IFieldHistory.OriginalValue
+  name: OriginalValue
+  href: api/Estrelica.Archer.Content.IFieldHistory.html#Estrelica_Archer_Content_IFieldHistory_OriginalValue
+  commentId: P:Estrelica.Archer.Content.IFieldHistory.OriginalValue
+  fullName: Estrelica.Archer.Content.IFieldHistory.OriginalValue
+  nameWithType: IFieldHistory.OriginalValue
+- uid: Estrelica.Archer.Content.IFieldHistory.OriginalValue*
+  name: OriginalValue
+  href: api/Estrelica.Archer.Content.IFieldHistory.html#Estrelica_Archer_Content_IFieldHistory_OriginalValue_
+  commentId: Overload:Estrelica.Archer.Content.IFieldHistory.OriginalValue
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IFieldHistory.OriginalValue
+  nameWithType: IFieldHistory.OriginalValue
 - uid: Estrelica.Archer.Content.IFieldQuery
   name: IFieldQuery
   href: api/Estrelica.Archer.Content.IFieldQuery.html
@@ -7444,6 +7868,64 @@ references:
   fullName.vb: Estrelica.Archer.Content.IFieldValueEdit(Of T).Value
   nameWithType: IFieldValueEdit<T>.Value
   nameWithType.vb: IFieldValueEdit(Of T).Value
+- uid: Estrelica.Archer.Content.IHistoryAudit
+  name: IHistoryAudit
+  href: api/Estrelica.Archer.Content.IHistoryAudit.html
+  commentId: T:Estrelica.Archer.Content.IHistoryAudit
+  fullName: Estrelica.Archer.Content.IHistoryAudit
+  nameWithType: IHistoryAudit
+- uid: Estrelica.Archer.Content.IHistoryAudit.ActionDate
+  name: ActionDate
+  href: api/Estrelica.Archer.Content.IHistoryAudit.html#Estrelica_Archer_Content_IHistoryAudit_ActionDate
+  commentId: P:Estrelica.Archer.Content.IHistoryAudit.ActionDate
+  fullName: Estrelica.Archer.Content.IHistoryAudit.ActionDate
+  nameWithType: IHistoryAudit.ActionDate
+- uid: Estrelica.Archer.Content.IHistoryAudit.ActionDate*
+  name: ActionDate
+  href: api/Estrelica.Archer.Content.IHistoryAudit.html#Estrelica_Archer_Content_IHistoryAudit_ActionDate_
+  commentId: Overload:Estrelica.Archer.Content.IHistoryAudit.ActionDate
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IHistoryAudit.ActionDate
+  nameWithType: IHistoryAudit.ActionDate
+- uid: Estrelica.Archer.Content.IHistoryAudit.ActionUser
+  name: ActionUser
+  href: api/Estrelica.Archer.Content.IHistoryAudit.html#Estrelica_Archer_Content_IHistoryAudit_ActionUser
+  commentId: P:Estrelica.Archer.Content.IHistoryAudit.ActionUser
+  fullName: Estrelica.Archer.Content.IHistoryAudit.ActionUser
+  nameWithType: IHistoryAudit.ActionUser
+- uid: Estrelica.Archer.Content.IHistoryAudit.ActionUser*
+  name: ActionUser
+  href: api/Estrelica.Archer.Content.IHistoryAudit.html#Estrelica_Archer_Content_IHistoryAudit_ActionUser_
+  commentId: Overload:Estrelica.Archer.Content.IHistoryAudit.ActionUser
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IHistoryAudit.ActionUser
+  nameWithType: IHistoryAudit.ActionUser
+- uid: Estrelica.Archer.Content.IHistoryAudit.ActionUserId
+  name: ActionUserId
+  href: api/Estrelica.Archer.Content.IHistoryAudit.html#Estrelica_Archer_Content_IHistoryAudit_ActionUserId
+  commentId: P:Estrelica.Archer.Content.IHistoryAudit.ActionUserId
+  fullName: Estrelica.Archer.Content.IHistoryAudit.ActionUserId
+  nameWithType: IHistoryAudit.ActionUserId
+- uid: Estrelica.Archer.Content.IHistoryAudit.ActionUserId*
+  name: ActionUserId
+  href: api/Estrelica.Archer.Content.IHistoryAudit.html#Estrelica_Archer_Content_IHistoryAudit_ActionUserId_
+  commentId: Overload:Estrelica.Archer.Content.IHistoryAudit.ActionUserId
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IHistoryAudit.ActionUserId
+  nameWithType: IHistoryAudit.ActionUserId
+- uid: Estrelica.Archer.Content.IHistoryAudit.Type
+  name: Type
+  href: api/Estrelica.Archer.Content.IHistoryAudit.html#Estrelica_Archer_Content_IHistoryAudit_Type
+  commentId: P:Estrelica.Archer.Content.IHistoryAudit.Type
+  fullName: Estrelica.Archer.Content.IHistoryAudit.Type
+  nameWithType: IHistoryAudit.Type
+- uid: Estrelica.Archer.Content.IHistoryAudit.Type*
+  name: Type
+  href: api/Estrelica.Archer.Content.IHistoryAudit.html#Estrelica_Archer_Content_IHistoryAudit_Type_
+  commentId: Overload:Estrelica.Archer.Content.IHistoryAudit.Type
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IHistoryAudit.Type
+  nameWithType: IHistoryAudit.Type
 - uid: Estrelica.Archer.Content.INumericValueEdit
   name: INumericValueEdit
   href: api/Estrelica.Archer.Content.INumericValueEdit.html
@@ -7755,6 +8237,38 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Content.IReferencedRecordsSelectionEdit.Set
   nameWithType: IReferencedRecordsSelectionEdit.Set
+- uid: Estrelica.Archer.Content.ISignatureAudit
+  name: ISignatureAudit
+  href: api/Estrelica.Archer.Content.ISignatureAudit.html
+  commentId: T:Estrelica.Archer.Content.ISignatureAudit
+  fullName: Estrelica.Archer.Content.ISignatureAudit
+  nameWithType: ISignatureAudit
+- uid: Estrelica.Archer.Content.ISignatureAudit.ConfigurationId
+  name: ConfigurationId
+  href: api/Estrelica.Archer.Content.ISignatureAudit.html#Estrelica_Archer_Content_ISignatureAudit_ConfigurationId
+  commentId: P:Estrelica.Archer.Content.ISignatureAudit.ConfigurationId
+  fullName: Estrelica.Archer.Content.ISignatureAudit.ConfigurationId
+  nameWithType: ISignatureAudit.ConfigurationId
+- uid: Estrelica.Archer.Content.ISignatureAudit.ConfigurationId*
+  name: ConfigurationId
+  href: api/Estrelica.Archer.Content.ISignatureAudit.html#Estrelica_Archer_Content_ISignatureAudit_ConfigurationId_
+  commentId: Overload:Estrelica.Archer.Content.ISignatureAudit.ConfigurationId
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.ISignatureAudit.ConfigurationId
+  nameWithType: ISignatureAudit.ConfigurationId
+- uid: Estrelica.Archer.Content.ISignatureAudit.ConfigurationName
+  name: ConfigurationName
+  href: api/Estrelica.Archer.Content.ISignatureAudit.html#Estrelica_Archer_Content_ISignatureAudit_ConfigurationName
+  commentId: P:Estrelica.Archer.Content.ISignatureAudit.ConfigurationName
+  fullName: Estrelica.Archer.Content.ISignatureAudit.ConfigurationName
+  nameWithType: ISignatureAudit.ConfigurationName
+- uid: Estrelica.Archer.Content.ISignatureAudit.ConfigurationName*
+  name: ConfigurationName
+  href: api/Estrelica.Archer.Content.ISignatureAudit.html#Estrelica_Archer_Content_ISignatureAudit_ConfigurationName_
+  commentId: Overload:Estrelica.Archer.Content.ISignatureAudit.ConfigurationName
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.ISignatureAudit.ConfigurationName
+  nameWithType: ISignatureAudit.ConfigurationName
 - uid: Estrelica.Archer.Content.ISubEditableField
   name: ISubEditableField
   href: api/Estrelica.Archer.Content.ISubEditableField.html
@@ -9347,6 +9861,48 @@ references:
   commentId: F:Estrelica.Archer.Content.ValuesOperator.Equals
   fullName: Estrelica.Archer.Content.ValuesOperator.Equals
   nameWithType: ValuesOperator.Equals
+- uid: Estrelica.Archer.Content.WorkflowAuditActionType
+  name: WorkflowAuditActionType
+  href: api/Estrelica.Archer.Content.WorkflowAuditActionType.html
+  commentId: T:Estrelica.Archer.Content.WorkflowAuditActionType
+  fullName: Estrelica.Archer.Content.WorkflowAuditActionType
+  nameWithType: WorkflowAuditActionType
+- uid: Estrelica.Archer.Content.WorkflowAuditActionType.Enrolled
+  name: Enrolled
+  href: api/Estrelica.Archer.Content.WorkflowAuditActionType.html#Estrelica_Archer_Content_WorkflowAuditActionType_Enrolled
+  commentId: F:Estrelica.Archer.Content.WorkflowAuditActionType.Enrolled
+  fullName: Estrelica.Archer.Content.WorkflowAuditActionType.Enrolled
+  nameWithType: WorkflowAuditActionType.Enrolled
+- uid: Estrelica.Archer.Content.WorkflowAuditActionType.Error
+  name: Error
+  href: api/Estrelica.Archer.Content.WorkflowAuditActionType.html#Estrelica_Archer_Content_WorkflowAuditActionType_Error
+  commentId: F:Estrelica.Archer.Content.WorkflowAuditActionType.Error
+  fullName: Estrelica.Archer.Content.WorkflowAuditActionType.Error
+  nameWithType: WorkflowAuditActionType.Error
+- uid: Estrelica.Archer.Content.WorkflowAuditActionType.PublishCancelled
+  name: PublishCancelled
+  href: api/Estrelica.Archer.Content.WorkflowAuditActionType.html#Estrelica_Archer_Content_WorkflowAuditActionType_PublishCancelled
+  commentId: F:Estrelica.Archer.Content.WorkflowAuditActionType.PublishCancelled
+  fullName: Estrelica.Archer.Content.WorkflowAuditActionType.PublishCancelled
+  nameWithType: WorkflowAuditActionType.PublishCancelled
+- uid: Estrelica.Archer.Content.WorkflowAuditActionType.PublishCompleted
+  name: PublishCompleted
+  href: api/Estrelica.Archer.Content.WorkflowAuditActionType.html#Estrelica_Archer_Content_WorkflowAuditActionType_PublishCompleted
+  commentId: F:Estrelica.Archer.Content.WorkflowAuditActionType.PublishCompleted
+  fullName: Estrelica.Archer.Content.WorkflowAuditActionType.PublishCompleted
+  nameWithType: WorkflowAuditActionType.PublishCompleted
+- uid: Estrelica.Archer.Content.WorkflowAuditActionType.Transitioned
+  name: Transitioned
+  href: api/Estrelica.Archer.Content.WorkflowAuditActionType.html#Estrelica_Archer_Content_WorkflowAuditActionType_Transitioned
+  commentId: F:Estrelica.Archer.Content.WorkflowAuditActionType.Transitioned
+  fullName: Estrelica.Archer.Content.WorkflowAuditActionType.Transitioned
+  nameWithType: WorkflowAuditActionType.Transitioned
+- uid: Estrelica.Archer.Content.WorkflowAuditActionType.Undefined
+  name: Undefined
+  href: api/Estrelica.Archer.Content.WorkflowAuditActionType.html#Estrelica_Archer_Content_WorkflowAuditActionType_Undefined
+  commentId: F:Estrelica.Archer.Content.WorkflowAuditActionType.Undefined
+  fullName: Estrelica.Archer.Content.WorkflowAuditActionType.Undefined
+  nameWithType: WorkflowAuditActionType.Undefined
 - uid: Estrelica.Archer.Entity
   name: Estrelica.Archer.Entity
   href: api/Estrelica.Archer.Entity.html
@@ -9607,6 +10163,12 @@ references:
   commentId: F:Estrelica.Archer.Entity.EntityType.Content
   fullName: Estrelica.Archer.Entity.EntityType.Content
   nameWithType: EntityType.Content
+- uid: Estrelica.Archer.Entity.EntityType.ContentHistory
+  name: ContentHistory
+  href: api/Estrelica.Archer.Entity.EntityType.html#Estrelica_Archer_Entity_EntityType_ContentHistory
+  commentId: F:Estrelica.Archer.Entity.EntityType.ContentHistory
+  fullName: Estrelica.Archer.Entity.EntityType.ContentHistory
+  nameWithType: EntityType.ContentHistory
 - uid: Estrelica.Archer.Entity.EntityType.ContentInfo
   name: ContentInfo
   href: api/Estrelica.Archer.Entity.EntityType.html#Estrelica_Archer_Entity_EntityType_ContentInfo
@@ -17814,6 +18376,19 @@ references:
   commentId: T:Estrelica.Archer.Metadata.IQuestionnaireRule
   fullName: Estrelica.Archer.Metadata.IQuestionnaireRule
   nameWithType: IQuestionnaireRule
+- uid: Estrelica.Archer.Metadata.IQuestionnaireRule.Level
+  name: Level
+  href: api/Estrelica.Archer.Metadata.IQuestionnaireRule.html#Estrelica_Archer_Metadata_IQuestionnaireRule_Level
+  commentId: P:Estrelica.Archer.Metadata.IQuestionnaireRule.Level
+  fullName: Estrelica.Archer.Metadata.IQuestionnaireRule.Level
+  nameWithType: IQuestionnaireRule.Level
+- uid: Estrelica.Archer.Metadata.IQuestionnaireRule.Level*
+  name: Level
+  href: api/Estrelica.Archer.Metadata.IQuestionnaireRule.html#Estrelica_Archer_Metadata_IQuestionnaireRule_Level_
+  commentId: Overload:Estrelica.Archer.Metadata.IQuestionnaireRule.Level
+  isSpec: "True"
+  fullName: Estrelica.Archer.Metadata.IQuestionnaireRule.Level
+  nameWithType: IQuestionnaireRule.Level
 - uid: Estrelica.Archer.Metadata.IQuestionnaireRule.LevelId
   name: LevelId
   href: api/Estrelica.Archer.Metadata.IQuestionnaireRule.html#Estrelica_Archer_Metadata_IQuestionnaireRule_LevelId
@@ -20075,6 +20650,22 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Utility.IAPIFacade.GetContentByReferenceFieldId
   nameWithType: IAPIFacade.GetContentByReferenceFieldId
+- uid: Estrelica.Archer.Utility.IAPIFacade.GetContentHistory(System.Int32,System.Boolean)
+  name: GetContentHistory(int, bool)
+  href: api/Estrelica.Archer.Utility.IAPIFacade.html#Estrelica_Archer_Utility_IAPIFacade_GetContentHistory_System_Int32_System_Boolean_
+  commentId: M:Estrelica.Archer.Utility.IAPIFacade.GetContentHistory(System.Int32,System.Boolean)
+  name.vb: GetContentHistory(Integer, Boolean)
+  fullName: Estrelica.Archer.Utility.IAPIFacade.GetContentHistory(int, bool)
+  fullName.vb: Estrelica.Archer.Utility.IAPIFacade.GetContentHistory(Integer, Boolean)
+  nameWithType: IAPIFacade.GetContentHistory(int, bool)
+  nameWithType.vb: IAPIFacade.GetContentHistory(Integer, Boolean)
+- uid: Estrelica.Archer.Utility.IAPIFacade.GetContentHistory*
+  name: GetContentHistory
+  href: api/Estrelica.Archer.Utility.IAPIFacade.html#Estrelica_Archer_Utility_IAPIFacade_GetContentHistory_
+  commentId: Overload:Estrelica.Archer.Utility.IAPIFacade.GetContentHistory
+  isSpec: "True"
+  fullName: Estrelica.Archer.Utility.IAPIFacade.GetContentHistory
+  nameWithType: IAPIFacade.GetContentHistory
 - uid: Estrelica.Archer.Utility.IAPIFacade.GetContentInfoForLevel(System.Int32,System.Int32,System.Boolean)
   name: GetContentInfoForLevel(int, int, bool)
   href: api/Estrelica.Archer.Utility.IAPIFacade.html#Estrelica_Archer_Utility_IAPIFacade_GetContentInfoForLevel_System_Int32_System_Int32_System_Boolean_
@@ -21545,6 +22136,40 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Utility.IContentResolver.GetContentByIds
   nameWithType: IContentResolver.GetContentByIds
+- uid: Estrelica.Archer.Utility.IContentResolver.GetContentHistory(System.Int32)
+  name: GetContentHistory(int)
+  href: api/Estrelica.Archer.Utility.IContentResolver.html#Estrelica_Archer_Utility_IContentResolver_GetContentHistory_System_Int32_
+  commentId: M:Estrelica.Archer.Utility.IContentResolver.GetContentHistory(System.Int32)
+  name.vb: GetContentHistory(Integer)
+  fullName: Estrelica.Archer.Utility.IContentResolver.GetContentHistory(int)
+  fullName.vb: Estrelica.Archer.Utility.IContentResolver.GetContentHistory(Integer)
+  nameWithType: IContentResolver.GetContentHistory(int)
+  nameWithType.vb: IContentResolver.GetContentHistory(Integer)
+- uid: Estrelica.Archer.Utility.IContentResolver.GetContentHistory(System.Int32,Estrelica.Archer.Metadata.Field.IHistoryLogField)
+  name: GetContentHistory(int, IHistoryLogField)
+  href: api/Estrelica.Archer.Utility.IContentResolver.html#Estrelica_Archer_Utility_IContentResolver_GetContentHistory_System_Int32_Estrelica_Archer_Metadata_Field_IHistoryLogField_
+  commentId: M:Estrelica.Archer.Utility.IContentResolver.GetContentHistory(System.Int32,Estrelica.Archer.Metadata.Field.IHistoryLogField)
+  name.vb: GetContentHistory(Integer, IHistoryLogField)
+  fullName: Estrelica.Archer.Utility.IContentResolver.GetContentHistory(int, Estrelica.Archer.Metadata.Field.IHistoryLogField)
+  fullName.vb: Estrelica.Archer.Utility.IContentResolver.GetContentHistory(Integer, Estrelica.Archer.Metadata.Field.IHistoryLogField)
+  nameWithType: IContentResolver.GetContentHistory(int, IHistoryLogField)
+  nameWithType.vb: IContentResolver.GetContentHistory(Integer, IHistoryLogField)
+- uid: Estrelica.Archer.Utility.IContentResolver.GetContentHistory(System.Int32,System.Int32)
+  name: GetContentHistory(int, int)
+  href: api/Estrelica.Archer.Utility.IContentResolver.html#Estrelica_Archer_Utility_IContentResolver_GetContentHistory_System_Int32_System_Int32_
+  commentId: M:Estrelica.Archer.Utility.IContentResolver.GetContentHistory(System.Int32,System.Int32)
+  name.vb: GetContentHistory(Integer, Integer)
+  fullName: Estrelica.Archer.Utility.IContentResolver.GetContentHistory(int, int)
+  fullName.vb: Estrelica.Archer.Utility.IContentResolver.GetContentHistory(Integer, Integer)
+  nameWithType: IContentResolver.GetContentHistory(int, int)
+  nameWithType.vb: IContentResolver.GetContentHistory(Integer, Integer)
+- uid: Estrelica.Archer.Utility.IContentResolver.GetContentHistory*
+  name: GetContentHistory
+  href: api/Estrelica.Archer.Utility.IContentResolver.html#Estrelica_Archer_Utility_IContentResolver_GetContentHistory_
+  commentId: Overload:Estrelica.Archer.Utility.IContentResolver.GetContentHistory
+  isSpec: "True"
+  fullName: Estrelica.Archer.Utility.IContentResolver.GetContentHistory
+  nameWithType: IContentResolver.GetContentHistory
 - uid: Estrelica.Archer.Utility.IContentResolver.GetFieldAuditInfo(System.Int32,System.Int32)
   name: GetFieldAuditInfo(int, int)
   href: api/Estrelica.Archer.Utility.IContentResolver.html#Estrelica_Archer_Utility_IContentResolver_GetFieldAuditInfo_System_Int32_System_Int32_
@@ -22111,6 +22736,22 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Utility.IMetadataResolver.FilterCriteriaById
   nameWithType: IMetadataResolver.FilterCriteriaById
+- uid: Estrelica.Archer.Utility.IMetadataResolver.GuidToId(Estrelica.Archer.Entity.EntityType,System.Guid,System.Boolean)
+  name: GuidToId(EntityType, Guid, bool)
+  href: api/Estrelica.Archer.Utility.IMetadataResolver.html#Estrelica_Archer_Utility_IMetadataResolver_GuidToId_Estrelica_Archer_Entity_EntityType_System_Guid_System_Boolean_
+  commentId: M:Estrelica.Archer.Utility.IMetadataResolver.GuidToId(Estrelica.Archer.Entity.EntityType,System.Guid,System.Boolean)
+  name.vb: GuidToId(EntityType, Guid, Boolean)
+  fullName: Estrelica.Archer.Utility.IMetadataResolver.GuidToId(Estrelica.Archer.Entity.EntityType, System.Guid, bool)
+  fullName.vb: Estrelica.Archer.Utility.IMetadataResolver.GuidToId(Estrelica.Archer.Entity.EntityType, System.Guid, Boolean)
+  nameWithType: IMetadataResolver.GuidToId(EntityType, Guid, bool)
+  nameWithType.vb: IMetadataResolver.GuidToId(EntityType, Guid, Boolean)
+- uid: Estrelica.Archer.Utility.IMetadataResolver.GuidToId*
+  name: GuidToId
+  href: api/Estrelica.Archer.Utility.IMetadataResolver.html#Estrelica_Archer_Utility_IMetadataResolver_GuidToId_
+  commentId: Overload:Estrelica.Archer.Utility.IMetadataResolver.GuidToId
+  isSpec: "True"
+  fullName: Estrelica.Archer.Utility.IMetadataResolver.GuidToId
+  nameWithType: IMetadataResolver.GuidToId
 - uid: Estrelica.Archer.Utility.IMetadataResolver.IdToGuid(Estrelica.Archer.Entity.EntityType,System.Int32,System.Boolean)
   name: IdToGuid(EntityType, int, bool)
   href: api/Estrelica.Archer.Utility.IMetadataResolver.html#Estrelica_Archer_Utility_IMetadataResolver_IdToGuid_Estrelica_Archer_Entity_EntityType_System_Int32_System_Boolean_
@@ -22873,6 +23514,12 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Utility.IReportResolver.GetReports
   nameWithType: IReportResolver.GetReports
+- uid: Estrelica.Archer.Utility.IReportResolver.GetReportSearchOptions(System.Guid)
+  name: GetReportSearchOptions(Guid)
+  href: api/Estrelica.Archer.Utility.IReportResolver.html#Estrelica_Archer_Utility_IReportResolver_GetReportSearchOptions_System_Guid_
+  commentId: M:Estrelica.Archer.Utility.IReportResolver.GetReportSearchOptions(System.Guid)
+  fullName: Estrelica.Archer.Utility.IReportResolver.GetReportSearchOptions(System.Guid)
+  nameWithType: IReportResolver.GetReportSearchOptions(Guid)
 - uid: Estrelica.Archer.Utility.IReportResolver.GetReportSearchOptions(System.Int32,Estrelica.Archer.Content.ReportSource)
   name: GetReportSearchOptions(int, ReportSource)
   href: api/Estrelica.Archer.Utility.IReportResolver.html#Estrelica_Archer_Utility_IReportResolver_GetReportSearchOptions_System_Int32_Estrelica_Archer_Content_ReportSource_

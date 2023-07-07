@@ -182,6 +182,15 @@
                             <a href="Estrelica.Archer.Content.EqualityOperator.html" title="EqualityOperator" class="">EqualityOperator</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Content.FieldHistoryAuditType.html" title="FieldHistoryAuditType" class="">FieldHistoryAuditType</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Content.HistoryAuditType.html" title="HistoryAuditType" class="">HistoryAuditType</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Content.IAdvancedWorkflowAudit.html" title="IAdvancedWorkflowAudit" class="">IAdvancedWorkflowAudit</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Content.IArcherContent.html" title="IArcherContent" class="">IArcherContent</a>
                           </li>
                           <li class="">
@@ -222,6 +231,9 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Content.IArcherValuesListQuery.html" title="IArcherValuesListQuery" class="">IArcherValuesListQuery</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Content.IContentHistory.html" title="IContentHistory" class="">IContentHistory</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Content.IContentInformation.html" title="IContentInformation" class="">IContentInformation</a>
@@ -266,10 +278,19 @@
                             <a href="Estrelica.Archer.Content.IExternalLinksSelectionEdit.html" title="IExternalLinksSelectionEdit" class="">IExternalLinksSelectionEdit</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Content.IFieldAudit.html" title="IFieldAudit" class="">IFieldAudit</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Content.IFieldHistory.html" title="IFieldHistory" class="">IFieldHistory</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Content.IFieldQuery.html" title="IFieldQuery" class="">IFieldQuery</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Content.IFieldValueEdit-1.html" title="IFieldValueEdit&lt;T&gt;" class="">IFieldValueEdit&lt;T&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Content.IHistoryAudit.html" title="IHistoryAudit" class="">IHistoryAudit</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Content.INumericValueEdit.html" title="INumericValueEdit" class="">INumericValueEdit</a>
@@ -282,6 +303,9 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Content.IReferencedRecordsSelectionEdit.html" title="IReferencedRecordsSelectionEdit" class="">IReferencedRecordsSelectionEdit</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Content.ISignatureAudit.html" title="ISignatureAudit" class="">ISignatureAudit</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Content.ISubEditableField.html" title="ISubEditableField" class="">ISubEditableField</a>
@@ -342,6 +366,9 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Content.ValuesOperator.html" title="ValuesOperator" class="">ValuesOperator</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Content.WorkflowAuditActionType.html" title="WorkflowAuditActionType" class="">WorkflowAuditActionType</a>
                           </li>
                         </ul>                    </li>
                     <li class="">
@@ -1128,7 +1155,7 @@
 </h1>
   <div class="markdown level0 summary"><p>IContentResolver provides access to Archer content via the webservice Search API, returning Archer content records as either XElement objects (from
 the Archer web services Search API) or as IArcherContent dictionary objects (via the REST API).  Returned content may be further converted into <a class="xref" href="Estrelica.Archer.Content.IArcherContentAccess.html">IArcherContentAccess</a>
-results for simplified access via the <a href="xref:Estrelica.Archer.Utility.ContentExtensions.ContentAccess*">ArcherContentExtensions.ContentAccess</a>
+results for simplified access via the <a class="xref" href="Estrelica.Archer.Content.ArcherContentExtensions.html#Estrelica_Archer_Content_ArcherContentExtensions_ContentAccess_">ArcherContentExtensions.ContentAccess</a>
 extension method.</p>
 <p>IArcherContentAccess records in turn may be edited by calling the ForEdit() method on that interface, returning an <a class="xref" href="Estrelica.Archer.Content.IArcherContentEdit.html">IArcherContentEdit</a>
 which allows the values in each editable field of the record to be modified.  The resulting changes can be persisted back to the Archer instance by passing the
@@ -2539,6 +2566,172 @@ This is essentially an IDictionary&lt;string, object&gt; result with additional 
       <td>
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Estrelica.Archer.Content.IArcherContent.html">IArcherContent</a>&gt;
         <p><p>An IEnumerable&lt;IArcherContent&gt; of records returned for the specified content Ids</p>
+
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+  <a id="Estrelica_Archer_Utility_IContentResolver_GetContentHistory_" data-uid="Estrelica.Archer.Utility.IContentResolver.GetContentHistory*"></a>
+
+  <h4 id="Estrelica_Archer_Utility_IContentResolver_GetContentHistory_System_Int32_" data-uid="Estrelica.Archer.Utility.IContentResolver.GetContentHistory(System.Int32)"><a href="#collapsible-Estrelica_Archer_Utility_IContentResolver_GetContentHistory_System_Int32_" class="expander" data-toggle="collapse">GetContentHistory(int)</a></h4>
+
+  <div id="collapsible-Estrelica_Archer_Utility_IContentResolver_GetContentHistory_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns tracked history from all available History Log fields for a given Archer content record</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;IContentHistory&gt; GetContentHistory(int contentId)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
+        <span class="parametername">contentId</span>
+        <p><p>The content Id of the record</p>
+
+      </td>
+    </tr>
+  </table>
+
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="Estrelica.Archer.Content.IContentHistory.html">IContentHistory</a>&gt;
+        <p><p>A collection of <a class="xref" href="Estrelica.Archer.Content.IContentHistory.html">IContentHistory</a> results, one for each History Log field in the content's level.</p>
+
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+  <h5 id="Estrelica_Archer_Utility_IContentResolver_GetContentHistory_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Returns an empty set if no History Log fields are accessible for the record or level</p>
+</div>
+
+
+
+  </div>
+
+
+  <a id="Estrelica_Archer_Utility_IContentResolver_GetContentHistory_" data-uid="Estrelica.Archer.Utility.IContentResolver.GetContentHistory*"></a>
+
+  <h4 id="Estrelica_Archer_Utility_IContentResolver_GetContentHistory_System_Int32_Estrelica_Archer_Metadata_Field_IHistoryLogField_" data-uid="Estrelica.Archer.Utility.IContentResolver.GetContentHistory(System.Int32,Estrelica.Archer.Metadata.Field.IHistoryLogField)"><a href="#collapsible-Estrelica_Archer_Utility_IContentResolver_GetContentHistory_System_Int32_Estrelica_Archer_Metadata_Field_IHistoryLogField_" class="expander" data-toggle="collapse">GetContentHistory(int, IHistoryLogField)</a></h4>
+
+  <div id="collapsible-Estrelica_Archer_Utility_IContentResolver_GetContentHistory_System_Int32_Estrelica_Archer_Metadata_Field_IHistoryLogField_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns tracked history from a single history log field for a given Archer content record</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IContentHistory GetContentHistory(int contentId, IHistoryLogField historyLogField)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
+        <span class="parametername">contentId</span>
+        <p><p>The content Id of the record</p>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IHistoryLogField.html">IHistoryLogField</a></span>
+        <span class="parametername">historyLogField</span>
+        <p><p>The IHistoryLog field responsible for tracking the changes</p>
+
+      </td>
+    </tr>
+  </table>
+
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+      <a class="xref" href="Estrelica.Archer.Content.IContentHistory.html">IContentHistory</a>
+        <p><p>An <a class="xref" href="Estrelica.Archer.Content.IContentHistory.html">IContentHistory</a> result containing all the changes tracked by the History Log field</p>
+
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+  <a id="Estrelica_Archer_Utility_IContentResolver_GetContentHistory_" data-uid="Estrelica.Archer.Utility.IContentResolver.GetContentHistory*"></a>
+
+  <h4 id="Estrelica_Archer_Utility_IContentResolver_GetContentHistory_System_Int32_System_Int32_" data-uid="Estrelica.Archer.Utility.IContentResolver.GetContentHistory(System.Int32,System.Int32)"><a href="#collapsible-Estrelica_Archer_Utility_IContentResolver_GetContentHistory_System_Int32_System_Int32_" class="expander" data-toggle="collapse">GetContentHistory(int, int)</a></h4>
+
+  <div id="collapsible-Estrelica_Archer_Utility_IContentResolver_GetContentHistory_System_Int32_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns tracked history from a single history log field for a given Archer content record</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IContentHistory GetContentHistory(int contentId, int historyLogFieldId)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
+        <span class="parametername">contentId</span>
+        <p><p>The content Id of the record</p>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
+        <span class="parametername">historyLogFieldId</span>
+        <p><p>The integer Id of the History Log field responsible for tracking the changes</p>
+
+      </td>
+    </tr>
+  </table>
+
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+      <a class="xref" href="Estrelica.Archer.Content.IContentHistory.html">IContentHistory</a>
+        <p><p>An <a class="xref" href="Estrelica.Archer.Content.IContentHistory.html">IContentHistory</a> result containing all the changes tracked by the History Log field</p>
 
       </td>
     </tr>

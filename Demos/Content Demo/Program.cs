@@ -642,6 +642,9 @@ namespace ContentDemo
                 // If no text fields are found for any of the strings provided, the final call (with throwExceptionIfInvalid: true) will raise
                 // an exception as expected.
 
+                // Check for the presence of a HistoryLog field that tracks Field changes.  If one exists, we'll use it later to verify
+                // that changes are being tracked on the record via ContentHistory later.
+                var historyLogField = level.FieldsOfType<IHistoryLogField>(f => f.IncludeFieldValueChangeAudit).SingleOrDefault();
 
                 // Step 2: Make sure there's not already a record for 'Estrelica.Core' in this level, as that will cause our insert to
                 // fail due to the uniqueness constraint on the Name field.  If a record already exists, we'll give the user an
@@ -1282,6 +1285,95 @@ format it carries, Estrelica.Core provides a common programming model via IArche
 						else
 						{
 							Utilities.Log("Record is not enrolled in workflow, or no actions are applicable for the current user");
+						}
+
+                        // Load the record's ContentHistory.  If we identified a History Log field earlier, ContentHistory should
+                        // have some values in it (specifically, it should have an IContentHistory result for the History Log field
+                        // we identified, but it may return more if there are other History Log fields in the level).  If we didn't
+                        // find a History Log field, it should return an empty collection.
+
+                        // The following assertions could still fail if we found a History Log field, but it doesn't track any of the
+                        // fields we've modified above.  The stock Archer "Applications" application *does* include a 'History Log'
+                        // field that is configured to track the 'Application Name' and 'Description' text fields, so assuming that's
+                        // the one we've identified here, the assertions below should succeed.
+                        // Unfortunately there's no way to programatically determine via Archer's API exactly which fields are being
+                        // tracked (only whether it tracks all fields or selected fields via the boolean IHistoryLogField.TrackAllFields
+                        // property) so if your "Applications" module has been modified from stock in any way that affects these
+                        // assumptions, expect to see these assertions fail.
+
+                        var contentHistory = savedRecord.ContentHistory;
+
+                        // .ContentHistory returns an IEnumerable<IContentHistory>, where each IContentHistory in the set corresponds
+                        // to one of the History Log fields on the record's level.
+
+                        if (historyLogField != null)
+						{
+                            // If we identified a historyLogField, let's confirm that we got some ContentHistory for it too.
+                            // We'll do this by identifying the IContentHistory result from the returned collection that references
+                            // the same History Log field:
+                            IContentHistory fieldHistory = contentHistory.SingleOrDefault(ch => ch.HistoryLogField.Equals(historyLogField));
+
+                            if (Assert.IsNotNull($"Verifying ContentHistory for '{historyLogField.Name}'", fieldHistory))
+							{
+                                // We've identified the audit history for the History Log field in question, now let's verify
+                                // what it contains.  First we'll make sure it actually has some IHistoryAudit results to
+                                // evaluate:
+
+                                if (Assert.IsGreaterThanZero($"Verifying History Audit count for '{historyLogField.Name}'",
+                                    fieldHistory.HistoryAudits?.Count() ?? 0))
+                                {
+                                    // fieldHistory.HistoryAudits returns IEnumerable<IHistoryAudit>, but IHistoryAudit is just a base
+                                    // interface for three kinds of audits (Field, Advanced Workflow, and Signature) that may be returned.
+
+                                    foreach (var historyAudit in fieldHistory.HistoryAudits)
+                                    {
+                                        // The user who performed whatever activity was audited can be identified directly from
+                                        // the base IHistoryAudit interface:
+                                        Assert.IsNotNull($"Verifying audit action user", historyAudit.ActionUser);
+                                        // As well as the date/time that the action occurred:
+                                        Assert.IsGreater($"Verifying audit action date", historyAudit.ActionDate, DateTime.UtcNow.AddYears(-15));
+
+                                        // But there's more information to be found on the audit-type-specific interfaces which
+                                        // inherit from IHistoryAudit (IFieldAudit, IAdvancedWorkflowAudit, and ISignatureAudit).
+                                        // We'll identify which type each historyAudit is by soft-casting to those interfaces in turn:
+
+                                        if (historyAudit is IFieldAudit fa)
+										{
+                                            Assert.AreEqual("Verifying audit type", HistoryAuditType.Field, historyAudit.Type);
+                                            // Field Audits will tell us which fields were changed and what changes occurred on each
+                                            // (i.e. their old values vs. their new values):
+                                            if (Assert.IsGreaterThanZero($"Verifying field audit count", fa.FieldHistory?.Count() ?? 0))
+                                            {
+                                                foreach(var fh in fa.FieldHistory)
+												{
+                                                    if (Assert.IsNotNull("Verifying field history", fh.Field))
+													{
+                                                        Assert.AreNotEqual($"Verifying field '{fh.Field.Name}' change", fh.OriginalValue, fh.NewValue);
+													}
+												}
+                                            }
+										}
+                                        else if (historyAudit is IAdvancedWorkflowAudit wa)
+										{
+                                            Assert.AreEqual("Verifying audit type", HistoryAuditType.AdvancedWorkflow, historyAudit.Type);
+                                            Assert.IsNotNull("Verifying workflow node name", wa.NodeName);
+                                            Assert.IsNotNull("Verifying workflow transition name", wa.TransitionName);
+                                            // NodeId and TransitionId are available via this interface as well, but may be null
+                                            // so we won't attempt any assertions...
+                                        }
+                                        else if (historyAudit is ISignatureAudit sa)
+										{
+                                            Assert.AreEqual("Verifying audit type", HistoryAuditType.Signature, historyAudit.Type);
+                                            Assert.IsNotNull("Verifying signature configuration name", sa.ConfigurationName);
+                                            Assert.IsGreaterThanZero("Verifying signature configuration Id", sa.ConfigurationId);
+                                            // This audit event indicates that a workflow action was signed by a user.  sa.ActionUser will
+                                            // tell us who signed the action.
+                                            Assert.IsNotNull($"Verifying user signature '{(sa.ActionUser?.UserName ?? "null")}'", sa.ActionUser);
+                                        }
+                                    }
+                                }
+
+							}
 						}
 
 						// Keep a reference to this, as we'll re-use it after we exit the loop to perform some edits...

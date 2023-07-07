@@ -285,6 +285,36 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.FieldHistoryAuditType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.FieldHistoryAuditType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.HistoryAuditType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.HistoryAuditType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IAdvancedWorkflowAudit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Content.IArcherContent.yml",
       "output": {
         ".html": {
@@ -419,6 +449,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Archer.Content.IArcherValuesListQuery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IContentHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IContentHistory.html"
         }
       },
       "version": ""
@@ -565,6 +605,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IFieldAudit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IFieldAudit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IFieldHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IFieldHistory.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Content.IFieldQuery.yml",
       "output": {
         ".html": {
@@ -579,6 +639,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Archer.Content.IFieldValueEdit-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IHistoryAudit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IHistoryAudit.html"
         }
       },
       "version": ""
@@ -619,6 +689,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Archer.Content.IReferencedRecordsSelectionEdit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ISignatureAudit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ISignatureAudit.html"
         }
       },
       "version": ""
@@ -839,6 +919,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Archer.Content.ValuesOperator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.WorkflowAuditActionType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.WorkflowAuditActionType.html"
         }
       },
       "version": ""
@@ -2634,9 +2724,6 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "UidNotFound"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Utility.IContentResolver.yml",
       "output": {
@@ -2727,9 +2814,6 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "UidNotFound"
-      ],
       "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Utility.yml",
       "output": {

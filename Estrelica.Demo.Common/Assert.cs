@@ -40,22 +40,56 @@ namespace Estrelica.Demo
 		public static bool IsLess(string message, int value, int targetValue) => IsTrue(message, value < targetValue);
 		public static bool AreEqual<T>(string message, T expectedValue, T actualValue)
 		{
-			if (!IsTrue(message, expectedValue.Equals(actualValue)))
+			// Handle all the null cases first, so the .Equals() call below doesn't throw an exception
+			// If both are null, the result is true
+			bool result = false;
+			var bothNull = (expectedValue is null && actualValue is null);
+			if (bothNull)
+			{
+				result = IsTrue(message, true);
+			}
+			// If either is null but not both, result is false
+			else if ((expectedValue is null || actualValue is null) && !bothNull)
+			{
+				result = IsTrue(message, false);
+			}
+			// Neither is null, so allow the equality check
+			else
+			{
+				result = IsTrue(message, expectedValue.Equals(actualValue));
+			}
+			if (!result)
 			{
 				Utilities.Log($"**  Expected: {expectedValue} Actual: {actualValue}", ConsoleColor.Yellow);
-				return false;
 			}
-			return true;
+			return result;
 		}
 
 		public static bool AreNotEqual<T>(string message, T unexpectedValue, T actualValue)
 		{
-			if (!IsTrue(message, !unexpectedValue.Equals(actualValue)))
+			// Handle all the null cases first, so the .Equals() call below doesn't throw an exception
+			// If both are null, the result is false
+			bool result = false;
+			var bothNull = (unexpectedValue is null && actualValue is null);
+			if (bothNull)
+			{
+				result = IsTrue(message, false);
+			}
+			// If either is null but not both, result is true
+			else if ((unexpectedValue is null || actualValue is null) && !bothNull)
+			{
+				result = IsTrue(message, true);
+			}
+			// Neither is null, so allow the equality check
+			else 
+			{
+				result = IsTrue(message, !unexpectedValue.Equals(actualValue));
+			}
+			if (!result)
 			{
 				Utilities.Log($"**  Unexpected: {actualValue}", ConsoleColor.Yellow);
-				return false;
 			}
-			return true;
+			return result;
 		}
 
 		public static bool IsGreaterThanZero(string message, int value) => IsGreater(message, value, 0);

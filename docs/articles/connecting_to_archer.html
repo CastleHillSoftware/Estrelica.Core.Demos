@@ -142,7 +142,7 @@ Log(core.LicenseText);
 <p>At this point you can provide your Archer connection info and credentials in order to authenticate with Archer:</p>
 <pre><code class="lang-csharp">core.CreateSession(&quot;https://archer-server.company.com&quot;, &quot;Archer-Production&quot;, &quot;apiuser@company.com&quot;, &quot;Password123&quot;);
 </code></pre>
-<p>And the "core" reference is ready for use in communicating with Archer.</p>
+<p>And then the &quot;core&quot; reference is ready for use in communicating with Archer.</p>
 <h2 id="external-configuration">External configuration</h2>
 <p>Of course you wouldn't want to hard-code all of the values shown in the examples above.  Instead you might want to store them in a configuration file or database somewhere.  File-based configuration is very easy to use and manage <a href="manage_configuration.html">with the Estrelica.Core.Configuration package</a>.</p>
 <p>If you've installed the Estrelica.Core.Configuration package (also available from the CastleHill Software nuget server) you can store your authentication key and Archer connection information in an appSettings.json file and let Estrelica.Core read it from there via the Estrelia.CoreConfig.Load() method:</p>
