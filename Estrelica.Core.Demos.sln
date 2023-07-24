@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow Activity Report", "Demos\Workflow Activity Report\Workflow Activity Report.csproj", "{B0AADFAF-61A6-4FC3-9A49-2E0C07E40670}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{257477CE-1B65-4350-9D7A-48CF850974B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{257477CE-1B65-4350-9D7A-48CF850974B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{257477CE-1B65-4350-9D7A-48CF850974B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0AADFAF-61A6-4FC3-9A49-2E0C07E40670}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0AADFAF-61A6-4FC3-9A49-2E0C07E40670}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0AADFAF-61A6-4FC3-9A49-2E0C07E40670}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0AADFAF-61A6-4FC3-9A49-2E0C07E40670}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{8386E621-915B-45D2-A3F8-411BC1666418} = {38763013-0ECA-468F-8C87-5A18B3CA9D44}
 		{B246281D-F44B-4B48-9DA1-5798E78E8973} = {38763013-0ECA-468F-8C87-5A18B3CA9D44}
 		{257477CE-1B65-4350-9D7A-48CF850974B0} = {38763013-0ECA-468F-8C87-5A18B3CA9D44}
+		{B0AADFAF-61A6-4FC3-9A49-2E0C07E40670} = {38763013-0ECA-468F-8C87-5A18B3CA9D44}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7DFC3F99-8A27-4BC3-83CB-6F4BC674A9A5}

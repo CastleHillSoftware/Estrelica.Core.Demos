@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Workflow Activity Report": {
+      "commandName": "Project"
+    },
+    "Test Three Days": {
+      "commandName": "Project",
+      "commandLineArgs": "/days 3"
+    }
+  }
+}
