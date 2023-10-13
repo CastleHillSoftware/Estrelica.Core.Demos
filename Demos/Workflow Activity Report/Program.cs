@@ -72,7 +72,7 @@ namespace WorkflowActivityReport
                     var startDate = endDate.AddDays(0-daysToRetrieve);
 
                     var sb = new StringBuilder();
-                    sb.AppendLine("ContentId,Action Type,Action Taken,Original Workflow Status,Target Workflow Status,Name,Fed ID,Modified On Date");
+                    sb.AppendLine("ContentId,Action Type,Action Taken,Original Workflow Status,Target Workflow Status,Name,Username,Modified On Date");
 
                     Console.WriteLine($"Processing workflow events for '{application.Name}'");
                     int totalRecordCount = 0;
@@ -158,6 +158,12 @@ namespace WorkflowActivityReport
                                         writeOutput();
                                     }
                                 }
+                                else if (historyAudit is ISignatureAudit sa)
+								{
+                                    // Not significant to this application, but if signature audits were to be included,
+                                    // this is how they'd be identified.  Signature audits introduce the properties
+                                    // ConfigurationId (int) and ConfigurationName (string).
+								}
                             }
 
                             // If we got to this point while needStatusChange == true, it means we have a buffered workflow audit (without a corresponding

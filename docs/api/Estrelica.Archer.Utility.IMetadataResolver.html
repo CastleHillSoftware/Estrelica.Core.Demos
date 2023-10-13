@@ -284,6 +284,9 @@
                             <a href="Estrelica.Archer.Content.IFieldHistory.html" title="IFieldHistory" class="">IFieldHistory</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Content.IFieldHistoryEx.html" title="IFieldHistoryEx" class="">IFieldHistoryEx</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Content.IFieldQuery.html" title="IFieldQuery" class="">IFieldQuery</a>
                           </li>
                           <li class="">
@@ -902,6 +905,9 @@
                             <a href="Estrelica.Archer.Utility.APISource.html" title="APISource" class="">APISource</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Utility.ArcherAPIException.html" title="ArcherAPIException" class="">ArcherAPIException</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Utility.ArcherEntitySerializer.html" title="ArcherEntitySerializer" class="">ArcherEntitySerializer</a>
                           </li>
                           <li class="">
@@ -920,6 +926,9 @@
                             <a href="Estrelica.Archer.Utility.EditUtilities.html" title="EditUtilities" class="">EditUtilities</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Utility.ExceptionExtensions.html" title="ExceptionExtensions" class="">ExceptionExtensions</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Utility.ExtensionsUnavailableException.html" title="ExtensionsUnavailableException" class="">ExtensionsUnavailableException</a>
                           </li>
                           <li class="">
@@ -930,6 +939,18 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Utility.IAPIFacade.html" title="IAPIFacade" class="">IAPIFacade</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherRestAPI.html" title="IArcherRestAPI" class="">IArcherRestAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherSoapAPI.html" title="IArcherSoapAPI" class="">IArcherSoapAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherUndocumentedAPI.html" title="IArcherUndocumentedAPI" class="">IArcherUndocumentedAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.ICastleHillExtendedAPI.html" title="ICastleHillExtendedAPI" class="">ICastleHillExtendedAPI</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Utility.IContentResolver.html" title="IContentResolver" class="">IContentResolver</a>
@@ -1044,6 +1065,9 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Logging.FileLogger.html" title="FileLogger" class="">FileLogger</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Logging.FileLogger.TimestampFormat.html" title="FileLogger.TimestampFormat" class="">FileLogger.TimestampFormat</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Logging.Logger.html" title="Logger" class="">Logger</a>
@@ -1191,7 +1215,9 @@
 
   <h5 id="Estrelica_Archer_Utility_IMetadataResolver_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IMetadataResolver : ICacheProvider, IEntityResolver</code></pre>
+    <pre><code class="lang-csharp hljs">[StayPublic]
+[DoNotObfuscateType]
+public interface IMetadataResolver : ICacheProvider, IEntityResolver</code></pre>
   </div>
 
 
@@ -1207,7 +1233,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_AllApplications" data-uid="Estrelica.Archer.Utility.IMetadataResolver.AllApplications"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllApplications" class="expander" data-toggle="collapse">AllApplications</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllApplications" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns all available Applications in the target Archer instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1243,7 +1270,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_AllLevels" data-uid="Estrelica.Archer.Utility.IMetadataResolver.AllLevels"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllLevels" class="expander" data-toggle="collapse">AllLevels</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllLevels" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns all available Levels for all available Modules in the target Archer instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1279,7 +1307,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_AllModuleOwners" data-uid="Estrelica.Archer.Utility.IMetadataResolver.AllModuleOwners"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllModuleOwners" class="expander" data-toggle="collapse">AllModuleOwners</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllModuleOwners" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns all module owners for all available Modules in the target Archer instance, if extensions are available, otherwise returns an empty set.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1304,6 +1333,9 @@
 
 
 
+  <h5 id="Estrelica_Archer_Utility_IMetadataResolver_AllModuleOwners_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Requires extensions</p>
+</div>
 
 
 
@@ -1315,7 +1347,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_AllQuestionnaires" data-uid="Estrelica.Archer.Utility.IMetadataResolver.AllQuestionnaires"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllQuestionnaires" class="expander" data-toggle="collapse">AllQuestionnaires</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllQuestionnaires" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns all available Questionnaires in the target Archer instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1351,7 +1384,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_AllSolutions" data-uid="Estrelica.Archer.Utility.IMetadataResolver.AllSolutions"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllSolutions" class="expander" data-toggle="collapse">AllSolutions</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllSolutions" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns all available Solutions in the target Archer instance, if extensions are available, otherwise returns an empty set.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1376,6 +1410,9 @@
 
 
 
+  <h5 id="Estrelica_Archer_Utility_IMetadataResolver_AllSolutions_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Requires extensions</p>
+</div>
 
 
 
@@ -1389,7 +1426,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_AllEncounteredFields_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.AllEncounteredFields(System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllEncounteredFields_System_Boolean_" class="expander" data-toggle="collapse">AllEncounteredFields(bool)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllEncounteredFields_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns all fields that have been encountered by the resolver.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1403,7 +1441,9 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
         <span class="parametername">forceDiscovery</span>
-        <p></p>
+        <p><p>If true, the resolver will iterate through all modules/levels in order to discover all of their fields before returning.<br>
+If false, only those fields which have already been discovered by virtue of earlier calls will be returned.</p>
+
       </td>
     </tr>
   </table>
@@ -1435,7 +1475,9 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_AllEncounteredSubforms_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.AllEncounteredSubforms(System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllEncounteredSubforms_System_Boolean_" class="expander" data-toggle="collapse">AllEncounteredSubforms(bool)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllEncounteredSubforms_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>If extensions are available, returns all subforms available in the target Archer instance.  If not, any subforms that have already been discovered
+by virtue of having encountered any ISubformField fields during earlier calls will be returned.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1449,7 +1491,10 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
         <span class="parametername">forceDiscovery</span>
-        <p></p>
+        <p><p>If true, all subforms will be discovered before returning by iterating through all available ISubformField fields.  If false,
+only those subforms that have already been discovered will be returned.  This parameter is irrelevant if extensions are available, as in that case the
+subforms can be identified directly without the need for ISubformField discovery.</p>
+
       </td>
     </tr>
   </table>
@@ -1470,6 +1515,9 @@
 
 
 
+  <h5 id="Estrelica_Archer_Utility_IMetadataResolver_AllEncounteredSubforms_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Does not require extensions, but is optimized if they are available.</p>
+</div>
 
 
 
@@ -1481,7 +1529,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_AllIds_Estrelica_Archer_Entity_EntityType_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.AllIds(Estrelica.Archer.Entity.EntityType)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllIds_Estrelica_Archer_Entity_EntityType_" class="expander" data-toggle="collapse">AllIds(EntityType)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllIds_Estrelica_Archer_Entity_EntityType_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns all available integer Ids for the given EntityType if extensions are available, otherwise returns an empty set.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1495,7 +1544,8 @@
       <td>
         <span class="pull-right"><a class="xref" href="Estrelica.Archer.Entity.EntityType.html">EntityType</a></span>
         <span class="parametername">entityType</span>
-        <p></p>
+        <p><p>The Archer EntityType to retrieve</p>
+
       </td>
     </tr>
   </table>
@@ -1516,6 +1566,9 @@
 
 
 
+  <h5 id="Estrelica_Archer_Utility_IMetadataResolver_AllIds_Estrelica_Archer_Entity_EntityType__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Requires extensions</p>
+</div>
 
 
 
@@ -1527,7 +1580,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_AllModules_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.AllModules(System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllModules_System_Boolean_" class="expander" data-toggle="collapse">AllModules(bool)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_AllModules_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the union of all Applications, Questionnaires, and discovered Subforms in the target Archer instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1541,7 +1595,10 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
         <span class="parametername">forceSubformDiscovery</span>
-        <p></p>
+        <p><p>If true, all subforms will be discovered before returning by iterating through all available ISubformField fields.  If false,
+only those subforms that have already been discovered will be returned.  This parameter is irrelevant if extensions are available, as in that case the
+subforms can be identified directly without the need for ISubformField discovery.</p>
+
       </td>
     </tr>
   </table>
@@ -1562,6 +1619,9 @@
 
 
 
+  <h5 id="Estrelica_Archer_Utility_IMetadataResolver_AllModules_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Does not require extensions, but is optimized if they are available.</p>
+</div>
 
 
 
@@ -1573,7 +1633,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_ApplicationByAlias_System_String_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.ApplicationByAlias(System.String,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_ApplicationByAlias_System_String_System_Boolean_" class="expander" data-toggle="collapse">ApplicationByAlias(string, bool)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_ApplicationByAlias_System_String_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the Application having the specified alias in the target Archer instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1594,7 +1655,8 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
         <span class="parametername">throwExceptionIfInvalid</span>
-        <p></p>
+        <p><p>If true, an exception will be raised if the alias cannot be resolved to an Application.  If false, an unresolveable alias will return null.</p>
+
       </td>
     </tr>
   </table>
@@ -1626,7 +1688,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_ApplicationByGuid_System_Guid_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.ApplicationByGuid(System.Guid,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_ApplicationByGuid_System_Guid_System_Boolean_" class="expander" data-toggle="collapse">ApplicationByGuid(Guid, bool)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_ApplicationByGuid_System_Guid_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the Application having the specified GUID in the target Archer instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1640,14 +1703,16 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></span>
         <span class="parametername">applicationGuid</span>
-        <p></p>
+        <p><p>The Guid of the Application to be retrieved</p>
+
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
         <span class="parametername">throwExceptionIfInvalid</span>
-        <p></p>
+        <p><p>If true, an exception will be raised if the Guid cannot be resolved to an Application.  If false, an unresolveable Guid will return null.</p>
+
       </td>
     </tr>
   </table>
@@ -1679,7 +1744,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_ApplicationById_System_Int32_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.ApplicationById(System.Int32,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_ApplicationById_System_Int32_System_Boolean_" class="expander" data-toggle="collapse">ApplicationById(int, bool)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_ApplicationById_System_Int32_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the Application having the specified integer Id in the target Archer instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1693,14 +1759,16 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
         <span class="parametername">applicationId</span>
-        <p></p>
+        <p><p>The integer Id of the Application to be retrieved</p>
+
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
         <span class="parametername">throwExceptionIfInvalid</span>
-        <p></p>
+        <p><p>If true, an exception will be raised if the Id cannot be resolved to an Application.  If false, an unresolveable Id will return null.</p>
+
       </td>
     </tr>
   </table>
@@ -1732,7 +1800,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_ApplicationByName_System_String_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.ApplicationByName(System.String,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_ApplicationByName_System_String_System_Boolean_" class="expander" data-toggle="collapse">ApplicationByName(string, bool)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_ApplicationByName_System_String_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the Application having the specified name in the target Archer instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1746,14 +1815,16 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></span>
         <span class="parametername">applicationName</span>
-        <p></p>
+        <p><p>The name of the Application to be retrieved</p>
+
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
         <span class="parametername">throwExceptionIfInvalid</span>
-        <p></p>
+        <p><p>If true, an exception will be raised if the name cannot be resolved to an Application.  If false, an unresolveable name will return null.</p>
+
       </td>
     </tr>
   </table>
@@ -1780,12 +1851,165 @@
   </div>
 
 
+  <a id="Estrelica_Archer_Utility_IMetadataResolver_CreateValuesListValue_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.CreateValuesListValue*"></a>
+
+  <h4 id="Estrelica_Archer_Utility_IMetadataResolver_CreateValuesListValue_Estrelica_Archer_Metadata_IArcherValuesList_System_String_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.CreateValuesListValue(Estrelica.Archer.Metadata.IArcherValuesList,System.String)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_CreateValuesListValue_Estrelica_Archer_Metadata_IArcherValuesList_System_String_" class="expander" data-toggle="collapse">CreateValuesListValue(IArcherValuesList, string)</a></h4>
+
+  <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_CreateValuesListValue_Estrelica_Archer_Metadata_IArcherValuesList_System_String_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IArcherValuesListValue CreateValuesListValue(IArcherValuesList valuesList, string newValueName)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.IArcherValuesList.html">IArcherValuesList</a></span>
+        <span class="parametername">valuesList</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></span>
+        <span class="parametername">newValueName</span>
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+      <a class="xref" href="Estrelica.Archer.Metadata.IArcherValuesListValue.html">IArcherValuesListValue</a>
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+  <a id="Estrelica_Archer_Utility_IMetadataResolver_CreateValuesListValue_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.CreateValuesListValue*"></a>
+
+  <h4 id="Estrelica_Archer_Utility_IMetadataResolver_CreateValuesListValue_System_Int32_System_String_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.CreateValuesListValue(System.Int32,System.String)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_CreateValuesListValue_System_Int32_System_String_" class="expander" data-toggle="collapse">CreateValuesListValue(int, string)</a></h4>
+
+  <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_CreateValuesListValue_System_Int32_System_String_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IArcherValuesListValue CreateValuesListValue(int valuesListId, string newValueName)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
+        <span class="parametername">valuesListId</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></span>
+        <span class="parametername">newValueName</span>
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+      <a class="xref" href="Estrelica.Archer.Metadata.IArcherValuesListValue.html">IArcherValuesListValue</a>
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+  <a id="Estrelica_Archer_Utility_IMetadataResolver_DeleteValuesListValue_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.DeleteValuesListValue*"></a>
+
+  <h4 id="Estrelica_Archer_Utility_IMetadataResolver_DeleteValuesListValue_Estrelica_Archer_Metadata_IArcherValuesListValue_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.DeleteValuesListValue(Estrelica.Archer.Metadata.IArcherValuesListValue)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_DeleteValuesListValue_Estrelica_Archer_Metadata_IArcherValuesListValue_" class="expander" data-toggle="collapse">DeleteValuesListValue(IArcherValuesListValue)</a></h4>
+
+  <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_DeleteValuesListValue_Estrelica_Archer_Metadata_IArcherValuesListValue_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool DeleteValuesListValue(IArcherValuesListValue valueToDelete)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.IArcherValuesListValue.html">IArcherValuesListValue</a></span>
+        <span class="parametername">valueToDelete</span>
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
   <a id="Estrelica_Archer_Utility_IMetadataResolver_FieldById_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.FieldById*"></a>
 
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_FieldById_System_Int32_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.FieldById(System.Int32,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldById_System_Int32_System_Boolean_" class="expander" data-toggle="collapse">FieldById(int, bool)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldById_System_Int32_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns the Field having the specified integer Id in the target Archer instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1799,14 +2023,16 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
         <span class="parametername">fieldId</span>
-        <p></p>
+        <p><p>The integer Id of the Field to be retrieved</p>
+
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
         <span class="parametername">throwExceptionIfInvalid</span>
-        <p></p>
+        <p><p>If true, an exception will be raised if the Id cannot be resolved to a Field.  If false, an unresolveable Id will return null.</p>
+
       </td>
     </tr>
   </table>
@@ -1835,15 +2061,16 @@
 
   <a id="Estrelica_Archer_Utility_IMetadataResolver_FieldsByIds_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.FieldsByIds*"></a>
 
-  <h4 id="Estrelica_Archer_Utility_IMetadataResolver_FieldsByIds_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Estrelica.Archer.Utility.IMetadataResolver.FieldsByIds(System.Collections.Generic.IEnumerable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByIds_System_Collections_Generic_IEnumerable_System_Int32__" class="expander" data-toggle="collapse">FieldsByIds(IEnumerable&lt;int&gt;)</a></h4>
+  <h4 id="Estrelica_Archer_Utility_IMetadataResolver_FieldsByIds_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.FieldsByIds(System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByIds_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_" class="expander" data-toggle="collapse">FieldsByIds(IEnumerable&lt;int&gt;, bool)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByIds_System_Collections_Generic_IEnumerable_System_Int32__" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByIds_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns a collection of Fields having the specified integer Ids in the target Archer instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerable&lt;IArcherField&gt; FieldsByIds(IEnumerable&lt;int&gt; fieldIds)</code></pre>
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;IArcherField&gt; FieldsByIds(IEnumerable&lt;int&gt; fieldIds, bool throwExceptionIfInvalid = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1852,7 +2079,16 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</span>
         <span class="parametername">fieldIds</span>
-        <p></p>
+        <p><p>A collection of integer Ids of the Fields to be returned</p>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
+        <span class="parametername">throwExceptionIfInvalid</span>
+        <p><p>If true, an exception will be raised if any of the Ids cannot be resolved to a Field.  If false, any unresolveable Ids will be represented in the returned result by nulls.</p>
+
       </td>
     </tr>
   </table>
@@ -1884,7 +2120,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_FieldsByLevel_Estrelica_Archer_Metadata_IArcherLevel_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.FieldsByLevel(Estrelica.Archer.Metadata.IArcherLevel)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByLevel_Estrelica_Archer_Metadata_IArcherLevel_" class="expander" data-toggle="collapse">FieldsByLevel(IArcherLevel)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByLevel_Estrelica_Archer_Metadata_IArcherLevel_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns all available Fields for the specified Level in the target Archer instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -1927,15 +2164,16 @@
 
   <a id="Estrelica_Archer_Utility_IMetadataResolver_FieldsByLevelId_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.FieldsByLevelId*"></a>
 
-  <h4 id="Estrelica_Archer_Utility_IMetadataResolver_FieldsByLevelId_System_Int32_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.FieldsByLevelId(System.Int32)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByLevelId_System_Int32_" class="expander" data-toggle="collapse">FieldsByLevelId(int)</a></h4>
+  <h4 id="Estrelica_Archer_Utility_IMetadataResolver_FieldsByLevelId_System_Int32_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.FieldsByLevelId(System.Int32,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByLevelId_System_Int32_System_Boolean_" class="expander" data-toggle="collapse">FieldsByLevelId(int, bool)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByLevelId_System_Int32_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByLevelId_System_Int32_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns all available Fields for the Level having the specified integer Id in the target Archer instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerable&lt;IArcherField&gt; FieldsByLevelId(int levelId)</code></pre>
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;IArcherField&gt; FieldsByLevelId(int levelId, bool throwExceptionIfInvalid = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1944,7 +2182,16 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
         <span class="parametername">levelId</span>
-        <p></p>
+        <p><p>The integer Id of the Fields' Level</p>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
+        <span class="parametername">throwExceptionIfInvalid</span>
+        <p><p>If true, an exception will be raised if the Id cannot be resolved to a Level.  If false, an unresolveable Id will return an empty set.</p>
+
       </td>
     </tr>
   </table>
@@ -1976,7 +2223,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_FieldsByModule_Estrelica_Archer_Metadata_IArcherModule_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.FieldsByModule(Estrelica.Archer.Metadata.IArcherModule)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByModule_Estrelica_Archer_Metadata_IArcherModule_" class="expander" data-toggle="collapse">FieldsByModule(IArcherModule)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByModule_Estrelica_Archer_Metadata_IArcherModule_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns all available Fields for all Levels of the specified Module in the target Archer instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -2019,15 +2267,16 @@
 
   <a id="Estrelica_Archer_Utility_IMetadataResolver_FieldsByModuleId_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.FieldsByModuleId*"></a>
 
-  <h4 id="Estrelica_Archer_Utility_IMetadataResolver_FieldsByModuleId_System_Int32_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.FieldsByModuleId(System.Int32)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByModuleId_System_Int32_" class="expander" data-toggle="collapse">FieldsByModuleId(int)</a></h4>
+  <h4 id="Estrelica_Archer_Utility_IMetadataResolver_FieldsByModuleId_System_Int32_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.FieldsByModuleId(System.Int32,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByModuleId_System_Int32_System_Boolean_" class="expander" data-toggle="collapse">FieldsByModuleId(int, bool)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByModuleId_System_Int32_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_FieldsByModuleId_System_Int32_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns all available Fields for all Levels of the Module having the specified integer Id in the target Archer instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IEnumerable&lt;IArcherField&gt; FieldsByModuleId(int moduleId)</code></pre>
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;IArcherField&gt; FieldsByModuleId(int moduleId, bool throwExceptionIfInvalid = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2036,7 +2285,16 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
         <span class="parametername">moduleId</span>
-        <p></p>
+        <p><p>The integer Id of the Fields' Module</p>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
+        <span class="parametername">throwExceptionIfInvalid</span>
+        <p><p>If true, an exception will be raised if the Id cannot be resolved to a Module.  If false, an unresolveable Id will return an empty set.</p>
+
       </td>
     </tr>
   </table>
@@ -2231,15 +2489,15 @@
 
   <a id="Estrelica_Archer_Utility_IMetadataResolver_LevelByFieldId_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.LevelByFieldId*"></a>
 
-  <h4 id="Estrelica_Archer_Utility_IMetadataResolver_LevelByFieldId_System_Int32_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.LevelByFieldId(System.Int32)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_LevelByFieldId_System_Int32_" class="expander" data-toggle="collapse">LevelByFieldId(int)</a></h4>
+  <h4 id="Estrelica_Archer_Utility_IMetadataResolver_LevelByFieldId_System_Int32_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.LevelByFieldId(System.Int32,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_LevelByFieldId_System_Int32_System_Boolean_" class="expander" data-toggle="collapse">LevelByFieldId(int, bool)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_LevelByFieldId_System_Int32_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_LevelByFieldId_System_Int32_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IArcherLevel LevelByFieldId(int fieldId)</code></pre>
+    <pre><code class="lang-csharp hljs">IArcherLevel LevelByFieldId(int fieldId, bool throwExceptionIfInvalid = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2248,6 +2506,13 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
         <span class="parametername">fieldId</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
+        <span class="parametername">throwExceptionIfInvalid</span>
         <p></p>
       </td>
     </tr>
@@ -3340,7 +3605,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_SolutionByAlias_System_String_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.SolutionByAlias(System.String,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_SolutionByAlias_System_String_System_Boolean_" class="expander" data-toggle="collapse">SolutionByAlias(string, bool)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_SolutionByAlias_System_String_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a Solution having the given alias, if extensions are available</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -3354,14 +3620,16 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></span>
         <span class="parametername">solutionAlias</span>
-        <p></p>
+        <p><p>The alias of the Solution to be retrieved</p>
+
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
         <span class="parametername">throwExceptionIfInvalid</span>
-        <p></p>
+        <p><p>If true, an exception will be raised if the alias cannot be resolved to a Solution.  If false, an unresolveable alias will return null</p>
+
       </td>
     </tr>
   </table>
@@ -3382,6 +3650,9 @@
 
 
 
+  <h5 id="Estrelica_Archer_Utility_IMetadataResolver_SolutionByAlias_System_String_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Requires extensions</p>
+</div>
 
 
 
@@ -3393,7 +3664,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_SolutionByGuid_System_Guid_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.SolutionByGuid(System.Guid,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_SolutionByGuid_System_Guid_System_Boolean_" class="expander" data-toggle="collapse">SolutionByGuid(Guid, bool)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_SolutionByGuid_System_Guid_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a Solution having the given GUID identifier, if extensions are available</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -3407,14 +3679,16 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.guid">Guid</a></span>
         <span class="parametername">solutionGuid</span>
-        <p></p>
+        <p><p>The GUID of the Solution to be retrieved</p>
+
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
         <span class="parametername">throwExceptionIfInvalid</span>
-        <p></p>
+        <p><p>If true, an exception will be raised if the GUID cannot be resolved to a Solution.  If false, an unresolveable GUID will return null</p>
+
       </td>
     </tr>
   </table>
@@ -3435,6 +3709,9 @@
 
 
 
+  <h5 id="Estrelica_Archer_Utility_IMetadataResolver_SolutionByGuid_System_Guid_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Requires extensions</p>
+</div>
 
 
 
@@ -3446,7 +3723,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_SolutionById_System_Int32_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.SolutionById(System.Int32,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_SolutionById_System_Int32_System_Boolean_" class="expander" data-toggle="collapse">SolutionById(int, bool)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_SolutionById_System_Int32_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a Solution having the given integer Id, if extensions are available</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -3460,14 +3738,16 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
         <span class="parametername">solutionId</span>
-        <p></p>
+        <p><p>The integer Id of the Solution to be retrieved</p>
+
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
         <span class="parametername">throwExceptionIfInvalid</span>
-        <p></p>
+        <p><p>If true, an exception will be raised if the Id cannot be resolved to a Solution.  If false, an unresolveable Id will return null</p>
+
       </td>
     </tr>
   </table>
@@ -3488,6 +3768,9 @@
 
 
 
+  <h5 id="Estrelica_Archer_Utility_IMetadataResolver_SolutionById_System_Int32_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Requires extensions</p>
+</div>
 
 
 
@@ -3499,7 +3782,8 @@
   <h4 id="Estrelica_Archer_Utility_IMetadataResolver_SolutionByName_System_String_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.SolutionByName(System.String,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_SolutionByName_System_String_System_Boolean_" class="expander" data-toggle="collapse">SolutionByName(string, bool)</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_SolutionByName_System_String_System_Boolean_" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns a Solution having the given name, if extensions are available</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
@@ -3520,7 +3804,8 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
         <span class="parametername">throwExceptionIfInvalid</span>
-        <p></p>
+        <p><p>If true, an exception will be raised if the name cannot be resolved to a Solution.  If false, an unresolveable name will return null</p>
+
       </td>
     </tr>
   </table>
@@ -3541,6 +3826,9 @@
 
 
 
+  <h5 id="Estrelica_Archer_Utility_IMetadataResolver_SolutionByName_System_String_System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Requires extensions</p>
+</div>
 
 
 
@@ -3920,15 +4208,15 @@
 
   <a id="Estrelica_Archer_Utility_IMetadataResolver_ValuesListByFieldId_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.ValuesListByFieldId*"></a>
 
-  <h4 id="Estrelica_Archer_Utility_IMetadataResolver_ValuesListByFieldId_System_Int32_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.ValuesListByFieldId(System.Int32)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_ValuesListByFieldId_System_Int32_" class="expander" data-toggle="collapse">ValuesListByFieldId(int)</a></h4>
+  <h4 id="Estrelica_Archer_Utility_IMetadataResolver_ValuesListByFieldId_System_Int32_System_Boolean_" data-uid="Estrelica.Archer.Utility.IMetadataResolver.ValuesListByFieldId(System.Int32,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Utility_IMetadataResolver_ValuesListByFieldId_System_Int32_System_Boolean_" class="expander" data-toggle="collapse">ValuesListByFieldId(int, bool)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_ValuesListByFieldId_System_Int32_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Utility_IMetadataResolver_ValuesListByFieldId_System_Int32_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IArcherValuesList ValuesListByFieldId(int fieldId)</code></pre>
+    <pre><code class="lang-csharp hljs">IArcherValuesList ValuesListByFieldId(int fieldId, bool throwExceptionIfInvalid = true)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3937,6 +4225,13 @@
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
         <span class="parametername">fieldId</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
+        <span class="parametername">throwExceptionIfInvalid</span>
         <p></p>
       </td>
     </tr>
@@ -4058,6 +4353,9 @@
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="Estrelica.Utility.EnumHelper.html#Estrelica_Utility_EnumHelper_In__1___0___0___">EnumHelper.In&lt;TEnum&gt;(TEnum, params TEnum[])</a>
+  </div>
+  <div>
+      <a class="xref" href="Estrelica.Utility.IEnumerableExtensions.html#Estrelica_Utility_IEnumerableExtensions_ToEnumerable__1___0_">IEnumerableExtensions.ToEnumerable&lt;T&gt;(T)</a>
   </div>
   <div>
       <a class="xref" href="Estrelica.Utility.StringExtensions.html#Estrelica_Utility_StringExtensions_AssertNotNull__1___0_System_String_">StringExtensions.AssertNotNull&lt;T&gt;(T, string)</a>

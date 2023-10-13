@@ -284,6 +284,9 @@
                             <a href="Estrelica.Archer.Content.IFieldHistory.html" title="IFieldHistory" class="">IFieldHistory</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Content.IFieldHistoryEx.html" title="IFieldHistoryEx" class="">IFieldHistoryEx</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Content.IFieldQuery.html" title="IFieldQuery" class="">IFieldQuery</a>
                           </li>
                           <li class="">
@@ -902,6 +905,9 @@
                             <a href="Estrelica.Archer.Utility.APISource.html" title="APISource" class="">APISource</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Utility.ArcherAPIException.html" title="ArcherAPIException" class="">ArcherAPIException</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Utility.ArcherEntitySerializer.html" title="ArcherEntitySerializer" class="">ArcherEntitySerializer</a>
                           </li>
                           <li class="">
@@ -920,6 +926,9 @@
                             <a href="Estrelica.Archer.Utility.EditUtilities.html" title="EditUtilities" class="">EditUtilities</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Utility.ExceptionExtensions.html" title="ExceptionExtensions" class="">ExceptionExtensions</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Utility.ExtensionsUnavailableException.html" title="ExtensionsUnavailableException" class="">ExtensionsUnavailableException</a>
                           </li>
                           <li class="">
@@ -930,6 +939,18 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Utility.IAPIFacade.html" title="IAPIFacade" class="">IAPIFacade</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherRestAPI.html" title="IArcherRestAPI" class="">IArcherRestAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherSoapAPI.html" title="IArcherSoapAPI" class="">IArcherSoapAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherUndocumentedAPI.html" title="IArcherUndocumentedAPI" class="">IArcherUndocumentedAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.ICastleHillExtendedAPI.html" title="ICastleHillExtendedAPI" class="">ICastleHillExtendedAPI</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Utility.IContentResolver.html" title="IContentResolver" class="">IContentResolver</a>
@@ -1044,6 +1065,9 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Logging.FileLogger.html" title="FileLogger" class="">FileLogger</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Logging.FileLogger.TimestampFormat.html" title="FileLogger.TimestampFormat" class="">FileLogger.TimestampFormat</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Logging.Logger.html" title="Logger" class="">Logger</a>
@@ -1340,6 +1364,62 @@ must also be duplicated in the other set.  Defaults to true (e.g. { 1, 2, 2, 3} 
       <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>
         <p><p>True if the sequences match per the above rules, false if not</p>
 
+      </td>
+    </tr>
+  </table>
+
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">T</span>
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+  <a id="Estrelica_Utility_IEnumerableExtensions_ToEnumerable_" data-uid="Estrelica.Utility.IEnumerableExtensions.ToEnumerable*"></a>
+
+  <h4 id="Estrelica_Utility_IEnumerableExtensions_ToEnumerable__1___0_" data-uid="Estrelica.Utility.IEnumerableExtensions.ToEnumerable``1(``0)"><a href="#collapsible-Estrelica_Utility_IEnumerableExtensions_ToEnumerable__1___0_" class="expander" data-toggle="collapse">ToEnumerable&lt;T&gt;(T)</a></h4>
+
+  <div id="collapsible-Estrelica_Utility_IEnumerableExtensions_ToEnumerable__1___0_" class="collapse in">
+  <div class="markdown level1 summary"><p>Helper method for unit tests and other cases where a single item needs to be considered as the sole member of an IEnumerable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IEnumerable&lt;T&gt; ToEnumerable&lt;T&gt;(this T item)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">T</span></span>
+        <span class="parametername">item</span>
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;T&gt;
+        <p></p>
       </td>
     </tr>
   </table>

@@ -135,7 +135,6 @@
         &quot;username&quot;: &quot;apiuser@company.com&quot;,
         &quot;password&quot;: &quot;Password123&quot;,
         &quot;connectionString&quot;: &quot;&quot;
-        }
     }
 }
 </code></pre>
@@ -207,8 +206,8 @@
     userSecretsId: &quot;Estrelica.Core&quot;);
 </code></pre>
 <h2 id="environment-overrides">Environment overrides</h2>
-<p>It's not uncommon to have to deal with multiple Archer instances, potentially hosted on multiple web servers, when implementing an integration project.  The examples above show how an appSettings.json file and/or user secrets.json file may be used to connect Estrelica.Core to a single Archer instance, but what if you have several?</p>
-<p>One way to handle this would be to create separate appSettings.json and secrets.json files for each, and selectively pass their filenames and Ids into the CoreConfig.Load() method as needed when switching between instances.  This is cumbersome however, and can lead to runtime errors or unexpected results if the wrong user secrets get merged into your app settings.</p>
+<p>When implementing an integration project it's not uncommon to have to deal with multiple Archer instances, potentially hosted on multiple web servers.  The examples above show how an appSettings.json file and/or user secrets.json file may be used to connect Estrelica.Core to a single Archer instance, but what if you have several?</p>
+<p>One way to handle this would be to create separate appSettings.json and/or secrets.json files for each, and selectively pass their filenames and/or Ids into the CoreConfig.Load() method as needed when switching between instances.  This is cumbersome however, and can lead to runtime errors or unexpected results if the wrong user secrets get merged into your app settings.</p>
 <p>Estrelica.Core.Configuration handles this by supporting a second level of override behavior.  In addition to the user secrets overrides discussed above, you can also selectively override any of the settings in the &quot;Archer&quot; node by adding additional nodes inside of it with your override values.</p>
 <p>Expanding on the above example, imagine a scenario where you have two Archer instances (named &quot;Archer-Prod&quot; and &quot;Archer-UAT&quot;) running on the same Archer server (at <a href="https://archer.company.com">https://archer.company.com</a>).  Furthermore, you have the same user (apiuser@company.com) in both instances, but with different passwords in each.</p>
 <p>This scenario can be handled by nesting the necessary overrides directly inside the Archer node, as follows.</p>
@@ -222,7 +221,6 @@
         &quot;Production&quot;: {
             &quot;instance&quot;: &quot;Archer-Prod&quot;,
             &quot;password&quot;: &quot;Password123&quot;
-            }
         }
     }
 }
@@ -237,17 +235,15 @@
         &quot;Production&quot;: {
             &quot;instance&quot;: &quot;Archer-Prod&quot;,
             &quot;password&quot;: &quot;Password123&quot;
-            }
         },
         &quot;UAT&quot;: {
             &quot;instance&quot;: &quot;Archer-UAT&quot;,
             &quot;password&quot;: &quot;v)SE(*Fh2kj;alk&quot;
-            }
         }
     }
 }
 </code></pre>
-<p>The &quot;key&quot; names used in this example (&quot;Production&quot; and &quot;UAT&quot;) for the override sub-sections are arbitrary, so you may define them with whatever names make sense for your needs.  The only requirements are that they must be valid json key strings, must be unique within the &quot;Archer&quot; node, and must not collide with any of the standard keys (url, instance, username, password or connectionString) in the &quot;Archer&quot; section.</p>
+<p>The &quot;key&quot; names used in this example (&quot;Production&quot; and &quot;UAT&quot;) for the override sub-sections are arbitrary, so you may define them with whatever names make sense for your needs.  The only requirements are that they must be valid JSON key strings, must be unique within the &quot;Archer&quot; node, and must not collide with any of the standard keys (url, instance, username, password or connectionString) in the &quot;Archer&quot; section.</p>
 <p>With this type of configuration you can use another optional parameter on the CoreConfig.Load() method named &quot;configOverrideKey&quot; to tell it which environment-specific overrides should be used.  For example, calling</p>
 <pre><code class="lang-csharp">var core = Estrelica.CoreConfig.Load(wm =&gt; Log(wm.Message), 
     configOverrideKey: &quot;UAT&quot;);

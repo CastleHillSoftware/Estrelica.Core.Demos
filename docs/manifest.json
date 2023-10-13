@@ -625,6 +625,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IFieldHistoryEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IFieldHistoryEx.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Content.IFieldQuery.yml",
       "output": {
         ".html": {
@@ -2625,6 +2635,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.ArcherAPIException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.ArcherAPIException.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Utility.ArcherEntitySerializer.yml",
       "output": {
         ".html": {
@@ -2685,6 +2705,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.ExceptionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.ExceptionExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Utility.ExtensionsUnavailableException.yml",
       "output": {
         ".html": {
@@ -2719,6 +2749,46 @@
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Archer.Utility.IAccessResolver.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.IArcherRestAPI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.IArcherRestAPI.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.IArcherSoapAPI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.IArcherSoapAPI.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.IArcherUndocumentedAPI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.IArcherUndocumentedAPI.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.ICastleHillExtendedAPI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.ICastleHillExtendedAPI.html"
         }
       },
       "version": ""
@@ -4586,6 +4656,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Logging.ConsoleLogger.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Logging.FileLogger.TimestampFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Logging.FileLogger.TimestampFormat.html"
         }
       },
       "version": ""

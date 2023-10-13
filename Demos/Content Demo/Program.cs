@@ -75,8 +75,7 @@ namespace ContentDemo
 					configOverrideKey: null); // If you've configured valid override settings via the app settings and/or user secrets file,
                                               // specify that override key here.
 
-
-                Utilities.Pause("This example shows how to evaluate levelled content via the Archer search API as XElement results.", ConsoleColor.Green);
+				Utilities.Pause("This example shows how to evaluate levelled content via the Archer search API as XElement results.", ConsoleColor.Green);
 
                 LoadMultipleLevelsAsXml();
 
@@ -654,9 +653,11 @@ namespace ContentDemo
 
                 int? existingContentId = core.Content.GetContent(level: level, // the level to be searched
                     includeFieldCallback: f => f.FieldType == FieldType.TrackingID, // we need to provide at least one display field even though we're only checking for the existence of a record
-                    filterConditions: new XElement[] { nameField.CreateCondition(ValuesOperator.Equals, "Estrelica.Core") } // and this filter will return the record we're looking for
+                    // and this filter will return the record we're looking for
+                    filterConditions: new XElement[] { nameField.CreateCondition(ValuesOperator.Equals, "Estrelica.Core") } 
                     ).FirstOrDefault()?.ContentAccess(core)?.Id;
 
+                // If no content Id was returned, it means the "Estrelica.Core" record does not already exist so we're safe to proceed with the insert
                 bool proceedWithInsert = !existingContentId.HasValue;
 
                 if (!proceedWithInsert)
@@ -728,6 +729,11 @@ namespace ContentDemo
                                 }
                             }
                         }
+                        // Stop if we found a candidate cross-ref field that we can insert a value into
+                        if (crossRefField != null)
+						{
+                            break;
+						}
                     }
 
                     if (crossRefField != null)
@@ -1102,9 +1108,9 @@ format it carries, Estrelica.Core provides a common programming model via IArche
                                 Utilities.Log("Verifying the record we just saved via the webservices Search API");
                                 var xmlResult = core.Content.GetContent(level: level,
                                     filterConditions: new XElement[] {
-                                    nameField.CreateCondition(ValuesOperator.Equals, "Estrelica.Core"),
-                                    level.Fields.First<IFirstPublishedField>().CreateCondition(DateValueOperator.Equals, DateTime.Now, false),
-                                    level.Fields.First<ILastUpdatedField>().CreateCondition(DateValueOperator.Equals, DateTime.Now, false)
+                                        nameField.CreateCondition(ValuesOperator.Equals, "Estrelica.Core"),
+                                        level.Fields.First<IFirstPublishedField>().CreateCondition(DateValueOperator.Equals, DateTime.Now, false),
+                                        level.Fields.First<ILastUpdatedField>().CreateCondition(DateValueOperator.Equals, DateTime.Now, false)
                                     })
                                     .First();
 
@@ -1301,7 +1307,7 @@ format it carries, Estrelica.Core provides a common programming model via IArche
                         // property) so if your "Applications" module has been modified from stock in any way that affects these
                         // assumptions, expect to see these assertions fail.
 
-                        var contentHistory = savedRecord.ContentHistory;
+                        var contentHistories = savedRecord.ContentHistory;
 
                         // .ContentHistory returns an IEnumerable<IContentHistory>, where each IContentHistory in the set corresponds
                         // to one of the History Log fields on the record's level.
@@ -1311,21 +1317,21 @@ format it carries, Estrelica.Core provides a common programming model via IArche
                             // If we identified a historyLogField, let's confirm that we got some ContentHistory for it too.
                             // We'll do this by identifying the IContentHistory result from the returned collection that references
                             // the same History Log field:
-                            IContentHistory fieldHistory = contentHistory.SingleOrDefault(ch => ch.HistoryLogField.Equals(historyLogField));
+                            IContentHistory contentHistory = contentHistories.SingleOrDefault(ch => ch.HistoryLogField.Equals(historyLogField));
 
-                            if (Assert.IsNotNull($"Verifying ContentHistory for '{historyLogField.Name}'", fieldHistory))
+                            if (Assert.IsNotNull($"Verifying ContentHistory for '{historyLogField.Name}'", contentHistory))
 							{
                                 // We've identified the audit history for the History Log field in question, now let's verify
                                 // what it contains.  First we'll make sure it actually has some IHistoryAudit results to
                                 // evaluate:
 
                                 if (Assert.IsGreaterThanZero($"Verifying History Audit count for '{historyLogField.Name}'",
-                                    fieldHistory.HistoryAudits?.Count() ?? 0))
+                                    contentHistory.HistoryAudits?.Count() ?? 0))
                                 {
                                     // fieldHistory.HistoryAudits returns IEnumerable<IHistoryAudit>, but IHistoryAudit is just a base
                                     // interface for three kinds of audits (Field, Advanced Workflow, and Signature) that may be returned.
 
-                                    foreach (var historyAudit in fieldHistory.HistoryAudits)
+                                    foreach (var historyAudit in contentHistory.HistoryAudits)
                                     {
                                         // The user who performed whatever activity was audited can be identified directly from
                                         // the base IHistoryAudit interface:
@@ -1379,6 +1385,41 @@ format it carries, Estrelica.Core provides a common programming model via IArche
 						// Keep a reference to this, as we'll re-use it after we exit the loop to perform some edits...
 						record = savedRecord;
                     }
+
+                    // We can also identify the content history for specific fields via the FieldHistory methods.  Let's first check
+                    // to see if the nameField is tracked by any available History Log fields:
+                    if (record.TrackedFieldIds.Contains(nameField.Id))
+                    {
+                        // If so, let's see what has been entered into it over time.  Since we've only set the name one time, we
+                        // expect it to have exactly one history event:
+                        var nameHistory = record.FieldHistory(nameField);
+                        if (Assert.AreEqual("Confirming that the name field has only one history event", 1, nameHistory.Count()))
+                        {
+                            IFieldHistoryEx nameHistoryEvent = nameHistory.First();
+                            // And it represents the initial insert, where its BeforeValue was null and its NewValue
+                            Assert.IsNull("Confirming that the name field did not have a value previously", nameHistoryEvent.OriginalValue);
+                            // And that its NewValue is the name we provided
+                            Assert.AreEqual("Confirming that the history event tracked the name field value we provided", "Estrelica.Core", nameHistoryEvent.NewValue);
+                            // And that the change was made by us (the current user)
+                            Assert.AreEqual("Confirming that the history event tracked our change", currentUser, nameHistoryEvent.ActionUser);
+                            // And that it was made in the past few minutes (assuming the debugger hasn't paused for too long during this run, and that
+                            // the local system clock is relatively in sync with the Archer instance db server):
+                            Assert.IsGreater("Confirming that the history event was recently tracked", nameHistoryEvent.ActionDate, DateTime.UtcNow.AddMinutes(-3));
+
+                            // We can also request a specific point-in-time history event, e.g. if we want to know what the name field contained
+                            // an hour ago:
+                            var priorHistoryEvent = record.FieldHistoryAsOf(nameField, DateTime.UtcNow.AddHours(-1));
+                            // And of course since we only recently inserted the record, this should be null (i.e. there was no value 1 hour ago):
+                            Assert.IsNull("Confirming that no prior history event exists for the name field", priorHistoryEvent);
+                            // However, if we specify a date in the future, it should return the same value as 
+                            // above, since the record has not changed since that initial entry:
+                            var nextHistoryEvent = record.FieldHistoryAsOf(nameField, DateTime.Now.AddYears(10));
+                            Assert.AreEqual("Confirming that no 'future' history has occurred", nameHistoryEvent, nextHistoryEvent);
+                        }
+                    }
+    
+                    // We can also examine the history for all tracked fields across the entire record.  For example, 
+
 
                     // Step 8: Edit the newly-created record with some different values and push the update to Archer:
 

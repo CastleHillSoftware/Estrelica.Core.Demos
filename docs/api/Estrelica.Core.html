@@ -284,6 +284,9 @@
                             <a href="Estrelica.Archer.Content.IFieldHistory.html" title="IFieldHistory" class="">IFieldHistory</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Content.IFieldHistoryEx.html" title="IFieldHistoryEx" class="">IFieldHistoryEx</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Content.IFieldQuery.html" title="IFieldQuery" class="">IFieldQuery</a>
                           </li>
                           <li class="">
@@ -902,6 +905,9 @@
                             <a href="Estrelica.Archer.Utility.APISource.html" title="APISource" class="">APISource</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Utility.ArcherAPIException.html" title="ArcherAPIException" class="">ArcherAPIException</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Utility.ArcherEntitySerializer.html" title="ArcherEntitySerializer" class="">ArcherEntitySerializer</a>
                           </li>
                           <li class="">
@@ -920,6 +926,9 @@
                             <a href="Estrelica.Archer.Utility.EditUtilities.html" title="EditUtilities" class="">EditUtilities</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Utility.ExceptionExtensions.html" title="ExceptionExtensions" class="">ExceptionExtensions</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Utility.ExtensionsUnavailableException.html" title="ExtensionsUnavailableException" class="">ExtensionsUnavailableException</a>
                           </li>
                           <li class="">
@@ -930,6 +939,18 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Utility.IAPIFacade.html" title="IAPIFacade" class="">IAPIFacade</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherRestAPI.html" title="IArcherRestAPI" class="">IArcherRestAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherSoapAPI.html" title="IArcherSoapAPI" class="">IArcherSoapAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherUndocumentedAPI.html" title="IArcherUndocumentedAPI" class="">IArcherUndocumentedAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.ICastleHillExtendedAPI.html" title="ICastleHillExtendedAPI" class="">ICastleHillExtendedAPI</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Utility.IContentResolver.html" title="IContentResolver" class="">IContentResolver</a>
@@ -1044,6 +1065,9 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Logging.FileLogger.html" title="FileLogger" class="">FileLogger</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Logging.FileLogger.TimestampFormat.html" title="FileLogger.TimestampFormat" class="">FileLogger.TimestampFormat</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Logging.Logger.html" title="Logger" class="">Logger</a>
@@ -1221,8 +1245,8 @@ Log($"Connected to instance {core.SessionProvider.Instance} at {core.SessionProv
 IEnumerable&lt;IValuesListField&gt; valuesListFields = policiesApplication.Fields.Where&lt;IValuesListField&gt;();
 foreach(var valuesListField in valuesListFields)
          {
-	Console.WriteLine($"Values List field '{valuesListField.Name}' references Values List '{valuesListField.ValuesList.Name}'");
-	Console.WriteLine("and these are the available Values for the field: " + Environment.NewLine +
+	Trace.WriteLine($"Values List field '{valuesListField.Name}' references Values List '{valuesListField.ValuesList.Name}'");
+	Trace.WriteLine("and these are the available Values for the field: " + Environment.NewLine +
 		valuesListField.ValuesList.Values.Select(vlv =&gt; $"   '{vlv.Name}'" + Environment.NewLine));
          }</code></pre>
 
@@ -1230,10 +1254,10 @@ foreach(var valuesListField in valuesListFields)
 <pre><code class="lang-cs">IEnumerable&lt;IArcherContentAccess&gt; content = MyCore.Content.GetContent(policiesApplication).ContentAccess(MyCore);
 foreach(var policiesRecord in content)
          {
-	Console.WriteLine($"Policies record {policiesRecord.Id} has these values in these fields:");
+	Trace.WriteLine($"Policies record {policiesRecord.Id} has these values in these fields:");
 	foreach(var field in policiesRecord.Fields)
              {
-		Console.WriteLine($"   {field.FieldType} '{field.Name}' =&gt; '{policiesRecord.Value(field)}'");
+		Trace.WriteLine($"   {field.FieldType} '{field.Name}' =&gt; '{policiesRecord.Value(field)}'");
              }
          }</code></pre>
 
@@ -1469,6 +1493,44 @@ If set to true, this must occur prior to any Archer API calls (e.g. before calli
   </div>
 
 
+  <a id="Estrelica_Core_ExceptionRetryCallback_" data-uid="Estrelica.Core.ExceptionRetryCallback*"></a>
+
+  <h4 id="Estrelica_Core_ExceptionRetryCallback" data-uid="Estrelica.Core.ExceptionRetryCallback"><a href="#collapsible-Estrelica_Core_ExceptionRetryCallback" class="expander" data-toggle="collapse">ExceptionRetryCallback</a></h4>
+
+  <div id="collapsible-Estrelica_Core_ExceptionRetryCallback" class="collapse in">
+  <div class="markdown level1 summary"><p>Registers a callback that will be invoked whenever an exception occurs during an API call.  Examine the exception and return true if the API
+call should be retried.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Func&lt;Exception, bool&gt; ExceptionRetryCallback { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.exception">Exception</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+  </div>
+
+
   <a id="Estrelica_Core_Layout_" data-uid="Estrelica.Core.Layout*"></a>
 
   <h4 id="Estrelica_Core_Layout" data-uid="Estrelica.Core.Layout"><a href="#collapsible-Estrelica_Core_Layout" class="expander" data-toggle="collapse">Layout</a></h4>
@@ -1684,6 +1746,44 @@ If set to true, this must occur prior to any Archer API calls (e.g. before calli
 
   <h5 class="implements">Implements</h5>
       <div><a class="xref" href="Estrelica.Interfaces.IResolverProvider.html#Estrelica_Interfaces_IResolverProvider_Report">IResolverProvider.Report</a></div>
+
+
+
+
+  </div>
+
+
+  <a id="Estrelica_Core_RequestHeaderCallback_" data-uid="Estrelica.Core.RequestHeaderCallback*"></a>
+
+  <h4 id="Estrelica_Core_RequestHeaderCallback" data-uid="Estrelica.Core.RequestHeaderCallback"><a href="#collapsible-Estrelica_Core_RequestHeaderCallback" class="expander" data-toggle="collapse">RequestHeaderCallback</a></h4>
+
+  <div id="collapsible-Estrelica_Core_RequestHeaderCallback" class="collapse in">
+  <div class="markdown level1 summary"><p>Allows inspection and modification of request headers associated with each HTTP call made by Estrelica.Core, prior to the request being
+sent to Archer.  This can be used to add any additional request headers that may be required, e.g. by proxy servers.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Action&lt;IDictionary&lt;string, string&gt;&gt; RequestHeaderCallback { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;&gt;
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+
+
 
 
 
@@ -1943,6 +2043,9 @@ public static Core ValidateLicense(Guid authenticationKey, Action&lt;Exception&g
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="Estrelica.Utility.EnumHelper.html#Estrelica_Utility_EnumHelper_In__1___0___0___">EnumHelper.In&lt;TEnum&gt;(TEnum, params TEnum[])</a>
+  </div>
+  <div>
+      <a class="xref" href="Estrelica.Utility.IEnumerableExtensions.html#Estrelica_Utility_IEnumerableExtensions_ToEnumerable__1___0_">IEnumerableExtensions.ToEnumerable&lt;T&gt;(T)</a>
   </div>
   <div>
       <a class="xref" href="Estrelica.Utility.StringExtensions.html#Estrelica_Utility_StringExtensions_AssertNotNull__1___0_System_String_">StringExtensions.AssertNotNull&lt;T&gt;(T, string)</a>

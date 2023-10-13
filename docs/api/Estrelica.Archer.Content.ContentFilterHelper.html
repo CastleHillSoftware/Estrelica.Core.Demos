@@ -284,6 +284,9 @@
                             <a href="Estrelica.Archer.Content.IFieldHistory.html" title="IFieldHistory" class="">IFieldHistory</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Content.IFieldHistoryEx.html" title="IFieldHistoryEx" class="">IFieldHistoryEx</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Content.IFieldQuery.html" title="IFieldQuery" class="">IFieldQuery</a>
                           </li>
                           <li class="">
@@ -902,6 +905,9 @@
                             <a href="Estrelica.Archer.Utility.APISource.html" title="APISource" class="">APISource</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Utility.ArcherAPIException.html" title="ArcherAPIException" class="">ArcherAPIException</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Utility.ArcherEntitySerializer.html" title="ArcherEntitySerializer" class="">ArcherEntitySerializer</a>
                           </li>
                           <li class="">
@@ -920,6 +926,9 @@
                             <a href="Estrelica.Archer.Utility.EditUtilities.html" title="EditUtilities" class="">EditUtilities</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Utility.ExceptionExtensions.html" title="ExceptionExtensions" class="">ExceptionExtensions</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Utility.ExtensionsUnavailableException.html" title="ExtensionsUnavailableException" class="">ExtensionsUnavailableException</a>
                           </li>
                           <li class="">
@@ -930,6 +939,18 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Utility.IAPIFacade.html" title="IAPIFacade" class="">IAPIFacade</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherRestAPI.html" title="IArcherRestAPI" class="">IArcherRestAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherSoapAPI.html" title="IArcherSoapAPI" class="">IArcherSoapAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherUndocumentedAPI.html" title="IArcherUndocumentedAPI" class="">IArcherUndocumentedAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.ICastleHillExtendedAPI.html" title="ICastleHillExtendedAPI" class="">ICastleHillExtendedAPI</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Utility.IContentResolver.html" title="IContentResolver" class="">IContentResolver</a>
@@ -1044,6 +1065,9 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Logging.FileLogger.html" title="FileLogger" class="">FileLogger</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Logging.FileLogger.TimestampFormat.html" title="FileLogger.TimestampFormat" class="">FileLogger.TimestampFormat</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Logging.Logger.html" title="Logger" class="">Logger</a>
@@ -1207,15 +1231,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateBetweenCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_System_DateTime_System_DateTime_System_Boolean_System_String_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateBetweenCondition(Estrelica.Archer.Metadata.Field.IBaseDateField,System.DateTime,System.DateTime,System.Boolean,System.String)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_System_DateTime_System_DateTime_System_Boolean_System_String_" class="expander" data-toggle="collapse">CreateBetweenCondition(IBaseDateField, DateTime, DateTime, bool, string)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_System_DateTime_System_DateTime_System_Boolean_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateBetweenCondition(Estrelica.Archer.Metadata.Field.IBaseDateField,System.DateTime,System.DateTime,System.Boolean,System.String,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_System_DateTime_System_DateTime_System_Boolean_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateBetweenCondition(IBaseDateField, DateTime, DateTime, bool, string, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_System_DateTime_System_DateTime_System_Boolean_System_String_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_System_DateTime_System_DateTime_System_Boolean_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateBetweenCondition(this IBaseDateField field, DateTime beginDate, DateTime endDate, bool isTimeIncluded, string timeZoneId = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateBetweenCondition(this IBaseDateField field, DateTime beginDate, DateTime endDate, bool isTimeIncluded, string timeZoneId = null, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1255,63 +1279,17 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
-  </table>
-
-  <h5 class="returns">Returns</h5>
-  <table>
     <tr>
       <td>
-      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>
-        <p></p>
-      </td>
-    </tr>
-  </table>
-
-
-
-
-
-
-
-
-
-
-  </div>
-
-
-  <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateBetweenCondition*"></a>
-
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_INumericField_System_Decimal_System_Decimal_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateBetweenCondition(Estrelica.Archer.Metadata.Field.INumericField,System.Decimal,System.Decimal)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_INumericField_System_Decimal_System_Decimal_" class="expander" data-toggle="collapse">CreateBetweenCondition(INumericField, decimal, decimal)</a></h4>
-
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_INumericField_System_Decimal_System_Decimal_" class="collapse in">
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateBetweenCondition(this INumericField field, decimal beginValue, decimal endValue)</code></pre>
-  </div>
-
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.INumericField.html">INumericField</a></span>
-        <span class="parametername">field</span>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
         <p></p>
       </td>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></span>
-        <span class="parametername">beginValue</span>
-        <p></p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></span>
-        <span class="parametername">endValue</span>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
         <p></p>
       </td>
     </tr>
@@ -1341,15 +1319,89 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateBetweenCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_INumericField_System_Int32_System_Int32_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateBetweenCondition(Estrelica.Archer.Metadata.Field.INumericField,System.Int32,System.Int32)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_INumericField_System_Int32_System_Int32_" class="expander" data-toggle="collapse">CreateBetweenCondition(INumericField, int, int)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_INumericField_System_Decimal_System_Decimal_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateBetweenCondition(Estrelica.Archer.Metadata.Field.INumericField,System.Decimal,System.Decimal,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_INumericField_System_Decimal_System_Decimal_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateBetweenCondition(INumericField, decimal, decimal, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_INumericField_System_Int32_System_Int32_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_INumericField_System_Decimal_System_Decimal_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateBetweenCondition(this INumericField field, int beginValue, int endValue)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateBetweenCondition(this INumericField field, decimal beginValue, decimal endValue, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.INumericField.html">INumericField</a></span>
+        <span class="parametername">field</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></span>
+        <span class="parametername">beginValue</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.decimal">decimal</a></span>
+        <span class="parametername">endValue</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+  <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateBetweenCondition*"></a>
+
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_INumericField_System_Int32_System_Int32_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateBetweenCondition(Estrelica.Archer.Metadata.Field.INumericField,System.Int32,System.Int32,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_INumericField_System_Int32_System_Int32_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateBetweenCondition(INumericField, int, int, IArcherField, int?)</a></h4>
+
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateBetweenCondition_Estrelica_Archer_Metadata_Field_INumericField_System_Int32_System_Int32_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XElement CreateBetweenCondition(this INumericField field, int beginValue, int endValue, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1372,6 +1424,20 @@ public static class ContentFilterHelper</code></pre>
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></span>
         <span class="parametername">endValue</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
         <p></p>
       </td>
     </tr>
@@ -1401,15 +1467,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_DateValueOperator_System_Nullable_System_DateTime__System_Boolean_System_String_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IBaseDateField,Estrelica.Archer.Content.DateValueOperator,System.Nullable{System.DateTime},System.Boolean,System.String)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_DateValueOperator_System_Nullable_System_DateTime__System_Boolean_System_String_" class="expander" data-toggle="collapse">CreateCondition(IBaseDateField, DateValueOperator, DateTime?, bool, string)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_DateValueOperator_System_Nullable_System_DateTime__System_Boolean_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IBaseDateField,Estrelica.Archer.Content.DateValueOperator,System.Nullable{System.DateTime},System.Boolean,System.String,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_DateValueOperator_System_Nullable_System_DateTime__System_Boolean_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(IBaseDateField, DateValueOperator, DateTime?, bool, string, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_DateValueOperator_System_Nullable_System_DateTime__System_Boolean_System_String_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_DateValueOperator_System_Nullable_System_DateTime__System_Boolean_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IBaseDateField field, DateValueOperator operation, DateTime? value, bool isTimeIncluded, string timeZoneId = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IBaseDateField field, DateValueOperator operation, DateTime? value, bool isTimeIncluded, string timeZoneId = null, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1449,6 +1515,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -1475,15 +1555,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_ICrossApplicationStatusTrackingField_Estrelica_Archer_Content_ValuesOperator_System_Int32_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.ICrossApplicationStatusTrackingField,Estrelica.Archer.Content.ValuesOperator,System.Int32)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_ICrossApplicationStatusTrackingField_Estrelica_Archer_Content_ValuesOperator_System_Int32_" class="expander" data-toggle="collapse">CreateCondition(ICrossApplicationStatusTrackingField, ValuesOperator, int)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_ICrossApplicationStatusTrackingField_Estrelica_Archer_Content_ValuesOperator_System_Int32_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.ICrossApplicationStatusTrackingField,Estrelica.Archer.Content.ValuesOperator,System.Int32,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_ICrossApplicationStatusTrackingField_Estrelica_Archer_Content_ValuesOperator_System_Int32_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(ICrossApplicationStatusTrackingField, ValuesOperator, int, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_ICrossApplicationStatusTrackingField_Estrelica_Archer_Content_ValuesOperator_System_Int32_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_ICrossApplicationStatusTrackingField_Estrelica_Archer_Content_ValuesOperator_System_Int32_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this ICrossApplicationStatusTrackingField field, ValuesOperator operation, int valueId)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this ICrossApplicationStatusTrackingField field, ValuesOperator operation, int valueId, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1509,6 +1589,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -1535,15 +1629,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_Byte___" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IIPAddressField,Estrelica.Archer.Content.EqualityOperator,System.Byte[])"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_Byte___" class="expander" data-toggle="collapse">CreateCondition(IIPAddressField, EqualityOperator, byte[])</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_Byte___Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IIPAddressField,Estrelica.Archer.Content.EqualityOperator,System.Byte[],Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_Byte___Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(IIPAddressField, EqualityOperator, byte[], IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_Byte___" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_Byte___Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IIPAddressField field, EqualityOperator operation, byte[] octets)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IIPAddressField field, EqualityOperator operation, byte[] octets, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1569,6 +1663,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -1595,15 +1703,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_Net_IPAddress_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IIPAddressField,Estrelica.Archer.Content.EqualityOperator,System.Net.IPAddress)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_Net_IPAddress_" class="expander" data-toggle="collapse">CreateCondition(IIPAddressField, EqualityOperator, IPAddress)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_Net_IPAddress_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IIPAddressField,Estrelica.Archer.Content.EqualityOperator,System.Net.IPAddress,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_Net_IPAddress_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(IIPAddressField, EqualityOperator, IPAddress, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_Net_IPAddress_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_Net_IPAddress_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IIPAddressField field, EqualityOperator operation, IPAddress ipAddress)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IIPAddressField field, EqualityOperator operation, IPAddress ipAddress, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1629,6 +1737,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -1655,15 +1777,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_String_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IIPAddressField,Estrelica.Archer.Content.EqualityOperator,System.String)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_String_" class="expander" data-toggle="collapse">CreateCondition(IIPAddressField, EqualityOperator, string)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IIPAddressField,Estrelica.Archer.Content.EqualityOperator,System.String,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(IIPAddressField, EqualityOperator, string, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_String_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IIPAddressField_Estrelica_Archer_Content_EqualityOperator_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IIPAddressField field, EqualityOperator operation, string ipAddress)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IIPAddressField field, EqualityOperator operation, string ipAddress, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1689,6 +1811,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -1715,15 +1851,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_ValueOperator_System_Nullable_System_Decimal__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.INumericField,Estrelica.Archer.Content.ValueOperator,System.Nullable{System.Decimal})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_ValueOperator_System_Nullable_System_Decimal__" class="expander" data-toggle="collapse">CreateCondition(INumericField, ValueOperator, decimal?)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_ValueOperator_System_Nullable_System_Decimal__Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.INumericField,Estrelica.Archer.Content.ValueOperator,System.Nullable{System.Decimal},Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_ValueOperator_System_Nullable_System_Decimal__Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(INumericField, ValueOperator, decimal?, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_ValueOperator_System_Nullable_System_Decimal__" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_ValueOperator_System_Nullable_System_Decimal__Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this INumericField field, ValueOperator operation, decimal? value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this INumericField field, ValueOperator operation, decimal? value, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1749,6 +1885,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -1775,15 +1925,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_ValueOperator_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.INumericField,Estrelica.Archer.Content.ValueOperator,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_ValueOperator_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(INumericField, ValueOperator, int?)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_ValueOperator_System_Nullable_System_Int32__Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.INumericField,Estrelica.Archer.Content.ValueOperator,System.Nullable{System.Int32},Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_ValueOperator_System_Nullable_System_Int32__Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(INumericField, ValueOperator, int?, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_ValueOperator_System_Nullable_System_Int32__" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_ValueOperator_System_Nullable_System_Int32__Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this INumericField field, ValueOperator operation, int? value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this INumericField field, ValueOperator operation, int? value, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1809,6 +1959,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -1835,15 +1999,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IRecordStatusField_Estrelica_Archer_Content_EqualityOperator_Estrelica_Archer_Content_RecordStatus_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IRecordStatusField,Estrelica.Archer.Content.EqualityOperator,Estrelica.Archer.Content.RecordStatus)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IRecordStatusField_Estrelica_Archer_Content_EqualityOperator_Estrelica_Archer_Content_RecordStatus_" class="expander" data-toggle="collapse">CreateCondition(IRecordStatusField, EqualityOperator, RecordStatus)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IRecordStatusField_Estrelica_Archer_Content_EqualityOperator_Estrelica_Archer_Content_RecordStatus_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IRecordStatusField,Estrelica.Archer.Content.EqualityOperator,Estrelica.Archer.Content.RecordStatus,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IRecordStatusField_Estrelica_Archer_Content_EqualityOperator_Estrelica_Archer_Content_RecordStatus_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(IRecordStatusField, EqualityOperator, RecordStatus, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IRecordStatusField_Estrelica_Archer_Content_EqualityOperator_Estrelica_Archer_Content_RecordStatus_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IRecordStatusField_Estrelica_Archer_Content_EqualityOperator_Estrelica_Archer_Content_RecordStatus_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IRecordStatusField field, EqualityOperator operation, RecordStatus value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IRecordStatusField field, EqualityOperator operation, RecordStatus value, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1866,6 +2030,87 @@ public static class ContentFilterHelper</code></pre>
       <td>
         <span class="pull-right"><a class="xref" href="Estrelica.Archer.Content.RecordStatus.html">RecordStatus</a></span>
         <span class="parametername">value</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+  <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
+
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IReferenceField_Estrelica_Archer_Content_ValuesOperator_System_Boolean_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IReferenceField,Estrelica.Archer.Content.ValuesOperator,System.Boolean,System.Collections.Generic.IEnumerable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IReferenceField_Estrelica_Archer_Content_ValuesOperator_System_Boolean_System_Collections_Generic_IEnumerable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(IReferenceField, ValuesOperator, bool, IEnumerable&lt;int&gt;)</a></h4>
+
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IReferenceField_Estrelica_Archer_Content_ValuesOperator_System_Boolean_System_Collections_Generic_IEnumerable_System_Int32__" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IReferenceField field, ValuesOperator operation, bool includeNoSelection, IEnumerable&lt;int&gt; contentIds)</code></pre>
+  </div>
+
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IReferenceField.html">IReferenceField</a></span>
+        <span class="parametername">field</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Content.ValuesOperator.html">ValuesOperator</a></span>
+        <span class="parametername">operation</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
+        <span class="parametername">includeNoSelection</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</span>
+        <span class="parametername">contentIds</span>
         <p></p>
       </td>
     </tr>
@@ -2304,15 +2549,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_ITextField_Estrelica_Archer_Content_ValuesOperator_System_String_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.ITextField,Estrelica.Archer.Content.ValuesOperator,System.String)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_ITextField_Estrelica_Archer_Content_ValuesOperator_System_String_" class="expander" data-toggle="collapse">CreateCondition(ITextField, ValuesOperator, string)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_ITextField_Estrelica_Archer_Content_ValuesOperator_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.ITextField,Estrelica.Archer.Content.ValuesOperator,System.String,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_ITextField_Estrelica_Archer_Content_ValuesOperator_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(ITextField, ValuesOperator, string, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_ITextField_Estrelica_Archer_Content_ValuesOperator_System_String_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_ITextField_Estrelica_Archer_Content_ValuesOperator_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this ITextField field, ValuesOperator operation, string value)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this ITextField field, ValuesOperator operation, string value, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2335,6 +2580,20 @@ public static class ContentFilterHelper</code></pre>
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></span>
         <span class="parametername">value</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
         <p></p>
       </td>
     </tr>
@@ -2364,15 +2623,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_Estrelica_Archer_Metadata_IArcherValuesListValue_System_Boolean_System_Boolean_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IValuesListField,Estrelica.Archer.Content.ValuesOperator,Estrelica.Archer.Metadata.IArcherValuesListValue,System.Boolean,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_Estrelica_Archer_Metadata_IArcherValuesListValue_System_Boolean_System_Boolean_" class="expander" data-toggle="collapse">CreateCondition(IValuesListField, ValuesOperator, IArcherValuesListValue, bool, bool)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_Estrelica_Archer_Metadata_IArcherValuesListValue_System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IValuesListField,Estrelica.Archer.Content.ValuesOperator,Estrelica.Archer.Metadata.IArcherValuesListValue,System.Boolean,System.Boolean,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_Estrelica_Archer_Metadata_IArcherValuesListValue_System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(IValuesListField, ValuesOperator, IArcherValuesListValue, bool, bool, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_Estrelica_Archer_Metadata_IArcherValuesListValue_System_Boolean_System_Boolean_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_Estrelica_Archer_Metadata_IArcherValuesListValue_System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IValuesListField field, ValuesOperator operation, IArcherValuesListValue value, bool includeNoSelection = false, bool includeChildren = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IValuesListField field, ValuesOperator operation, IArcherValuesListValue value, bool includeNoSelection = false, bool includeChildren = false, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2412,6 +2671,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -2438,15 +2711,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_Metadata_IArcherValuesListValue__System_Boolean_System_Boolean_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IValuesListField,Estrelica.Archer.Content.ValuesOperator,System.Collections.Generic.IEnumerable{Estrelica.Archer.Metadata.IArcherValuesListValue},System.Boolean,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_Metadata_IArcherValuesListValue__System_Boolean_System_Boolean_" class="expander" data-toggle="collapse">CreateCondition(IValuesListField, ValuesOperator, IEnumerable&lt;IArcherValuesListValue&gt;, bool, bool)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_Metadata_IArcherValuesListValue__System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IValuesListField,Estrelica.Archer.Content.ValuesOperator,System.Collections.Generic.IEnumerable{Estrelica.Archer.Metadata.IArcherValuesListValue},System.Boolean,System.Boolean,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_Metadata_IArcherValuesListValue__System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(IValuesListField, ValuesOperator, IEnumerable&lt;IArcherValuesListValue&gt;, bool, bool, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_Metadata_IArcherValuesListValue__System_Boolean_System_Boolean_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_Metadata_IArcherValuesListValue__System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IValuesListField field, ValuesOperator operation, IEnumerable&lt;IArcherValuesListValue&gt; values, bool includeNoSelection = false, bool includeChildren = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IValuesListField field, ValuesOperator operation, IEnumerable&lt;IArcherValuesListValue&gt; values, bool includeNoSelection = false, bool includeChildren = false, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2486,6 +2759,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -2512,15 +2799,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_System_Boolean_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IValuesListField,Estrelica.Archer.Content.ValuesOperator,System.Collections.Generic.IEnumerable{System.Int32},System.Boolean,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_System_Boolean_" class="expander" data-toggle="collapse">CreateCondition(IValuesListField, ValuesOperator, IEnumerable&lt;int&gt;, bool, bool)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IValuesListField,Estrelica.Archer.Content.ValuesOperator,System.Collections.Generic.IEnumerable{System.Int32},System.Boolean,System.Boolean,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(IValuesListField, ValuesOperator, IEnumerable&lt;int&gt;, bool, bool, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_System_Boolean_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IValuesListField field, ValuesOperator operation, IEnumerable&lt;int&gt; valueIds, bool includeNoSelection = false, bool includeChildren = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IValuesListField field, ValuesOperator operation, IEnumerable&lt;int&gt; valueIds, bool includeNoSelection = false, bool includeChildren = false, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2560,6 +2847,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -2586,15 +2887,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Boolean_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IValuesListField,Estrelica.Archer.Content.ValuesOperator,System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Boolean_" class="expander" data-toggle="collapse">CreateCondition(IValuesListField, ValuesOperator, IEnumerable&lt;string&gt;, bool, bool)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IValuesListField,Estrelica.Archer.Content.ValuesOperator,System.Collections.Generic.IEnumerable{System.String},System.Boolean,System.Boolean,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(IValuesListField, ValuesOperator, IEnumerable&lt;string&gt;, bool, bool, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Boolean_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_String__System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IValuesListField field, ValuesOperator operation, IEnumerable&lt;string&gt; valueNames, bool includeNoSelection = false, bool includeChildren = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IValuesListField field, ValuesOperator operation, IEnumerable&lt;string&gt; valueNames, bool includeNoSelection = false, bool includeChildren = false, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2634,6 +2935,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -2660,15 +2975,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Int32_System_Boolean_System_Boolean_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IValuesListField,Estrelica.Archer.Content.ValuesOperator,System.Int32,System.Boolean,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Int32_System_Boolean_System_Boolean_" class="expander" data-toggle="collapse">CreateCondition(IValuesListField, ValuesOperator, int, bool, bool)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Int32_System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IValuesListField,Estrelica.Archer.Content.ValuesOperator,System.Int32,System.Boolean,System.Boolean,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Int32_System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(IValuesListField, ValuesOperator, int, bool, bool, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Int32_System_Boolean_System_Boolean_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_Int32_System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IValuesListField field, ValuesOperator operation, int valueId, bool includeNoSelection = false, bool includeChildren = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IValuesListField field, ValuesOperator operation, int valueId, bool includeNoSelection = false, bool includeChildren = false, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2708,6 +3023,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -2734,15 +3063,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_String_System_Boolean_System_Boolean_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IValuesListField,Estrelica.Archer.Content.ValuesOperator,System.String,System.Boolean,System.Boolean)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_String_System_Boolean_System_Boolean_" class="expander" data-toggle="collapse">CreateCondition(IValuesListField, ValuesOperator, string, bool, bool)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_String_System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCondition(Estrelica.Archer.Metadata.Field.IValuesListField,Estrelica.Archer.Content.ValuesOperator,System.String,System.Boolean,System.Boolean,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_String_System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCondition(IValuesListField, ValuesOperator, string, bool, bool, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_String_System_Boolean_System_Boolean_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Content_ValuesOperator_System_String_System_Boolean_System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IValuesListField field, ValuesOperator operation, string valueName, bool includeNoSelection = false, bool includeChildren = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCondition(this IValuesListField field, ValuesOperator operation, string valueName, bool includeNoSelection = false, bool includeChildren = false, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2782,6 +3111,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -2808,15 +3151,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateCurrentDateCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCurrentDateCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCurrentDateCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_CurrentDateOperator_System_Boolean_System_String_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCurrentDateCondition(Estrelica.Archer.Metadata.Field.IBaseDateField,Estrelica.Archer.Content.CurrentDateOperator,System.Boolean,System.String)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCurrentDateCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_CurrentDateOperator_System_Boolean_System_String_" class="expander" data-toggle="collapse">CreateCurrentDateCondition(IBaseDateField, CurrentDateOperator, bool, string)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateCurrentDateCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_CurrentDateOperator_System_Boolean_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateCurrentDateCondition(Estrelica.Archer.Metadata.Field.IBaseDateField,Estrelica.Archer.Content.CurrentDateOperator,System.Boolean,System.String,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCurrentDateCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_CurrentDateOperator_System_Boolean_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateCurrentDateCondition(IBaseDateField, CurrentDateOperator, bool, string, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCurrentDateCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_CurrentDateOperator_System_Boolean_System_String_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateCurrentDateCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_CurrentDateOperator_System_Boolean_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateCurrentDateCondition(this IBaseDateField field, CurrentDateOperator operation, bool isTimeIncluded = false, string timeZoneId = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateCurrentDateCondition(this IBaseDateField field, CurrentDateOperator operation, bool isTimeIncluded = false, string timeZoneId = null, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -2846,6 +3189,20 @@ public static class ContentFilterHelper</code></pre>
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></span>
         <span class="parametername">timeZoneId</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
         <p></p>
       </td>
     </tr>
@@ -2995,15 +3352,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IDateField_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IDateField)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IDateField_" class="expander" data-toggle="collapse">CreateIsEmptyCondition(IDateField)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IDateField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IDateField,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IDateField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateIsEmptyCondition(IDateField, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IDateField_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IDateField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateIsEmptyCondition(this IDateField field)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateIsEmptyCondition(this IDateField field, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3012,6 +3369,20 @@ public static class ContentFilterHelper</code></pre>
       <td>
         <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IDateField.html">IDateField</a></span>
         <span class="parametername">field</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
         <p></p>
       </td>
     </tr>
@@ -3041,15 +3412,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_INumericField_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.INumericField)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_INumericField_" class="expander" data-toggle="collapse">CreateIsEmptyCondition(INumericField)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.INumericField,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateIsEmptyCondition(INumericField, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_INumericField_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateIsEmptyCondition(this INumericField field)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateIsEmptyCondition(this INumericField field, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3058,6 +3429,20 @@ public static class ContentFilterHelper</code></pre>
       <td>
         <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.INumericField.html">INumericField</a></span>
         <span class="parametername">field</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
         <p></p>
       </td>
     </tr>
@@ -3133,15 +3518,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_ITextField_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.ITextField)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_ITextField_" class="expander" data-toggle="collapse">CreateIsEmptyCondition(ITextField)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_ITextField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.ITextField,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_ITextField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateIsEmptyCondition(ITextField, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_ITextField_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_ITextField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateIsEmptyCondition(this ITextField field)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateIsEmptyCondition(this ITextField field, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3153,6 +3538,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -3179,15 +3578,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IUserGroupListField)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_" class="expander" data-toggle="collapse">CreateIsEmptyCondition(IUserGroupListField)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IUserGroupListField,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateIsEmptyCondition(IUserGroupListField, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateIsEmptyCondition(this IUserGroupListField field)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateIsEmptyCondition(this IUserGroupListField field, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3199,6 +3598,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -3225,15 +3638,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IValuesListField_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IValuesListField)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IValuesListField_" class="expander" data-toggle="collapse">CreateIsEmptyCondition(IValuesListField)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsEmptyCondition(Estrelica.Archer.Metadata.Field.IValuesListField,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateIsEmptyCondition(IValuesListField, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IValuesListField_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsEmptyCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateIsEmptyCondition(this IValuesListField field)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateIsEmptyCondition(this IValuesListField field, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3245,6 +3658,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -3271,15 +3698,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IDateField_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IDateField)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IDateField_" class="expander" data-toggle="collapse">CreateIsNotEmptyCondition(IDateField)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IDateField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IDateField,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IDateField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateIsNotEmptyCondition(IDateField, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IDateField_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IDateField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateIsNotEmptyCondition(this IDateField field)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateIsNotEmptyCondition(this IDateField field, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3291,6 +3718,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -3317,15 +3758,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_INumericField_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.INumericField)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_INumericField_" class="expander" data-toggle="collapse">CreateIsNotEmptyCondition(INumericField)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.INumericField,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateIsNotEmptyCondition(INumericField, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_INumericField_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateIsNotEmptyCondition(this INumericField field)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateIsNotEmptyCondition(this INumericField field, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3334,6 +3775,20 @@ public static class ContentFilterHelper</code></pre>
       <td>
         <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.INumericField.html">INumericField</a></span>
         <span class="parametername">field</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
         <p></p>
       </td>
     </tr>
@@ -3409,15 +3864,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_ITextField_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.ITextField)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_ITextField_" class="expander" data-toggle="collapse">CreateIsNotEmptyCondition(ITextField)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_ITextField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.ITextField,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_ITextField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateIsNotEmptyCondition(ITextField, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_ITextField_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_ITextField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateIsNotEmptyCondition(this ITextField field)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateIsNotEmptyCondition(this ITextField field, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3429,6 +3884,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -3455,15 +3924,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IUserGroupListField)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_" class="expander" data-toggle="collapse">CreateIsNotEmptyCondition(IUserGroupListField)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IUserGroupListField,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateIsNotEmptyCondition(IUserGroupListField, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateIsNotEmptyCondition(this IUserGroupListField field)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateIsNotEmptyCondition(this IUserGroupListField field, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3475,6 +3944,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -3501,15 +3984,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IValuesListField_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IValuesListField)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IValuesListField_" class="expander" data-toggle="collapse">CreateIsNotEmptyCondition(IValuesListField)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateIsNotEmptyCondition(Estrelica.Archer.Metadata.Field.IValuesListField,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateIsNotEmptyCondition(IValuesListField, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IValuesListField_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateIsNotEmptyCondition_Estrelica_Archer_Metadata_Field_IValuesListField_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateIsNotEmptyCondition(this IValuesListField field)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateIsNotEmptyCondition(this IValuesListField field, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3518,6 +4001,20 @@ public static class ContentFilterHelper</code></pre>
       <td>
         <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IValuesListField.html">IValuesListField</a></span>
         <span class="parametername">field</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
         <p></p>
       </td>
     </tr>
@@ -3547,15 +4044,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateOffsetCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateOffsetCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateOffsetCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_DateOffsetOperator_System_Int32_System_Boolean_System_String_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateOffsetCondition(Estrelica.Archer.Metadata.Field.IBaseDateField,Estrelica.Archer.Content.DateOffsetOperator,System.Int32,System.Boolean,System.String)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateOffsetCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_DateOffsetOperator_System_Int32_System_Boolean_System_String_" class="expander" data-toggle="collapse">CreateOffsetCondition(IBaseDateField, DateOffsetOperator, int, bool, string)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateOffsetCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_DateOffsetOperator_System_Int32_System_Boolean_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateOffsetCondition(Estrelica.Archer.Metadata.Field.IBaseDateField,Estrelica.Archer.Content.DateOffsetOperator,System.Int32,System.Boolean,System.String,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateOffsetCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_DateOffsetOperator_System_Int32_System_Boolean_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateOffsetCondition(IBaseDateField, DateOffsetOperator, int, bool, string, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateOffsetCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_DateOffsetOperator_System_Int32_System_Boolean_System_String_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateOffsetCondition_Estrelica_Archer_Metadata_Field_IBaseDateField_Estrelica_Archer_Content_DateOffsetOperator_System_Int32_System_Boolean_System_String_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateOffsetCondition(this IBaseDateField field, DateOffsetOperator operation, int offsetAmount, bool isTimeIncluded, string timeZoneId = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateOffsetCondition(this IBaseDateField field, DateOffsetOperator operation, int offsetAmount, bool isTimeIncluded, string timeZoneId = null, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3595,6 +4092,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -3621,15 +4132,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateRangeCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateRangeCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateRangeCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_NumericRangeOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_Metadata_INumericRange__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateRangeCondition(Estrelica.Archer.Metadata.Field.INumericField,Estrelica.Archer.Content.NumericRangeOperator,System.Collections.Generic.IEnumerable{Estrelica.Archer.Metadata.INumericRange})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateRangeCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_NumericRangeOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_Metadata_INumericRange__" class="expander" data-toggle="collapse">CreateRangeCondition(INumericField, NumericRangeOperator, IEnumerable&lt;INumericRange&gt;)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateRangeCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_NumericRangeOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_Metadata_INumericRange__Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateRangeCondition(Estrelica.Archer.Metadata.Field.INumericField,Estrelica.Archer.Content.NumericRangeOperator,System.Collections.Generic.IEnumerable{Estrelica.Archer.Metadata.INumericRange},Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateRangeCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_NumericRangeOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_Metadata_INumericRange__Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateRangeCondition(INumericField, NumericRangeOperator, IEnumerable&lt;INumericRange&gt;, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateRangeCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_NumericRangeOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_Metadata_INumericRange__" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateRangeCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_NumericRangeOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_Metadata_INumericRange__Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateRangeCondition(this INumericField field, NumericRangeOperator operation, IEnumerable&lt;INumericRange&gt; numericRanges)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateRangeCondition(this INumericField field, NumericRangeOperator operation, IEnumerable&lt;INumericRange&gt; numericRanges, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3655,6 +4166,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -3681,15 +4206,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateRangeCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateRangeCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateRangeCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_NumericRangeOperator_System_Collections_Generic_IEnumerable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateRangeCondition(Estrelica.Archer.Metadata.Field.INumericField,Estrelica.Archer.Content.NumericRangeOperator,System.Collections.Generic.IEnumerable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateRangeCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_NumericRangeOperator_System_Collections_Generic_IEnumerable_System_Int32__" class="expander" data-toggle="collapse">CreateRangeCondition(INumericField, NumericRangeOperator, IEnumerable&lt;int&gt;)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateRangeCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_NumericRangeOperator_System_Collections_Generic_IEnumerable_System_Int32__Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateRangeCondition(Estrelica.Archer.Metadata.Field.INumericField,Estrelica.Archer.Content.NumericRangeOperator,System.Collections.Generic.IEnumerable{System.Int32},Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateRangeCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_NumericRangeOperator_System_Collections_Generic_IEnumerable_System_Int32__Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateRangeCondition(INumericField, NumericRangeOperator, IEnumerable&lt;int&gt;, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateRangeCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_NumericRangeOperator_System_Collections_Generic_IEnumerable_System_Int32__" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateRangeCondition_Estrelica_Archer_Metadata_Field_INumericField_Estrelica_Archer_Content_NumericRangeOperator_System_Collections_Generic_IEnumerable_System_Int32__Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateRangeCondition(this INumericField field, NumericRangeOperator operation, IEnumerable&lt;int&gt; numericRangeIds)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateRangeCondition(this INumericField field, NumericRangeOperator operation, IEnumerable&lt;int&gt; numericRangeIds, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3712,6 +4237,20 @@ public static class ContentFilterHelper</code></pre>
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>&gt;</span>
         <span class="parametername">numericRangeIds</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
         <p></p>
       </td>
     </tr>
@@ -3861,15 +4400,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateUserGroupCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateUserGroupCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateUserGroupCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_AccessControl_IArcherUser__System_Collections_Generic_IEnumerable_Estrelica_Archer_AccessControl_IArcherGroup__System_Boolean_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateUserGroupCondition(Estrelica.Archer.Metadata.Field.IUserGroupListField,Estrelica.Archer.Content.ValuesOperator,System.Collections.Generic.IEnumerable{Estrelica.Archer.AccessControl.IArcherUser},System.Collections.Generic.IEnumerable{Estrelica.Archer.AccessControl.IArcherGroup},System.Boolean)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateUserGroupCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_AccessControl_IArcherUser__System_Collections_Generic_IEnumerable_Estrelica_Archer_AccessControl_IArcherGroup__System_Boolean_" class="expander" data-toggle="collapse">CreateUserGroupCondition(IUserGroupListField, ValuesOperator, IEnumerable&lt;IArcherUser&gt;, IEnumerable&lt;IArcherGroup&gt;, bool)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateUserGroupCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_AccessControl_IArcherUser__System_Collections_Generic_IEnumerable_Estrelica_Archer_AccessControl_IArcherGroup__System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateUserGroupCondition(Estrelica.Archer.Metadata.Field.IUserGroupListField,Estrelica.Archer.Content.ValuesOperator,System.Collections.Generic.IEnumerable{Estrelica.Archer.AccessControl.IArcherUser},System.Collections.Generic.IEnumerable{Estrelica.Archer.AccessControl.IArcherGroup},System.Boolean,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateUserGroupCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_AccessControl_IArcherUser__System_Collections_Generic_IEnumerable_Estrelica_Archer_AccessControl_IArcherGroup__System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateUserGroupCondition(IUserGroupListField, ValuesOperator, IEnumerable&lt;IArcherUser&gt;, IEnumerable&lt;IArcherGroup&gt;, bool, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateUserGroupCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_AccessControl_IArcherUser__System_Collections_Generic_IEnumerable_Estrelica_Archer_AccessControl_IArcherGroup__System_Boolean_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateUserGroupCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_Estrelica_Archer_AccessControl_IArcherUser__System_Collections_Generic_IEnumerable_Estrelica_Archer_AccessControl_IArcherGroup__System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateUserGroupCondition(this IUserGroupListField field, ValuesOperator operation, IEnumerable&lt;IArcherUser&gt; users, IEnumerable&lt;IArcherGroup&gt; groups, bool includeNoSelection = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateUserGroupCondition(this IUserGroupListField field, ValuesOperator operation, IEnumerable&lt;IArcherUser&gt; users, IEnumerable&lt;IArcherGroup&gt; groups, bool includeNoSelection = false, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3909,6 +4448,20 @@ public static class ContentFilterHelper</code></pre>
         <p></p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
+        <p></p>
+      </td>
+    </tr>
   </table>
 
   <h5 class="returns">Returns</h5>
@@ -3935,15 +4488,15 @@ public static class ContentFilterHelper</code></pre>
 
   <a id="Estrelica_Archer_Content_ContentFilterHelper_CreateUserGroupCondition_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateUserGroupCondition*"></a>
 
-  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateUserGroupCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_Int32__System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateUserGroupCondition(Estrelica.Archer.Metadata.Field.IUserGroupListField,Estrelica.Archer.Content.ValuesOperator,System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.IEnumerable{System.Int32},System.Boolean)"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateUserGroupCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_Int32__System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_" class="expander" data-toggle="collapse">CreateUserGroupCondition(IUserGroupListField, ValuesOperator, IEnumerable&lt;int&gt;, IEnumerable&lt;int&gt;, bool)</a></h4>
+  <h4 id="Estrelica_Archer_Content_ContentFilterHelper_CreateUserGroupCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_Int32__System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" data-uid="Estrelica.Archer.Content.ContentFilterHelper.CreateUserGroupCondition(Estrelica.Archer.Metadata.Field.IUserGroupListField,Estrelica.Archer.Content.ValuesOperator,System.Collections.Generic.IEnumerable{System.Int32},System.Collections.Generic.IEnumerable{System.Int32},System.Boolean,Estrelica.Archer.Metadata.Field.IArcherField,System.Nullable{System.Int32})"><a href="#collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateUserGroupCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_Int32__System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="expander" data-toggle="collapse">CreateUserGroupCondition(IUserGroupListField, ValuesOperator, IEnumerable&lt;int&gt;, IEnumerable&lt;int&gt;, bool, IArcherField, int?)</a></h4>
 
-  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateUserGroupCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_Int32__System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_" class="collapse in">
+  <div id="collapsible-Estrelica_Archer_Content_ContentFilterHelper_CreateUserGroupCondition_Estrelica_Archer_Metadata_Field_IUserGroupListField_Estrelica_Archer_Content_ValuesOperator_System_Collections_Generic_IEnumerable_System_Int32__System_Collections_Generic_IEnumerable_System_Int32__System_Boolean_Estrelica_Archer_Metadata_Field_IArcherField_System_Nullable_System_Int32__" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static XElement CreateUserGroupCondition(this IUserGroupListField field, ValuesOperator operation, IEnumerable&lt;int&gt; userIds, IEnumerable&lt;int&gt; groupIds, bool includeNoSelection = false)</code></pre>
+    <pre><code class="lang-csharp hljs">public static XElement CreateUserGroupCondition(this IUserGroupListField field, ValuesOperator operation, IEnumerable&lt;int&gt; userIds, IEnumerable&lt;int&gt; groupIds, bool includeNoSelection = false, IArcherField parentField = null, int? parentFieldId = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -3980,6 +4533,20 @@ public static class ContentFilterHelper</code></pre>
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></span>
         <span class="parametername">includeNoSelection</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Archer.Metadata.Field.IArcherField.html">IArcherField</a></span>
+        <span class="parametername">parentField</span>
+        <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a>?</span>
+        <span class="parametername">parentFieldId</span>
         <p></p>
       </td>
     </tr>

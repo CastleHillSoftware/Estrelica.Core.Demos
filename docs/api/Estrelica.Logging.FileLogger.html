@@ -284,6 +284,9 @@
                             <a href="Estrelica.Archer.Content.IFieldHistory.html" title="IFieldHistory" class="">IFieldHistory</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Content.IFieldHistoryEx.html" title="IFieldHistoryEx" class="">IFieldHistoryEx</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Content.IFieldQuery.html" title="IFieldQuery" class="">IFieldQuery</a>
                           </li>
                           <li class="">
@@ -902,6 +905,9 @@
                             <a href="Estrelica.Archer.Utility.APISource.html" title="APISource" class="">APISource</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Utility.ArcherAPIException.html" title="ArcherAPIException" class="">ArcherAPIException</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Utility.ArcherEntitySerializer.html" title="ArcherEntitySerializer" class="">ArcherEntitySerializer</a>
                           </li>
                           <li class="">
@@ -920,6 +926,9 @@
                             <a href="Estrelica.Archer.Utility.EditUtilities.html" title="EditUtilities" class="">EditUtilities</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Archer.Utility.ExceptionExtensions.html" title="ExceptionExtensions" class="">ExceptionExtensions</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Archer.Utility.ExtensionsUnavailableException.html" title="ExtensionsUnavailableException" class="">ExtensionsUnavailableException</a>
                           </li>
                           <li class="">
@@ -930,6 +939,18 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Utility.IAPIFacade.html" title="IAPIFacade" class="">IAPIFacade</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherRestAPI.html" title="IArcherRestAPI" class="">IArcherRestAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherSoapAPI.html" title="IArcherSoapAPI" class="">IArcherSoapAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.IArcherUndocumentedAPI.html" title="IArcherUndocumentedAPI" class="">IArcherUndocumentedAPI</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Archer.Utility.ICastleHillExtendedAPI.html" title="ICastleHillExtendedAPI" class="">ICastleHillExtendedAPI</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Archer.Utility.IContentResolver.html" title="IContentResolver" class="">IContentResolver</a>
@@ -1044,6 +1065,9 @@
                           </li>
                           <li class="active">
                             <a href="Estrelica.Logging.FileLogger.html" title="FileLogger" class="active">FileLogger</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Logging.FileLogger.TimestampFormat.html" title="FileLogger.TimestampFormat" class="">FileLogger.TimestampFormat</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Logging.Logger.html" title="Logger" class="">Logger</a>
@@ -1213,16 +1237,16 @@
 
   <a id="Estrelica_Logging_FileLogger__ctor_" data-uid="Estrelica.Logging.FileLogger.#ctor*"></a>
 
-  <h4 id="Estrelica_Logging_FileLogger__ctor_System_String_System_Int32_Estrelica_Interfaces_LogLevel_" data-uid="Estrelica.Logging.FileLogger.#ctor(System.String,System.Int32,Estrelica.Interfaces.LogLevel)"><a href="#collapsible-Estrelica_Logging_FileLogger__ctor_System_String_System_Int32_Estrelica_Interfaces_LogLevel_" class="expander" data-toggle="collapse">FileLogger(string, int, LogLevel)</a></h4>
+  <h4 id="Estrelica_Logging_FileLogger__ctor_System_String_System_Int32_Estrelica_Interfaces_LogLevel_Estrelica_Logging_FileLogger_TimestampFormat_" data-uid="Estrelica.Logging.FileLogger.#ctor(System.String,System.Int32,Estrelica.Interfaces.LogLevel,Estrelica.Logging.FileLogger.TimestampFormat)"><a href="#collapsible-Estrelica_Logging_FileLogger__ctor_System_String_System_Int32_Estrelica_Interfaces_LogLevel_Estrelica_Logging_FileLogger_TimestampFormat_" class="expander" data-toggle="collapse">FileLogger(string, int, LogLevel, TimestampFormat)</a></h4>
 
-  <div id="collapsible-Estrelica_Logging_FileLogger__ctor_System_String_System_Int32_Estrelica_Interfaces_LogLevel_" class="collapse in">
+  <div id="collapsible-Estrelica_Logging_FileLogger__ctor_System_String_System_Int32_Estrelica_Interfaces_LogLevel_Estrelica_Logging_FileLogger_TimestampFormat_" class="collapse in">
   <div class="markdown level1 summary"><p>Creates a new instance of FileLogger</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FileLogger(string filenameTemplate = null, int retentionDays = 0, LogLevel minimumSubscribedLevel = LogLevel.Info)</code></pre>
+    <pre><code class="lang-csharp hljs">public FileLogger(string filenameTemplate = null, int retentionDays = 0, LogLevel minimumSubscribedLevel = LogLevel.Info, FileLogger.TimestampFormat timestampFormat = TimestampFormat.None)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1249,6 +1273,14 @@ yyyy_MM_dd_HH_mm_ss format  {APPNAME} - The name of the entry assembly.  If null
         <span class="pull-right"><a class="xref" href="Estrelica.Interfaces.LogLevel.html">LogLevel</a></span>
         <span class="parametername">minimumSubscribedLevel</span>
         <p></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Estrelica.Logging.FileLogger.html">FileLogger</a>.<a class="xref" href="Estrelica.Logging.FileLogger.TimestampFormat.html">TimestampFormat</a></span>
+        <span class="parametername">timestampFormat</span>
+        <p><p>If not None, each line in the output will be prefaced by the date and/or time in Local or UTC format</p>
+
       </td>
     </tr>
   </table>
@@ -1518,6 +1550,9 @@ public static FileLogger Subscribe(string logFilenameTemplate = null, int retent
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
       <a class="xref" href="Estrelica.Utility.EnumHelper.html#Estrelica_Utility_EnumHelper_In__1___0___0___">EnumHelper.In&lt;TEnum&gt;(TEnum, params TEnum[])</a>
+  </div>
+  <div>
+      <a class="xref" href="Estrelica.Utility.IEnumerableExtensions.html#Estrelica_Utility_IEnumerableExtensions_ToEnumerable__1___0_">IEnumerableExtensions.ToEnumerable&lt;T&gt;(T)</a>
   </div>
   <div>
       <a class="xref" href="Estrelica.Utility.StringExtensions.html#Estrelica_Utility_StringExtensions_AssertNotNull__1___0_System_String_">StringExtensions.AssertNotNull&lt;T&gt;(T, string)</a>
