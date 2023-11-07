@@ -961,12 +961,6 @@
                           <li class="">
                             <a href="Estrelica.Archer.Utility.IMetadataResolver.html" title="IMetadataResolver" class="">IMetadataResolver</a>
                           </li>
-                          <li class="">
-                            <a href="Estrelica.Archer.Utility.InvalidateEntity-1.html" title="InvalidateEntity&lt;K&gt;" class="">InvalidateEntity&lt;K&gt;</a>
-                          </li>
-                          <li class="">
-                            <a href="Estrelica.Archer.Utility.InvalidateEntityEventArgs-1.html" title="InvalidateEntityEventArgs&lt;K&gt;" class="">InvalidateEntityEventArgs&lt;K&gt;</a>
-                          </li>
                           <li class="active">
                             <a href="Estrelica.Archer.Utility.IReportResolver.html" title="IReportResolver" class="active">IReportResolver</a>
                           </li>
@@ -1029,6 +1023,12 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Interfaces.ILogSubscriber.html" title="ILogSubscriber" class="">ILogSubscriber</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Interfaces.InvalidateEntity-1.html" title="InvalidateEntity&lt;K&gt;" class="">InvalidateEntity&lt;K&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Interfaces.InvalidateEntityEventArgs-1.html" title="InvalidateEntityEventArgs&lt;K&gt;" class="">InvalidateEntityEventArgs&lt;K&gt;</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Interfaces.IRecordAccess.html" title="IRecordAccess" class="">IRecordAccess</a>
@@ -1151,6 +1151,9 @@
                             <a href="Estrelica.Utility.SqlUtilities.html" title="SqlUtilities" class="">SqlUtilities</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Utility.StreamExtensions.html" title="StreamExtensions" class="">StreamExtensions</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Utility.StringExtensions.html" title="StringExtensions" class="">StringExtensions</a>
                           </li>
                           <li class="">
@@ -1199,6 +1202,18 @@
     <div>
       <a class="xref" href="Estrelica.Interfaces.ICacheProvider.html#Estrelica_Interfaces_ICacheProvider_UnregisterCache__2_System_Collections_Generic_IDictionary___0___1__">ICacheProvider.UnregisterCache&lt;K, V&gt;(IDictionary&lt;K, V&gt;)</a>
     </div>
+    <div>
+      <a class="xref" href="Estrelica.Interfaces.IEntityResolver.html#Estrelica_Interfaces_IEntityResolver_Invalidate_Estrelica_Archer_Entity_EntityType_System_Int32_">IEntityResolver.Invalidate(EntityType, int)</a>
+    </div>
+    <div>
+      <a class="xref" href="Estrelica.Interfaces.IEntityResolver.html#Estrelica_Interfaces_IEntityResolver_Invalidate_Estrelica_Archer_Entity_EntityType_System_Guid_">IEntityResolver.Invalidate(EntityType, Guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="Estrelica.Interfaces.IEntityResolver.html#Estrelica_Interfaces_IEntityResolver_Resolvers">IEntityResolver.Resolvers</a>
+    </div>
+    <div>
+      <a class="xref" href="Estrelica.Interfaces.IEntityResolver.html#Estrelica_Interfaces_IEntityResolver_OriginId">IEntityResolver.OriginId</a>
+    </div>
   </div>
 
   <h6><strong>Namespace</strong>: <a class="xref" href="Estrelica.html">Estrelica</a>.<a class="xref" href="Estrelica.Archer.html">Archer</a>.<a class="xref" href="Estrelica.Archer.Utility.html">Utility</a></h6>
@@ -1208,7 +1223,7 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[StayPublic]
 [DoNotObfuscateType]
-public interface IReportResolver : ICacheProvider</code></pre>
+public interface IReportResolver : ICacheProvider, IEntityResolver</code></pre>
   </div>
 
 

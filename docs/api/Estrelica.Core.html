@@ -962,12 +962,6 @@
                             <a href="Estrelica.Archer.Utility.IMetadataResolver.html" title="IMetadataResolver" class="">IMetadataResolver</a>
                           </li>
                           <li class="">
-                            <a href="Estrelica.Archer.Utility.InvalidateEntity-1.html" title="InvalidateEntity&lt;K&gt;" class="">InvalidateEntity&lt;K&gt;</a>
-                          </li>
-                          <li class="">
-                            <a href="Estrelica.Archer.Utility.InvalidateEntityEventArgs-1.html" title="InvalidateEntityEventArgs&lt;K&gt;" class="">InvalidateEntityEventArgs&lt;K&gt;</a>
-                          </li>
-                          <li class="">
                             <a href="Estrelica.Archer.Utility.IReportResolver.html" title="IReportResolver" class="">IReportResolver</a>
                           </li>
                           <li class="">
@@ -1029,6 +1023,12 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Interfaces.ILogSubscriber.html" title="ILogSubscriber" class="">ILogSubscriber</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Interfaces.InvalidateEntity-1.html" title="InvalidateEntity&lt;K&gt;" class="">InvalidateEntity&lt;K&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Interfaces.InvalidateEntityEventArgs-1.html" title="InvalidateEntityEventArgs&lt;K&gt;" class="">InvalidateEntityEventArgs&lt;K&gt;</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Interfaces.IRecordAccess.html" title="IRecordAccess" class="">IRecordAccess</a>
@@ -1149,6 +1149,9 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Utility.SqlUtilities.html" title="SqlUtilities" class="">SqlUtilities</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Utility.StreamExtensions.html" title="StreamExtensions" class="">StreamExtensions</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Utility.StringExtensions.html" title="StringExtensions" class="">StringExtensions</a>
@@ -1505,7 +1508,7 @@ call should be retried.</p>
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Func&lt;Exception, bool&gt; ExceptionRetryCallback { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static Func&lt;Exception, bool&gt; ExceptionRetryCallback { get; set; }</code></pre>
   </div>
 
 
@@ -1765,7 +1768,7 @@ sent to Archer.  This can be used to add any additional request headers that may
   <h5 class="declaration">Declaration</h5>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Action&lt;IDictionary&lt;string, string&gt;&gt; RequestHeaderCallback { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public static Action&lt;IDictionary&lt;string, string&gt;&gt; RequestHeaderCallback { get; set; }</code></pre>
   </div>
 
 
@@ -1965,7 +1968,7 @@ sent to Archer.  This can be used to add any additional request headers that may
 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Obfuscation(Feature = &quot;virtualization&quot;, Exclude = false)]
-public static Core ValidateLicense(Guid authenticationKey, Action&lt;Exception&gt; warningCallback, bool forceRefresh = false, string licenseLocation = null, Func&lt;string&gt; loadLicense = null, Func&lt;string, bool&gt; saveLicense = null)</code></pre>
+public static Core ValidateLicense(Guid authenticationKey, Action&lt;Exception&gt; warningCallback, bool forceRefresh = false, string licenseFileLocation = null, Func&lt;string&gt; loadLicense = null, Func&lt;string, bool&gt; saveLicense = null)</code></pre>
   </div>
 
   <h5 class="parameters">Parameters</h5>
@@ -1997,8 +2000,8 @@ public static Core ValidateLicense(Guid authenticationKey, Action&lt;Exception&g
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></span>
-        <span class="parametername">licenseLocation</span>
-        <p><p>Optional location where the license file resides (defaults to the location of Estrelica.Core.dll)</p>
+        <span class="parametername">licenseFileLocation</span>
+        <p><p>Optional location where the license file resides (defaults to the execution directory of the current process)</p>
 
       </td>
     </tr>

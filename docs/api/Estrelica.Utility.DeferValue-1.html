@@ -962,12 +962,6 @@
                             <a href="Estrelica.Archer.Utility.IMetadataResolver.html" title="IMetadataResolver" class="">IMetadataResolver</a>
                           </li>
                           <li class="">
-                            <a href="Estrelica.Archer.Utility.InvalidateEntity-1.html" title="InvalidateEntity&lt;K&gt;" class="">InvalidateEntity&lt;K&gt;</a>
-                          </li>
-                          <li class="">
-                            <a href="Estrelica.Archer.Utility.InvalidateEntityEventArgs-1.html" title="InvalidateEntityEventArgs&lt;K&gt;" class="">InvalidateEntityEventArgs&lt;K&gt;</a>
-                          </li>
-                          <li class="">
                             <a href="Estrelica.Archer.Utility.IReportResolver.html" title="IReportResolver" class="">IReportResolver</a>
                           </li>
                           <li class="">
@@ -1029,6 +1023,12 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Interfaces.ILogSubscriber.html" title="ILogSubscriber" class="">ILogSubscriber</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Interfaces.InvalidateEntity-1.html" title="InvalidateEntity&lt;K&gt;" class="">InvalidateEntity&lt;K&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Interfaces.InvalidateEntityEventArgs-1.html" title="InvalidateEntityEventArgs&lt;K&gt;" class="">InvalidateEntityEventArgs&lt;K&gt;</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Interfaces.IRecordAccess.html" title="IRecordAccess" class="">IRecordAccess</a>
@@ -1151,6 +1151,9 @@
                             <a href="Estrelica.Utility.SqlUtilities.html" title="SqlUtilities" class="">SqlUtilities</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Utility.StreamExtensions.html" title="StreamExtensions" class="">StreamExtensions</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Utility.StringExtensions.html" title="StringExtensions" class="">StringExtensions</a>
                           </li>
                           <li class="">
@@ -1218,7 +1221,7 @@
   <h5 id="Estrelica_Utility_DeferValue_1_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DoNotObfuscateType]
-public class DeferValue&lt;V&gt; : IDeferredValue</code></pre>
+public class DeferValue&lt;V&gt; : IDeferredValue, IDeferrable</code></pre>
   </div>
 
 
@@ -1322,6 +1325,44 @@ public class DeferValue&lt;V&gt; : IDeferredValue</code></pre>
   </div>
 
 
+  <a id="Estrelica_Utility_DeferValue_1_Resolved_" data-uid="Estrelica.Utility.DeferValue`1.Resolved*"></a>
+
+  <h4 id="Estrelica_Utility_DeferValue_1_Resolved" data-uid="Estrelica.Utility.DeferValue`1.Resolved"><a href="#collapsible-Estrelica_Utility_DeferValue_1_Resolved" class="expander" data-toggle="collapse">Resolved</a></h4>
+
+  <div id="collapsible-Estrelica_Utility_DeferValue_1_Resolved" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Resolved { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+
+
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Estrelica.Utility.IDeferrable.html#Estrelica_Utility_IDeferrable_Resolved">IDeferrable.Resolved</a></div>
+
+
+
+
+  </div>
+
+
   <a id="Estrelica_Utility_DeferValue_1_Value_" data-uid="Estrelica.Utility.DeferValue`1.Value*"></a>
 
   <h4 id="Estrelica_Utility_DeferValue_1_Value" data-uid="Estrelica.Utility.DeferValue`1.Value"><a href="#collapsible-Estrelica_Utility_DeferValue_1_Value" class="expander" data-toggle="collapse">Value</a></h4>
@@ -1381,7 +1422,7 @@ public class DeferValue&lt;V&gt; : IDeferredValue</code></pre>
 
 
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Estrelica.Utility.IDeferredValue.html#Estrelica_Utility_IDeferredValue_Reset">IDeferredValue.Reset()</a></div>
+      <div><a class="xref" href="Estrelica.Utility.IDeferrable.html#Estrelica_Utility_IDeferrable_Reset">IDeferrable.Reset()</a></div>
 
 
 

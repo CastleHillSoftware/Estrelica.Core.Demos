@@ -58,7 +58,7 @@ namespace Estrelica.Demo.DatafeedExplorer
 
 					// The configuration under which CoreConfig will instantiate the Core is defined via JSON files.
 					// This requires that you modify the file at
-					//		..\..\..\..\..\Estrelica.Demo.Common\appSettingsSample.json (i.e. in the Estrelica.Demo.Common project)
+					//		..\..\..\..\..\Estrelica.Demo.Common\appSettings.json (i.e. in the Estrelica.Demo.Common project)
 					// and/or a local user secrets file at
 					//		%appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
 					// with your CastleHill Software authentication key and your Archer instance details and credentials.
@@ -89,9 +89,16 @@ namespace Estrelica.Demo.DatafeedExplorer
 					// name, the default (base) Archer configuration will be used.
 					configOverrideKey: overrideKey);
 
-				if (core.APIFacade.ExtensionsAvailable() == Archer.Utility.APISource.None)
+				// Archer's API only provides basic information about standard service datafeeds (Name, Guid and Active status).
+				// CastleHill Software's API Extensions make more information available about datafeeds (e.g. target level, key
+				// fields, field mappings, parent datafeeds, last update info, etc.) and data imports.  So if extensions are 
+				// unavailable, we'll skip the parts related to those properties and imports.
+				fullInfoAvailable = core.APIFacade.ExtensionsAvailable() != Archer.Utility.APISource.None;
+				if (!fullInfoAvailable)
 				{
-					throw new InvalidOperationException("This application requires Estrelica.Core extensions in order to retrieve Datafeed information from Archer");
+					Console.WriteLine("API Extensions are not available in this Archer instance and/or with the current version of Estrelica.Core.  " +
+						"Therefore this application will not be able to display full details about datafeeds (e.g. field mappings, target level, etc.) " +
+						"or any information about data imports.");
 				}
 				
 				// Show the available datafeeds
@@ -167,6 +174,7 @@ namespace Estrelica.Demo.DatafeedExplorer
 		#endregion
 
 		static Estrelica.Core core = null;
+		static bool fullInfoAvailable = false;
 
 		static void ShowDatafeeds()
 		{
@@ -192,7 +200,13 @@ namespace Estrelica.Demo.DatafeedExplorer
 				Console.WriteLine();
 
 				List<string> pageOptions = GetPageOptions(currentPage, datafeeds.Count());
-				pageOptions.Add("TToggle Data Imports"); // allow the user to filter "DataImport" feeds out of the displayed results
+				if (fullInfoAvailable)
+				{
+					// Data Imports are not included in the results returned by Archer's own API, but are available from the Extended API.
+					// Therefore we'll just skip this option if we're only loading datafeeds from Archer...
+
+					pageOptions.Add("TToggle Data Imports"); // allow the user to filter "DataImport" feeds out of the displayed results
+				}
 				pageOptions.Add("RRefresh Datafeeds");
 				pageOptions.Add("XExit");
 
@@ -215,22 +229,30 @@ namespace Estrelica.Demo.DatafeedExplorer
 			while (showDatafeed)
 			{
 				Console.Clear();
-				Console.WriteLine("Details for datafeed id: " + datafeed.Id);
+				Console.WriteLine("Details for datafeed id: " + datafeed.Guid);
 				Console.WriteLine();
 				Console.WriteLine("Name: " + datafeed.Name);
 				Console.WriteLine("Type: " + datafeed.DatafeedType);
+				Console.WriteLine("Status: " + datafeed.Status);
 				Console.WriteLine();
-				Console.WriteLine($"Target level: {datafeed.Level.Name} (from {datafeed.Level.Module.ModuleType} {datafeed.Level.Module.Name})");
-				Console.WriteLine($"Key fields: {datafeed.KeyFields.Select(f => $"{f.Name} ({f.FieldType})").Conjoin(", ")}");
-				Console.WriteLine($"Mapped fields: {datafeed.MappedFields.Select(f => $"{f.Name} ({f.FieldType})").Conjoin(", ")}");
-				Console.WriteLine();
-				Console.WriteLine("Next scheduled parent: " + datafeed.NextScheduledParent);
-				Console.WriteLine("Last updated: " + datafeed.UpdateInformation.UpdateDate);
+				if (fullInfoAvailable)
+				{
+					// This information is only available if the datafeeds were retrieved from the Extended API.  Archer only returns the 
+					// basic info above (Name, Guid, and Status) for standard system datafeeds, and nothing about other datafeed types (i.e.
+					// DatafeedType.DataImport or DatafeedType.Firehose).  Therefore we'll only display this second if we've determined that
+					// the Extended API is available:
+					Console.WriteLine($"Target level: {datafeed.Level.Name} (from {datafeed.Level.Module.ModuleType} {datafeed.Level.Module.Name})");
+					Console.WriteLine($"Key fields: {datafeed.KeyFields.Select(f => $"{f.Name} ({f.FieldType})").Conjoin(", ")}");
+					Console.WriteLine($"Mapped fields: {datafeed.MappedFields.Select(f => $"{f.Name} ({f.FieldType})").Conjoin(", ")}");
+					Console.WriteLine();
+					Console.WriteLine("Next scheduled parent: " + datafeed.NextScheduledParent);
+					Console.WriteLine("Last updated: " + datafeed.UpdateInformation.UpdateDate);
+				}
 
 				var lastRun = datafeed.LastRun;
 				if (lastRun != null)
 				{
-					Console.WriteLine("Last execution: ");// + JsonConvert.SerializeObject(lastRun));
+					Console.WriteLine("Last execution: ");
 					Console.WriteLine("  Job Id: " + lastRun.JobId);
 					Console.WriteLine("  Manually started: " + lastRun.WasManuallyStarted);
 					Console.WriteLine("  Start time: " + lastRun.StartTime);
@@ -263,10 +285,16 @@ namespace Estrelica.Demo.DatafeedExplorer
 				}
 
 				Console.WriteLine();
-				char response = getResponse(new string[] { "EExecute now", "HShow history", "XExit" }, null);
+				char response = getResponse(new string[] { "EExecute now", "RRefresh Execution Status", "HShow history", "XExit" }, null);
 				switch (response)
 				{
 					case 'X': { showDatafeed = false; break; }
+					case 'R': { 
+							// After executing a datafeed, its LastRun will progress through various stages as it executes.
+							// Calling .Refresh() on the datafeed will discard whatever LastRun (and History) might have been loaded
+							// so that it will be reloaded on the next attempt to access it above:
+							datafeed.Refresh(); break; 
+						}
 					case 'E': { ExecuteDatafeed(datafeed); break; }
 					case 'H': { ShowDatafeedHistory(datafeed);  break; }
 				}
@@ -283,9 +311,11 @@ namespace Estrelica.Demo.DatafeedExplorer
 				bool includeReferenceFeeds = Confirm("Run this datafeed and its reference feeds", "Run this datafeed only");
 				try
 				{
-					core.APIFacade.ExecuteDatafeed(datafeed.Guid, includeReferenceFeeds);
+					datafeed.Execute(includeReferenceFeeds);
 					Console.WriteLine();
-					Console.WriteLine($"'{datafeed.Name}' has been scheduled to execute on {core.SessionProvider.Instance}.  Check the datafeed's details in a few minutes to see its status.");
+					Console.WriteLine($"'{datafeed.Name}' has been scheduled to execute on {core.SessionProvider.Instance}.  " +
+						"Check the datafeed's details in a few minutes to see its 'Last Execution' status.  You may want to use the 'Refresh Execution Status' option on the previous screen " +
+						"periodically to see the status changes that occur during this execution.");
 				}
 				catch(Exception ex)
                 {

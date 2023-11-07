@@ -6980,6 +6980,22 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Content.IDatafeed.EnableHolding
   nameWithType: IDatafeed.EnableHolding
+- uid: Estrelica.Archer.Content.IDatafeed.Execute(System.Boolean)
+  name: Execute(bool)
+  href: api/Estrelica.Archer.Content.IDatafeed.html#Estrelica_Archer_Content_IDatafeed_Execute_System_Boolean_
+  commentId: M:Estrelica.Archer.Content.IDatafeed.Execute(System.Boolean)
+  name.vb: Execute(Boolean)
+  fullName: Estrelica.Archer.Content.IDatafeed.Execute(bool)
+  fullName.vb: Estrelica.Archer.Content.IDatafeed.Execute(Boolean)
+  nameWithType: IDatafeed.Execute(bool)
+  nameWithType.vb: IDatafeed.Execute(Boolean)
+- uid: Estrelica.Archer.Content.IDatafeed.Execute*
+  name: Execute
+  href: api/Estrelica.Archer.Content.IDatafeed.html#Estrelica_Archer_Content_IDatafeed_Execute_
+  commentId: Overload:Estrelica.Archer.Content.IDatafeed.Execute
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IDatafeed.Execute
+  nameWithType: IDatafeed.Execute
 - uid: Estrelica.Archer.Content.IDatafeed.History
   name: History
   href: api/Estrelica.Archer.Content.IDatafeed.html#Estrelica_Archer_Content_IDatafeed_History
@@ -7097,6 +7113,19 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Content.IDatafeed.NextScheduledParent
   nameWithType: IDatafeed.NextScheduledParent
+- uid: Estrelica.Archer.Content.IDatafeed.Refresh
+  name: Refresh()
+  href: api/Estrelica.Archer.Content.IDatafeed.html#Estrelica_Archer_Content_IDatafeed_Refresh
+  commentId: M:Estrelica.Archer.Content.IDatafeed.Refresh
+  fullName: Estrelica.Archer.Content.IDatafeed.Refresh()
+  nameWithType: IDatafeed.Refresh()
+- uid: Estrelica.Archer.Content.IDatafeed.Refresh*
+  name: Refresh
+  href: api/Estrelica.Archer.Content.IDatafeed.html#Estrelica_Archer_Content_IDatafeed_Refresh_
+  commentId: Overload:Estrelica.Archer.Content.IDatafeed.Refresh
+  isSpec: "True"
+  fullName: Estrelica.Archer.Content.IDatafeed.Refresh
+  nameWithType: IDatafeed.Refresh
 - uid: Estrelica.Archer.Content.IDatafeed.Schedule
   name: Schedule
   href: api/Estrelica.Archer.Content.IDatafeed.html#Estrelica_Archer_Content_IDatafeed_Schedule
@@ -20443,19 +20472,6 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Utility.IAPIFacade.ExtensionsAvailable
   nameWithType: IAPIFacade.ExtensionsAvailable
-- uid: Estrelica.Archer.Utility.IAPIFacade.OptInForUndocumentedAPI
-  name: OptInForUndocumentedAPI
-  href: api/Estrelica.Archer.Utility.IAPIFacade.html#Estrelica_Archer_Utility_IAPIFacade_OptInForUndocumentedAPI
-  commentId: P:Estrelica.Archer.Utility.IAPIFacade.OptInForUndocumentedAPI
-  fullName: Estrelica.Archer.Utility.IAPIFacade.OptInForUndocumentedAPI
-  nameWithType: IAPIFacade.OptInForUndocumentedAPI
-- uid: Estrelica.Archer.Utility.IAPIFacade.OptInForUndocumentedAPI*
-  name: OptInForUndocumentedAPI
-  href: api/Estrelica.Archer.Utility.IAPIFacade.html#Estrelica_Archer_Utility_IAPIFacade_OptInForUndocumentedAPI_
-  commentId: Overload:Estrelica.Archer.Utility.IAPIFacade.OptInForUndocumentedAPI
-  isSpec: "True"
-  fullName: Estrelica.Archer.Utility.IAPIFacade.OptInForUndocumentedAPI
-  nameWithType: IAPIFacade.OptInForUndocumentedAPI
 - uid: Estrelica.Archer.Utility.IArcherRestAPI
   name: IArcherRestAPI
   href: api/Estrelica.Archer.Utility.IArcherRestAPI.html
@@ -20699,6 +20715,19 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Utility.IArcherRestAPI.GetAllContacts
   nameWithType: IArcherRestAPI.GetAllContacts
+- uid: Estrelica.Archer.Utility.IArcherRestAPI.GetAllDatafeedsArcher
+  name: GetAllDatafeedsArcher()
+  href: api/Estrelica.Archer.Utility.IArcherRestAPI.html#Estrelica_Archer_Utility_IArcherRestAPI_GetAllDatafeedsArcher
+  commentId: M:Estrelica.Archer.Utility.IArcherRestAPI.GetAllDatafeedsArcher
+  fullName: Estrelica.Archer.Utility.IArcherRestAPI.GetAllDatafeedsArcher()
+  nameWithType: IArcherRestAPI.GetAllDatafeedsArcher()
+- uid: Estrelica.Archer.Utility.IArcherRestAPI.GetAllDatafeedsArcher*
+  name: GetAllDatafeedsArcher
+  href: api/Estrelica.Archer.Utility.IArcherRestAPI.html#Estrelica_Archer_Utility_IArcherRestAPI_GetAllDatafeedsArcher_
+  commentId: Overload:Estrelica.Archer.Utility.IArcherRestAPI.GetAllDatafeedsArcher
+  isSpec: "True"
+  fullName: Estrelica.Archer.Utility.IArcherRestAPI.GetAllDatafeedsArcher
+  nameWithType: IArcherRestAPI.GetAllDatafeedsArcher
 - uid: Estrelica.Archer.Utility.IArcherRestAPI.GetAllGroupMemberships(System.Int32)
   name: GetAllGroupMemberships(int)
   href: api/Estrelica.Archer.Utility.IArcherRestAPI.html#Estrelica_Archer_Utility_IArcherRestAPI_GetAllGroupMemberships_System_Int32_
@@ -21973,6 +22002,19 @@ references:
   commentId: T:Estrelica.Archer.Utility.IArcherUndocumentedAPI
   fullName: Estrelica.Archer.Utility.IArcherUndocumentedAPI
   nameWithType: IArcherUndocumentedAPI
+- uid: Estrelica.Archer.Utility.IArcherUndocumentedAPI.OptInForUndocumentedAPI
+  name: OptInForUndocumentedAPI
+  href: api/Estrelica.Archer.Utility.IArcherUndocumentedAPI.html#Estrelica_Archer_Utility_IArcherUndocumentedAPI_OptInForUndocumentedAPI
+  commentId: P:Estrelica.Archer.Utility.IArcherUndocumentedAPI.OptInForUndocumentedAPI
+  fullName: Estrelica.Archer.Utility.IArcherUndocumentedAPI.OptInForUndocumentedAPI
+  nameWithType: IArcherUndocumentedAPI.OptInForUndocumentedAPI
+- uid: Estrelica.Archer.Utility.IArcherUndocumentedAPI.OptInForUndocumentedAPI*
+  name: OptInForUndocumentedAPI
+  href: api/Estrelica.Archer.Utility.IArcherUndocumentedAPI.html#Estrelica_Archer_Utility_IArcherUndocumentedAPI_OptInForUndocumentedAPI_
+  commentId: Overload:Estrelica.Archer.Utility.IArcherUndocumentedAPI.OptInForUndocumentedAPI
+  isSpec: "True"
+  fullName: Estrelica.Archer.Utility.IArcherUndocumentedAPI.OptInForUndocumentedAPI
+  nameWithType: IArcherUndocumentedAPI.OptInForUndocumentedAPI
 - uid: Estrelica.Archer.Utility.ICastleHillExtendedAPI
   name: ICastleHillExtendedAPI
   href: api/Estrelica.Archer.Utility.ICastleHillExtendedAPI.html
@@ -21992,6 +22034,19 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Utility.ICastleHillExtendedAPI.ExtendedAPIVersion
   nameWithType: ICastleHillExtendedAPI.ExtendedAPIVersion
+- uid: Estrelica.Archer.Utility.ICastleHillExtendedAPI.GetAllDatafeeds
+  name: GetAllDatafeeds()
+  href: api/Estrelica.Archer.Utility.ICastleHillExtendedAPI.html#Estrelica_Archer_Utility_ICastleHillExtendedAPI_GetAllDatafeeds
+  commentId: M:Estrelica.Archer.Utility.ICastleHillExtendedAPI.GetAllDatafeeds
+  fullName: Estrelica.Archer.Utility.ICastleHillExtendedAPI.GetAllDatafeeds()
+  nameWithType: ICastleHillExtendedAPI.GetAllDatafeeds()
+- uid: Estrelica.Archer.Utility.ICastleHillExtendedAPI.GetAllDatafeeds*
+  name: GetAllDatafeeds
+  href: api/Estrelica.Archer.Utility.ICastleHillExtendedAPI.html#Estrelica_Archer_Utility_ICastleHillExtendedAPI_GetAllDatafeeds_
+  commentId: Overload:Estrelica.Archer.Utility.ICastleHillExtendedAPI.GetAllDatafeeds
+  isSpec: "True"
+  fullName: Estrelica.Archer.Utility.ICastleHillExtendedAPI.GetAllDatafeeds
+  nameWithType: ICastleHillExtendedAPI.GetAllDatafeeds
 - uid: Estrelica.Archer.Utility.ICastleHillExtendedAPI.GetAllSolutions(System.Boolean)
   name: GetAllSolutions(bool)
   href: api/Estrelica.Archer.Utility.ICastleHillExtendedAPI.html#Estrelica_Archer_Utility_ICastleHillExtendedAPI_GetAllSolutions_System_Boolean_
@@ -25219,6 +25274,12 @@ references:
   commentId: T:Estrelica.Interfaces.IEntityResolver
   fullName: Estrelica.Interfaces.IEntityResolver
   nameWithType: IEntityResolver
+- uid: Estrelica.Interfaces.IEntityResolver.Invalidate(Estrelica.Archer.Entity.EntityType,System.Guid)
+  name: Invalidate(EntityType, Guid)
+  href: api/Estrelica.Interfaces.IEntityResolver.html#Estrelica_Interfaces_IEntityResolver_Invalidate_Estrelica_Archer_Entity_EntityType_System_Guid_
+  commentId: M:Estrelica.Interfaces.IEntityResolver.Invalidate(Estrelica.Archer.Entity.EntityType,System.Guid)
+  fullName: Estrelica.Interfaces.IEntityResolver.Invalidate(Estrelica.Archer.Entity.EntityType, System.Guid)
+  nameWithType: IEntityResolver.Invalidate(EntityType, Guid)
 - uid: Estrelica.Interfaces.IEntityResolver.Invalidate(Estrelica.Archer.Entity.EntityType,System.Int32)
   name: Invalidate(EntityType, int)
   href: api/Estrelica.Interfaces.IEntityResolver.html#Estrelica_Interfaces_IEntityResolver_Invalidate_Estrelica_Archer_Entity_EntityType_System_Int32_
@@ -25382,6 +25443,40 @@ references:
   isSpec: "True"
   fullName: Estrelica.Interfaces.ILogSubscriber.Log
   nameWithType: ILogSubscriber.Log
+- uid: Estrelica.Interfaces.InvalidateEntity`1
+  name: InvalidateEntity<K>
+  href: api/Estrelica.Interfaces.InvalidateEntity-1.html
+  commentId: T:Estrelica.Interfaces.InvalidateEntity`1
+  name.vb: InvalidateEntity(Of K)
+  fullName: Estrelica.Interfaces.InvalidateEntity<K>
+  fullName.vb: Estrelica.Interfaces.InvalidateEntity(Of K)
+  nameWithType: InvalidateEntity<K>
+  nameWithType.vb: InvalidateEntity(Of K)
+- uid: Estrelica.Interfaces.InvalidateEntityEventArgs`1
+  name: InvalidateEntityEventArgs<K>
+  href: api/Estrelica.Interfaces.InvalidateEntityEventArgs-1.html
+  commentId: T:Estrelica.Interfaces.InvalidateEntityEventArgs`1
+  name.vb: InvalidateEntityEventArgs(Of K)
+  fullName: Estrelica.Interfaces.InvalidateEntityEventArgs<K>
+  fullName.vb: Estrelica.Interfaces.InvalidateEntityEventArgs(Of K)
+  nameWithType: InvalidateEntityEventArgs<K>
+  nameWithType.vb: InvalidateEntityEventArgs(Of K)
+- uid: Estrelica.Interfaces.InvalidateEntityEventArgs`1.entityId
+  name: entityId
+  href: api/Estrelica.Interfaces.InvalidateEntityEventArgs-1.html#Estrelica_Interfaces_InvalidateEntityEventArgs_1_entityId
+  commentId: F:Estrelica.Interfaces.InvalidateEntityEventArgs`1.entityId
+  fullName: Estrelica.Interfaces.InvalidateEntityEventArgs<K>.entityId
+  fullName.vb: Estrelica.Interfaces.InvalidateEntityEventArgs(Of K).entityId
+  nameWithType: InvalidateEntityEventArgs<K>.entityId
+  nameWithType.vb: InvalidateEntityEventArgs(Of K).entityId
+- uid: Estrelica.Interfaces.InvalidateEntityEventArgs`1.entityType
+  name: entityType
+  href: api/Estrelica.Interfaces.InvalidateEntityEventArgs-1.html#Estrelica_Interfaces_InvalidateEntityEventArgs_1_entityType
+  commentId: F:Estrelica.Interfaces.InvalidateEntityEventArgs`1.entityType
+  fullName: Estrelica.Interfaces.InvalidateEntityEventArgs<K>.entityType
+  fullName.vb: Estrelica.Interfaces.InvalidateEntityEventArgs(Of K).entityType
+  nameWithType: InvalidateEntityEventArgs<K>.entityType
+  nameWithType.vb: InvalidateEntityEventArgs(Of K).entityType
 - uid: Estrelica.Interfaces.IRecordAccess
   name: IRecordAccess
   href: api/Estrelica.Interfaces.IRecordAccess.html
@@ -27375,6 +27470,23 @@ references:
   fullName.vb: Estrelica.Utility.DeferEnumerable(Of T).Reload
   nameWithType: DeferEnumerable<T>.Reload
   nameWithType.vb: DeferEnumerable(Of T).Reload
+- uid: Estrelica.Utility.DeferEnumerable`1.Reset
+  name: Reset()
+  href: api/Estrelica.Utility.DeferEnumerable-1.html#Estrelica_Utility_DeferEnumerable_1_Reset
+  commentId: M:Estrelica.Utility.DeferEnumerable`1.Reset
+  fullName: Estrelica.Utility.DeferEnumerable<T>.Reset()
+  fullName.vb: Estrelica.Utility.DeferEnumerable(Of T).Reset()
+  nameWithType: DeferEnumerable<T>.Reset()
+  nameWithType.vb: DeferEnumerable(Of T).Reset()
+- uid: Estrelica.Utility.DeferEnumerable`1.Reset*
+  name: Reset
+  href: api/Estrelica.Utility.DeferEnumerable-1.html#Estrelica_Utility_DeferEnumerable_1_Reset_
+  commentId: Overload:Estrelica.Utility.DeferEnumerable`1.Reset
+  isSpec: "True"
+  fullName: Estrelica.Utility.DeferEnumerable<T>.Reset
+  fullName.vb: Estrelica.Utility.DeferEnumerable(Of T).Reset
+  nameWithType: DeferEnumerable<T>.Reset
+  nameWithType.vb: DeferEnumerable(Of T).Reset
 - uid: Estrelica.Utility.DeferEnumerable`1.Resolved
   name: Resolved
   href: api/Estrelica.Utility.DeferEnumerable-1.html#Estrelica_Utility_DeferEnumerable_1_Resolved
@@ -27491,6 +27603,23 @@ references:
   fullName.vb: Estrelica.Utility.DeferValue(Of V).Reset
   nameWithType: DeferValue<V>.Reset
   nameWithType.vb: DeferValue(Of V).Reset
+- uid: Estrelica.Utility.DeferValue`1.Resolved
+  name: Resolved
+  href: api/Estrelica.Utility.DeferValue-1.html#Estrelica_Utility_DeferValue_1_Resolved
+  commentId: P:Estrelica.Utility.DeferValue`1.Resolved
+  fullName: Estrelica.Utility.DeferValue<V>.Resolved
+  fullName.vb: Estrelica.Utility.DeferValue(Of V).Resolved
+  nameWithType: DeferValue<V>.Resolved
+  nameWithType.vb: DeferValue(Of V).Resolved
+- uid: Estrelica.Utility.DeferValue`1.Resolved*
+  name: Resolved
+  href: api/Estrelica.Utility.DeferValue-1.html#Estrelica_Utility_DeferValue_1_Resolved_
+  commentId: Overload:Estrelica.Utility.DeferValue`1.Resolved
+  isSpec: "True"
+  fullName: Estrelica.Utility.DeferValue<V>.Resolved
+  fullName.vb: Estrelica.Utility.DeferValue(Of V).Resolved
+  nameWithType: DeferValue<V>.Resolved
+  nameWithType.vb: DeferValue(Of V).Resolved
 - uid: Estrelica.Utility.DeferValue`1.Value
   name: Value
   href: api/Estrelica.Utility.DeferValue-1.html#Estrelica_Utility_DeferValue_1_Value
@@ -28542,6 +28671,19 @@ references:
   commentId: T:Estrelica.Utility.IDeferrable
   fullName: Estrelica.Utility.IDeferrable
   nameWithType: IDeferrable
+- uid: Estrelica.Utility.IDeferrable.Reset
+  name: Reset()
+  href: api/Estrelica.Utility.IDeferrable.html#Estrelica_Utility_IDeferrable_Reset
+  commentId: M:Estrelica.Utility.IDeferrable.Reset
+  fullName: Estrelica.Utility.IDeferrable.Reset()
+  nameWithType: IDeferrable.Reset()
+- uid: Estrelica.Utility.IDeferrable.Reset*
+  name: Reset
+  href: api/Estrelica.Utility.IDeferrable.html#Estrelica_Utility_IDeferrable_Reset_
+  commentId: Overload:Estrelica.Utility.IDeferrable.Reset
+  isSpec: "True"
+  fullName: Estrelica.Utility.IDeferrable.Reset
+  nameWithType: IDeferrable.Reset
 - uid: Estrelica.Utility.IDeferrable.Resolved
   name: Resolved
   href: api/Estrelica.Utility.IDeferrable.html#Estrelica_Utility_IDeferrable_Resolved
@@ -28574,19 +28716,6 @@ references:
   isSpec: "True"
   fullName: Estrelica.Utility.IDeferredValue.AsObject
   nameWithType: IDeferredValue.AsObject
-- uid: Estrelica.Utility.IDeferredValue.Reset
-  name: Reset()
-  href: api/Estrelica.Utility.IDeferredValue.html#Estrelica_Utility_IDeferredValue_Reset
-  commentId: M:Estrelica.Utility.IDeferredValue.Reset
-  fullName: Estrelica.Utility.IDeferredValue.Reset()
-  nameWithType: IDeferredValue.Reset()
-- uid: Estrelica.Utility.IDeferredValue.Reset*
-  name: Reset
-  href: api/Estrelica.Utility.IDeferredValue.html#Estrelica_Utility_IDeferredValue_Reset_
-  commentId: Overload:Estrelica.Utility.IDeferredValue.Reset
-  isSpec: "True"
-  fullName: Estrelica.Utility.IDeferredValue.Reset
-  nameWithType: IDeferredValue.Reset
 - uid: Estrelica.Utility.IEnumerableExtensions
   name: IEnumerableExtensions
   href: api/Estrelica.Utility.IEnumerableExtensions.html
@@ -29593,6 +29722,25 @@ references:
   isSpec: "True"
   fullName: Estrelica.Utility.SqlUtilities.StripIdentifier
   nameWithType: SqlUtilities.StripIdentifier
+- uid: Estrelica.Utility.StreamExtensions
+  name: StreamExtensions
+  href: api/Estrelica.Utility.StreamExtensions.html
+  commentId: T:Estrelica.Utility.StreamExtensions
+  fullName: Estrelica.Utility.StreamExtensions
+  nameWithType: StreamExtensions
+- uid: Estrelica.Utility.StreamExtensions.ReadAllBytes(System.IO.Stream)
+  name: ReadAllBytes(Stream)
+  href: api/Estrelica.Utility.StreamExtensions.html#Estrelica_Utility_StreamExtensions_ReadAllBytes_System_IO_Stream_
+  commentId: M:Estrelica.Utility.StreamExtensions.ReadAllBytes(System.IO.Stream)
+  fullName: Estrelica.Utility.StreamExtensions.ReadAllBytes(System.IO.Stream)
+  nameWithType: StreamExtensions.ReadAllBytes(Stream)
+- uid: Estrelica.Utility.StreamExtensions.ReadAllBytes*
+  name: ReadAllBytes
+  href: api/Estrelica.Utility.StreamExtensions.html#Estrelica_Utility_StreamExtensions_ReadAllBytes_
+  commentId: Overload:Estrelica.Utility.StreamExtensions.ReadAllBytes
+  isSpec: "True"
+  fullName: Estrelica.Utility.StreamExtensions.ReadAllBytes
+  nameWithType: StreamExtensions.ReadAllBytes
 - uid: Estrelica.Utility.StringExtensions
   name: StringExtensions
   href: api/Estrelica.Utility.StringExtensions.html

@@ -962,12 +962,6 @@
                             <a href="Estrelica.Archer.Utility.IMetadataResolver.html" title="IMetadataResolver" class="">IMetadataResolver</a>
                           </li>
                           <li class="">
-                            <a href="Estrelica.Archer.Utility.InvalidateEntity-1.html" title="InvalidateEntity&lt;K&gt;" class="">InvalidateEntity&lt;K&gt;</a>
-                          </li>
-                          <li class="">
-                            <a href="Estrelica.Archer.Utility.InvalidateEntityEventArgs-1.html" title="InvalidateEntityEventArgs&lt;K&gt;" class="">InvalidateEntityEventArgs&lt;K&gt;</a>
-                          </li>
-                          <li class="">
                             <a href="Estrelica.Archer.Utility.IReportResolver.html" title="IReportResolver" class="">IReportResolver</a>
                           </li>
                           <li class="">
@@ -1029,6 +1023,12 @@
                           </li>
                           <li class="">
                             <a href="Estrelica.Interfaces.ILogSubscriber.html" title="ILogSubscriber" class="">ILogSubscriber</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Interfaces.InvalidateEntity-1.html" title="InvalidateEntity&lt;K&gt;" class="">InvalidateEntity&lt;K&gt;</a>
+                          </li>
+                          <li class="">
+                            <a href="Estrelica.Interfaces.InvalidateEntityEventArgs-1.html" title="InvalidateEntityEventArgs&lt;K&gt;" class="">InvalidateEntityEventArgs&lt;K&gt;</a>
                           </li>
                           <li class="">
                             <a href="Estrelica.Interfaces.IRecordAccess.html" title="IRecordAccess" class="">IRecordAccess</a>
@@ -1151,6 +1151,9 @@
                             <a href="Estrelica.Utility.SqlUtilities.html" title="SqlUtilities" class="">SqlUtilities</a>
                           </li>
                           <li class="">
+                            <a href="Estrelica.Utility.StreamExtensions.html" title="StreamExtensions" class="">StreamExtensions</a>
+                          </li>
+                          <li class="">
                             <a href="Estrelica.Utility.StringExtensions.html" title="StringExtensions" class="">StringExtensions</a>
                           </li>
                           <li class="">
@@ -1177,7 +1180,17 @@
 
   <h1 id="Estrelica_Archer_Utility_ICastleHillExtendedAPI" data-uid="Estrelica.Archer.Utility.ICastleHillExtendedAPI">Interface ICastleHillExtendedAPI
 </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>ICastleHillExtendedAPI (implemented by core.APIFacade) provides access to all of the &quot;extended&quot; methods not available through the standard Archer APIs.<br>
+Most methods on this interface include a boolean throwExceptionIfUnavailable parameter which when true (the default) will cause an <a class="xref" href="Estrelica.Archer.Utility.ExtensionsUnavailableException.html">ExtensionsUnavailable</a> to
+be thrown if extensions are not available for the target Archer instance.  Alternately, when this parameter is explicitly set to false, no exception will be raised and instead
+an empty enumerable (for IEnumerable&lt;T&gt; result types) or a null (for all other reference types) will be returned if extensions are not available.
+The resolver classes (e.g. IMetadataResolver, IReportResolver, etc.) will always pass throwExceptionIfUnavailable: false when they call these methods, so in those cases, a null
+or empty IEnumerable will be returned in the absence of extensions.  For example, core.Metadata.AllSolutions will return an IEnumerable&lt;IArcherSolution&gt; containing
+all solutions in the target Archer instance if extensions are available, but will simply return an empty IEnumerable&lt;IArcherSolution&gt; (having a Count() of 0)
+if extensions are not available.
+The two methods lacking this parameter (GetArcherApplicationDetails() and GetAllDatafeeds()) behave differently, falling back to more restricted API methods that are
+available from a standard Archer instance (see their comments below).</p>
+</div>
   <div class="markdown level0 conceptual"></div>
 
 
@@ -1238,6 +1251,46 @@ public interface ICastleHillExtendedAPI</code></pre>
   </div>
   <h3 id="methods">Methods
 </h3>
+
+
+  <a id="Estrelica_Archer_Utility_ICastleHillExtendedAPI_GetAllDatafeeds_" data-uid="Estrelica.Archer.Utility.ICastleHillExtendedAPI.GetAllDatafeeds*"></a>
+
+  <h4 id="Estrelica_Archer_Utility_ICastleHillExtendedAPI_GetAllDatafeeds" data-uid="Estrelica.Archer.Utility.ICastleHillExtendedAPI.GetAllDatafeeds"><a href="#collapsible-Estrelica_Archer_Utility_ICastleHillExtendedAPI_GetAllDatafeeds" class="expander" data-toggle="collapse">GetAllDatafeeds()</a></h4>
+
+  <div id="collapsible-Estrelica_Archer_Utility_ICastleHillExtendedAPI_GetAllDatafeeds" class="collapse in">
+  <div class="markdown level1 summary"><p>Returns all datafeeds available in the target Archer instance.  If extensions are unavailable this will only include standard datafeeds
+(DatafeedType = StandardService) with basic info (Name, Guid and Status).  If extensions are available, this will include imports (DatafeedType = DataImport)
+and much more information about each datafeed (e.g. integer Id, ConfigXml, KeyFields, MappedFields, NextScheduledParent, etc. -- see the
+[IDatafeed](xref: Estrelica.Content.IDatafeed) interface for details).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;IDictionary&lt;string, dynamic&gt;&gt; GetAllDatafeeds()</code></pre>
+  </div>
+
+
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <span class="xref">dynamic</span>&gt;&gt;
+        <p></p>
+      </td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+  </div>
 
 
   <a id="Estrelica_Archer_Utility_ICastleHillExtendedAPI_GetAllSolutions_" data-uid="Estrelica.Archer.Utility.ICastleHillExtendedAPI.GetAllSolutions*"></a>
@@ -1337,7 +1390,9 @@ public interface ICastleHillExtendedAPI</code></pre>
   <h4 id="Estrelica_Archer_Utility_ICastleHillExtendedAPI_GetArcherApplicationDetails" data-uid="Estrelica.Archer.Utility.ICastleHillExtendedAPI.GetArcherApplicationDetails"><a href="#collapsible-Estrelica_Archer_Utility_ICastleHillExtendedAPI_GetArcherApplicationDetails" class="expander" data-toggle="collapse">GetArcherApplicationDetails()</a></h4>
 
   <div id="collapsible-Estrelica_Archer_Utility_ICastleHillExtendedAPI_GetArcherApplicationDetails" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns installation details and version information about the current instance of Archer.  If extensions are unavailable, the returned entity(ies)
+will include only version information.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
 

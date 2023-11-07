@@ -4622,6 +4622,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.InvalidateEntity-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.InvalidateEntity-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Interfaces.InvalidateEntityEventArgs-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Interfaces.InvalidateEntityEventArgs-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Interfaces.LogLevel.yml",
       "output": {
         ".html": {
@@ -4936,6 +4956,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Utility.SqlUtilities.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.StreamExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.StreamExtensions.html"
         }
       },
       "version": ""

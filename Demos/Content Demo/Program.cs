@@ -38,7 +38,7 @@ namespace ContentDemo
 
                     // The configuration under which CoreConfig will instantiate the Core is defined via JSON files.
                     // This requires that you modify the file at
-                    //		..\..\..\..\..\Estrelica.Demo.Common\appSettingsSample.json (i.e. in the Estrelica.Demo.Common project)
+                    //		..\..\..\..\..\Estrelica.Demo.Common\appSettings.json (i.e. in the Estrelica.Demo.Common project)
                     // and/or a local user secrets file at
                     //		%appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
                     // with your CastleHill Software authentication key and your Archer instance details and credentials.
@@ -75,7 +75,7 @@ namespace ContentDemo
 					configOverrideKey: null); // If you've configured valid override settings via the app settings and/or user secrets file,
                                               // specify that override key here.
 
-				Utilities.Pause("This example shows how to evaluate levelled content via the Archer search API as XElement results.", ConsoleColor.Green);
+                Utilities.Pause("This example shows how to evaluate levelled content via the Archer search API as XElement results.", ConsoleColor.Green);
 
                 LoadMultipleLevelsAsXml();
 

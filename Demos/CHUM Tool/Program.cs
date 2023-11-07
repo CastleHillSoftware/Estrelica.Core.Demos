@@ -55,7 +55,7 @@ namespace CHUM
 
                         // The configuration under which CoreConfig will instantiate the Core is defined via JSON files.
                         // This requires that you modify the file at
-                        //		..\..\..\..\..\Estrelica.Demo.Common\appSettingsSample.json (i.e. in the Estrelica.Demo.Common project)
+                        //		..\..\..\..\..\Estrelica.Demo.Common\appSettings.json (i.e. in the Estrelica.Demo.Common project)
                         // and/or a local user secrets file at
                         //		%appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
                         // with your CastleHill Software authentication key and your Archer instance details and credentials.
