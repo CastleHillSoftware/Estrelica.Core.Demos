@@ -48,13 +48,20 @@ namespace Estrelica.Demo
 			Log($"Executed {successCount + failureCount} tests of which {failureCount} did not meet expectations", failureCount == 0);
 		}
 
-		public static void Log(string message, ConsoleColor? color = null)
+		public static void Log(string message, ConsoleColor? color = null, bool newLine = true)
 		{
 			if (color.HasValue)
 			{
 				Console.ForegroundColor = color.Value;
 			}
-			Console.WriteLine(message);
+			if (newLine)
+			{
+				Console.WriteLine(message);
+			}
+			else
+			{
+				Console.Write(message);
+			}
 			if (color.HasValue)
 			{
 				Console.ResetColor();
@@ -82,15 +89,15 @@ namespace Estrelica.Demo
 				acceptedKeys = "YN";
 			}
 			var keyChars = acceptedKeys.ToCharArray();
-			string message = $"{prompt} ({keyChars.Conjoin("//").TrimEnd('/')}) ";
-			Log(message, color);
+			string message = $"{prompt} ({keyChars.Conjoin("/").TrimEnd('/')}) ";
+			Log(message, color, false);
 			char? response = null;
 			while (!response.HasValue)
 			{
 				var result = Char.ToUpper(Console.ReadKey(true).KeyChar);
 				response = keyChars.FirstOrDefault(c => c == result);
 			}
-			Log(response.Value.ToString());
+			Log(response.Value.ToString(), color);
 			return response.Value;
 		}
 

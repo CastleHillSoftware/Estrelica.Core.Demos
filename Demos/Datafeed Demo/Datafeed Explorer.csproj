@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Estrelica.Core" Version="2.5.1" />
+    <PackageReference Include="Estrelica.Core" Version="2.5.2" />
     <PackageReference Include="Estrelica.Core.Configuration" Version="1.0.20" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
   </ItemGroup>

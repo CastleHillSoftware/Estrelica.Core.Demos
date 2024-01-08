@@ -15,23 +15,50 @@ namespace Estrelica.Demo
 		public static bool ThrowsException<E>(string message, Action action) where E : Exception
 		{
 			E expectedException = null;
+			Exception unexpectedException = null;
 			try
 			{
 				action.Invoke();
 			}
-			catch (E ex)
+			catch (Exception ex)
 			{
-				expectedException = ex;
+				expectedException = ex as E;
+				unexpectedException = ex;
 			}
+
 			bool result = IsTrue(message, expectedException != null);
 			if (result)
 			{
-				Utilities.Log($"  Got expected exception: {expectedException.GetType().Name}: '{expectedException.Message}'", ConsoleColor.Cyan);
+				Utilities.Log($"  Got expected exception: {expectedException.GetType().FullName}: '{expectedException.Message}'", ConsoleColor.Cyan);
 			}
 			else
             {
-				Utilities.Log($"  Did not get expected exception " + typeof(E).FullName, ConsoleColor.Red);
+				var error = $"  Did not get expected exception " + typeof(E).FullName;
+				if (unexpectedException != null)
+				{
+					error += $".  Instead got unexpected exception {unexpectedException.GetType().FullName}: '{unexpectedException.Message}'";
+				}
+				Utilities.Log(error, ConsoleColor.Red);
             }
+			return result;
+		}
+
+		public static bool ThrowsNoException(string message, Action action)
+		{
+			Exception unexpectedException = null;
+			try
+			{
+				action.Invoke();
+			}
+			catch(Exception ex)
+			{
+				unexpectedException = ex;
+			}
+			bool result = IsTrue(message, unexpectedException == null);
+			if (!result)
+			{
+				Utilities.Log($"  Got unexpected exception: {unexpectedException.GetType().FullName}: '{unexpectedException.Message}'", ConsoleColor.Red);
+			}
 			return result;
 		}
 

@@ -17,24 +17,24 @@ using Estrelica.Archer.Metadata.Field.Properties;
 
 namespace ContentDemo
 {
-	class Program
-	{
-		private static Estrelica.Core core = null;
+    class Program
+    {
+        private static Estrelica.Core core = null;
 
-		static void Main(string[] args)
-		{
-			try
-			{
+        static void Main(string[] args)
+        {
+            try
+            {
                 // This application demonstrates some examples for use of the Estrelica Core in communicating with RSA Archer to retrieve
                 // and manipulate content.
 
                 Utilities.Log(@"This demo shows how to perform various Archer content operations via Estrelica.Core.  The UI output is not significant, and you are encouraged to instead evaluate the code, read the comments to understand how Estrelica.Core works, set various breakpoints, modify the code to test different behavior, etc.");
-                Utilities.Pause(@"In order to function in all environments, this demo depends on two of Archer's core applications, Policies and Applications, and may exhibit unexpected behavior if they have been modified (or removed).  If so, feel free to change the code to reference other applications/fields/etc. that are available in your test environment.");
+                Utilities.Log(@"In order to function in all environments, this demo depends on two of Archer's core applications, Policies and Applications, and may exhibit unexpected behavior if they have been modified (or removed).  If so, feel free to change the code to reference other applications/fields/etc. that are available in your test environment.");
+                Utilities.Pause();
 
                 // Instantiate Estrelica.Core and authenticate with Archer...
-                Core.DisableSSLCertificateVerification = true;
-				core = CoreConfig.Load(
-					w => Utilities.Log(w.Message, LogLevel.Warning),
+                core = CoreConfig.Load(
+                    w => Utilities.Log(w.Message, LogLevel.Warning),
 
                     // The configuration under which CoreConfig will instantiate the Core is defined via JSON files.
                     // This requires that you modify the file at
@@ -56,24 +56,24 @@ namespace ContentDemo
                     // The string below will direct it to use the common appSettings.json file found in the Estrelica.Demo.Common project.
                     appConfigFilename: @"..\..\..\..\..\Estrelica.Demo.Common\appSettings.json",
 
-					// "userSecretsId" specifies the (optional) Id of a JSON user secrets file on the local machine containing values
-					// which should override the corresponding values in the app settings file.  If not explicitly provided, none of the values
-					// in the app settings JSON file will be overridden.  If a userSecretsId is provided, overloads will be loaded from
-					// the file found at %appdata%\Microsoft\UserSecrets\xxxx\secrets.json on the local filesystem, where xxxx is the Id
-					// string you've specified here.
-					userSecretsId: "Estrelica.Core.Demo",
+                    // "userSecretsId" specifies the (optional) Id of a JSON user secrets file on the local machine containing values
+                    // which should override the corresponding values in the app settings file.  If not explicitly provided, none of the values
+                    // in the app settings JSON file will be overridden.  If a userSecretsId is provided, overloads will be loaded from
+                    // the file found at %appdata%\Microsoft\UserSecrets\xxxx\secrets.json on the local filesystem, where xxxx is the Id
+                    // string you've specified here.
+                    userSecretsId: "Estrelica.Core.Demo",
 
-					// (Note that "Estrelica.Core.Demo" is specified in this project's .csproj file as the <UserSecretsId> for this project.
-					// This means that you can easily edit the content of the file at %appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
-					// by simply right-clicking the project in the Solution Explorer and choosing "Manage User Secrets".  If you elect to use
-					// a different userSecretsId in the future, be sure to update the <UserSecretsId> node in your .csproj file in order to
-					// maintain this editor association.)
+                    // (Note that "Estrelica.Core.Demo" is specified in this project's .csproj file as the <UserSecretsId> for this project.
+                    // This means that you can easily edit the content of the file at %appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
+                    // by simply right-clicking the project in the Solution Explorer and choosing "Manage User Secrets".  If you elect to use
+                    // a different userSecretsId in the future, be sure to update the <UserSecretsId> node in your .csproj file in order to
+                    // maintain this editor association.)
 
-					// "configOverrideKey" specifies a particular instance configuration to be selected from the file(s) above.
-					// If not explicitly specified *or* if the app settings/user secrets files have nothing configured for this instance
-					// name, the default (base) Archer configuration will be used.
-					configOverrideKey: null); // If you've configured valid override settings via the app settings and/or user secrets file,
-                                              // specify that override key here.
+                    // "configOverrideKey" specifies a particular instance configuration to be selected from the file(s) above.
+                    // If not explicitly specified *or* if the app settings/user secrets files have nothing configured for this instance
+                    // name, the default (base) Archer configuration will be used.
+                    configOverrideKey: null); // If you've configured valid override settings via the app settings and/or user secrets file,
+                                                     // specify that override key here.
 
                 Utilities.Pause("This example shows how to evaluate levelled content via the Archer search API as XElement results.", ConsoleColor.Green);
 
@@ -87,473 +87,669 @@ namespace ContentDemo
 
                 LoadSingleContentAsJsonDictionary(sampleContentId);
 
-                Utilities.Log("The examples above show how to work with Archer records as XElement objects and JSON Dictionary objects.  The extension method 'ContentAccess' makes these much simpler to work with, converting them into IArcherContentAccess results which expose the record metdata and field content in those XElement or JSON nodes via properties and methods.", ConsoleColor.Green);
-                Utilities.Pause("Hit any key to see an example of how IArcherContentAccess is used.", ConsoleColor.Green);
+                Utilities.Pause("The examples above show how to work with Archer records as XElement objects and JSON Dictionary objects.  The extension method 'ContentAccess' makes these much simpler to work with, converting them into IArcherContentAccess results which expose the record metdata and field content in those XElement or JSON nodes via properties and methods.", ConsoleColor.Green);
 
                 LoadContentAsIArcherContentAccess();
 
-                Utilities.Log("This example shows how Estrelica.Core makes it easy to traverse Archer's content and metadata as a virtual object graph, without ever needing to make direct API calls.");
-                Utilities.Pause("Hit any key to see how this traversal is performed.", ConsoleColor.Green);
+                Utilities.Pause("This example shows how Estrelica.Core makes it easy to traverse Archer's content and metadata as a virtual object graph, without ever needing to make direct API calls.", ConsoleColor.Green);
 
                 TraverseRelatedContent();
 
-
                 Utilities.Pause("The examples above demonstrated how to READ content from Archer.  Now we'll demonstrate how to insert, update and delete records.", ConsoleColor.Green);
 
-				CreateUpdateAndDeleteApplicationsRecord();
+                CreateUpdateAndDeleteApplicationsRecord();
 
-			}
-			catch (System.Exception ex)
-			{
-				Utilities.Log(ex.ToString(), false);
-			}
-			finally
-			{
-				Utilities.LogResults();
-			}
-		}
+            }
+            catch (System.Exception ex)
+            {
+                Utilities.Log(ex.ToString(), false);
+            }
+            finally
+            {
+                Utilities.LogResults();
+            }
+        }
 
-		public static void LoadMultipleLevelsAsXml()
-		{
-			int expectedRecordCount = 0;
-			int totalRecordCount = 0;
+        public static void LoadMultipleLevelsAsXml()
+        {
+            int expectedRecordCount = 0;
+            int totalRecordCount = 0;
 
-			Action<RecordCountType, int> recordCallback = (t, c) =>
-			{
-				switch (t)
-				{
-					case RecordCountType.Expected: expectedRecordCount = c; totalRecordCount = 0; break;
-					case RecordCountType.Current: Utilities.Log($"Loaded {c} records of {expectedRecordCount}..."); break;
-					case RecordCountType.Total: totalRecordCount = c; break;
-				}
-			};
+            // All of the IContentResolver "GetContent" methods support an optional record count callback Action.  We
+            // won't demonstrate that in all cases, but we'll show it here.  This can be useful in your code for showing progress during 
+            // long-running searches, or notifying the user of potential problems if a RecordCount.Discrepancy event occurs.
 
-			string moduleName = "Policies";
+            Action<RecordCountType, int> recordCallback = (t, c) =>
+            {
+                switch (t)
+                {
+                    case RecordCountType.Expected: expectedRecordCount = c; totalRecordCount = 0; break;
+                    case RecordCountType.Current: Utilities.Log($"Loaded {c} records of {expectedRecordCount}..."); break;
+                    case RecordCountType.Total: totalRecordCount = c; break;
+                    case RecordCountType.Discrepancy: throw new InvalidDataException($"Archer told us to expect {expectedRecordCount} records but instead returned {totalRecordCount} (a difference of {c} records).  " +
+                        "This indicates that either a) the data in Archer changed while the search was executing (causing records to shift position within the result and therefore be skipped or duplicated) or " +
+                        "b) Archer's search index has become corrupt and needs to be rebuilt.");
+                }
+            };
 
-			// This method demonstrates the "raw" content returned from an Archer webservices API search, which is
-			// simply a series of <Record> xml nodes containing <Field> nodes and, potentially sub-<Record> nodes (in
-			// the case of a levelled result).
+            string moduleName = "Policies";
 
-			Utilities.Log($"Loading all records from all levels in '{moduleName}'...", ConsoleColor.Yellow);
+            // This method demonstrates the "raw" content returned from an Archer webservices API search, which is
+            // simply a series of <Record> xml nodes containing <Field> nodes and, potentially sub-<Record> nodes (in
+            // the case of a levelled result).
 
-			// The Content.GetContent() method is overloaded to accept module/level by name, integer Id, Guid, or IArcherModule/IArcherLevel
-			// reference(s).  Here we'll just use the module name.
+            Utilities.Log($"Loading all records from all levels in '{moduleName}'...", ConsoleColor.Yellow);
 
-			// For this example we are not specifying any particular fields that we want return, so the results will include
-			// all fields for the module.  If desired, we could limit this to a specific subset of fields via either the
-			// optional IEnumerable<int> includeFieldIds parameter (in which we'd specify the integer field Ids that we want
-			// included in the results) or optional the Func<IArcherField, bool> includeFieldCallback parameter (in which
-			// we'd implement a callback method which returns true for each field that we want included in the result).
+            // The Content.GetContent() method is overloaded to accept module/level by name, integer Id, Guid, or IArcherModule/IArcherLevel
+            // reference(s).  Here we'll just use the module name.
 
-			// Also, by passing null for the level, we're telling the Content resolver to return records from all levels in
-			// the specified module.  If this instead specified a particular level within the module, only those fields/records
-			// from that level would be returned (see the next example for a demonstration of this behavior).
+            // For this example we are not specifying any particular fields that we want return, so the results will include
+            // all fields for the module.  If desired, we could limit this to a specific subset of fields via either the
+            // optional IEnumerable<int> includeFieldIds parameter (in which we'd specify the integer field Ids that we want
+            // included in the results) or optional the Func<IArcherField, bool> includeFieldCallback parameter (in which
+            // we'd implement a callback method which returns true for each field that we want included in the result).
 
-			IEnumerable<XElement> content = core.Content.GetContent(moduleName, null, recordCallback);
+            // Also, by passing null for the level, we're telling the Content resolver to return records from all levels in
+            // the specified module.  If this instead specified a particular level within the module, only those fields/records
+            // from that level would be returned (see the next example for a demonstration of this behavior).
+
+            IEnumerable<XElement> content = core.Content.GetContent(moduleName, null, recordCallback);
             int returnedRecordCount = content.Count();
-			if (returnedRecordCount > 0)
-			{
-				Utilities.Log("");
-				Utilities.Log($"Total records loaded: {totalRecordCount} of {expectedRecordCount} records", totalRecordCount == expectedRecordCount);
-				Utilities.Log("This count represents the number of records in the first level.  Records from deeper levels are nested inside their parent records.  Hit any key to see an example nested record from the results.", ConsoleColor.Green);
-				Utilities.Log("");
-				Console.ReadKey();
+            if (returnedRecordCount > 0)
+            {
+                Utilities.Log("");
+                Utilities.Log($"Total records loaded: {totalRecordCount} of {expectedRecordCount} records", totalRecordCount == expectedRecordCount);
+                Utilities.Log("This count represents the number of records in the first level.  Records from deeper levels are nested inside their parent records.  Hit any key to see an example nested record from the results.", ConsoleColor.Green);
+                Utilities.Log("");
+                Console.ReadKey();
 
-				// This line will find the first record in the results having something at both the second and third levels (i.e.
-				// the first record containing a record that also contains a record), in order to show how the levelled content is returned.
-				// This will occur during a full search on a levelled module since we haven't specifically requested a particular level
-				// within that module, or otherwise filtered the fields to be returned.
+                // This line will find the first record in the results having something at both the second and third levels (i.e.
+                // the first record containing a record that also contains a record), in order to show how the levelled content is returned.
+                // This will occur during a full search on a levelled module since we haven't specifically requested a particular level
+                // within that module, or otherwise filtered the fields to be returned.
 
-				// We expect the result to have at least one record satisfying this condition since Policies has 3 levels.
-				Utilities.Log(content.First(r => r.Element("Record")?.Element("Record") != null)?.ToString(SaveOptions.None));
-			}
+                // We expect the result to have at least one record satisfying this condition since Policies has 3 levels.
+                Utilities.Log(content.First(r => r.Element("Record")?.Element("Record") != null)?.ToString(SaveOptions.None));
+            }
             // Make sure the total count that Archer told us to expect matches the actual count that were returned
             Assert.AreEqual("Comparing expected count vs. returned count", returnedRecordCount, expectedRecordCount);
             // Confirm that we got > 0 results
             Assert.IsGreaterThanZero("Returned record count: " + returnedRecordCount, returnedRecordCount);
-		}
+        }
 
-		public static int LoadSingleLevelAsXml()
-		{
-			int expectedRecordCount = 0;
-			int totalRecordCount = 0;
+        public static int LoadSingleLevelAsXml()
+        {
+            int expectedRecordCount = 0;
+            int totalRecordCount = 0;
 
-			Action<RecordCountType, int> recordCallback = (t, c) =>
-			{
-				switch (t)
-				{
-					case RecordCountType.Expected: expectedRecordCount = c; totalRecordCount = 0; break;
-					case RecordCountType.Current: Utilities.Log($"Loaded {c} records of {expectedRecordCount}..."); break;
-					case RecordCountType.Total: totalRecordCount = c; break;
-				}
-			};
+            Action<RecordCountType, int> recordCallback = (t, c) =>
+            {
+                switch (t)
+                {
+                    case RecordCountType.Expected: expectedRecordCount = c; totalRecordCount = 0; break;
+                    case RecordCountType.Current: Utilities.Log($"Loaded {c} records of {expectedRecordCount}..."); break;
+                    case RecordCountType.Total: totalRecordCount = c; break;
+                }
+            };
 
-			string moduleName = "Policies";
+            string moduleName = "Policies";
 
-			// This method demonstrates the "raw" content returned from an Archer webservices API search, which is
-			// simply a series of <Record> xml nodes containing <Field> nodes and, potentially sub-<Record> nodes (in
-			// the case of a levelled result).
+            // This method demonstrates the "raw" content returned from an Archer webservices API search, which is
+            // simply a series of <Record> xml nodes containing <Field> nodes and, potentially sub-<Record> nodes (in
+            // the case of a levelled result).
 
-			int contentId = 0;
+            int contentId = 0;
 
             // Here we'll get the name of the deepest level from Policies and use it for the search...
             string levelName = core.Metadata.ApplicationByName("Policies").Levels.Last().Name;
 
-			Utilities.Log("");
-			Utilities.Log($"Loading all records from just the '{levelName}' level in '{moduleName}'...", ConsoleColor.Yellow);
-			IEnumerable<XElement> content = core.Content.GetContent(moduleName, levelName, recordCallback);
-			if (content.Count() > 0)
-			{
-				Utilities.Log("");
-				Utilities.Log($"Total records loaded: {totalRecordCount} of {expectedRecordCount} records", totalRecordCount == expectedRecordCount);
-				Utilities.Log($"This count represents just the number of records in the '{levelName}' level.  Records from other levels are not included here.  Hit any key to see an example flat record from the results.", ConsoleColor.Green);
-				Utilities.Log("");
-				Console.ReadKey();
-				var firstRecord = content.First();
-				Utilities.Log(firstRecord.ToString(SaveOptions.None));
-
-				contentId = firstRecord.AttrInt("contentId");
-			}
-			return contentId;
-		}
-
-		public static void LoadSingleContentAsJsonDictionary(int contentId)
-		{
-			Utilities.Log("");
-			Utilities.Log($"Loading a single content record (content Id {contentId}) via the REST API content method", ConsoleColor.Yellow);
-			var content = core.Content.GetContentById(contentId);
-
-			Utilities.Log(JsonConvert.SerializeObject(content));
-		}
-
-		public static void LoadContentAsIArcherContentAccess()
-		{
-			int expectedRecordCount = 0;
-			int totalRecordCount = 0;
-
-			Action<RecordCountType, int> recordCallback = (t, c) =>
-			{
-				switch (t)
-				{
-					case RecordCountType.Expected: expectedRecordCount = c; totalRecordCount = 0; break;
-					case RecordCountType.Current: Utilities.Log($"Loaded {c} records of {expectedRecordCount}..."); break;
-					case RecordCountType.Total: totalRecordCount = c; break;
-				}
-			};
-
-			string moduleName = "Policies";
-
-			// This method demonstrates the "raw" content returned from an Archer webservices API search, which is
-			// simply a series of <Record> xml nodes containing <Field> nodes and, potentially sub-<Record> nodes (in
-			// the case of a levelled result).
-
-			// The XElement record nodes are clumsy to work with, so let's pass them through a wrapper class to 
-			// make working with the content much simpler.  This is achieved by simply calling .ContentAccess(core) on
-			// the collection (or on a single record), which returns an IArcherContentAccess instance.
-
-			string firstPublishedFieldName = null;
-			string lastUpdatedFieldAlias = null;
-			Guid? trackingIdFieldGuid = null;
-			ITextField someRandomTextField = null;
-			IEnumerable<IUserGroupListField> userGroupFields = null;
-			IEnumerable<IValuesListField> valuesListFields = null;
-			IEnumerable<IDocumentField> documentFields = null; // image and attachment fields
-			IEnumerable<IExternalLinksField> externalLinksFields = null;
-
-			foreach (IArcherContentAccess record in core.Content.GetContent(moduleName, null, recordCallback) // <-- This call returns standard XmlElement structures, same as before
-				.ContentAccess(core)) // <-- and this extension method converts them into IArcherContentAccess objects which allow simple interrogation by field names, guids, aliases, etc.
-			{
-				// The Archer record's content_id is accessible via the Id property:
-
-				Utilities.Log($"Content Id: {record.Id}");
-
-				// All field values from the record can be resolved by string identifiers using the "Value(string identifier)" method.
-				// This allows mappings to be loaded from some external source like an Xml file, maintaining the identifiers needed to retrieve
-				// values as strings, rather than having to make your code call the .Key property when the mapping calls for it.
-				// For example, the Key property can be retrieved via record.Value("[Key]") as well.
-
-				// We can access all the metadata for each record directly from the records themselves...
-				IArcherModule module = record.Module;
-				IArcherLevel level = record.Level;
-
-				// ...as well as the metadata for all fields in the result.  We'll use that here to demonstrate four different ways of pulling field attributes from the record
-				// (by name, alias, guid, and field metadata object).
-				firstPublishedFieldName ??= record.Fields.First<IFirstPublishedField>().Name;
-				lastUpdatedFieldAlias ??= record.Fields.First<ILastUpdatedField>().Alias;
-				trackingIdFieldGuid ??= record.Fields.First<ITrackingIDField>().Guid;
-				someRandomTextField ??= record.Fields.First<ITextField>();
-
-				Utilities.Log($"First Published (by field name): {record.Value(firstPublishedFieldName)}");
-				Utilities.Log($"Last Updated (by field alias): {record.Value(lastUpdatedFieldAlias)}");
-
-				// If extensions are available, the update information can be retrieved for each record via the UpdateInformation property (or
-				// via Value("[UpdateInformation]") regardless of whether any FirstPublished/LastUpdated fields were included in the search:
-				var updateInfo = record.UpdateInformation;
-
-				// alternately, this could be retrieved via
-				// var updateInfo = record.Value<IContentUpdateInformation>("[UpdateInformation]");
-
-				DateTime? lastSystemUpdate = updateInfo.SystemUpdateDate;
-				if (lastSystemUpdate.HasValue) // this won't be present if we only have access to the Archer API
-				{
-					Utilities.Log($"Last system update occurred: {lastSystemUpdate.Value}");
-				}
-				// Like all properties, this value can also be retrieved via a string identifier, e.g.
-				// DateTime? lastSystemUpdate = (DateTime?)record["[UpdateInformation].SystemUpdateDate"];
-				// or var lastSystemDate = record.Value<DateTime>("[UpdateInformation].SystemUpdateDate");
-
-
-				Utilities.Log($"Tracking Id (by field Guid): {record.Value(trackingIdFieldGuid.Value)}");
-				Utilities.Log($"Random text field '{someRandomTextField.Name}': {record[someRandomTextField]}");
-
-				// Here's an example of a more complex type.  The value returned by UserGroupList fields is a UserGroupList object which
-				// exposes both the UserIds and GroupIds set for the field, as well as the complete User/Group objects for those Ids
-				// if you want to know something specific like a user's UserName or a groups DistinguishedName.
-
-				// Here we'll iterate all the IUserGroupListFields returned for the record and show their details:
-				userGroupFields ??= record.Fields.Where<IUserGroupListField>();
-				foreach (var userGroupField in userGroupFields)
-				{
-					// We can go at this in two different ways, either by getting the UserGroupList object into a local variable and then acting
-					// on its properties, or by using string identifiers with dot delimiters (i.e. "[Field Identifier].[Property]")...
-					IUserGroupListSelection ugs = record.Value(userGroupField);
-					if (ugs != null)
-					{
-						Utilities.Log($"UG Field '{userGroupField["Name"]}' contains userIds: {ugs.UserIds.Conjoin().NullIfEmpty() ?? "(none)"} and groupIds: {ugs.GroupIds.Conjoin().NullIfEmpty() ?? "(none)"}");
-					}
-
-					// The actual user and group objects are available via the ugs.Users and ugs.Groups properties, but this just demonstrates two
-					// more ways to access them, either by specific known type and property accessor (IEnumerable<IArcherUser> and UserName property in 
-					// the user example) or by the common IArcherEntity type (with property resolution by "Name" as a string) in the Group example...
-					string usersIdentifier = userGroupField["Alias"] + ".Users"; // e.g. "Some_Field_Alias.Users"
-					string groupsIdentifier = userGroupField["Name"] + ".Groups"; // e.g. "Some Field Name.Groups"
-					Utilities.Log($"  (Usernames: '{record.Value<IEnumerable<IArcherUser>>(usersIdentifier)?.Select(u => u.UserName).Conjoin("', '").NullIfEmpty() ?? "(none)"}')");
-					Utilities.Log($"  (Groupnames: '{((IEnumerable<IArcherEntity>)record.Value(groupsIdentifier))?.Select(g => g["Name"]).Conjoin("', '").NullIfEmpty() ?? "(none)"}')");
-				}
-
-				// Values list fields also return a complex type implementing IValuesListSection.  This features properties to access the values selected for the
-				// field (both as integer Ids and as fully-hydrated IArcherValuesListValue objects), as well as any "Other Text" that may have been entered for the record.
-				valuesListFields ??= record.Fields.Where<IValuesListField>();
-				foreach (var valuesListField in valuesListFields)
-				{
-					string vlFieldName = valuesListField["Name"];
-					// note that the above could have used the IValuesListField.Name property in the form
-					//	   vlFieldName = valuesListField.Name;
-					// as the two calls are functionally identical.
-
-					// This next line will do a hard-cast of whatever is in the field for the given VL fieldname to an IValuesListSelection.  If for 
-					// some reason the wires get crossed (e.g. you give it a Text field's name instead) and the value in that field is NOT a VL selection,
-					// this will throw an exception.
-					IValuesListSelection valueSelection = (IValuesListSelection)record[vlFieldName];
-
-					// A cleaner way to do it is via record.Value<V>(identifier).  This will return null if the value in the field is not of type V
-					// and cannot be converted to type V. E.g.:
-					valueSelection = record.Value<IValuesListSelection>(vlFieldName); // need not be the field's name here, could also be its Guid, its integer Id, or the valuesListField reference itself
-
-					// Or if you already have a specific field reference (like the valuesListField here, which we know is an IValuesListField) you
-					// can simply call Value() with that field object as a parameter.  The Value() method recognizes that valuesListField is an IValuesListField
-					// and therefore knows to return the correct type (IValuesListSelection in this case) with no casting required:
-					valueSelection = record.Value(valuesListField);
-
-					// Here we'll query the selected values of this field and get the Name from each, via the IArcherValuesListValue.Name property:
-					IEnumerable<string> selectedValueNames = valueSelection?.Values.Select(v => v.Name);
-					int valueCount = selectedValueNames?.Count() ?? 0;
-					if (valueCount > 0)
-					{
-						Utilities.Log($"  VL Field '{vlFieldName}' has selected {"value".Pluralize(valueCount)}: '{selectedValueNames.Conjoin("', '")}'");
-					}
-
-					// Some values lists define an "Other Text" option which allows users to enter supporting information for their selection.  In these
-					// cases the value entered for a record can be accessed via the IValuesListSelection.OtherText property or by appending ".OtherText"
-					// to the field identifier:
-
-					string otherTextIdentifier = vlFieldName + ".OtherText";
-					string otherText = record[otherTextIdentifier];
-					if (otherText != null)
-					{
-						Utilities.Log($"  and other text '{otherText}'");
-						// Or it can be accessed via property from the IValuesListSelection result as well
-						string alternateWayOfGettingOtherText = valueSelection.OtherText;
-						Utilities.Log($" Got '{alternateWayOfGettingOtherText}' via property for the same field value");
-					}
-				}
-
-				// Image and Attachment fields (commonly handled as IDocumentField) are two more complex field types.  Their record contents
-				// are represented via an IEnumerable<IArcherDocument> result which can return the Filename and Data for each file
-				// (or even download the file from the Archer instance to local storage):
-
-				documentFields ??= record.Fields.Where<IDocumentField>(); // this will return both Image fields and Attachment fields
-				foreach (var documentField in documentFields)
-				{
-					IEnumerable<IArcherDocument> uploadedFiles = record.Value<IEnumerable<IArcherDocument>>(documentField.Id); // use the field's Id in this example
-					if (uploadedFiles?.Count() > 0)
-					{
-						Utilities.Log($"  {documentField.FieldType} field {documentField.Name} contains these files:");
-						foreach (IArcherDocument uploadedFile in uploadedFiles)
-						{
-							Utilities.Log($"    Id: {uploadedFile.Id}  Filename: {uploadedFile.Filename}");
-							// The byte[] content of the file is accessible via the Data property, and can
-							// be saved to a local file via the Download(filename, overwriteExisting) method:
-							uploadedFile.Download(@"c:\temp\" + Guid.NewGuid().ToString());
-						}
-					}
-				}
-
-				// Similarly, External Links fields return IEnumerable<IExternalLink> results, with each IExternalLink returning its Name and Url as
-				// separate properties: 
-
-				externalLinksFields ??= record.Fields.Where<IExternalLinksField>();
-				foreach (var externalLinksField in externalLinksFields)
-				{
-					IEnumerable<IExternalLink> externalLinks = record.Value<IEnumerable<IExternalLink>>(externalLinksField.Guid); // use the field's Guid in this example
-					if (externalLinks?.Count() > 0)
-					{
-						Utilities.Log($"  External link field '{externalLinksField.Name}' contains these links:");
-						foreach (IExternalLink externalLink in externalLinks)
-						{
-							Utilities.Log($"    Name: {externalLink.Name}  Url: {externalLink.Url}");
-						}
-					}
-				}
-
-				// The record.Value<V>() method will return default(V) if the type conversion fails, for example, if an invalid field name/guid/alias/id is
-				// requested, or if the field is valid but the value in the field is not of the type requested.  So be aware of your type defaults, e.g.
-				// this call will return 0 (the default for int) since we're requested a field name that does not exist for the record:
-				int notAnIntField = record.Value<int>("Fake field that does not exist");
-				if (notAnIntField == 0)
-				{
-					Utilities.Log("Got a zero from the fake field as expected", true);
-				}
-				else
-				{
-					// This should never happen...
-					Utilities.Log($"Got unexpected non-zero value {notAnIntField} from the fake field", false);
-				}
-
-				// If levelled content was requested, each "parent" record from one level will return its "child" records from the next
-				// level in its ChildContent properties.  Each child record is itself an IArcherContentAccess result, so all of the
-				// above logic will apply to them as well.  And if there are more levels beneath those records, they can likewise be
-				// retrieved via the ChildContent property of each child record.
-
-				if (record.ChildContent.Count() > 0) // you could also use record.Value<IEnumerable<IArcherContentAccess>>("[ChildContent]") to get this
-				{
-					Utilities.Log("This record contains child (i.e. levelled) content which can be processed in the same way", ConsoleColor.Yellow);
-					foreach (var childRecord in record.ChildContent)
-					{
-						if (childRecord.UpdateInformation.UpdateDate.HasValue)
-						{
-							// UpdateInformation is not provided by the Archer search API, so this will only have results if
-							// the API extensions are enabled.
-							Utilities.Log($"  Child Content Id: {childRecord.Key} was last updated on {childRecord.UpdateInformation.UpdateDate} by {childRecord.UpdateInformation.UpdateUser?.UserName}");
-						}
-					}
-				}
-			}
-
-		}
-
-        public static void TraverseRelatedContent()
-        {
-            // This demo shows how Estrelica.Core makes it simple to evaluate metadata, load content from Archer, and then to traverse from 
-            // one record to another via reference fields (e.g. Cross-Reference, Related Records, or Subforms)
-
-            // First we'll identify a reference field (Related Records type) in the "Policies" application:
-            var controlStandardsField = core.Metadata.ApplicationByName("Policies")
-                .Fields.ByName<IRelatedRecordsField>("Control Standards");
-
-            // And also a values list field (demonstrating yet another way to get a field by type and name)
-            var statusField = controlStandardsField.Level // each field has a reference to its Level, so we'll just grab the Level from the field returned above
-                .FieldsOfType<IValuesListField>() // then ask that Level for all the Values List fields
-                .FirstOrDefault(f => f.Name == "Status"); // and filter down to the one having the name "Status" (returning null if none was found)
-
-            // Next, we'll load some content from Policies.  This returns IEnumerable<XElement> records
-            // directly from the Archer webservices "ExecuteSearch" API.
-            var content = core.Content.GetContent("Policies",
-                // We'll also provide a filter condition to cause the API to only return records which have something in the "Control Standards" field:
-                filterConditions: new XElement[] { controlStandardsField.CreateCondition(ValuesOperator.DoesNotContain, true, Array.Empty<int>())}
-                );
-
-            // Here's where the magic comes in.  We'll introduce a wrapper that converts each returned XElement to the "IArcherContentAccess" interface.
-            // This class adds intelligence to make working with Archer content easy (by adding strongly-typed accessor methods and making the content
-            // records aware of Estrelica.Core, allowing them to make their own API calls to further hydrate the model as needed)...
-            var policies = content.ContentAccess(core);
-
-            // And here we'll just take the first IArcherContentAccess record returned from the results to perform the remaining operations on:
-            var candidateRecord = policies.FirstOrDefault();
-
-            if (candidateRecord != null)
+            Utilities.Log("");
+            Utilities.Log($"Loading all records from just the '{levelName}' level in '{moduleName}'...", ConsoleColor.Yellow);
+            IEnumerable<XElement> content = core.Content.GetContent(moduleName, levelName, recordCallback);
+            if (content.Count() > 0)
             {
-                // We found a "Policies" record with something in the "Control Standards" Related Records field.
-                Console.WriteLine($"Found a 'Policies' record ({candidateRecord.TrackingId})");
+                Utilities.Log("");
+                Utilities.Log($"Total records loaded: {totalRecordCount} of {expectedRecordCount} records", totalRecordCount == expectedRecordCount);
+                Utilities.Log($"This count represents just the number of records in the '{levelName}' level.  Records from other levels are not included here.  Hit any key to see an example flat record from the results.", ConsoleColor.Green);
+                Utilities.Log("");
+                Console.ReadKey();
+                var firstRecord = content.First();
+                Utilities.Log(firstRecord.ToString(SaveOptions.None));
 
-                // Let's report its status from the "Status" VL field.
+                contentId = firstRecord.AttrInt("contentId");
+            }
+            return contentId;
+        }
 
-                // The "Status" field allows a maximum of one selection, but is not required so it may be empty.
-                // Therefore we'll use FirstOrDefault() to get its (potentially null) value.
-                IArcherValuesListValue statusValue = candidateRecord.Value(statusField).Values.FirstOrDefault();
-                if (statusValue == null)
+        public static void LoadSingleContentAsJsonDictionary(int contentId)
+        {
+            Utilities.Log("");
+            Utilities.Log($"Loading a single content record (content Id {contentId}) via the REST API content method", ConsoleColor.Yellow);
+            var content = core.Content.GetContentById(contentId);
+
+            Utilities.Log(JsonConvert.SerializeObject(content));
+        }
+
+        public static void LoadContentAsIArcherContentAccess()
+        {
+            int expectedRecordCount = 0;
+            int totalRecordCount = 0;
+
+            Action<RecordCountType, int> recordCallback = (t, c) =>
+            {
+                switch (t)
                 {
-                    Console.WriteLine("  with no 'Status' value");
+                    case RecordCountType.Expected: expectedRecordCount = c; totalRecordCount = 0; break;
+                    case RecordCountType.Current: Utilities.Log($"Loaded {c} records of {expectedRecordCount}..."); break;
+                    case RecordCountType.Total: totalRecordCount = c; break;
+                }
+            };
+
+            string moduleName = "Policies";
+
+            // This method demonstrates the "raw" content returned from an Archer webservices API search, which is
+            // simply a series of <Record> xml nodes containing <Field> nodes and, potentially sub-<Record> nodes (in
+            // the case of a levelled result).
+
+            // The XElement record nodes are clumsy to work with, so let's pass them through a wrapper class to 
+            // make working with the content much simpler.  This is achieved by simply calling .ContentAccess(core) on
+            // the collection (or on a single record), which returns an IArcherContentAccess instance.
+
+            string firstPublishedFieldName = null;
+            string lastUpdatedFieldAlias = null;
+            Guid? trackingIdFieldGuid = null;
+            ITextField someRandomTextField = null;
+            IEnumerable<IUserGroupListField> userGroupFields = null;
+            IEnumerable<IValuesListField> valuesListFields = null;
+            IEnumerable<IDocumentField> documentFields = null; // image and attachment fields
+            IEnumerable<IExternalLinksField> externalLinksFields = null;
+
+            foreach (IArcherContentAccess record in core.Content.GetContent(moduleName, null, recordCallback) // <-- This call returns standard XmlElement structures, same as before
+                .ContentAccess(core)) // <-- and this extension method converts them into IArcherContentAccess objects which allow simple interrogation by field names, guids, aliases, etc.
+            {
+                // The Archer record's content_id is accessible via the Id property:
+
+                Utilities.Log($"Content Id: {record.Id}");
+
+                // All field values from the record can be resolved by string identifiers using the "Value(string identifier)" method.
+                // This allows mappings to be loaded from some external source like an Xml file, maintaining the identifiers needed to retrieve
+                // values as strings, rather than having to make your code call the .Key property when the mapping calls for it.
+                // For example, the Key property can be retrieved via record.Value("[Key]") as well.
+
+                // We can access all the metadata for each record directly from the records themselves...
+                IArcherModule module = record.Module;
+                IArcherLevel level = record.Level;
+
+                // ...as well as the metadata for all fields in the result.  We'll use that here to demonstrate four different ways of pulling field attributes from the record
+                // (by name, alias, guid, and field metadata object).
+                firstPublishedFieldName ??= record.Fields.First<IFirstPublishedField>().Name;
+                lastUpdatedFieldAlias ??= record.Fields.First<ILastUpdatedField>().Alias;
+                trackingIdFieldGuid ??= record.Fields.First<ITrackingIDField>().Guid;
+                someRandomTextField ??= record.Fields.First<ITextField>();
+
+                Utilities.Log($"First Published (by field name): {record.Value(firstPublishedFieldName)}");
+                Utilities.Log($"Last Updated (by field alias): {record.Value(lastUpdatedFieldAlias)}");
+
+                // If extensions are available, the update information can be retrieved for each record via the UpdateInformation property (or
+                // via Value("[UpdateInformation]") regardless of whether any FirstPublished/LastUpdated fields were included in the search:
+                var updateInfo = record.UpdateInformation;
+
+                // alternately, this could be retrieved via
+                // var updateInfo = record.Value<IContentUpdateInformation>("[UpdateInformation]");
+
+                DateTime? lastSystemUpdate = updateInfo.SystemUpdateDate;
+                if (lastSystemUpdate.HasValue) // this won't be present if we only have access to the Archer API
+                {
+                    Utilities.Log($"Last system update occurred: {lastSystemUpdate.Value}");
+                }
+                // Like all properties, this value can also be retrieved via a string identifier, e.g.
+                // DateTime? lastSystemUpdate = (DateTime?)record["[UpdateInformation].SystemUpdateDate"];
+                // or var lastSystemDate = record.Value<DateTime>("[UpdateInformation].SystemUpdateDate");
+
+
+                Utilities.Log($"Tracking Id (by field Guid): {record.Value(trackingIdFieldGuid.Value)}");
+                Utilities.Log($"Random text field '{someRandomTextField.Name}': {record[someRandomTextField]}");
+
+                // Here's an example of a more complex type.  The value returned by UserGroupList fields is a UserGroupList object which
+                // exposes both the UserIds and GroupIds set for the field, as well as the complete User/Group objects for those Ids
+                // if you want to know something specific like a user's UserName or a groups DistinguishedName.
+
+                // Here we'll iterate all the IUserGroupListFields returned for the record and show their details:
+                userGroupFields ??= record.Fields.Where<IUserGroupListField>();
+                foreach (var userGroupField in userGroupFields)
+                {
+                    // We can go at this in two different ways, either by getting the UserGroupList object into a local variable and then acting
+                    // on its properties, or by using string identifiers with dot delimiters (i.e. "[Field Identifier].[Property]")...
+                    IUserGroupListSelection ugs = record.Value(userGroupField);
+                    if (ugs != null)
+                    {
+                        Utilities.Log($"UG Field '{userGroupField["Name"]}' contains userIds: {ugs.UserIds.Conjoin().NullIfEmpty() ?? "(none)"} and groupIds: {ugs.GroupIds.Conjoin().NullIfEmpty() ?? "(none)"}");
+                    }
+
+                    // The actual user and group objects are available via the ugs.Users and ugs.Groups properties, but this just demonstrates two
+                    // more ways to access them, either by specific known type and property accessor (IEnumerable<IArcherUser> and UserName property in 
+                    // the user example) or by the common IArcherEntity type (with property resolution by "Name" as a string) in the Group example...
+                    string usersIdentifier = userGroupField["Alias"] + ".Users"; // e.g. "Some_Field_Alias.Users"
+                    string groupsIdentifier = userGroupField["Name"] + ".Groups"; // e.g. "Some Field Name.Groups"
+                    Utilities.Log($"  (Usernames: '{record.Value<IEnumerable<IArcherUser>>(usersIdentifier)?.Select(u => u.UserName).Conjoin("', '").NullIfEmpty() ?? "(none)"}')");
+                    Utilities.Log($"  (Groupnames: '{((IEnumerable<IArcherEntity>)record.Value(groupsIdentifier))?.Select(g => g["Name"]).Conjoin("', '").NullIfEmpty() ?? "(none)"}')");
+                }
+
+                // Values list fields also return a complex type implementing IValuesListSection.  This features properties to access the values selected for the
+                // field (both as integer Ids and as fully-hydrated IArcherValuesListValue objects), as well as any "Other Text" that may have been entered for the record.
+                valuesListFields ??= record.Fields.Where<IValuesListField>();
+                foreach (var valuesListField in valuesListFields)
+                {
+                    string vlFieldName = valuesListField["Name"];
+                    // note that the above could have used the IValuesListField.Name property in the form
+                    //	   vlFieldName = valuesListField.Name;
+                    // as the two calls are functionally identical.
+
+                    // This next line will do a hard-cast of whatever is in the field for the given VL fieldname to an IValuesListSelection.  If for 
+                    // some reason the wires get crossed (e.g. you give it a Text field's name instead) and the value in that field is NOT a VL selection,
+                    // this will throw an exception.
+                    IValuesListSelection valueSelection = (IValuesListSelection)record[vlFieldName];
+
+                    // A cleaner way to do it is via record.Value<V>(identifier).  This will return null if the value in the field is not of type V
+                    // and cannot be converted to type V. E.g.:
+                    valueSelection = record.Value<IValuesListSelection>(vlFieldName); // need not be the field's name here, could also be its Guid, its integer Id, or the valuesListField reference itself
+
+                    // Or if you already have a specific field reference (like the valuesListField here, which we know is an IValuesListField) you
+                    // can simply call Value() with that field object as a parameter.  The Value() method recognizes that valuesListField is an IValuesListField
+                    // and therefore knows to return the correct type (IValuesListSelection in this case) with no casting required:
+                    valueSelection = record.Value(valuesListField);
+
+                    // Here we'll query the selected values of this field and get the Name from each, via the IArcherValuesListValue.Name property:
+                    IEnumerable<string> selectedValueNames = valueSelection?.Values.Select(v => v.Name);
+                    int valueCount = selectedValueNames?.Count() ?? 0;
+                    if (valueCount > 0)
+                    {
+                        Utilities.Log($"  VL Field '{vlFieldName}' has selected {"value".Pluralize(valueCount)}: '{selectedValueNames.Conjoin("', '")}'");
+                    }
+
+                    // Some values lists define an "Other Text" option which allows users to enter supporting information for their selection.  In these
+                    // cases the value entered for a record can be accessed via the IValuesListSelection.OtherText property or by appending ".OtherText"
+                    // to the field identifier:
+
+                    string otherTextIdentifier = vlFieldName + ".OtherText";
+                    string otherText = record[otherTextIdentifier];
+                    if (otherText != null)
+                    {
+                        Utilities.Log($"  and other text '{otherText}'");
+                        // Or it can be accessed via property from the IValuesListSelection result as well
+                        string alternateWayOfGettingOtherText = valueSelection.OtherText;
+                        Utilities.Log($" Got '{alternateWayOfGettingOtherText}' via property for the same field value");
+                    }
+                }
+
+                // Image and Attachment fields (commonly handled as IDocumentField) are two more complex field types.  Their record contents
+                // are represented via an IEnumerable<IArcherDocument> result which can return the Filename and Data for each file
+                // (or even download the file from the Archer instance to local storage):
+
+                documentFields ??= record.Fields.Where<IDocumentField>(); // this will return both Image fields and Attachment fields
+                foreach (var documentField in documentFields)
+                {
+                    IEnumerable<IArcherDocument> uploadedFiles = record.Value<IEnumerable<IArcherDocument>>(documentField.Id); // use the field's Id in this example
+                    if (uploadedFiles?.Count() > 0)
+                    {
+                        Utilities.Log($"  {documentField.FieldType} field {documentField.Name} contains these files:");
+                        foreach (IArcherDocument uploadedFile in uploadedFiles)
+                        {
+                            Utilities.Log($"    Id: {uploadedFile.Id}  Filename: {uploadedFile.Filename}");
+                            // The byte[] content of the file is accessible via the Data property, and can
+                            // be saved to a local file via the Download(filename, overwriteExisting) method:
+                            uploadedFile.Download(@"c:\temp\" + Guid.NewGuid().ToString());
+                        }
+                    }
+                }
+
+                // Similarly, External Links fields return IEnumerable<IExternalLink> results, with each IExternalLink returning its Name and Url as
+                // separate properties: 
+
+                externalLinksFields ??= record.Fields.Where<IExternalLinksField>();
+                foreach (var externalLinksField in externalLinksFields)
+                {
+                    IEnumerable<IExternalLink> externalLinks = record.Value<IEnumerable<IExternalLink>>(externalLinksField.Guid); // use the field's Guid in this example
+                    if (externalLinks?.Count() > 0)
+                    {
+                        Utilities.Log($"  External link field '{externalLinksField.Name}' contains these links:");
+                        foreach (IExternalLink externalLink in externalLinks)
+                        {
+                            Utilities.Log($"    Name: {externalLink.Name}  Url: {externalLink.Url}");
+                        }
+                    }
+                }
+
+                // The record.Value<V>() method will return default(V) if the type conversion fails, for example, if an invalid field name/guid/alias/id is
+                // requested, or if the field is valid but the value in the field is not of the type requested.  So be aware of your type defaults, e.g.
+                // this call will return 0 (the default for int) since we're requested a field name that does not exist for the record:
+                int notAnIntField = record.Value<int>("Fake field that does not exist");
+                if (notAnIntField == 0)
+                {
+                    Utilities.Log("Got a zero from the fake field as expected", true);
                 }
                 else
                 {
-                    Console.WriteLine($"  with a 'Status' of '{statusValue.Name}'");
-                    // A VL field value might have "Other Text" associated with it.  If so, it's easy to retreve it:
-                    if (statusValue.EnableOtherText)
-                    {
-                        string otherText = candidateRecord.Value(statusField).OtherText;
-                        Console.WriteLine($"  and with this 'other text' for the 'Status' field: '{otherText}'");
-                    }
-
-                    // We can also show the other values from the same VL which were *not* selected for the field.
-                    // This is easy to do because the ValuesList itself is a property of the IValuesListField type:
-
-                    var alternateValues = statusField.ValuesList.Values.Where(v => v != statusValue);
-
-                    if (alternateValues.Count() > 0)
-                    {
-                        Console.WriteLine($"  Alternate values for the 'Status' field are '{(alternateValues.Select(v => v.Name).Conjoin("', '"))}'");
-                    }
-
+                    // This should never happen...
+                    Utilities.Log($"Got unexpected non-zero value {notAnIntField} from the fake field", false);
                 }
 
-                // Then let's see what's actually in the "Control Standards" field...
-                foreach (var controlStandard in candidateRecord.Value(controlStandardsField).Content)
+                // If levelled content was requested, each "parent" record from one level will return its "child" records from the next
+                // level in its ChildContent properties.  Each child record is itself an IArcherContentAccess result, so all of the
+                // above logic will apply to them as well.  And if there are more levels beneath those records, they can likewise be
+                // retrieved via the ChildContent property of each child record.
+
+                if (record.ChildContent.Count() > 0) // you could also use record.Value<IEnumerable<IArcherContentAccess>>("[ChildContent]") to get this
                 {
-                    Console.WriteLine($"Found content {controlStandard.TrackingId} in the '{controlStandardsField.Name}' cross-reference field of Policies record {candidateRecord.TrackingId}");
-                    // Each referenced record returned via the ".Content" property is also an IArcherContentAccess result,
-                    // so we can iterate the records that are related to this one as well...
-
-                    // Here we'll ask this record for all of its reference fields (e.g. Cross-Reference, Related Records, and Subforms)
-                    // to find any which have content (similar to what we did above in order to get to this record, but instead of
-                    // just querying for a specific field by name as we did in that case, here we'll just look for content in *any*
-                    // reference fields).
-
-                    // All this record's field's are available via its Fields property.  We'll use the Where<T>() LINQ
-                    // method to isolate just the IReferenceField types (Cross-Reference, Related Records and Subforms),
-                    // but let's specifically ignore any fields that lead back to the "Policies" application, since we've already
-                    // been there.  Let's go visit some other application or subform instead...
-                    foreach (IReferenceField refField in controlStandard.Fields.Where<IReferenceField>(f => f.ReferencedModule.Name != "Policies"))
+                    Utilities.Log("This record contains child (i.e. levelled) content which can be processed in the same way", ConsoleColor.Yellow);
+                    foreach (var childRecord in record.ChildContent)
                     {
-                        // And then for each reference field, we'll find the ones that have content in them:
-                        if (controlStandard.Value(refField).HasValue)
+                        if (childRecord.UpdateInformation.UpdateDate.HasValue)
                         {
-                            // And iterate their referenced records...
-                            foreach (var referencedRecord in controlStandard.Value(refField).Content)
-                            {
-                                // At this point we're three levels deep.  We started with a single "Policies" record, moved on to one
-                                // of its referenced "Control Standards" records, and now we're looking at records in yet another application/questionnaire/subform
-                                // referenced from that "Control Standards" record.  All without ever making an explicit API call.
-                                Console.WriteLine($"Found referenced content {referencedRecord.TrackingId} from the module '{referencedRecord.Module.Name}' in the {refField.FieldType} field named {refField.Name} of record {controlStandard.TrackingId}");
-                            }
+                            // UpdateInformation is not provided by the Archer search API, so this will only have results if
+                            // the API extensions are enabled.
+                            Utilities.Log($"  Child Content Id: {childRecord.Key} was last updated on {childRecord.UpdateInformation.UpdateDate} by {childRecord.UpdateInformation.UpdateUser?.UserName}");
                         }
                     }
-
                 }
-
             }
 
         }
+
+        private static Random rnd = new Random();
+        private static T randomField<T>(IEnumerable<IArcherField> fields) where T:IArcherField 
+        {
+            // This is a helper function used below while visiting records to show the content of random fields
+            // in each record just to keep things interesting...
+            return fields.OfType<T>().OrderBy<T, int>(f => rnd.Next()).FirstOrDefault();
+        }
+
+        public static void TraverseRelatedContent()
+		{
+
+            // This method demonstrates how Archer content and metadata is (typically) interrelated -- content records do not generally exist on their
+            // own in isolation, but instead are part of a bigger picture comprising multiple records linked together via the three reference field types
+            // (Cross-Reference, Related Records, and Subform fields).  Given the thousands of possible relationships that might exist, this "big picture"
+            // can resemble a massive web of connections between content records, and the task of navigating through that web via discrete API calls can
+            // be challenging.
+
+            // Estrelica.Core represents this "big picture" view of content and metadata as a virtual object graph via the IArcherContentAccess interface.
+            // Given a single Archer content record represented by an IArcherContentAccess reference, all of that record's metadata and related content
+            // can be accessed through the methods and properties of that interface.
+            //
+            // Since related content is itself returned as IArcherContentAccess references, this forms a hiearchy of content that is easily navigable
+            // without ever needing to make any direct calls the Archer API in your code.
+
+            // Here we'll use the "Control Standards" application as a starting point, which (in a stock Archer installation) has direct and indirect 
+            // relations to "Policies", "Authoritative Sources", "Question Library" and many other Archer applications.  We'll iterate through the
+            // records in that hierarchy to show the values from a few random fields and provide some details about the relationships discovered in the content.
+
+            // Hit Q at any time to stop the iteration, or any other key to pause.
+            
+            // Feel free to specify a different application name here if you'd like to explore other content relationships:
+            var applicationName = "Control Standards";
+
+            #region visitContent method
+            // This section merely defines the visitContent() method that will be used to show the details of each record in the hierarchy.
+            // Program flow will commence with the .GetContent() statement following this section.
+
+            // Helper method for showing field labels for content
+            Action<IArcherField> showFieldLabel = (field) =>
+            {
+                // Special handling to create a label for Record Permissions fields, which are simply UG fields with .IsRecordPermission = true.
+                // For all other cases we'll just show the field type in the label.
+                string fieldTypeLabel = field is IUserGroupListField ug && ug.IsRecordPermission ? "RecordPermission" : field.FieldType.ToString();
+
+                Console.Write($"{fieldTypeLabel} field '{field.Name}' in Module '{field.Level.Module.Name}' ");
+                if (field.Level.Module.Levels.Count() > 1)
+                {
+                    Console.Write($"(Level: '{field.Level.Name}') ");
+                }
+                Console.Write("contains ");
+            };
+
+            HashSet<int> visitedContent = new HashSet<int>();
+            HashSet<int> visitedModules = new HashSet<int>();
+            HashSet<int> visitedValuesLists = new HashSet<int>();
+
+            bool showMoreRecords = true;
+
+            int stackLimit = 4; // limit how deep we go into the content hierarchy, otherwise this could take hours
+            int stackDepth = 0;
+            int recordCount = 0;
+
+            Action<IArcherContentAccess> visitContent = null; // must declare and assign this variable on separate lines so it can be recursive
+            visitContent = (record) =>
+            {
+                // Make sure a) we haven't exceeded the stack limit, b) we haven't been told to stop, c) that we actually have a record, and
+                // d) that we haven't already seen it (otherwise we'll end up in an endless circular reference)
+                if (++stackDepth <= stackLimit && showMoreRecords && record != null && visitedContent.Add(record.Id))
+                {
+                    if (Console.KeyAvailable)
+                    {
+                        showMoreRecords = Char.ToUpper(Console.ReadKey(true).KeyChar) != 'Q';
+                        if (showMoreRecords)
+                        {
+                            Utilities.Log("Iteration paused.  Press any key to continue or 'Q' to quit.", ConsoleColor.Cyan);
+                            showMoreRecords = Char.ToUpper(Console.ReadKey(true).KeyChar) != 'Q';
+                        }
+                    }
+
+                    if (showMoreRecords)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine($"Record count: {++recordCount}, Depth: {stackDepth}");
+                        var separator = new String('=', (stackDepth - 1) * 4) + "> ";
+                        Console.Write(separator);
+
+                        visitedModules.Add(record.ModuleId);
+
+                        // If this is a levelled module, indicate its level name
+                        if (record.Module.Levels.Count() > 1)
+                        {
+                            Console.WriteLine($"{record.Module.Name} ({record.Level.Name}): {record.TrackingId}");
+                        }
+                        // Otherwise just note the module
+                        else
+                        {
+                            Console.WriteLine($"{record.Module.Name}: {record.TrackingId}");
+                        }
+
+                        // Show the standard First Published and Last Updated info:
+                        Console.WriteLine($"First Published {record.UpdateInformation.CreateDate?.ToLocalTime()} by {record.UpdateInformation.CreateUser?.UserName}");
+                        Console.WriteLine($"Last Updated {record.UpdateInformation.UpdateDate?.ToLocalTime()} by {record.UpdateInformation.UpdateUser?.UserName}");
+
+                        // Let's grab a few random fields from this record and show what's in each of them.
+
+                        var textField = randomField<ITextField>(record.Level.Fields);
+                        if (textField != null)
+                        {
+                            showFieldLabel(textField);
+                            string textFieldValue = record.Value(textField);
+                            Console.WriteLine(textFieldValue.IsNullOrEmpty() ? "no value" : "\"" + textFieldValue + "\"");
+                        }
+
+                        var vlField = randomField<IValuesListField>(record.Level.Fields);
+                        if (vlField != null)
+                        {
+                            int valueCount = record.Value(vlField).Values.Count();
+                            showFieldLabel(vlField);
+                            if (valueCount == 0)
+                            {
+                                Console.Write("no selection");
+                            }
+                            else
+                            {
+                                Console.Write($"the selection{(valueCount == 1 ? null : "s")} \"{record.Value(vlField).Values.Select(vlv => vlv.Name).Conjoin("\", \"")}\"");
+                            }
+                            
+                            if (visitedValuesLists.Add(vlField.RelatedValuesListId))
+                            {
+                                // This can get very chatty, so let's show the available sections the first time we hit a values list we haven't already
+                                // seen, but skip it on subsequent visits...
+                                Console.Write($" from the possible selections \"{vlField.ValuesList.Values.Select(vlv => vlv.Name).Conjoin("\", \"")}\"");
+                            }
+
+
+                            // If the field has "Other Text" selected, we'll display that too
+
+                            var otherText = record.Value(vlField).OtherText;
+                            if (!otherText.IsNullOrEmpty())
+                            {
+                                Console.Write($" as well as the text value: \"{otherText}\"");
+                            }
+                            Console.WriteLine();
+                        }
+
+                        var numericField = randomField<INumericField>(record.Level.Fields);
+                        if (numericField != null)
+                        {
+                            // Numeric fields in Archer are an odd case, since they're always stored as decimals in the database, but may be configured
+                            // to display as simple integers in the UI for view/edit purposes.  Therefore, Estrelica.Core overloads the IArcherContentAccess.Value()
+                            // method for INumericField to let you as the developer retrieve values in these fields in whatever .NET numeric type is correct
+                            // for your code.  So if you know your field only contains integers you can retrieve its values cast at ints using record.Value<int>(numericField),
+                            // and if you know it's being used for decimals you can retrieve them with record.Value<decimal>(numericField).  For that matter you can
+                            // call it with double or Float if that's your use case.  Any .NET numeric type is valid for this call.
+
+                            // For simplicity's sake we'll just consider two cases, treating the field as an int if the field has 0 or no decimal places configured,
+                            // otherwise we'll treat it as a double, and format the output with however many decimal places are configured for the UI:
+                            showFieldLabel(numericField);
+                            int decimalPlaces = numericField.DecimalPlaces.GetValueOrDefault();
+                            if (decimalPlaces == 0)
+                            {
+                                int? numericValue = record.Value<int>(numericField);
+                                Console.WriteLine(numericValue.HasValue ? numericValue.Value.ToString() : "no value");
+                            }
+                            else
+                            {
+                                double? numericValue = record.Value<double>(numericField);
+                                Console.WriteLine(numericValue.HasValue ? numericValue.Value.ToString($"N{decimalPlaces}") : "no value");
+                            }
+                        }
+
+                        var dateField = randomField<IDateField>(record.Level.Fields);
+                        if (dateField != null)
+                        {
+                            showFieldLabel(dateField);
+                            var includeTime = dateField.IncludeTimeInformation;
+                            var dateValue = record.Value(dateField);
+                            if (dateValue.HasValue)
+                            {
+                                Console.WriteLine(dateValue.Value.ToLocalTime().ToString(includeTime ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd"));
+                            }
+                            else
+                            {
+                                Console.WriteLine("no value");
+                            }
+                        }
+
+                        // Image fields and Attachment fields both implement the base IDocumentField interface, so this will grab
+                        // a random field of either type, if any exist on this level:
+                        var docField = randomField<IDocumentField>(record.Level.Fields);
+                        if (docField != null)
+						{
+                            showFieldLabel(docField);
+                            IEnumerable<IArcherDocument> imagesOrAttachments = record.Value(docField) ?? Enumerable.Empty<IArcherDocument>();
+                            if (imagesOrAttachments.Count() == 0)
+							{
+                                Console.WriteLine("no documents");
+							}
+                            else
+							{
+                                Console.WriteLine($"{imagesOrAttachments.Count()} documents: \"{imagesOrAttachments.Select(d => d.Filename).Conjoin("\", \"")}\"");
+							}
+						}
+
+                        var userGroupListField = randomField<IUserGroupListField>(record.Level.Fields);
+                        if (userGroupListField != null)
+						{
+                            showFieldLabel(userGroupListField);
+                            // UserGroupList fields can contain any combination of users and/or groups, separated into the
+                            // Users and Groups properties of IUserGroupListSelection:
+                            IUserGroupListSelection usersAndOrGroups = record.Value(userGroupListField);
+                            
+                            if (usersAndOrGroups.Users.Count() == 0)
+							{
+                                Console.Write("no users and ");
+							}
+                            else
+							{
+                                Console.Write($"these users: {usersAndOrGroups.Users.Select(u => u.UserName).Conjoin()} and ");
+							}
+
+                            if (usersAndOrGroups.Groups.Count() == 0)
+							{
+                                Console.WriteLine("no groups");
+							}
+                            else
+							{
+                                Console.WriteLine($"these groups: \"{usersAndOrGroups.Groups.Select(g => g.Name).Conjoin("\", \"")}\"");
+							}
+						}
+
+                        Console.WriteLine();
+
+                        // Now iterate through this record's reference fields, i.e. its Cross-Reference, Related Records and Subforms,
+                        // and if we haven't already visited whatever records they are linked to, go ahead and traverse that content too...
+                        foreach (var referenceField in record.Fields.OfType<IReferenceField>())
+                        {
+                            // First just have a look at the referenced content Ids to see if any of them are Ids that we haven't already 
+                            // visited.  The ".Ids" property is just a set of integer content Ids that are already loaded, by virtue of having loaded
+                            // the current (parent) record.  Calling the ".Content" property will actually make an API call to fully hydrate an
+                            // IEnumerable<IArcherContentAccess> collection with all of the content for each of those Ids.
+                            // Therefore, if we evaluate all those Ids and see that we've already visited all of them, there's no need to
+                            // visit them again, so we can skip everything that follows and avoid unneccessary API calls.
+                            if (showMoreRecords && stackDepth < stackLimit && record.Value(referenceField).Ids.Any(id => !visitedContent.Contains(id)))
+                            {
+                                var referencedContent = record.Value(referenceField).Content;
+                                if (referencedContent.Count() > 0)
+                                {
+                                    showFieldLabel(referenceField);
+                                    Console.WriteLine($"TrackingIds {referencedContent.Select(c => c.TrackingId).Conjoin()} in Module '{referenceField.ReferencedModule.Name}'");
+                                    foreach (var referencedRecord in referencedContent)
+                                    {
+                                        if (showMoreRecords)
+                                        {
+                                            visitContent(referencedRecord);
+                                        }
+                                        else
+										{
+                                            break;
+										}
+                                    }
+                                }
+                            }
+                        }
+                    }                    
+                }
+                stackDepth--;
+            };
+
+            #endregion
+
+            // All of the above merely defines the visitContent() method that will be used to show what's in each record in the
+            // hierarchy.  This is where we actually fetch the content from Archer and begin sending records to that method.
+            // We'll just visit the first 5 records to prime the pump...
+
+            Utilities.Log("Press 'Q' at any time to stop the iteration, any other key to pause.", ConsoleColor.Cyan);
+
+			var content = core.Content.GetContent(applicationName).Take(5).ContentAccess(core);
+
+            foreach(var record in content)
+			{
+                if (showMoreRecords)
+				{
+                    visitContent(record);
+				}
+                else
+				{
+                    break;
+				}
+			}
+
+            Utilities.Log($"Visited {visitedContent.Count()} unique records spanning {visitedModules.Count()} modules ({visitedModules.Select(id => core.Metadata.ModuleById(id)).OrderBy(m => m.Name).Select(m => $"'{m.Name}' ({m.ModuleType})").Conjoin()})");
+
+		}
 
         public static void CreateUpdateAndDeleteApplicationsRecord()
         {
@@ -584,6 +780,7 @@ namespace ContentDemo
             string attachmentFilename = null;
             int contentId = 0;
             int newSubformContentId = 0;
+            IArcherValuesListValue newlyAddedVLV = null;
 
             try
             {
@@ -1437,13 +1634,14 @@ format it carries, Estrelica.Core provides a common programming model via IArche
                     int subformFieldId = subformField.Id;
 
                     // By passing an ITextField (versionField) to the Field() method, the content record knows it should return an
-                    // ITextValueEdit editor, which has a strongly-typed "Value" property which only accepts strings:
+                    // ITextValueEdit editor, which has a strongly-typed "Value" property that only accepts strings:
 
                     contentEdit.Field(versionField).Value = "unknown";
 
-                    // But when retrieving an editor using string/guid/int field Identifiers, we have to choose the method
-                    // appropriate to the field type we expect (e.g. "NumericField()", "ValuesListField()", etc.) so
-                    // Estrelica.Core knows which editor type is relevant for the field:
+                    // But when retrieving a field editor using string/guid/int field Identifiers, the compiler doesn't know which
+                    // field type that identifier represents, so we have to choose the method appropriate to the field type we expect
+                    // (e.g. "NumericField()", "ValuesListField()", etc.).  This way Estrelica.Core knows which editor type is relevant
+                    // for the field:
 
                     // INumericValueEdit likewise has a strongly-typed "Value" property which only accepts numbers
                     // (specifically, nullable decimals):
@@ -1457,7 +1655,7 @@ format it carries, Estrelica.Core provides a common programming model via IArche
                     // attempt to set a value that isn't valid for the field:
                     Assert.ThrowsException<ArgumentException>($"Confirming '{applicationTypeField.Name}' {applicationTypeField.FieldType} won't accept invalid values",
                         () =>
-                        contentEdit.ValuesListField(applicationTypeFieldAlias).Set("asedfgjklhklqajwherm,bn")
+                        contentEdit.ValuesListField(applicationTypeFieldAlias).Set("Some bogus invalid value")
                     );
 
                     // Likewise if we try to do it using an invalid integer Id for the value
@@ -1476,6 +1674,12 @@ format it carries, Estrelica.Core provides a common programming model via IArche
                         contentEdit.ValuesListField(applicationTypeFieldAlias).Set(invalidVLV)
                     );
 
+                    // However, we can add new/unknown values to the underlying VL and set it on the field as well in a single call if we
+                    // pass true in the "addUnknownValues" parameter (we'll delete this value later in the cleanup/finally section):
+                    Assert.ThrowsNoException($"Confirming '{applicationTypeField.Name}' {applicationTypeField.FieldType} will accept unknown values if we pass 'addUnknownValues: true'",
+                        () =>
+                            contentEdit.ValuesListField(applicationTypeFieldAlias).Set("Some new unknown value", addUnknownValues: true)
+                    );
 
                     // Remove the CrossReference/RelatedRecords values we inserted earlier, if any.
                     if (targetCrossRefContentId > 0)
@@ -1551,6 +1755,12 @@ format it carries, Estrelica.Core provides a common programming model via IArche
                             0, record.Value(relatedRecordsField).Ids.Count());
                     }
 
+                    // Verify that the new VLV we added to the VL was set as the sole value on the applicationType field:
+                    newlyAddedVLV = record.Value(applicationTypeField).Values.SingleOrDefault(vlv => vlv.Name == "Some new unknown value");
+
+                    Assert.IsNotNull($"Verifying {applicationTypeField.FieldType} '{applicationTypeField.Name}' was set to a newly-added/previously-unknown value",
+                        newlyAddedVLV);
+
                     Utilities.Log($"The record has been updated in the '{application.Name}' application.  This is your last chance to see it in Archer, as we will delete it in the next step.  Hit any key when you're ready to proceed.");
                     Utilities.Pause();
                 } // end of "if (proceedWithInsert)"
@@ -1596,17 +1806,26 @@ If not, and the existing 'Estrelica.Core' record is a valid production record in
                     Utilities.Log($"Now that record we just created and edited ({contentId}) has been deleted from Archer, attempting to reload it at this point should result in either null (if treatResourceNotFoundAsNull = true, the default) or an InvalidOperationException (if treatResourceNotFoundAsNull = false)", ConsoleColor.Cyan);
 
                     Assert.IsNull(
-                        $"Confirming that an attempt to load the deleted content Id {contentId} with treatResourceNotFoundAsNull = true returns null",
+                        $"Confirming that an attempt to load the deleted content Id {contentId} with treatResourceNotFoundAsNull: true returns null",
                         // Archer will return a "resource not found" error for this call.  Passing treatResourceNotFoundAsNull = true will cause
                         // Estrelica.Core to simply return a null result in that case.
                         core.Content.GetContentById(contentId, treatResourceNotFoundAsNull: true));
 
                     Assert.ThrowsException<InvalidOperationException>(
-                        $"Confirming that an attempt to load the deleted content Id {contentId} with treatResourceNotFoundAsNull = false throws an InvalidOperationException",
+                        $"Confirming that an attempt to load the deleted content Id {contentId} with treatResourceNotFoundAsNull: false throws an InvalidOperationException",
                         // Passing treatResourceNotFoundAsNull = false will cause Estrelica.Core to raise an InvalidOperationException for the error returned by Archer.
                         // If the debugger stops here, that's a good thing.
                         () => core.Content.GetContentById(contentId, treatResourceNotFoundAsNull: false));
                 }
+
+                // Since the VLV we added was attached to the content record we created/updated, we can't remove the VLV until 
+                // that record has been deleted above, so we'll do it now
+                if (newlyAddedVLV != null)
+                {
+                    Assert.IsTrue($"Deleted newly-added Values List Value: '{newlyAddedVLV.Name}'",
+                        core.Metadata.DeleteValuesListValue(newlyAddedVLV));
+                }
+
             }
         }
 

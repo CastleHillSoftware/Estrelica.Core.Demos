@@ -26,6 +26,14 @@ namespace Snippets
 			var core = CoreConfig.Load(w => Console.WriteLine(w.Message));
 		}
 
+		static void UseCustomWebProxy()
+		{
+			/* Estrelica.Core supports custom Proxy settings for situations where the default proxy settings on the local machine do not work.  You can easily instantiate
+			 * a new System.Net.WebProxy object with whatever custom settings you require, and direct Estrelica.Core to use that for all of its API calls.  For example, 
+			 * to make Estrelica.Core ignore the system-defined proxy for local addresses, just do this: */
+			Estrelica.Core.Proxy = new System.Net.WebProxy { BypassProxyOnLocal = true };
+		}
+
 		static void UseWebservicesForAuthentication()
 		{
 			/* Estrelica.Core defaults to using the newer REST API vs. the older SOAP/Webservices API when functionality is duplicated between the two.  One exception to this is
@@ -140,7 +148,7 @@ namespace Snippets
 					// This is the exception we expect when the SSO token has expired, so we'll refresh it and
 					// allow Estrelica.Core to try again:
 					ssoToken = getNewSSOToken(); // refresh the token
-					return true;
+					return true; // Tell Estrelica.Core that we've handled the error and we want the API call to be tried again.
 				}
 				else
 				{

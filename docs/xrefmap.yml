@@ -17880,19 +17880,6 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Metadata.IArcherValuesList.FileIds
   nameWithType: IArcherValuesList.FileIds
-- uid: Estrelica.Archer.Metadata.IArcherValuesList.Invalidate
-  name: Invalidate()
-  href: api/Estrelica.Archer.Metadata.IArcherValuesList.html#Estrelica_Archer_Metadata_IArcherValuesList_Invalidate
-  commentId: M:Estrelica.Archer.Metadata.IArcherValuesList.Invalidate
-  fullName: Estrelica.Archer.Metadata.IArcherValuesList.Invalidate()
-  nameWithType: IArcherValuesList.Invalidate()
-- uid: Estrelica.Archer.Metadata.IArcherValuesList.Invalidate*
-  name: Invalidate
-  href: api/Estrelica.Archer.Metadata.IArcherValuesList.html#Estrelica_Archer_Metadata_IArcherValuesList_Invalidate_
-  commentId: Overload:Estrelica.Archer.Metadata.IArcherValuesList.Invalidate
-  isSpec: "True"
-  fullName: Estrelica.Archer.Metadata.IArcherValuesList.Invalidate
-  nameWithType: IArcherValuesList.Invalidate
 - uid: Estrelica.Archer.Metadata.IArcherValuesList.IsSystem
   name: IsSystem
   href: api/Estrelica.Archer.Metadata.IArcherValuesList.html#Estrelica_Archer_Metadata_IArcherValuesList_IsSystem
@@ -22865,6 +22852,19 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Utility.IContentResolver.PerformWorkflowAction
   nameWithType: IContentResolver.PerformWorkflowAction
+- uid: Estrelica.Archer.Utility.IContentResolver.SearchXmlPreview
+  name: SearchXmlPreview
+  href: api/Estrelica.Archer.Utility.IContentResolver.html#Estrelica_Archer_Utility_IContentResolver_SearchXmlPreview
+  commentId: P:Estrelica.Archer.Utility.IContentResolver.SearchXmlPreview
+  fullName: Estrelica.Archer.Utility.IContentResolver.SearchXmlPreview
+  nameWithType: IContentResolver.SearchXmlPreview
+- uid: Estrelica.Archer.Utility.IContentResolver.SearchXmlPreview*
+  name: SearchXmlPreview
+  href: api/Estrelica.Archer.Utility.IContentResolver.html#Estrelica_Archer_Utility_IContentResolver_SearchXmlPreview_
+  commentId: Overload:Estrelica.Archer.Utility.IContentResolver.SearchXmlPreview
+  isSpec: "True"
+  fullName: Estrelica.Archer.Utility.IContentResolver.SearchXmlPreview
+  nameWithType: IContentResolver.SearchXmlPreview
 - uid: Estrelica.Archer.Utility.IContentResolver.Update(Estrelica.Archer.Content.IArcherContentEdit)
   name: Update(IArcherContentEdit)
   href: api/Estrelica.Archer.Utility.IContentResolver.html#Estrelica_Archer_Utility_IContentResolver_Update_Estrelica_Archer_Content_IArcherContentEdit_
@@ -23258,6 +23258,15 @@ references:
   commentId: M:Estrelica.Archer.Utility.IMetadataResolver.DeleteValuesListValue(Estrelica.Archer.Metadata.IArcherValuesListValue)
   fullName: Estrelica.Archer.Utility.IMetadataResolver.DeleteValuesListValue(Estrelica.Archer.Metadata.IArcherValuesListValue)
   nameWithType: IMetadataResolver.DeleteValuesListValue(IArcherValuesListValue)
+- uid: Estrelica.Archer.Utility.IMetadataResolver.DeleteValuesListValue(System.Int32,System.String,System.Boolean)
+  name: DeleteValuesListValue(int, string, bool)
+  href: api/Estrelica.Archer.Utility.IMetadataResolver.html#Estrelica_Archer_Utility_IMetadataResolver_DeleteValuesListValue_System_Int32_System_String_System_Boolean_
+  commentId: M:Estrelica.Archer.Utility.IMetadataResolver.DeleteValuesListValue(System.Int32,System.String,System.Boolean)
+  name.vb: DeleteValuesListValue(Integer, String, Boolean)
+  fullName: Estrelica.Archer.Utility.IMetadataResolver.DeleteValuesListValue(int, string, bool)
+  fullName.vb: Estrelica.Archer.Utility.IMetadataResolver.DeleteValuesListValue(Integer, String, Boolean)
+  nameWithType: IMetadataResolver.DeleteValuesListValue(int, string, bool)
+  nameWithType.vb: IMetadataResolver.DeleteValuesListValue(Integer, String, Boolean)
 - uid: Estrelica.Archer.Utility.IMetadataResolver.DeleteValuesListValue*
   name: DeleteValuesListValue
   href: api/Estrelica.Archer.Utility.IMetadataResolver.html#Estrelica_Archer_Utility_IMetadataResolver_DeleteValuesListValue_
@@ -23935,6 +23944,12 @@ references:
   isSpec: "True"
   fullName: Estrelica.Archer.Utility.IMetadataResolver.ValuesListById
   nameWithType: IMetadataResolver.ValuesListById
+- uid: Estrelica.Archer.Utility.IMetadataResolver.ValuesListChanged
+  name: ValuesListChanged
+  href: api/Estrelica.Archer.Utility.IMetadataResolver.html#Estrelica_Archer_Utility_IMetadataResolver_ValuesListChanged
+  commentId: E:Estrelica.Archer.Utility.IMetadataResolver.ValuesListChanged
+  fullName: Estrelica.Archer.Utility.IMetadataResolver.ValuesListChanged
+  nameWithType: IMetadataResolver.ValuesListChanged
 - uid: Estrelica.Archer.Utility.IMetadataResolver.ValuesListValuesByValuesListId(System.Int32)
   name: ValuesListValuesByValuesListId(int)
   href: api/Estrelica.Archer.Utility.IMetadataResolver.html#Estrelica_Archer_Utility_IMetadataResolver_ValuesListValuesByValuesListId_System_Int32_
@@ -24377,6 +24392,44 @@ references:
   commentId: T:Estrelica.Archer.Utility.ObjectKeyAttribute
   fullName: Estrelica.Archer.Utility.ObjectKeyAttribute
   nameWithType: ObjectKeyAttribute
+- uid: Estrelica.Archer.Utility.ValuesListChangeEvent
+  name: ValuesListChangeEvent
+  href: api/Estrelica.Archer.Utility.ValuesListChangeEvent.html
+  commentId: T:Estrelica.Archer.Utility.ValuesListChangeEvent
+  fullName: Estrelica.Archer.Utility.ValuesListChangeEvent
+  nameWithType: ValuesListChangeEvent
+- uid: Estrelica.Archer.Utility.ValuesListChangeEventArgs
+  name: ValuesListChangeEventArgs
+  href: api/Estrelica.Archer.Utility.ValuesListChangeEventArgs.html
+  commentId: T:Estrelica.Archer.Utility.ValuesListChangeEventArgs
+  fullName: Estrelica.Archer.Utility.ValuesListChangeEventArgs
+  nameWithType: ValuesListChangeEventArgs
+- uid: Estrelica.Archer.Utility.ValuesListChangeEventArgs.ValuesListId
+  name: ValuesListId
+  href: api/Estrelica.Archer.Utility.ValuesListChangeEventArgs.html#Estrelica_Archer_Utility_ValuesListChangeEventArgs_ValuesListId
+  commentId: P:Estrelica.Archer.Utility.ValuesListChangeEventArgs.ValuesListId
+  fullName: Estrelica.Archer.Utility.ValuesListChangeEventArgs.ValuesListId
+  nameWithType: ValuesListChangeEventArgs.ValuesListId
+- uid: Estrelica.Archer.Utility.ValuesListChangeEventArgs.ValuesListId*
+  name: ValuesListId
+  href: api/Estrelica.Archer.Utility.ValuesListChangeEventArgs.html#Estrelica_Archer_Utility_ValuesListChangeEventArgs_ValuesListId_
+  commentId: Overload:Estrelica.Archer.Utility.ValuesListChangeEventArgs.ValuesListId
+  isSpec: "True"
+  fullName: Estrelica.Archer.Utility.ValuesListChangeEventArgs.ValuesListId
+  nameWithType: ValuesListChangeEventArgs.ValuesListId
+- uid: Estrelica.Archer.Utility.ValuesListChangeEventArgs.ValuesListValueId
+  name: ValuesListValueId
+  href: api/Estrelica.Archer.Utility.ValuesListChangeEventArgs.html#Estrelica_Archer_Utility_ValuesListChangeEventArgs_ValuesListValueId
+  commentId: P:Estrelica.Archer.Utility.ValuesListChangeEventArgs.ValuesListValueId
+  fullName: Estrelica.Archer.Utility.ValuesListChangeEventArgs.ValuesListValueId
+  nameWithType: ValuesListChangeEventArgs.ValuesListValueId
+- uid: Estrelica.Archer.Utility.ValuesListChangeEventArgs.ValuesListValueId*
+  name: ValuesListValueId
+  href: api/Estrelica.Archer.Utility.ValuesListChangeEventArgs.html#Estrelica_Archer_Utility_ValuesListChangeEventArgs_ValuesListValueId_
+  commentId: Overload:Estrelica.Archer.Utility.ValuesListChangeEventArgs.ValuesListValueId
+  isSpec: "True"
+  fullName: Estrelica.Archer.Utility.ValuesListChangeEventArgs.ValuesListValueId
+  nameWithType: ValuesListChangeEventArgs.ValuesListValueId
 - uid: Estrelica.Core
   name: Core
   href: api/Estrelica.Core.html
@@ -27416,6 +27469,22 @@ references:
   fullName.vb: Estrelica.Utility.DeferEnumerable(Of T).GetObjectData
   nameWithType: DeferEnumerable<T>.GetObjectData
   nameWithType.vb: DeferEnumerable(Of T).GetObjectData
+- uid: Estrelica.Utility.DeferEnumerable`1.OnLoad
+  name: OnLoad
+  href: api/Estrelica.Utility.DeferEnumerable-1.html#Estrelica_Utility_DeferEnumerable_1_OnLoad
+  commentId: E:Estrelica.Utility.DeferEnumerable`1.OnLoad
+  fullName: Estrelica.Utility.DeferEnumerable<T>.OnLoad
+  fullName.vb: Estrelica.Utility.DeferEnumerable(Of T).OnLoad
+  nameWithType: DeferEnumerable<T>.OnLoad
+  nameWithType.vb: DeferEnumerable(Of T).OnLoad
+- uid: Estrelica.Utility.DeferEnumerable`1.OnReset
+  name: OnReset
+  href: api/Estrelica.Utility.DeferEnumerable-1.html#Estrelica_Utility_DeferEnumerable_1_OnReset
+  commentId: E:Estrelica.Utility.DeferEnumerable`1.OnReset
+  fullName: Estrelica.Utility.DeferEnumerable<T>.OnReset
+  fullName.vb: Estrelica.Utility.DeferEnumerable(Of T).OnReset
+  nameWithType: DeferEnumerable<T>.OnReset
+  nameWithType.vb: DeferEnumerable(Of T).OnReset
 - uid: Estrelica.Utility.DeferEnumerable`1.op_Implicit(System.Func{System.Collections.Generic.IEnumerable{`0}})~Estrelica.Utility.DeferEnumerable{`0}
   name: implicit operator DeferEnumerable<T>(Func<IEnumerable<T>>)
   href: api/Estrelica.Utility.DeferEnumerable-1.html#Estrelica_Utility_DeferEnumerable_1_op_Implicit_System_Func_System_Collections_Generic_IEnumerable__0____Estrelica_Utility_DeferEnumerable__0_
@@ -27549,6 +27618,22 @@ references:
   fullName.vb: Estrelica.Utility.DeferValue(Of V).AsObject
   nameWithType: DeferValue<V>.AsObject
   nameWithType.vb: DeferValue(Of V).AsObject
+- uid: Estrelica.Utility.DeferValue`1.OnLoad
+  name: OnLoad
+  href: api/Estrelica.Utility.DeferValue-1.html#Estrelica_Utility_DeferValue_1_OnLoad
+  commentId: E:Estrelica.Utility.DeferValue`1.OnLoad
+  fullName: Estrelica.Utility.DeferValue<V>.OnLoad
+  fullName.vb: Estrelica.Utility.DeferValue(Of V).OnLoad
+  nameWithType: DeferValue<V>.OnLoad
+  nameWithType.vb: DeferValue(Of V).OnLoad
+- uid: Estrelica.Utility.DeferValue`1.OnReset
+  name: OnReset
+  href: api/Estrelica.Utility.DeferValue-1.html#Estrelica_Utility_DeferValue_1_OnReset
+  commentId: E:Estrelica.Utility.DeferValue`1.OnReset
+  fullName: Estrelica.Utility.DeferValue<V>.OnReset
+  fullName.vb: Estrelica.Utility.DeferValue(Of V).OnReset
+  nameWithType: DeferValue<V>.OnReset
+  nameWithType.vb: DeferValue(Of V).OnReset
 - uid: Estrelica.Utility.DeferValue`1.op_Implicit(Estrelica.Utility.DeferValue{`0})~`0
   name: implicit operator V(DeferValue<V>)
   href: api/Estrelica.Utility.DeferValue-1.html#Estrelica_Utility_DeferValue_1_op_Implicit_Estrelica_Utility_DeferValue__0____0
@@ -28671,6 +28756,18 @@ references:
   commentId: T:Estrelica.Utility.IDeferrable
   fullName: Estrelica.Utility.IDeferrable
   nameWithType: IDeferrable
+- uid: Estrelica.Utility.IDeferrable.OnLoad
+  name: OnLoad
+  href: api/Estrelica.Utility.IDeferrable.html#Estrelica_Utility_IDeferrable_OnLoad
+  commentId: E:Estrelica.Utility.IDeferrable.OnLoad
+  fullName: Estrelica.Utility.IDeferrable.OnLoad
+  nameWithType: IDeferrable.OnLoad
+- uid: Estrelica.Utility.IDeferrable.OnReset
+  name: OnReset
+  href: api/Estrelica.Utility.IDeferrable.html#Estrelica_Utility_IDeferrable_OnReset
+  commentId: E:Estrelica.Utility.IDeferrable.OnReset
+  fullName: Estrelica.Utility.IDeferrable.OnReset
+  nameWithType: IDeferrable.OnReset
 - uid: Estrelica.Utility.IDeferrable.Reset
   name: Reset()
   href: api/Estrelica.Utility.IDeferrable.html#Estrelica_Utility_IDeferrable_Reset
