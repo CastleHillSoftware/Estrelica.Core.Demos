@@ -469,7 +469,6 @@ namespace ContentDemo
 
         public static void TraverseRelatedContent()
 		{
-
             // This method demonstrates how Archer content and metadata is (typically) interrelated -- content records do not generally exist on their
             // own in isolation, but instead are part of a bigger picture comprising multiple records linked together via the three reference field types
             // (Cross-Reference, Related Records, and Subform fields).  Given the thousands of possible relationships that might exist, this "big picture"
@@ -1014,23 +1013,55 @@ namespace ContentDemo
                     // For example, calling it with an ITextField returns an ITextValueEdit editor, which only allows
                     // string values to be assigned to its .Value property:
 
-                    contentEdit.Field(nameField).Value = "Estrelica.Core";
-
                     contentEdit.Field(versionField).Value = typeof(Estrelica.Core).Assembly.GetName().Version.ToString();
 
                     contentEdit.Field(descriptionField).Value = "Estrelica.Core provides simplified access to the Archer APIs";
 
-                    // Likewise, calling it with an INumericField returns a INumericValueEdit editor, which
+                    // Before setting the "Application Name" field, however, we'll take this opportunity to show what happens when you attempt
+                    // to save a record with one or more required fields left unpopulated.
+
+                    // In the standard OOBE "Applications" application, "Application Name" is the only field that is required,
+                    // so if that rule is still true in the current environment, we'll leave that field blank and show what
+                    // happens when we call core.Content.Update() on the record:
+                    if (nameField.IsRequired)
+                    {
+                        Exception raisedException = null;
+                        // This is expected to throw an aggregate exception combining one or more specific exceptions describing whatever problems are
+                        // found with the record.
+
+                        // In this instance we expect to see an inner exception telling us that the "Application Name" field is required.
+                        // (Note that this error scenario also applies to fields having min/max selection requirements, numeric fields with
+                        // min/max value limits, etc., although we don't have any of those to test in the "Applications" application.)
+
+                        if (Assert.ThrowsException<AggregateException>("Attempting to save record with one or more required fields left empty", 
+                            () => core.Content.Update(contentEdit), out raisedException))
+                        {
+                            var innerExceptions = ((AggregateException)raisedException).InnerExceptions;
+                            // Confirm that the aggregate contains at least one inner exception
+                            if (Assert.IsTrue("Confirming inner exceptions describing the actual errors", innerExceptions.Count() > 0))
+                            {
+                                // and specifically one describing the missing required field...
+                                Assert.IsTrue($"Confirming error describing the required '{nameField.Name}' field",
+                                    innerExceptions.FirstOrDefault(e => e.Message == $"The {nameField.Name} field is a required field.") != null);
+                            }
+                        }
+                    }
+
+                    // And now that we've completed that test, we can go ahead and set the Name:
+                    contentEdit.Field(nameField).Value = "Estrelica.Core";
+
+                    // Likewise, calling IArcherContentEdit.Field() with an INumericField returns a INumericValueEdit editor, which
                     // only allows numbers to be assigned to its value:
 
                     contentEdit.Field(licensedQuantityField).Value = 1;
 
-					// Editors for Archer's complex field types are also provided.  For example, calling IArcherContentEdit.Field()
-					// with an IUserGroupListField returns an IUserGroupListSelectionEdit, which has distinct
-					// methods for setting/adding/removing users and/or groups on the field.  Here we'll
-					// use it to make the current user the owner for this application:
+                    // Editors for Archer's complex field types are also provided.  For example, calling IArcherContentEdit.Field()
+                    // with an IUserGroupListField returns an IUserGroupListSelectionEdit, which has distinct
+                    // methods for setting/adding/removing users and/or groups on the field.  Here we'll
+                    // use it to make the current user the "Application Owner" for this application:
 
-					IUserGroupListSelectionEdit ownerFieldEditor = contentEdit.Field(ownerField);
+                    IUserGroupListSelectionEdit ownerFieldEditor = contentEdit.Field(ownerField);
+
                     // We know this is a newly-minted record, so it has no users in this field at present.
                     // Therefore we can use the .AddUser() method since we know the field is currently empty:
                     ownerFieldEditor.AddUser(currentUser);
@@ -1045,9 +1076,9 @@ namespace ContentDemo
                     // Since we only have one user in scope, let's just pass that same user to the method three times to demonstrate:
                     ownerFieldEditor.SetUsers(currentUser, currentUser, currentUser);
 
-                    // Estrelica.Core will recognize any duplicates in the params list, reducing them down to the
-                    // unique values before saving (i.e. even though we passed 3 user references above, Estrelica.Core will
-                    // recognize that they're all the same and will therefore treat it as though we only passed 1):
+                    // Estrelica.Core will recognize any duplicates in the params list, reducing them down to the unique values before
+                    // saving.  In other words, even though we passed 3 user references above, Estrelica.Core will recognize that
+                    // they're all the same and will therefore treat it as though we only passed 1:
                     Assert.AreEqual("Confirming that Estrelica.Core correctly handles duplicate values on reference fields",
                         1, ownerFieldEditor.UserIds.Count());
 
@@ -1067,14 +1098,15 @@ namespace ContentDemo
 					// to accomplish the same task.  
 
 					// IImageField and IAttachmentField are two other complex types, both handled by the IDocumentFieldEdit
-					// editor.  This editor provides a .Upload() method to upload and attach a new file to the field.
+					// editor.  This editor provides a method called Upload() which will upload a file to Archer and attach it
+                    // to the field in a single step:
 					IDocumentSelectionEdit documentEditor = contentEdit.Field(attachmentField);
 
                     // Here we'll attach the "test file.txt" file we created above.  The Upload() method takes the
                     // filename to be sent to Archer as an attachment, with two optional parameters:
                     //   - a display name (defaulting to the original filename if not specified) and
                     //   - a boolean value indicating whether the file should be encrypted at rest (default is false, i.e. no encryption).
-                    // Here we'll use displayName parameter to give the attachment a different display name in Archer:
+                    // Here we'll explicitly set the displayName parameter to give the attachment a different display name in Archer:
                     documentEditor.Upload(attachmentFilename, "Sample Text File.txt");
 
                     // And just as a test, here we'll show what happens when you try to upload a file that doesn't
@@ -1089,7 +1121,7 @@ namespace ContentDemo
 					// Furthermore, if your selection supports and/or requires "Other Text", the editor will allow you
 					// to set that as well via its .OtherText property.
 
-					// Set the value of the "Application Type" field, using the string name of the value.  Note that
+					// Next we'll set the value of the "Application Type" field using the string name of the value.  Note that
 					// the .Set() method is overloaded to a) accept multiple values via a params list (if the field allows
 					// multiple selections), and b) allow values to be set by the values' integer Ids, names, or
 					// IValuesListValue references.

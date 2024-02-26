@@ -13,9 +13,14 @@ namespace Estrelica.Demo
 		public static bool IsFalse(string message, bool condition) => IsTrue(message, !condition);
 
 		public static bool ThrowsException<E>(string message, Action action) where E : Exception
+			=> ThrowsException<E>(message, action, out _);
+
+		public static bool ThrowsException<E>(string message, Action action, out Exception raisedException) where E : Exception
 		{
 			E expectedException = null;
 			Exception unexpectedException = null;
+			// This is the out exception we'll return to the caller for further evaluation...
+			raisedException = null;
 			try
 			{
 				action.Invoke();
@@ -24,6 +29,7 @@ namespace Estrelica.Demo
 			{
 				expectedException = ex as E;
 				unexpectedException = ex;
+				raisedException = ex;
 			}
 
 			bool result = IsTrue(message, expectedException != null);

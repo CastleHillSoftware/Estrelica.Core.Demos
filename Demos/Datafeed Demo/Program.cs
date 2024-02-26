@@ -92,7 +92,7 @@ namespace Estrelica.Demo.DatafeedExplorer
 				// Archer's API only provides basic information about standard service datafeeds (Name, Guid and Active status).
 				// CastleHill Software's API Extensions make more information available about datafeeds (e.g. target level, key
 				// fields, field mappings, parent datafeeds, last update info, etc.) and data imports.  So if extensions are 
-				// unavailable, we'll skip the parts related to those properties and imports.
+				// unavailable, we'll skip the parts related to those datafeed properties and data imports.
 				fullInfoAvailable = core.APIFacade.ExtensionsAvailable() != Archer.Utility.APISource.None;
 				if (!fullInfoAvailable)
 				{
@@ -239,7 +239,7 @@ namespace Estrelica.Demo.DatafeedExplorer
 				{
 					// This information is only available if the datafeeds were retrieved from the Extended API.  Archer only returns the 
 					// basic info above (Name, Guid, and Status) for standard system datafeeds, and nothing about other datafeed types (i.e.
-					// DatafeedType.DataImport or DatafeedType.Firehose).  Therefore we'll only display this second if we've determined that
+					// DatafeedType.DataImport or DatafeedType.Firehose).  Therefore we'll only display this information if we've determined that
 					// the Extended API is available:
 					Console.WriteLine($"Target level: {datafeed.Level.Name} (from {datafeed.Level.Module.ModuleType} {datafeed.Level.Module.Name})");
 					Console.WriteLine($"Key fields: {datafeed.KeyFields.Select(f => $"{f.Name} ({f.FieldType})").Conjoin(", ")}");
@@ -292,7 +292,7 @@ namespace Estrelica.Demo.DatafeedExplorer
 					case 'R': { 
 							// After executing a datafeed, its LastRun will progress through various stages as it executes.
 							// Calling .Refresh() on the datafeed will discard whatever LastRun (and History) might have been loaded
-							// so that it will be reloaded on the next attempt to access it above:
+							// so that it will be re-fetched via another API call on the next attempt to access it above:
 							datafeed.Refresh(); break; 
 						}
 					case 'E': { ExecuteDatafeed(datafeed); break; }
