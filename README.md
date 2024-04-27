@@ -28,4 +28,4 @@ Report Explorer - Similar to Datafeed Explorer, this one allows you to explore a
 
 Workflow Activity Report - Demonstrates how to use ContentHistory to evaluate Advanced Workflow activities and resulting field content changes
 
-Section Name Repair - Shows how a simple task might be implemented with and without the help of Estrelica.Core
+Section Name Repair - Compares how a simple task might be implemented with and without the help of Estrelica.Core
