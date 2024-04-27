@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>Estrelica.Core.Demo</UserSecretsId>
+    <RootNamespace>ReportExplorer</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Estrelica.Core" Version="2.5.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Estrelica.Demo.Common\Estrelica.Demo.Common.csproj" />
+  </ItemGroup>
+
+</Project>

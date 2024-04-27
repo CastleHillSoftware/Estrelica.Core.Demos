@@ -5,7 +5,7 @@
     },
     "Test Three Days": {
       "commandName": "Project",
-      "commandLineArgs": "/days 999 /env FNMA_DEV"
+      "commandLineArgs": "/days 3 /env Archer614"
     }
   }
 }

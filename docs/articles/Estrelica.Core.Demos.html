@@ -105,7 +105,16 @@
                             <a href="Content_demo.html" title="Content Demo" class="">Content Demo</a>
                           </li>
                           <li class="">
+                            <a href="Section_Name_Repair.html" title="Section Name Repair" class="">Section Name Repair</a>
+                          </li>
+                          <li class="">
                             <a href="Datafeed_demo.html" title="Datafeed Explorer" class="">Datafeed Explorer</a>
+                          </li>
+                          <li class="">
+                            <a href="Report_demo.html" title="Report Explorer" class="">Report Explorer</a>
+                          </li>
+                          <li class="">
+                            <a href="Workflow_Activity_Report.html" title="Workflow Activity Report" class="">Workflow Activity Report</a>
                           </li>
                           <li class="">
                             <a href="CHUM_tool.html" title="CHUM Tool" class="">CHUM Tool</a>
@@ -128,11 +137,17 @@
 <p>The C# code in these demo apps (but not the Estrelica.Core library itself) is released under the MIT license, meaning you are free to reuse the code in whatever way you see fit in order to develop your own Archer integration applications.</p>
 <p>The demo apps available in the Estrelica.Core.Demos solution are:</p>
 <ul>
-<li><p><a href="Metadata_demo.html">Metadata Demo</a> - Demonstrating a variety of ways to interact with Archer metadata</p>
+<li><p><a href="Metadata_demo.html">Metadata Demo</a> - Demonstrates a variety of ways to interact with Archer metadata</p>
 </li>
-<li><p><a href="Content_demo.html">Content Demo</a> - Demonstrating a variety of ways to interact with Archer content, including <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete" target="_blank">CRUD</a> operations.</p>
+<li><p><a href="Content_demo.html">Content Demo</a> - Demonstrates a variety of ways to interact with Archer content, including <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete" target="_blank">CRUD</a> operations.</p>
 </li>
-<li><p><a href="Datafeed_demo.html">Datafeed Explorer</a> - Allows you to view all of your datafeeds, their mapping configurations, their last run status and execution histories.  It will also allow you to manually invoke a datafeed's execution.</p>
+<li><p><a href="Section_Name_Repair.html">Section Name Repair</a> - This comprises two projects: One (UsingArcherAPIs.csproj) demonstrating how a simple requirement might be implemented by programming directly against the Archer API, contrasted with another (UsingEstrelicaCore.csproj) showing how much easier and faster it is to do the same thing (with far less resulting code) using Estrelica.Core.</p>
+</li>
+<li><p><a href="Datafeed_demo.html">Datafeed Explorer</a> - Allows you to view all of your datafeeds, their dependent feeds, their mapping configurations (if <a href="extensions.html">extensions</a> are available), their last run status and execution histories.  It will also allow you to manually invoke a datafeed's execution.</p>
+</li>
+<li><p><a href="Report_demo.html">Report Explorer</a> - Similar to the Datafeed Explorer, allowing you to view the reports in your system by Application, including details like the type (Content or Statistics) and XML search options. It will also allow you to execute the report and see its returned results.</p>
+</li>
+<li><p><a href="Workflow_Activity_Report.html">Workflow Activity Report</a> - This application demonstrates how to evaluate content history (captured by one or more History Log fields in the application) to track Workflow Activity and related content changes that have occurred over time.</p>
 </li>
 </ul>
 <p>Two demo implementations for user management (i.e. asserting that a given user is a member of specific groups) are also provided:</p>
@@ -143,8 +158,8 @@
 </li>
 </ul>
 <h2 id="configuration">Configuration</h2>
-<p>All of these demo projects rely on configuration settings stored in the appSettings.json file found in the solution's Estrelica.Demo.Common project.  You'll need to modify this file to enter your own settings (i.e. the Estrelica.Core authorization key provided to you by CastleHill Software and the connection/authentication information for your Archer instance and user account).</p>
-<p><strong>Or better still, leave the appSettings.json file unmodified and put all of your settings into a user secrets file.</strong>  This will ensure that you don't accidentally leak your authentication key and/or Archer credentials if you decide to fork the Estrelica.Core.Demos solution to your own GitHub repo.  <em>CastleHill Software reserves the right to terminate any license authentication keys shared outside the terms of their respective license agreements, including any that are committed to publicly-accessible repositories.</em></p>
+<p>All of these demo projects (except for <strong>Workflow Activity Report</strong>) rely on configuration settings stored in the appSettings.json file found in the solution's Estrelica.Demo.Common project.  You'll need to modify this file to enter your own settings (i.e. the Estrelica.Core authorization key provided to you by CastleHill Software and the connection/authentication information for your Archer instance and user account).</p>
+<p><strong>Or better still, leave the appSettings.json file unmodified and put all of your settings into a user secrets file.</strong>  This will ensure that you don't accidentally leak your authentication key and/or Archer credentials if you decide to fork the Estrelica.Core.Demos solution to your own GitHub repo, and that you won't lose any of your configuration settings whenever appSettings.json is overwritten by updates to this solution in our Github repo.  <em>CastleHill Software reserves the right to terminate any license authentication keys shared outside the terms of their respective license agreements, including any that are committed to publicly-accessible repositories.</em></p>
 <p>See the article on <a href="manage_configuration.html">managing configuration with Estrelica.Core.Configuration</a> for details on the configuration process.</p>
 </article>
           </div>

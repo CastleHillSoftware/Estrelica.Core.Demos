@@ -24,6 +24,12 @@ namespace WorkflowActivityReport
 
         static int Main(string[] args)
         {
+            /* This real-world application was developed for a specific use case, processing custom ODAs and workflows that are not present 
+             * in a standard Archer instance, so if you attempt to run it, it will almost certainly fail.  However, the code is presented
+             * here to demonstrate how you can access content history via Estrelica.Core to evaluate field content history, 
+             * signature audits, and Advanced Workflow audits. */
+
+
             /*  This application parses workflow and status field change events (tracked by a History Log field) occurring in the last x 
                 calendar days in order to generate CSV reports indicating which user performed any workflow actions and what change (if any) 
                 resulted to a particular VL field (e.g. the workflow status field) as a result of each workflow action.
@@ -48,8 +54,15 @@ namespace WorkflowActivityReport
                 var options = new Arguments(args);
                 int daysToRetrieve = Math.Max(1, Math.Abs(int.Parse(options.SwitchValue("days", false) ?? "1")));
 
-                var core = Estrelica.CoreConfig.Load(w => Console.WriteLine(w), userSecretsId: "Estrelica.Core.Demo", 
-                    configOverrideKey: options.SwitchValue("env", false));
+                // Note that unlike the other demos, this application has its own appSettings.config file (since it needs additional
+                // configuration for the Target applications/fields) rather than using the shared one from Estrelica.Demo.Common.
+                // That's why we don't specify an appConfigFilename: parameter here, as CoreConfig will automatically find the local one.
+                // This means you'll either need to update the local appSettings.config file with your Estrelica.Core configuration
+                // or just make sure that it's all available in your Estrelica.Core.Demo user secrets file.
+                // See https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/manage_configuration.html
+                // for more information on managing your Estrelica.Core configuration, and particularly about the use of user secrets.
+
+                var core = Estrelica.CoreConfig.Load(w => Console.WriteLine(w), configOverrideKey: options.SwitchValue("env", false));
 
                 // Load the config and identify the applications/fields we need to process
 
@@ -78,18 +91,17 @@ namespace WorkflowActivityReport
                     int totalRecordCount = 0;
                     int totalOutputCount = 0;
 
-                    foreach (var record in core.Content.GetContent(level: level,
-                        includeFieldIds: new int[] { ludField.Id },
+                    foreach (var record in level.Content(options => options
+                        .AddDisplayField(ludField)
                         // Here we'll request all the records that have been updated since UTC yesterday (included any that were subsequently updated
-                        // today).  This will ensure that the workflow actions with a "UTC yesterday" timestamp will be included.  We'll isolate them
-                        // separately while iterating the IAdvancedWorkflowAudit results below.
-                        filterConditions: new XElement[] { 
-                            ludField.CreateCondition(DateValueOperator.GreaterThan, startDate, true, "UTC Standard Time"),
-                            ludField.CreateCondition(DateValueOperator.Equals, startDate, true, "UTC Standard Time") 
-                        },
-                        filterOperatorOrder: "1 OR 2", // Combines the GreaterThan and Equals conditions into >=
-                        recordCountCallback: (e, count) => { if (e == RecordCountType.Expected) { Console.WriteLine($"({count} records expected)"); } }
-                        ).ContentAccess(core))
+                        // today).  This will ensure that all workflow actions with a "UTC yesterday" timestamp will be included regardless of whether
+                        // the most recent change to a record happened yesterday or today.  We'll filter it down to only those workflow actions that occurred
+                        // yesterday while iterating the IAdvancedWorkflowAudit results below.
+                        .AddFilterCondition(ludField.CreateCondition(DateValueOperator.GreaterThan, startDate, true, "UTC Standard Time"))
+                        .AddFilterCondition(ludField.CreateCondition(DateValueOperator.Equals, startDate, true, "UTC Standard Time"))
+                        .FilterOperatorLogic("1 OR 2") // Combines the GreaterThan and Equals conditions into >=
+                        .RecordCountCallback((e, count) => { if (e == RecordCountType.Expected) { Console.WriteLine($"({count} records expected)"); } })
+                        ))
                     {
                         // Retrieve the content history for the History Log field configured in appSettings.json for this target
                         IContentHistory contentHistory = record.ContentHistory.SingleOrDefault(ch => ch.HistoryLogFieldId == hlField.Id);

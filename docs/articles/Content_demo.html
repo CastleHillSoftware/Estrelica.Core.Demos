@@ -105,7 +105,16 @@
                             <a href="Content_demo.html" title="Content Demo" class="active">Content Demo</a>
                           </li>
                           <li class="">
+                            <a href="Section_Name_Repair.html" title="Section Name Repair" class="">Section Name Repair</a>
+                          </li>
+                          <li class="">
                             <a href="Datafeed_demo.html" title="Datafeed Explorer" class="">Datafeed Explorer</a>
+                          </li>
+                          <li class="">
+                            <a href="Report_demo.html" title="Report Explorer" class="">Report Explorer</a>
+                          </li>
+                          <li class="">
+                            <a href="Workflow_Activity_Report.html" title="Workflow Activity Report" class="">Workflow Activity Report</a>
                           </li>
                           <li class="">
                             <a href="CHUM_tool.html" title="CHUM Tool" class="">CHUM Tool</a>
@@ -130,7 +139,8 @@
 <p>The newer REST API allows content to be retrieved strictly by content Id.  The REST API provides methods to return a single content record or a set of multiple records, but none of these methods support conditional searches the way the SOAP API does.  In all cases you must already know the content Id(s) in question before calling the REST API &quot;get content&quot; methods.</p>
 <p>Different use cases may make one approach preferable to the other, so neither can be said to be best in all circumstances.</p>
 <p>The Content Demo application shows how to retrieve Archer content via each of the Archer APIs, using both of these approaches.  It also highlights how Estrelica.Core can help you build complex queries for the Search API.</p>
-<p>Unfortunately, the results returned by the two APIs are not interchangeable.  The SOAP search API returns records as xml, while the REST content API returns records as JSON[^1].  Each format requires a different skillset and a different way of parsing the result to extract the record details.</p>
+<p>Unfortunately, the results returned by the two APIs are not interchangeable.  The SOAP search API returns records as xml, while the REST content API returns records as JSON<sup><a href="#footnote1">1</a></sup>.  Each format requires a different skillset and a different way of parsing the result to extract the record details.</p>
+<p><a name="footnote1"><sup>1</sup></a> <em>despite the documentation's claim that the REST API also supports xml results.  All tests indicate that providing an &quot;application/xml&quot; Accept header only causes the Archer server to throw a 500 &quot;Internal Server Error&quot; exception.</em></p>
 <h3 id="estrelicacore-to-the-rescue">Estrelica.Core to the rescue</h3>
 <p>Wouldn't it be preferable to have a single programming model to work with, so that you could use the same approach to evaluate content regardless of whether it was retrieved from the SOAP or REST API?</p>
 <p>Estrelica.Core's Content resolver provides that capability, via a method named ContentAccess().  This  may be called on the output of any and all of the methods discussed above.  Whether it's an XElement node retrieved from the SOAP Search engine or a series of JSON dictionaries returned by any of the REST &quot;get content by id&quot; methods, ContentAccess() will convert it into an <a class="xref" href="../api/Estrelica.Archer.Content.IArcherContentAccess.html">IArcherContentAccess</a> object, which provides a common interface for working with Archer content, regardless of which format it was retrieved in.</p>
@@ -138,7 +148,6 @@
 <h3 id="creating-updating-and-deleting-records">Creating, updating and deleting records</h3>
 <p>When it's necessary to create new records, modify existing records, or delete records from the Archer system, Estrelica.Core's Content resolver handles that as well.  The <a class="xref" href="../api/Estrelica.Archer.Content.IArcherContentAccess.html">IArcherContentAccess</a> interface includes a ForEdit() method which puts the record object into edit mode.  While it's in this mode, it exposes a new <a class="xref" href="../api/Estrelica.Archer.Content.IArcherContentEdit.html">IArcherContentEdit</a> interface which provides editor classes for each of the editable Archer field types.  These editor classes make it simple to deal with the different data types and constraints used by each of the field types.</p>
 <p>The Content Demo application includes a demonstration of the full CRUD (Create, Read, Update, Delete) process using the ForEdit() method.  It first inserts a record describing Estrelica.Core into the core &quot;Applications&quot; application, then reads it back to verify its field values, edits the record to change a few fields and performs a second readback verfication, then deletes the record.</p>
-<p>[^1]: despite the documentation's claim that the REST API also supports xml results.  All tests indicate that providing an &quot;application/xml&quot; Accept header only causes the Archer server to throw a 500 &quot;Internal Server Error&quot; exception.</p>
 </article>
           </div>
           <div class="contribution-panel mobile-hide">

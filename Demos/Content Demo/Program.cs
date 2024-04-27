@@ -28,6 +28,12 @@ namespace ContentDemo
                 // This application demonstrates some examples for use of the Estrelica Core in communicating with RSA Archer to retrieve
                 // and manipulate content.
 
+                // Note that if you have enabled "Common Language Runtime Exceptions" in your Exception Settings, your debugger *will* stop
+                // on insignificant exceptions that are handled internally by Estrelica.Core (e.g. type conversion errors, HTTP timeouts,
+                // server disconnections, key duplications, etc.).  Don't be alarmed by these -- you can simply hit F5 to continue, or
+                // better still check the box at Tools -> Options -> Debugging -> "Enable Just My Code".  This will cause the debugger to only
+                // stop on meaningful exceptions that occur in this project (including any unhandled or thrown exceptions surfaced by Estrelica.Core).
+
                 Utilities.Log(@"This demo shows how to perform various Archer content operations via Estrelica.Core.  The UI output is not significant, and you are encouraged to instead evaluate the code, read the comments to understand how Estrelica.Core works, set various breakpoints, modify the code to test different behavior, etc.");
                 Utilities.Log(@"In order to function in all environments, this demo depends on three of Archer's core applications (Policies, Control Standards and Applications) and may exhibit unexpected behavior if they have been modified (or removed).  If so, feel free to change the code to reference other applications/fields/etc. that are available in your test environment.");
                 Utilities.Pause();
@@ -36,44 +42,41 @@ namespace ContentDemo
                 core = CoreConfig.Load(
                     w => Utilities.Log(w.Message, LogLevel.Warning),
 
-                    // The configuration under which CoreConfig will instantiate the Core is defined via JSON files.
+                    // The configuration CoreConfig will use to instantiate the Core is defined via JSON files.
+
+                    // "appConfigFilename" specifies a JSON app settings file where your configuration is stored.  If not
+                    // explicitly provided this will default to "appSettings.json" in the current executing directory.
+                    // The string below will direct it to use the common appSettings.json file found in the Estrelica.Demo.Common project.
+
                     // This requires that you modify the file at
                     //		..\..\..\..\..\Estrelica.Demo.Common\appSettings.json (i.e. in the Estrelica.Demo.Common project)
                     // and/or a local user secrets file at
                     //		%appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
                     // with your CastleHill Software authentication key and your Archer instance details and credentials.
 
-                    // See https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/manage_configuration.html
-                    // for more information on managing your Estrelica.Core configuration for this demo.
-
-                    // The user account that you specify for this configuration must have, at minimum, read access to the 
-                    // "Policies" application in order to demonstrate the content read capabilities, and full CRUD permission
+                    // The user account that you specify for this configuration must have, at minimum, read access to the "Policies" and
+                    // "Control Standards" applications in order to demonstrate the content read capabilities, and full CRUD permission
                     // to the "Applications" application in order to demonstrate the create, update and delete capabilities.
 
+                    // See https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/manage_configuration.html
+                    // for more information on managing your Estrelica.Core configuration, and particularly about the use of user secrets.
 
-                    // "appConfigFilename" specifies a JSON app settings file where your configuration is stored.  If not
-                    // explicitly provided this will default to "appSettings.json" in the current executing directory.
-                    // The string below will direct it to use the common appSettings.json file found in the Estrelica.Demo.Common project.
                     appConfigFilename: @"..\..\..\..\..\Estrelica.Demo.Common\appSettings.json",
 
-                    // "userSecretsId" specifies the (optional) Id of a JSON user secrets file on the local machine containing values
-                    // which should override the corresponding values in the app settings file.  If not explicitly provided, none of the values
-                    // in the app settings JSON file will be overridden.  If a userSecretsId is provided, overloads will be loaded from
-                    // the file found at %appdata%\Microsoft\UserSecrets\xxxx\secrets.json on the local filesystem, where xxxx is the Id
-                    // string you've specified here.
-                    userSecretsId: "Estrelica.Core.Demo",
+                    // "userSecretsId" specifies the (optional) Id of a user secrets JSON file on the local filesystem containing values
+                    // which should override the corresponding values in the app settings file.
 
-                    // (Note that "Estrelica.Core.Demo" is specified in this project's .csproj file as the <UserSecretsId> for this project.
-                    // This means that you can easily edit the content of the file at %appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
-                    // by simply right-clicking the project in the Solution Explorer and choosing "Manage User Secrets".  If you elect to use
-                    // a different userSecretsId in the future, be sure to update the <UserSecretsId> node in your .csproj file in order to
-                    // maintain this editor association.)
+                    // Note: As of Estrelica.Configuration 1.0.21, the userSecretsId parameter no longer needs to be explicitly passed if
+                    // you have defined a user secrets Id (via "Manage User Secrets", which creates a <UserSecretsId> node) in your
+                    // .csproj file (as is the case with this project).
+
+                    //userSecretsId: "Estrelica.Core.Demo", <-- This line is no longer need as of Estrelica.Congifuration 1.0.21
 
                     // "configOverrideKey" specifies a particular instance configuration to be selected from the file(s) above.
-                    // If not explicitly specified *or* if the app settings/user secrets files have nothing configured for this instance
-                    // name, the default (base) Archer configuration will be used.
-                    configOverrideKey: null); // If you've configured valid override settings via the app settings and/or user secrets file,
-                                                     // specify that override key here.
+                    // If not explicitly specified *or* if the app settings/user secrets files have nothing configured for this
+                    // override key, the default (base) Archer configuration will be used.
+
+                    configOverrideKey: null);
 
                 Utilities.Pause("This example shows how to evaluate levelled content via the Archer search API as XElement results.", ConsoleColor.Green);
 
@@ -169,7 +172,7 @@ namespace ContentDemo
                 // within that module, or otherwise filtered the fields to be returned.
 
                 // We expect the result to have at least one record satisfying this condition since Policies has 3 levels.
-                Utilities.Log(content.First(r => r.Element("Record")?.Element("Record") != null)?.ToString(SaveOptions.None));
+                Utilities.Log(content.FirstOrDefault(r => r.Element("Record")?.Element("Record") != null)?.ToString(SaveOptions.None) ?? String.Empty);
             }
             // Make sure the total count that Archer told us to expect matches the actual count that were returned
             Assert.AreEqual("Comparing expected count vs. returned count", returnedRecordCount, expectedRecordCount);
@@ -511,11 +514,15 @@ namespace ContentDemo
 
             // Our filter condition(s) will simply be "where this field is not empty"
             XElement[] filterConditions = referenceFields.Select(f => f.CreateIsNotEmptyCondition()).ToArray();
-            // And build an operator order string to OR all the conditions, e.g. "1 OR 2 OR 3 OR 4 .. etc."
-            string filterOperatorOrder = Enumerable.Range(1, filterConditions.Length).Select(i => i.ToString()).Conjoin(" OR ");
+            // And build an operator logic string to OR all the conditions, e.g. "1 OR 2 OR 3 OR 4 .. etc."
+            string filterOperatorLogic = Enumerable.Range(1, filterConditions.Length).Select(i => i.ToString()).Conjoin(" OR ");
 
-            IArcherContentAccess startingRecord = core.Content.GetContent(level: level,
-                filterConditions: filterConditions, filterOperatorOrder: filterOperatorOrder).FirstOrDefault().ContentAccess(core);
+            // This demonstrates another, cleaner way to get content, by calling .Content() directly from an IArcherLevel
+            // (or IArcherModule) reference and providing search options via an Action<ISearchOptions> callback:
+            IArcherContentAccess startingRecord = level.Content(options => {
+                options.filterConditions = filterConditions;
+                options.filterOperatorLogic = filterOperatorLogic;
+            }).FirstOrDefault();
 
             if (startingRecord == null)
 			{
@@ -808,10 +815,9 @@ namespace ContentDemo
                 // Records belong to levels rather than to applications/modules, so in order to manage records we need to identify the default level
                 // for this application:
                 IArcherLevel level = application.Level(); // <-- If we wanted to select a specific level, we could pass its name/alias/guid/id here,
-                                                 // but we know Applications only has one level so we'll just take the default
+                                    // but we know Applications only has one level so we'll just take the default (i.e. with no parameter specified)
 
-                // Step 1: Identify some fields for this record, as well as a Content Id for one of the fields,
-                // to be used in making edits in Step 4.
+                // Step 1: Identify some fields from this level, to be used in making edits to the record in Step 4.
 
                 // Note: some fields may be required to have a value before saving, so you can evaluate that like so if needed:
                 IEnumerable<IArcherField> requiredFields = level.Fields.Where<IIsRequiredProperty>(p => p.IsRequired);
@@ -863,11 +869,10 @@ namespace ContentDemo
                 // allowing it to perform its cleanup in the 'finally' block below).
                 // We'll do this by performing a simple search "where Name = 'Estrelica.Core'" using the nameField we identified above:
 
-                int? existingContentId = core.Content.GetContent(level: level, // the level to be searched
-                    includeFieldCallback: f => f.FieldType == FieldType.TrackingID, // we need to provide at least one display field even though we're only checking for the existence of a record
-                    // and this filter will return the record we're looking for
-                    filterConditions: new XElement[] { nameField.CreateCondition(ValuesOperator.Equals, "Estrelica.Core") } 
-                    ).FirstOrDefault()?.ContentAccess(core)?.Id;
+                int? existingContentId = level.Content(options => {
+                    // This filter will return the record we're looking for
+                    options.AddFilterCondition(nameField.CreateCondition(ValuesOperator.Equals, "Estrelica.Core")); } 
+                 ).FirstOrDefault()?.Id;
 
                 // If no content Id was returned, it means the "Estrelica.Core" record does not already exist so we're safe to proceed with the insert
                 bool proceedWithInsert = !existingContentId.HasValue;
@@ -888,7 +893,7 @@ namespace ContentDemo
                     // Step 3: Create a new record
 
                     // Here we'll create a new empty content record at the identified level.  At this point the record only exists in memory --
-                    // it has *not* been saved to Archer yet.  That'll happen when we call core.Content.Update(content) below.
+                    // it has *not* been saved to Archer yet.  That'll happen when we call contentEdit.SaveChanges() below.
 
                     // level.CreateContent() returns an IArcherContentEdit interface that includes all the type-specific editors we'll need for the 
                     // fields in the level
@@ -900,11 +905,8 @@ namespace ContentDemo
 
                     // Prepare some items for inserting into CrossReference, RelatedRecords and Attachment fields
 
-                    Func<IArcherLevel, int> getFirstContentIdFromLevel = (levelToSearch) =>
-                    {
-                        return core.Content.GetContent(new ContentSearchOptions { level = levelToSearch })
-                            .ContentAccess(core).FirstOrDefault()?.Id ?? 0;
-                    };
+                    // This helper function will return the first available content Id from a given level, or 0 if no records are available.
+                    Func<IArcherLevel, int> getFirstContentIdFromLevel = (levelToSearch) => levelToSearch.Content().FirstOrDefault()?.Id ?? 0;
 
                     // We'll use this to keep track of target levels that we've already determined have no content
                     // available for the cross-ref or related records fields, so we don't do it unnecessarily.
@@ -1022,7 +1024,7 @@ namespace ContentDemo
 
                     // In the standard OOBE "Applications" application, "Application Name" is the only field that is required,
                     // so if that rule is still true in the current environment, we'll leave that field blank and show what
-                    // happens when we call core.Content.Update() on the record:
+                    // happens when we call contentEdit.SaveChanges() for the record:
                     if (nameField.IsRequired)
                     {
                         Exception raisedException = null;
@@ -1033,8 +1035,15 @@ namespace ContentDemo
                         // (Note that this error scenario also applies to fields having min/max selection requirements, numeric fields with
                         // min/max value limits, etc., although we don't have any of those to test in the "Applications" application.)
 
+
+                        // #### DO NOT PANIC IF YOUR DEBUGGER STOPS ON AN EXCEPTION HERE! ####  This means that the code is working *correctly*.
+                        // We're testing to make sure that an exception *IS* thrown (via Assert.ThrowsException(...)) when we try to do something
+                        // against the rules.  The same is true for all of the other Assert.ThrowsException() calls that follow below.
+
+
+
                         if (Assert.ThrowsException<AggregateException>("Attempting to save record with one or more required fields left empty", 
-                            () => core.Content.Update(contentEdit), out raisedException))
+                            () => contentEdit.SaveChanges(), out raisedException))
                         {
                             var innerExceptions = ((AggregateException)raisedException).InnerExceptions;
                             // Confirm that the aggregate contains at least one inner exception
@@ -1255,7 +1264,7 @@ namespace ContentDemo
 					// The method also supports another optional parameter which we *WILL* use here however, an Action<int>
 					// callback that allows us to be informed of the newly-inserted record's content Id at some point
 					// in the future after it has been saved to Archer.  Since the new record's persistence is managed by
-					// the parent record (contentEdit in this case), we cannot call core.Content.Update() directly on
+					// the parent record (contentEdit in this case), we cannot call .SaveChanges() directly on
 					// this new record (in fact we'll demonstrate that it throws an exception below to prevent us if we try).
 					// Therefore, we can't retrieve the new contentId directly from that method call if we need to know what it
 					// is for some reason.  Passing an Action<int> callback here gives the parent record
@@ -1264,9 +1273,9 @@ namespace ContentDemo
 					// the newly-created reference record's Id will be, you can call .AddNewRecord() with no parameters.)
 
 					IArcherContentEdit subformContentEdit = subformEditor.AddNewRecord(
-                        // This method will be called later, when we call IContentResolver.Update() on the parent record,
+                        // This method will be called later, when we call .SaveChanges() on the parent record,
                         // and the parent in turn calls IContentResolver.Update() on this new record in order to obtain
-                        // its content Id.  It will then invoke this method to let us know what that Id is:
+                        // its content Id.  At that point it invoke this method to let us know what the new subform record's Id is:
                         (newId) => newSubformContentId = newId
                      );
 
@@ -1295,9 +1304,9 @@ namespace ContentDemo
                     // In order for this newly-created subform content to be associated with the parent record, the parent record
                     // needs to know the subform record's content Id.  You might think that we need to persist the subform record,
                     // get its Id, and then call subformEditor.Add(newSubformContentId) at this point.  However, that is incorrect.
-                    // All we need to do is call core.Content.Update() on the parent record, and it will take care of the rest.
+                    // All we need to do is call .SaveChanges() on the parent record, and it will take care of the rest.
 
-                    // In fact, if we *do* try to call update directly on this subform record, it will throw an exception telling
+                    // In fact, if we *do* try to call SaveChanges() directly on this subform record, it will throw an exception telling
                     // us that we're not allowed to do that -- its persistence is under the control of the parent record.  Persisting
                     // a managed record like this would be specifically illegal in the case of a subform, since a subform record cannot exist in
                     // Archer without a parent (which has not been saved yet, so Archer doesn't even know it exists).  However, the same logic
@@ -1306,14 +1315,14 @@ namespace ContentDemo
                     // in Archer independent of a "parent" record).
 
                     Assert.ThrowsException<InvalidOperationException>("Confirm that we get an exception if we try to directly update a parent-managed record",
-                        () => core.Content.Update(subformContentEdit));
+                        () => subformContentEdit.SaveChanges());
 
                     // Step 6: Push the record to Archer for insert, and get the resulting contentId of the newly-inserted record:
 
                     // If you see an exception here, it probably means that there's already an Application record having "Estrelica.Core" as the 
                     // "Application Name", probably resulting from an earlier execution of this demo that did not clean up after itself.
                     // If so, go to the Archer UI and delete that record, then try again.
-                    contentId = core.Content.Update(contentEdit);
+                    contentId = contentEdit.SaveChanges();
 
                     Assert.IsGreaterThanZero($"Inserted content record {contentId} into Archer instance {core.SessionProvider.Instance}", contentId);
 
@@ -1359,15 +1368,11 @@ format it carries, Estrelica.Core provides a common programming model via IArche
                             else
                             {
                                 Utilities.Log("Verifying the record we just saved via the webservices Search API");
-                                XElement xmlResult = core.Content.GetContent(level: level,
-                                    filterConditions: new XElement[] {
-                                        nameField.CreateCondition(ValuesOperator.Equals, "Estrelica.Core"),
-                                        level.Fields.First<IFirstPublishedField>().CreateCondition(DateValueOperator.Equals, DateTime.Now, false),
-                                        level.Fields.First<ILastUpdatedField>().CreateCondition(DateValueOperator.Equals, DateTime.Now, false)
-                                    })
-                                    .First();
-
-                                return xmlResult.ContentAccess(core);
+                                return level.Content(options =>
+                                    options.AddFilterCondition(nameField.CreateCondition(ValuesOperator.Equals, "Estrelica.Core"))
+                                        .AddFilterCondition(level.Fields.First<IFirstPublishedField>().CreateCondition(DateValueOperator.Equals, DateTime.Now, false))
+                                        .AddFilterCondition(level.Fields.First<ILastUpdatedField>().CreateCondition(DateValueOperator.Equals, DateTime.Now, false))
+                                        ).First();
                             }
                         }))
                     {
@@ -1711,7 +1716,7 @@ format it carries, Estrelica.Core provides a common programming model via IArche
                     // attempt to set a value that isn't valid for the field:
                     Assert.ThrowsException<ArgumentException>($"Confirming '{applicationTypeField.Name}' {applicationTypeField.FieldType} won't accept invalid values",
                         () =>
-                        contentEdit.ValuesListField(applicationTypeFieldAlias).Set("Some bogus invalid value")
+                         contentEdit.ValuesListField(applicationTypeFieldAlias).Set("Some bogus invalid value")
                     );
 
                     // Likewise if we try to do it using an invalid integer Id for the value
@@ -1754,7 +1759,7 @@ format it carries, Estrelica.Core provides a common programming model via IArche
                     contentEdit.NumericField(activeUsageField.Id).Value = 1;
 
                     // Save the changes
-                    int updatedContentId = core.Content.Update(contentEdit);
+                    int updatedContentId = contentEdit.SaveChanges();
 
                     // Confirm that we got the same contentId this time that we got when we performed
                     // the original insert:
@@ -1774,25 +1779,53 @@ format it carries, Estrelica.Core provides a common programming model via IArche
                     Assert.AreEqual($"Verifying '{versionField.Name}' {nameField.FieldType} field",
                         "unknown", record.Value(versionField));
 
-                    Assert.AreEqual($"Verifying '{licensedQuantityField.Name}' {licensedQuantityField.FieldType} field",
+                    // The IArcherContentAccess.Value() method is overloaded for each of the specific field-type interfaces,
+                    // and will return a specific data type for each depending on which interface is passed into it (e.g.
+                    // string for ITextField, DateTime for IDateField, IUserGroupListSelection for IUserGroupListField,
+                    // IValuesListSelection for IValuesListField, etc.).
+                    // In this case we have a specific type reference (INumericField) for licensedQuantityField,
+                    // so the result returned below will be a nullable decimal (the most encompassing numeric type available).
+                    Assert.AreEqual($"Verifying '{licensedQuantityField.Name}' {licensedQuantityField.FieldType} field by INumericField reference",
                         3, record.Value(licensedQuantityField));
 
-                    // Note that the IArcherContentAccess.Value() method is also overloaded to take an IArcherField reference
-                    // or any of the standard name/alias/guid/id identifiers.  Here we'll resolve one by Guid to demonstrate:
-                    Assert.AreEqual($"Verifying '{activeUsageField.Name}' {activeUsageField.FieldType} field",
+                    // Note that the IArcherContentAccess.Value() method is also overloaded to accept any of the standard
+                    // field identifiers (i.e name/alias/guid/id).  Here we'll resolve one by Guid to demonstrate.
+                    // However, since a simple identifier like this doesn't carry any field type information,
+                    // the result will be returned as "dynamic".  Our expectation is that it's a numeric value, but
+                    // this assertion will fail if we use the wrong Guid and the method returns something else (e.g. string,
+                    // DateTime, etc.):
+                    Assert.AreEqual($"Verifying '{activeUsageField.Name}' {activeUsageField.FieldType} field by Guid",
                         1, record.Value(activeUsageField.Guid));
+
+                    // Since we know activeUsageField is a Numeric field, we can also use those same identifiers with the
+                    // NumericValue<N>() method, specifying the value type we want via N (i.e. int, double, decimal, float, etc.)
+                    Assert.AreEqual($"Verifying '{activeUsageField.Name}' {activeUsageField.FieldType} field by Guid cast to int",
+                        1, record.NumericValue<int>(activeUsageField.Guid));
+
+                    // The difference in the cases above is that using a field reference (e.g. an ITextField, an IValueListField, an
+                    // IUserGroupListField, etc.) dictates the field's type *at compile time*, so the compiler knows what the returned
+                    // value's data type will be (e.g. a string, a values list selection, a users/groups list selection).
+
+                    // However, when retrieving field's .Value() by field name (or alias or guid or integer id), the field type cannot
+                    // be determined at compile time, so the result in those cases is always "dynamic".  This is basically the same as
+                    // System.Object, but the .NET compiler allows you to treat it as any data type you like in your code without
+                    // complaint (however, you will see errors at runtime if you assumed the wrong type).  For the numeric field
+                    // case, Estrelica.Core provides the .NumericValue<N>() override which handles the casting/conversion to the
+                    // desired numeric type.  Similarly there's a .DateValue() override for IDateField/IFirstPublishedField/ILastUpdatedField
+                    // and .TextValue() for ITextField when you don't have a field reference but instead only have their name/alias/guid/id.
+
+                    // The name/alias/guid/id methods are provided simply for convenience however.  The best practice is to always use a
+                    // field reference when calling .Value() since that guarantees type safety at compile time.
+
+
+
+
 
                     // There's a calculated field named "Unused Licenses" having the formula ([Licensed Quantity]) - ([Active Usage Quantity])
                     // so let's confirm that its value is as expected too.  Note that here we're just dereferencing the field's value
-                    // by its field name, rather than using an explicit field reference as in the earlier examples.
-
-                    // The difference is that using a field reference (e.g. an ITextField, an IValueListField, an IUserGroupListField, etc.)
-                    // dictates the field type *at compile time*, so the compiler knows what the return type will be (e.g. a string,
-                    // a values list selection, a users/groups list selection).
-
-                    // However, when retrieving a record value by field name (or alias or guid or integer id), the field type cannot
-                    // be determined at compile time, so the return result is "dynamic".  We know by convention that "Unused Licenses" is
-                    // a numeric field however, so we can treat the result as a numeric value here.
+                    // by its field name, rather than using an explicit field reference as in the earlier examples.  The call to
+                    // .Value() will therefore return "dynamic" as the type, but the compiler will allow us to pass that to
+                    // the Assert.AreEqual<int>() method as though it were an integer.
 
                     Assert.AreEqual($"Verifying 'Unused Licenses' Numeric field",
                         2, record.Value("Unused Licenses"));
