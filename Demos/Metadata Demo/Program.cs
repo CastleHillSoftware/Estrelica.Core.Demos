@@ -22,18 +22,15 @@ namespace SampleApp
 				// This application demonstrates some examples for use of the Estrelica Core in communicating with RSA Archer to retrieve
 				// and evaluate metadata.  
 
-
-				// Here we'll use the Estrelica.CoreConfig utility class to handle the authentication process, allowing for all the 
-				// authentication details to be stored in an appSettings.json and/or user secrets file.
-				// See https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/manage_configuration.html
-				// for more information on managing your Estrelica.Core configuration for this demo.
+				// Note that if you have enabled "Common Language Runtime Exceptions" in your Exception Settings, your debugger *will* stop
+				// on insignificant exceptions that are handled gracefully by Estrelica.Core (e.g. type conversion errors, HTTP timeouts,
+				// server disconnections, key duplications, etc.).  Don't be alarmed by these -- you can simply hit F5 to continue, or
+				// better still check the box at Tools -> Options -> Debugging -> "Enable Just My Code".  This will cause the debugger to only
+				// stop on meaningful exceptions that occur in this project (including any unhandled or thrown exceptions surfaced by Estrelica.Core).
 
 				var core = CoreConfig.Load(
 						w => Logger.Log(w.Message, LogLevel.Warning),
-						userSecretsId: "Estrelica.Core.Demo",
-						// "appConfigFilename" specifies a JSON app settings file where your configuration is stored.  If not
-						// explicitly provided this will default to "appSettings.json" in the current executing directory.
-						// The string below will direct it to use the common appSettings.json file found in the Estrelica.Demo.Common project.
+						// See notes in Program.cs from Content Demo for details on what these settings mean
 						appConfigFilename: @"..\..\..\..\..\Estrelica.Demo.Common\appSettings.json",
 						configOverrideKey: null);
 
@@ -97,24 +94,10 @@ namespace SampleApp
 
 				// Now we'll try the same method again but with (throwExceptionIfUnavailable: true) to demonstrate how that works.
 				// When true (or not supplied -- the parameter is optional and "true" by default) in the scenario where no extensions
-				// are available, a descriptive exception will be raised:
-				try
-				{
-					// We expect the following line to throw an exception, demonstrating what happens when extended methods are called
-					// when extensions are unavailable or explicitly disabled:
+				// are available, a descriptive ExtensionsUnavailableException exception will be raised:
 
-					allSolutions = core.APIFacade.GetAllSolutions(true);
-
-					// should not get here due to the expected exception thrown
-					Utilities.Log($"'APIFacade.GetAllSolutions(throwExceptionIfUnavailable: true)' with extensions disabled returned {(allSolutions == null ? "(null)" : (allSolutions.Count() + " results"))}"
-						, false); // we don't expect to get here, so the expectation is always false if we do get here for some reason
-				}
-				catch(Exception ex)
-				{
-					// we expect this exception, due to the "throwExceptionIfUnavailable = true" parameter above
-					Utilities.Log("'APIFacade.GetAllSolutions(throwExceptionIfUnavailable: true)' with extensions disabled threw this exception: " + ex.Message
-						, true); 
-				}
+				Assert.ThrowsException<ExtensionsUnavailableException>("Confirming that APIFacade.GetAllSolutions(throwExceptionIfUnavailable: true)' with extensions disabled throws an exception",
+					() => core.APIFacade.GetAllSolutions(true));
 
 				// If extensions are in fact available, let's see how the test above works when we turn extensions back on...
 				if (extensionsAvailable != APISource.None)

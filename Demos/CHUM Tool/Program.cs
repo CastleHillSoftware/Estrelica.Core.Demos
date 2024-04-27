@@ -52,46 +52,9 @@ namespace CHUM
 
                 var core = CoreConfig.Load(
                         w => Utilities.Log(w.Message, LogLevel.Warning),
-
-                        // The configuration under which CoreConfig will instantiate the Core is defined via JSON files.
-                        // This requires that you modify the file at
-                        //		..\..\..\..\..\Estrelica.Demo.Common\appSettings.json (i.e. in the Estrelica.Demo.Common project)
-                        // and/or a local user secrets file at
-                        //		%appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
-                        // with your CastleHill Software authentication key and your Archer instance details and credentials.
-
-                        // See https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/manage_configuration.html
-                        // for more information on managing your configuration.
-
-                        // The user account that you specify for this configuration must have, at minimum, read access to the 
-                        // "Contacts" application in order to identify the users and groups to be modified, as well as update permissions
-                        // to the groups involved.
-
-
-                        // "appConfigFilename" specifies a JSON app settings file where your configuration is stored.  If not
-                        // explicitly provided this will default to "appSettings.json" in the current executing directory.
-                        // The string below will direct it to use the common appSettings.json file found in the Estrelica.Demo.Common project.
+                        // See notes in Program.cs from Content Demo for details on what these settings mean
                         appConfigFilename: @"..\..\..\..\..\Estrelica.Demo.Common\appSettings.json",
-
-                        // "userSecretsId" specifies the (optional) Id of a JSON user secrets file on the local machine containing values
-                        // which should override the corresponding values in the app settings file.  If not explicitly provided, none of the values
-                        // in the app settings JSON file will be overridden.  If a userSecretsId is provided, overloads will be loaded from
-                        // the file found at %appdata%\Microsoft\UserSecrets\xxxx\secrets.json on the local filesystem, where xxxx is the Id
-                        // string you've specified here.
-                        userSecretsId: "Estrelica.Core.Demo",
-
-                        // (Note that "Estrelica.Core.Demo" is specified in this project's .csproj file as the <UserSecretsId> for this project.
-                        // This means that you can easily edit the content of the file at %appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
-                        // by simply right-clicking the project in the Solution Explorer and choosing "Manage User Secrets".  If you elect to use
-                        // a different userSecretsId in the future, be sure to update the <UserSecretsId> node in your .csproj file in order to
-                        // maintain this editor association.)
-
-                        // "configInstanceName" specifies a particular instance configuration to be selected from the file(s) above.
-                        // If not explicitly specified *or* if the app settings/user secrets files have nothing configured for this instance
-                        // name, the default (base) Archer configuration will be used.
-                        configOverrideKey: null); // If you've configured valid override settings via the app settings and/or user secrets file,
-                                                  // specify that override key here.
-
+                        configOverrideKey: null); 
 
                 // If the Contacts app doesn't exist or the current user doesn't have permission to it, an exception will 
                 // be thrown by this call.

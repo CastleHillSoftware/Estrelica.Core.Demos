@@ -175,6 +175,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ContentReportOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ContentReportOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Content.ContentSearchOptions.yml",
       "output": {
         ".html": {
@@ -475,6 +485,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IContentReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IContentReport.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IContentReportOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IContentReportOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Content.IContentUpdateInformation.yml",
       "output": {
         ".html": {
@@ -705,10 +735,40 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ISearchDisplayFieldOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ISearchDisplayFieldOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.ISearchOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.ISearchOptions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Content.ISignatureAudit.yml",
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Archer.Content.ISignatureAudit.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.IStatisticsReport.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.IStatisticsReport.html"
         }
       },
       "version": ""
@@ -915,6 +975,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.SortField.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.SortField.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Content.SortType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Content.SortType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Content.ValueOperator.yml",
       "output": {
         ".html": {
@@ -989,6 +1069,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Archer.Entity.IArcherASOEntity.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Entity.IArcherASONamedEntity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Entity.IArcherASONamedEntity.html"
         }
       },
       "version": ""
@@ -1369,6 +1459,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Archer.Metadata.Field.ArcherFieldExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.DefaultDateType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.DefaultDateType.html"
         }
       },
       "version": ""
@@ -1805,6 +1905,26 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ImplementsAPIKey.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ImplementsAPIKey.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.ImplementsFieldTypeAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.ImplementsFieldTypeAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.DefaultDateType.yml",
       "output": {
         ".html": {
@@ -1835,10 +1955,40 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IAdvancedDisplayOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IAdvancedDisplayOption.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IAdvancedDisplayProperty.yml",
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IAdvancedDisplayProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IAllowLookupProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IAllowLookupProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IAllowSortingProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IAllowSortingProperty.html"
         }
       },
       "version": ""
@@ -1855,10 +2005,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IColumnCountProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IColumnCountProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IDisplayControlProperty.yml",
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IDisplayControlProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IDisplayInHeaderProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IDisplayInHeaderProperty.html"
         }
       },
       "version": ""
@@ -1895,6 +2065,46 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIncludeTimeInformationProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIncludeTimeInformationProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIncludeUserInformationProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIncludeUserInformationProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsAuditEnabledProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsAuditEnabledProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsBulkCreateEnabledProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsBulkCreateEnabledProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsBulkUpdateEnabledProperty.yml",
       "output": {
         ".html": {
@@ -1915,6 +2125,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsEditableGridDisplayProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsEditableGridDisplayProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsEditableInSearchProperty.yml",
       "output": {
         ".html": {
@@ -1929,6 +2149,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsEncryptedProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsFindEnabledProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsFindEnabledProperty.html"
         }
       },
       "version": ""
@@ -1969,6 +2199,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsRestrictedToLevelProperty.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsSupressedProperty.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.Field.Properties.IIsSupressedProperty.html"
         }
       },
       "version": ""
@@ -2595,6 +2835,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Metadata.ValueSortType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Metadata.ValueSortType.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Archer.Metadata.ValuesListType.yml",
       "output": {
         ".html": {
@@ -2609,6 +2859,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Archer.Metadata.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Archer.Utility.APIExceptionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Archer.Utility.APIExceptionExtensions.html"
         }
       },
       "version": ""
@@ -2919,6 +3179,26 @@
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Core.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.CoreConfig.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.CoreConfig.Settings.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.CoreConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.CoreConfig.html"
         }
       },
       "version": ""
@@ -4732,6 +5012,16 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Logging.TraceLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Logging.TraceLogger.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Estrelica.Logging.yml",
       "output": {
         ".html": {
@@ -4836,6 +5126,16 @@
       "output": {
         ".html": {
           "relative_path": "api/Estrelica.Utility.EnumHelper.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Estrelica.Utility.ExceptionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Estrelica.Utility.ExceptionExtensions.html"
         }
       },
       "version": ""
@@ -5122,10 +5422,43 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/Report_demo.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Report_demo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "articles/Section_Name_Repair.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Section_Name_Repair.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/UserAccessProcessor.md",
       "output": {
         ".html": {
           "relative_path": "articles/UserAccessProcessor.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/Workflow_Activity_Report.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/Workflow_Activity_Report.html"
         }
       },
       "version": ""

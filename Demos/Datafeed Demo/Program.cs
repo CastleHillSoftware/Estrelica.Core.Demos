@@ -10,38 +10,14 @@ namespace Estrelica.Demo.DatafeedExplorer
 	class Program
 	{
 		/// <summary>
-		/// This application demontstrates how to use the Estrelica Core to monitor datafeeds.  Archer's REST API features several methods to 
-		/// retrieve information about the execution history and errors of a particular datafeed, given its GUID id, but unfortunately 
-		/// does not provide any discovery mechanism to identify what those datafeed GUIDs are, or any other details about the datafeeds
-		/// (e.g. Name, type, status, mappings, target level, etc.).
+		/// This application demonstrates how to use Estrelica.Core to evaluate, monitor and execute datafeeds.
 		/// 
-		/// This gap is covered by the extended APIFacade.GetDatafeedsByLevelId() method, which returns this information for all datafeeds
-		/// targeting a specific level in the authenticated Archer instance.  Therefore, this demo application requires that extensions are 
-		/// available for that instance (included in the Professional and Enterprise license levels).  If neither extension path is available
-		/// this application will terminate at startup.
+		/// Archer's API features several methods to retrieve information about the execution history and errors of a particular datafeed, 
+		/// but provides limited information about the datafeeds themselves (Name, Guid and Active status).  This is enough information to perform
+		/// general interaction with datafeeds to retrieve history, "Last Run" status, and even send them to the job queue for execution.
 		/// 
-		/// The APIFacade.GetDatafeedsByLevelId() method is leveraged by the MetadataResolver to allow access to datafeeds in various
-		/// ways, i.e. directly by Id or Guid, by level Id, or even as a complete list of all datafeeds in the target instance.
-		/// Furthermore, the returned IDatafeed result(s) implement callbacks to the aforementioned Archer REST API methods to retrieve
-		/// execution history and error details for each of those datafeeds.  This application will demonstrate various ways to iterate
-		/// through an instance's datafeeds and explore those details about each.
-		/// 
-		/// Overall datafeed history should be used sparingly, due to a defect in Archer's implementation of the REST API /core/datafeed/history
-		/// method.  The documentation for this method states that it supports OData paging (via $top and $skip parameters), but (as of 
-		/// v6.9) this is not true.  This means that any calls to that method will return the entire history of a given datafeed in a single
-		/// response, which can consume large amounts of memory on the calling system if the datafeed has a large number of history records.
-		/// In light of this, the code below will prompt for confirmation before allowing datafeed execution history to be retrieved.
-		/// 
-		/// In most cases (e.g. for a monitoring application which executes more frequently that the datafeed itself) this problem can
-		/// be mitigated by simply using the IDatafeed.LastRun property instead.  This returns the most recent execution history record
-		/// for a given datafeed (via the /core/datafeed/history/recent) method, which does not incur the overhead of the full history method.
-		/// If your use case only needs to know what the datafeed did on its last execution, and not any of the executions that preceded it,
-		/// This property is the best way to evalute that.
-		/// 
-		/// This demo was knocked out in a couple of afternoons just to show how easy it is to query Archer about its datafeeds and dig
-		/// into the details of each when you have the Estrelica Core in your toolkit.  It is not intended as a feature-complete production 
-		/// application but instead only as an inspiration for you to create that feature-complete killer app yourself.
-		/// 
+		/// If API Extensions are available, more details about each datafeed is available, including the targeted Level, key fields, field
+		/// mappings, next scheduled parent datafeed, next scheduled child datafeeds, and last update information.
 		/// </summary>
 		/// <param name="args"></param>
 
@@ -52,55 +28,43 @@ namespace Estrelica.Demo.DatafeedExplorer
 				// Allow a particular instance config override to be selected via the command line.  If not provided, default to the base settings.
 				string overrideKey = args.Length > 0 ? args[0] : null;
 
+				// Note: If you have extensions available, it's generally a good idea to test your code with and without them just to make
+				// sure it will behave correctly in other environments where extensions are not available.  This app demonstrates one way to do that,
+				// using an optional command-line parameter expressing an override key (you can set it in your project properties).
+
+				// If the override key is not null and ends with "_NE" ("No Extensions") we'll switch off the extensions (via the
+				// core.APIFacade.EnableExtensions setting to follow), causing Estrelica.Core to only use those features available via the standard
+				// Archer APIs.  (If you haven't set up any override keys in your appSettings.json or user secrets file, you can simply pass the
+				// string "_NE" alone to disable extensions in your default Archer environment.)
+
+				bool disableExtensions = overrideKey?.EndsWith("_NE") ?? false;
+				if (disableExtensions)
+				{
+					overrideKey = overrideKey.RemoveEnd("_NE").NullIfEmpty();
+				}
+
 				// Instantiate Estrelica.Core and authenticate with Archer...
 				core = CoreConfig.Load(
 					w => Utilities.Log(w.Message, LogLevel.Warning),
-
-					// The configuration under which CoreConfig will instantiate the Core is defined via JSON files.
-					// This requires that you modify the file at
-					//		..\..\..\..\..\Estrelica.Demo.Common\appSettings.json (i.e. in the Estrelica.Demo.Common project)
-					// and/or a local user secrets file at
-					//		%appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
-					// with your CastleHill Software authentication key and your Archer instance details and credentials.
-
-					// See https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/manage_configuration.html
-					// for more information on managing your configuration.
-
-					// "appConfigFilename" specifies a JSON app settings file where your configuration is stored.  If not
-					// explicitly provided this will default to "appSettings.json" in the current executing directory.
-					// The string below will direct it to use the common appSettings.json file found in the Estrelica.Demo.Common project.
+					// See notes in Program.cs from Content Demo for details on what these settings mean
 					appConfigFilename: @"..\..\..\..\..\Estrelica.Demo.Common\appSettings.json",
-
-					// "userSecretsId" specifies the (optional) Id of a JSON user secrets file on the local machine containing values
-					// which should override the corresponding values in the app settings file.  If not explicitly provided, none of the values
-					// in the app settings JSON file will be overridden.  If a userSecretsId is provided, overloads will be loaded from
-					// the file found at %appdata%\Microsoft\UserSecrets\xxxx\secrets.json on the local filesystem, where xxxx is the Id
-					// string you've specified here.
-					userSecretsId: "Estrelica.Core.Demo",
-
-					// (Note that "Estrelica.Core.Demo" is specified in this project's .csproj file as the <UserSecretsId> for this project.
-					// This means that you can easily edit the content of the file at %appdata%\Microsoft\UserSecrets\Estrelica.Core.Demo\secrets.json
-					// by simply right-clicking the project in the Solution Explorer and choosing "Manage User Secrets".  If you elect to use
-					// a different userSecretsId in the future, be sure to update the <UserSecretsId> node in your .csproj file in order to
-					// maintain this editor association.)
-
-					// "configOverrideKey" specifies a particular instance configuration to be selected from the file(s) above.
-					// If not explicitly specified *or* if the app settings/user secrets files have nothing configured for this instance
-					// name, the default (base) Archer configuration will be used.
 					configOverrideKey: overrideKey);
 
-				// Archer's API only provides basic information about standard service datafeeds (Name, Guid and Active status).
-				// CastleHill Software's API Extensions make more information available about datafeeds (e.g. target level, key
-				// fields, field mappings, parent datafeeds, last update info, etc.) and data imports.  So if extensions are 
-				// unavailable, we'll skip the parts related to those datafeed properties and data imports.
-				fullInfoAvailable = core.APIFacade.ExtensionsAvailable() != Archer.Utility.APISource.None;
-				if (!fullInfoAvailable)
+				// See notes above about what's going on here:
+				core.APIFacade.EnableExtensions = !disableExtensions;
+
+				extendedAPIAvailable = core.APIFacade.ExtensionsAvailable() != Archer.Utility.APISource.None;
+				if (!extendedAPIAvailable)
 				{
-					Console.WriteLine("API Extensions are not available in this Archer instance and/or with the current version of Estrelica.Core.  " +
+					Console.WriteLine();
+					Utilities.Log("API Extensions are unavailable or disabled in this Archer instance.  " +
 						"Therefore this application will not be able to display full details about datafeeds (e.g. field mappings, target level, etc.) " +
-						"or any information about data imports.");
+						"or any information about data imports.", LogLevel.Warning);
+					Console.WriteLine();
+					Console.WriteLine("Hit any key to continue without API Extensions");
+					Console.ReadKey();
 				}
-				
+
 				// Show the available datafeeds
 				ShowDatafeeds();
 			}
@@ -110,71 +74,8 @@ namespace Estrelica.Demo.DatafeedExplorer
 			}
 		}
 
-		#region Boilerplate code for displaying paged results and getting a selection response from the user
-
-		static Func<IEnumerable<string>, IEnumerable<string>, char> getResponse = (mainOptions, subOptions) =>
-		{
-			HashSet<char> allowedKeys = new HashSet<char>();
-
-			Action<IEnumerable<string>> showOptions = options =>
-			{
-				if (options != null)
-				{
-					foreach (var option in options)
-					{
-						if (option.Length > 1)
-						{
-							char key = Char.ToUpper(option[0]);
-							string value = option.Substring(1);
-							Console.WriteLine($" {key}: {value}");
-							if (!allowedKeys.Add(key))
-							{
-								throw new ArgumentException($"Duplicate key '{key}' in list");
-							}
-						}
-					}
-				}
-			};
-
-			showOptions(mainOptions);
-
-			if (subOptions != null && subOptions.Count() > 0)
-			{
-				Console.WriteLine();
-				showOptions(subOptions);
-			}
-
-			char keyChar = (Char)0;
-			while (!allowedKeys.Contains(keyChar))
-			{
-				keyChar = Char.ToUpper(Console.ReadKey(true).KeyChar);
-			}
-			return keyChar;
-		};
-
-		static bool Confirm(string yesDescription, string noDescription)
-		{
-			return getResponse(new string[] { 'Y'+yesDescription, 'N'+noDescription }, null) == 'Y';
-		}
-
-		static List<string> GetPageOptions(int currentPage, int totalRecords, int pageSize = 10)
-		{
-			List<string> pageOptions = new List<string>();
-			if (currentPage > 0)
-			{
-				pageOptions.Add("PPrevious page");
-			}
-			if (totalRecords > (currentPage + 1) * pageSize)
-			{
-				pageOptions.Add("NNext page");
-			}
-			return pageOptions;
-		}
-
-		#endregion
-
 		static Estrelica.Core core = null;
-		static bool fullInfoAvailable = false;
+		static bool extendedAPIAvailable = false;
 
 		static void ShowDatafeeds()
 		{
@@ -199,8 +100,8 @@ namespace Estrelica.Demo.DatafeedExplorer
 				Console.WriteLine($"Showing {thisPage.Count()} of {datafeeds.Count()} total datafeeds from instance {core.SessionProvider.Instance}");
 				Console.WriteLine();
 
-				List<string> pageOptions = GetPageOptions(currentPage, datafeeds.Count());
-				if (fullInfoAvailable)
+				List<string> pageOptions = Utilities.GetPageOptions(currentPage, datafeeds.Count());
+				if (extendedAPIAvailable)
 				{
 					// Data Imports are not included in the results returned by Archer's own API, but are available from the Extended API.
 					// Therefore we'll just skip this option if we're only loading datafeeds from Archer...
@@ -210,7 +111,7 @@ namespace Estrelica.Demo.DatafeedExplorer
 				pageOptions.Add("RRefresh Datafeeds");
 				pageOptions.Add("XExit");
 
-				char response = getResponse(Enumerable.Range(0, thisPage.Count()).Select(i => $"{(Char)(i + 0x30)}{thisPage[0+i].Name} ({thisPage[0+i].DatafeedType})"), pageOptions);
+				char response = Utilities.getResponse(Enumerable.Range(0, thisPage.Count()).Select(i => $"{(Char)(i + 0x30)}{thisPage[0+i].Name} ({thisPage[0+i].DatafeedType})"), pageOptions);
 				switch (response)
 				{
 					case 'X': { showDatafeeds = false; break; }
@@ -235,17 +136,18 @@ namespace Estrelica.Demo.DatafeedExplorer
 				Console.WriteLine("Type: " + datafeed.DatafeedType);
 				Console.WriteLine("Status: " + datafeed.Status);
 				Console.WriteLine();
-				if (fullInfoAvailable)
+				if (extendedAPIAvailable)
 				{
 					// This information is only available if the datafeeds were retrieved from the Extended API.  Archer only returns the 
-					// basic info above (Name, Guid, and Status) for standard system datafeeds, and nothing about other datafeed types (i.e.
+					// basic info above (Name, Guid, and Status) for standard service datafeeds, and nothing about other datafeed types (i.e.
 					// DatafeedType.DataImport or DatafeedType.Firehose).  Therefore we'll only display this information if we've determined that
 					// the Extended API is available:
-					Console.WriteLine($"Target level: {datafeed.Level.Name} (from {datafeed.Level.Module.ModuleType} {datafeed.Level.Module.Name})");
+					Console.WriteLine($"Target level: '{datafeed.Level.Name}' (from {datafeed.Level.Module.ModuleType} '{datafeed.Level.Module.Name}')");
 					Console.WriteLine($"Key fields: {datafeed.KeyFields.Select(f => $"{f.Name} ({f.FieldType})").Conjoin(", ")}");
 					Console.WriteLine($"Mapped fields: {datafeed.MappedFields.Select(f => $"{f.Name} ({f.FieldType})").Conjoin(", ")}");
 					Console.WriteLine();
-					Console.WriteLine("Next scheduled parent: " + datafeed.NextScheduledParent);
+					Console.WriteLine("Next scheduled parent: " + (datafeed.NextScheduledParent?.Name ?? "(none)"));
+					Console.WriteLine("Next scheduled child(ren): " + (datafeed.NextScheduledChildren.Select(cf => cf.Name).Conjoin() ?? "(none)"));
 					Console.WriteLine("Last updated: " + datafeed.UpdateInformation.UpdateDate);
 				}
 
@@ -285,7 +187,8 @@ namespace Estrelica.Demo.DatafeedExplorer
 				}
 
 				Console.WriteLine();
-				char response = getResponse(new string[] { "EExecute now", "RRefresh Execution Status", "HShow history", "XExit" }, null);
+				char response = Utilities.getResponse(new string[] { "EExecute now", "RRefresh Execution Status", "HShow history", "XExit" }, null);
+
 				switch (response)
 				{
 					case 'X': { showDatafeed = false; break; }
@@ -305,14 +208,19 @@ namespace Estrelica.Demo.DatafeedExplorer
 		{
 			Console.WriteLine();
 			Console.WriteLine($"This will schedule the datafeed '{datafeed.Name}' for execution on {core.SessionProvider.Instance}.  Are you sure you want to do this?");
-			if (Confirm("Yes, let's get started", "No, go back"))
+			if (Utilities.Confirm("Yes, let's get started", "No, go back"))
 			{
-				Console.WriteLine("Do you want to run its dependent reference feeds as well?");
-				bool includeReferenceFeeds = Confirm("Run this datafeed and its reference feeds", "Run this datafeed only");
+				bool includeReferenceFeeds = false;
+				if (datafeed.NextScheduledChildren.Count() > 0)
+				{
+					Console.WriteLine();
+					Console.WriteLine("Do you want to run its dependent reference feeds as well?");
+					includeReferenceFeeds = Utilities.Confirm("Run this datafeed and its reference feeds", "Run this datafeed only");
+				}
+				Console.WriteLine();
 				try
 				{
 					datafeed.Execute(includeReferenceFeeds);
-					Console.WriteLine();
 					Console.WriteLine($"'{datafeed.Name}' has been scheduled to execute on {core.SessionProvider.Instance}.  " +
 						"Check the datafeed's details in a few minutes to see its 'Last Execution' status.  You may want to use the 'Refresh Execution Status' option on the previous screen " +
 						"periodically to see the status changes that occur during this execution.");
@@ -322,6 +230,7 @@ namespace Estrelica.Demo.DatafeedExplorer
 					Utilities.Log("An error was returned by the server when attempting to schedule this datafeed:", LogLevel.Warning);
 					Utilities.Log(ex);
                 }
+				Console.WriteLine();
 				Console.WriteLine("Hit any key to return to status.");
 				Console.ReadKey();
 			}
@@ -338,7 +247,7 @@ namespace Estrelica.Demo.DatafeedExplorer
 				Console.WriteLine("Due to a defect in Archer's REST API, datafeed history results may not be retrieved via pages.  This means that the entire history " +
 					"of a given datafeed must be retrieved in one HTTP call, which may result in high RAM consumption if the datafeed has a lot of history.  Do you want to proceed?");
 
-				if (Confirm("Yes I know what I'm doing and can live with the consequences", "No, don't do this"))
+				if (Utilities.Confirm("Yes I know what I'm doing and can live with the consequences", "No, don't do this"))
 				{
 					historyWarningAccepted = true;
 					Console.WriteLine();
@@ -365,7 +274,7 @@ namespace Estrelica.Demo.DatafeedExplorer
 				Console.WriteLine($"Press 0-{thisPage.Length-1} to show execution messages");
 				Console.WriteLine("\tDate\tStatus\tCount");
 
-				List<string> pageOptions = GetPageOptions(currentPage, history.Count());
+				List<string> pageOptions = Utilities.GetPageOptions(currentPage, history.Count());
 				pageOptions.Add($"SSort {(sortHistoryDescending ? "old" : "new")}est to {(sortHistoryDescending ? "new" : "old")}est");
 				pageOptions.Add("XExit");
 
@@ -392,7 +301,7 @@ namespace Estrelica.Demo.DatafeedExplorer
 					return result;
 				};
 
-				char response = getResponse(Enumerable.Range(0, thisPage.Count()).Select(i => generateDisplayItem(i)), pageOptions);
+				char response = Utilities.getResponse(Enumerable.Range(0, thisPage.Count()).Select(i => generateDisplayItem(i)), pageOptions);
 				switch (response)
 				{
 					case 'X': { showHistory = false; break; }

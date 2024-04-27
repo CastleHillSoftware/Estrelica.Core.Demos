@@ -21,3 +21,11 @@ The other applications (Datafeed Explorer, CHUM Tool and UserAccessProcessor) ar
 As the name implies, the Datafeed Explorer demo shows how to explore the datafeeds configured in your Archer environment and examine their statuses and run history.  This demo application does not depend on any particular Archer modules or content being present in your Archer environment, as it works directly with datafeeds, regardless of their configuration.  It does however depend on Estrelica.Core's Extended API methods.  For details see https://castlehillsoftware.github.io/Estrelica.Core.Demos/articles/extensions.html.
 
 The CHUM Tool (CastleHill User Management) and UserAccessProcessor demos each perform similar functions, asserting group membership for users via an external process which fulfills change requests via the API.  Each depends on specific Archer configuration -- two new fields added to the standard Contacts application in the case of the CHUM Tool, and a new ODA in the case of the UserAccessProcessor.  The details of each are described in the comments of their respective Program.cs files.
+
+## Newly added (April 2024)
+
+Report Explorer - Similar to Datafeed Explorer, this one allows you to explore and execute reports
+
+Workflow Activity Report - Demonstrates how to use ContentHistory to evaluate Advanced Workflow activities and resulting field content changes
+
+Section Name Repair - Shows how a simple task might be implemented with and without the help of Estrelica.Core

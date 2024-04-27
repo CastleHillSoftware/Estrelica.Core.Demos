@@ -3,6 +3,7 @@ using Estrelica.Interfaces;
 using Estrelica.Utility;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -125,6 +126,98 @@ namespace Estrelica.Demo
 
 			return configBuilder.Build();
 		}
+
+		#region Boilerplate code for displaying paged results and getting a selection response from the user
+
+		public static Func<IEnumerable<string>, IEnumerable<string>, char> getResponse = (mainOptions, subOptions) =>
+		{
+			HashSet<char> allowedKeys = new HashSet<char>();
+
+			Action<IEnumerable<string>> showOptions = options =>
+			{
+				if (options != null)
+				{
+					foreach (var option in options.Where(o => !o.IsNullOrEmpty() && o.Length > 1))
+					{
+						char key = Char.ToUpper(option[0]);
+						string value = option.Substring(1);
+						Console.WriteLine($" {key}: {value}");
+						if (!allowedKeys.Add(key))
+						{
+							throw new ArgumentException($"Duplicate key '{key}' in list");
+						}
+					}
+				}
+			};
+
+			showOptions(mainOptions);
+
+			if (subOptions != null && subOptions.Count() > 0)
+			{
+				Console.WriteLine();
+				showOptions(subOptions);
+			}
+
+			char keyChar = (Char)0;
+			while (!allowedKeys.Contains(keyChar))
+			{
+				keyChar = Char.ToUpper(Console.ReadKey(true).KeyChar);
+			}
+			return keyChar;
+		};
+
+		public static bool Confirm(string yesDescription, string noDescription)
+		{
+			return getResponse(new string[] { 'Y' + yesDescription, 'N' + noDescription }, null) == 'Y';
+		}
+
+		public static List<string> GetPageOptions(int currentPage, int totalRecords, int pageSize = 10)
+		{
+			List<string> pageOptions = new List<string>();
+			if (currentPage > 0)
+			{
+				pageOptions.Add("PPrevious page");
+			}
+			if (totalRecords > (currentPage + 1) * pageSize)
+			{
+				pageOptions.Add("NNext page");
+			}
+			return pageOptions;
+		}
+
+		public static void ShowPages<T>(string pageHeader, IEnumerable<T> items, Func<T, string> itemTextCallback, Action<T> itemSelected,
+			List<string> additionalOptions = null, Action<char> otherSelection = null)
+		{
+			bool continueShowing = true;
+			int currentPage = 0;
+			while (continueShowing)
+			{
+				Console.Clear();
+				T[] thisPage = items.Skip(currentPage * 10).Take(10).ToArray();
+				if (!pageHeader.IsNullOrEmpty())
+				{
+					Console.WriteLine(pageHeader.Populate(thisPage.Count(), items.Count()));
+					Console.WriteLine();
+				}
+				List<string> pageOptions = Utilities.GetPageOptions(currentPage, items.Count());
+
+				pageOptions.AddAll(additionalOptions?.Where(o => !String.IsNullOrWhiteSpace(o)));
+
+				pageOptions.Add("XExit");
+				char response = Utilities.getResponse(Enumerable.Range(0, thisPage.Count()).Select(i => $"{(Char)(i + 0x30)}{itemTextCallback(thisPage[0 + i])}"), pageOptions);
+				switch (response)
+				{
+					case 'X': { continueShowing = false; break; }
+					case 'N': { currentPage++; break; };
+					case 'P': { currentPage--; break; };
+					case char c when c >= '0' && c <= '9': { itemSelected?.Invoke(thisPage[((int)c) - 0x30]); break; }
+					default: { otherSelection?.Invoke(response); break; }
+				}
+			}
+		}
+
+
+		#endregion
 
 	}
 }

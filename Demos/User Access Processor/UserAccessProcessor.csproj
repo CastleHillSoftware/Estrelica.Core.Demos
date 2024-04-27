@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Estrelica.Core" Version="2.5.3" />
-    <PackageReference Include="Estrelica.Core.Configuration" Version="1.0.20" />
+    <PackageReference Include="Estrelica.Core" Version="2.5.8" />
+    <PackageReference Include="Estrelica.Core.Configuration" Version="1.0.21" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
