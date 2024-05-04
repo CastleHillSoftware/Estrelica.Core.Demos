@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Estrelica.Demo.Common\Estrelica.Demo.Common.csproj" />
+    <ProjectReference Include="..\..\Estrelica.Demo.Common\Estrelica.Demo.Common.csproj" />
   </ItemGroup>
 
 </Project>

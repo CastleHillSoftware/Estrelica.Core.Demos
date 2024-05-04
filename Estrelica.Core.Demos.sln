@@ -36,7 +36,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsingArcherAPIs", "Demos\Se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsingEstrelicaCore", "Demos\Section Name Repair\UsingEstrelicaCore\UsingEstrelicaCore.csproj", "{B933CDB0-4DE4-42CD-9932-7E258E7C2377}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report Explorer", "Report Explorer\Report Explorer.csproj", "{1E91DB14-A316-4874-A4BC-DB8C14ED335C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report Explorer", "Demos\Report Explorer\Report Explorer.csproj", "{1E91DB14-A316-4874-A4BC-DB8C14ED335C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
